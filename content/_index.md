@@ -1,0 +1,85 @@
+---
+title: "Arda Akgül"
+type: docs
+description: "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."
+summary: "Official website of Arda Akgül, featuring research, writing, publications, and institutional work."
+seo_title: "Arda Akgül - Official Website"
+seo_description: "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."
+keywords:
+  - "Arda Akgül"
+  - "Arda Akgul"
+  - "Arda Akgül official website"
+  - "TED University"
+  - "TEDUsTRC"
+  - "economics student"
+  - "undergraduate research assistant"
+  - "trade"
+  - "sustainability"
+  - "energy policy"
+image: "/images/og-default.jpg"
+params:
+  hero:
+    eyebrow: "TED University | Ankara"
+    title: "Arda Akgül"
+    summary: "Official website of Arda Akgül, Economics and Business Administration student, Undergraduate Research Assistant, and writer focused on trade, sustainability, energy policy, institutions, and technology in public life."
+    image: "/images/ardaakgul.jpg"
+    primary_cta:
+      label: "View Publications"
+      url: "/publications/"
+    secondary_cta:
+      label: "Contact"
+      url: "/contact/"
+    facts:
+      - label: "Study"
+        value: "Economics and Business Administration at TED University"
+      - label: "Current role"
+        value: "Undergraduate Research Assistant at TEDUsTRC"
+      - label: "Contribution"
+        value: "Research, student media, accessibility, and institutional work"
+  about:
+    title: "About"
+    paragraphs:
+      - "I study Economics and Business Administration at TED University in Ankara. My academic interests center on trade, sustainability, energy policy, institutions, and the place of technology in public life."
+      - "Alongside coursework and research, I contribute to student media and accessibility-oriented initiatives. I am most interested in work that is careful, useful, and constructive rather than performative."
+  research_areas:
+    - title: "Research support at TEDUsTRC"
+      summary: "I assist with research and report preparation connected to sustainable trade, policy questions, and evidence-based academic work."
+    - title: "Trade, sustainability, and energy policy"
+      summary: "My strongest long-term interests sit around trade, industrial development, energy security, sustainability, and institutional resilience."
+    - title: "Technology in public life"
+      summary: "I am interested in how digital systems, data, and AI affect economic life, governance, and everyday institutions."
+  service_highlights:
+    - title: "TEDU Economics Research Union"
+      role: "Member of Supervisory Board and Academic Committee"
+      summary: "I contribute to student-led economic discussion through editorial work, academic review, and publication support for ERUMAG."
+      url: "/experience/"
+    - title: "UnlimiTED Student Society"
+      role: "Board Member and former Chairman of the Supervisory Board"
+      summary: "I helped build and support student work focused on accessibility, inclusion, and practical improvements to campus life."
+      url: "/experience/"
+    - title: "Institutional contribution"
+      role: "Student-led projects and university initiatives"
+      summary: "Across roles, I try to contribute through dependable work, careful communication, and respect for the institutions I represent."
+      url: "/about/"
+  media_highlights:
+    - title: "RadioTEDU"
+      role: "Editor, Broadcast Coordinator, and former Radio Show Host"
+      summary: "I help produce university radio and podcast work, including conversations on economics, literature, and public questions."
+      url: "/experience/"
+    - title: "ERUMAG"
+      role: "Student publication work"
+      summary: "I write and edit student publication work connected to economics, sustainability, and policy themes."
+      url: "/publications/"
+    - title: "Writing"
+      role: "Essays, notes, and future sections"
+      summary: "The writing archive includes economics, technology, culture, sustainability, and new sections for game theory, mathematics, and the Renaissance."
+      url: "/blogs/"
+  contact:
+    title: "Contact"
+    intro: "For academic, editorial, student-media, or research-related conversations, email is the best first point of contact."
+    location: "Ankara, Turkiye"
+    email: "ardakgul4@gmail.com"
+    linkedin:
+      label: "LinkedIn"
+      url: "https://www.linkedin.com/in/ardakgul"
+---

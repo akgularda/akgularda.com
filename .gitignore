@@ -1,0 +1,26 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+hugo-server*.log
+
+# Node
+node_modules/
+
+# OS/Logs
+.DS_Store
+.playwright-mcp/
+*.tmp
+*.bak
+*.swp
+
+# Secrets / local env (never commit real credentials)
+.env
+.env.local
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Local deploy state (machine-specific upload log)
+scripts/deployment_history.json

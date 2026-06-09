@@ -1,0 +1,40 @@
+{{ $profileItems := .Params.home_profile_items }}
+{{ $interestItems := .Params.home_interest_items }}
+<aside class="profile-aside" aria-label="About page profile summary">
+  {{ with $profileItems }}
+  <section class="profile-panel">
+    <p class="eyebrow">Profile</p>
+    <h2>At a Glance</h2>
+    <dl class="profile-facts">
+      {{ range . }}
+      <div>
+        <dt>{{ .label }}</dt>
+        <dd>{{ .value }}</dd>
+      </div>
+      {{ end }}
+    </dl>
+  </section>
+  {{ end }}
+
+  {{ with $interestItems }}
+  <section class="profile-panel">
+    <p class="eyebrow">Interests</p>
+    <h2>Areas of Interest</h2>
+    <ul class="profile-chips">
+      {{ range . }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <section class="profile-panel">
+    <p class="eyebrow">Contact</p>
+    <h2>Professional Contact</h2>
+    <ul class="profile-links">
+      <li><span>Email</span><a href="mailto:ardakgul4@gmail.com">ardakgul4@gmail.com</a></li>
+      <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/ardakgul">linkedin.com/in/ardakgul</a></li>
+      <li><span>Location</span><strong>Ankara, Türkiye</strong></li>
+    </ul>
+  </section>
+</aside>

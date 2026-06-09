@@ -1,0 +1,81 @@
+{{ $id := printf "page-tools-%s" ((replace .RelPermalink "/" "-") | urlize) }}
+{{ $typeLabel := "Page" }}
+{{ $bestUse := "Use this page as part of the wider site context." }}
+{{ if eq .RelPermalink "/about/" }}
+  {{ $typeLabel = "Profile page" }}
+  {{ $bestUse = "Use this page as the canonical biography and identity reference for Arda Akgül." }}
+{{ else if eq .RelPermalink "/publications/" }}
+  {{ $typeLabel = "Publication record" }}
+  {{ $bestUse = "Use this page for publication history, outlet references, and archive links." }}
+{{ else if eq .RelPermalink "/experience/" }}
+  {{ $typeLabel = "Experience record" }}
+  {{ $bestUse = "Use this page for research assistance, institutional roles, and media work." }}
+{{ else if eq .RelPermalink "/contact/" }}
+  {{ $typeLabel = "Contact page" }}
+  {{ $bestUse = "Use this page for contact routes and communication context." }}
+{{ else if .IsSection }}
+  {{ $typeLabel = "Section archive" }}
+  {{ $bestUse = "Use this page to navigate into a section before reading individual entries." }}
+{{ else if eq .Kind "term" }}
+  {{ $typeLabel = "Term archive" }}
+  {{ $bestUse = "Use this page as a topical browsing aid, not as a primary profile page." }}
+{{ else if or (eq .Section "blogs") (eq .Section "guides") }}
+  {{ $typeLabel = "Article page" }}
+  {{ $bestUse = "Use this page as first-party authored writing within the wider profile and archive." }}
+{{ end }}
+{{ $sectionPage := .CurrentSection }}
+{{ if and $sectionPage (eq $sectionPage.RelPermalink "/") }}
+  {{ $sectionPage = "" }}
+{{ end }}
+<div class="page-tools">
+  <button
+    type="button"
+    class="page-tools__button"
+    popovertarget="{{ $id }}"
+    popovertargetaction="toggle"
+    commandfor="{{ $id }}"
+    command="toggle-popover"
+    interesttarget="{{ $id }}"
+    interestaction="show-popover">
+    Page Guide
+  </button>
+  <div id="{{ $id }}" class="page-tools__popover" popover="auto">
+    <div class="page-tools__header">
+      <div>
+        <p class="eyebrow">Guide</p>
+        <h3>{{ .Title }}</h3>
+      </div>
+      <button
+        type="button"
+        class="page-tools__close"
+        popovertarget="{{ $id }}"
+        popovertargetaction="hide"
+        commandfor="{{ $id }}"
+        command="hide-popover">
+        Close
+      </button>
+    </div>
+    <dl class="page-tools__facts">
+      <div>
+        <dt>Type</dt>
+        <dd>{{ $typeLabel }}</dd>
+      </div>
+      <div>
+        <dt>Best use</dt>
+        <dd>{{ $bestUse }}</dd>
+      </div>
+      {{ with $sectionPage }}
+      <div>
+        <dt>Section</dt>
+        <dd><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
+      </div>
+      {{ end }}
+    </dl>
+    <div class="page-tools__links">
+      <a href="/about/">About</a>
+      <a href="/publications/">Publications</a>
+      <a href="/experience/">Experience</a>
+      <a href="/llms.txt">LLMS Index</a>
+    </div>
+  </div>
+</div>

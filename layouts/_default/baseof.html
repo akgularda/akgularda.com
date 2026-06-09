@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+  {{ partial "site-head.html" . }}
+</head>
+<body class="{{ if .IsHome }}page-home{{ else }}page-inner{{ end }} page-kind-{{ .Kind }}{{ with .Section }} page-section-{{ . | urlize }}{{ end }}{{ if .IsPage }} page-template-single{{ end }}{{ if .IsSection }} page-template-list{{ end }}{{ if eq .RelPermalink "/about/" }} page-template-about{{ end }}{{ if eq .RelPermalink "/contact/" }} page-template-contact{{ end }}{{ if .Params.future }} page-future{{ end }}">
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-rail">
+      {{ partial "sidebar.html" . }}
+    </aside>
+
+    <main class="site-main">
+      <div class="site-main__inner">
+        {{ block "main" . }}{{ end }}
+      </div>
+      {{ partial "site-footer.html" . }}
+    </main>
+  </div>
+  {{ partial "webamp-dock.html" . }}
+</body>
+</html>

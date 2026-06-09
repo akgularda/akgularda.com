@@ -1,0 +1,17 @@
+{{ $urls := slice .Site.Home.Permalink }}
+{{ range .Site.Menus.main }}
+  {{ $urls = $urls | append (.URL | absURL) }}
+{{ end }}
+{{ if and .IsPage .CurrentSection }}
+  {{ $urls = $urls | append .CurrentSection.Permalink }}
+{{ end }}
+{{ if and (or .IsPage .IsSection) (ne .RelPermalink "/about/") }}
+  {{ $urls = $urls | append ((site.GetPage "/about").Permalink) }}
+{{ end }}
+{{ $urls = uniq $urls }}
+{{ $prerender := first 4 $urls }}
+{{ $rules := dict
+  "prefetch" (slice (dict "urls" $urls "eagerness" "moderate"))
+  "prerender" (slice (dict "urls" $prerender "eagerness" "moderate"))
+}}
+<script type="speculationrules">{{ $rules | jsonify | safeJS }}</script>

@@ -1,0 +1,9 @@
+{{ $sections := sort (where .Page.Pages "Params.bookHidden" "ne" true) "Weight" "asc" }}
+<ul class="section-list">
+    {{ range $sections }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if .Description }}<br><small>{{ .Description }}</small>{{ end }}
+    </li>
+    {{ end }}
+</ul>

@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Arda Akgül",
+  "name_for_model": "akgularda_profile",
+  "description_for_human": "Academic-professional website for Arda Akgül, with profile, publications, experience, and writing.",
+  "description_for_model": "Read-only public website for Arda Akgül. Start with /about/ for the canonical profile, then use /publications/, /experience/, /blogs/, llms.txt, and llms-full.txt for deeper context.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://akgularda.com/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://akgularda.com/favicon.jpg",
+  "contact_email": "ardakgul4@gmail.com",
+  "legal_info_url": "https://akgularda.com/terms/"
+}

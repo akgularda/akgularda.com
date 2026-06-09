@@ -1,0 +1,10 @@
+{{- $page := . -}}
+{{- $path := "" -}}
+{{- with $page.Params.hero_image -}}
+  {{- $path = . -}}
+{{- else -}}
+  {{- if eq $page.RelPermalink "/about/" -}}
+    {{- $path = site.Params.portrait -}}
+  {{- end -}}
+{{- end -}}
+{{- return $path -}}

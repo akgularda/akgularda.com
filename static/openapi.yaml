@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: akgularda.com Read-Only Public Endpoints
+  version: 1.0.0
+  description: >
+    Read-only discovery map for the public profile, publications, experience,
+    writing archive, and machine-readable endpoints published on akgularda.com.
+servers:
+  - url: https://akgularda.com
+paths:
+  /about/:
+    get:
+      summary: Canonical profile page for Arda Akgül
+      operationId: getAboutPage
+      responses:
+        "200":
+          description: HTML profile page
+          content:
+            text/html:
+              schema:
+                type: string
+  /publications/:
+    get:
+      summary: Publication record page
+      operationId: getPublicationsPage
+      responses:
+        "200":
+          description: HTML publications page
+          content:
+            text/html:
+              schema:
+                type: string
+  /experience/:
+    get:
+      summary: Experience and institutional work page
+      operationId: getExperiencePage
+      responses:
+        "200":
+          description: HTML experience page
+          content:
+            text/html:
+              schema:
+                type: string
+  /blogs/:
+    get:
+      summary: Writing archive index
+      operationId: getWritingIndex
+      responses:
+        "200":
+          description: HTML writing archive page
+          content:
+            text/html:
+              schema:
+                type: string
+  /contact/:
+    get:
+      summary: Contact page
+      operationId: getContactPage
+      responses:
+        "200":
+          description: HTML contact page
+          content:
+            text/html:
+              schema:
+                type: string
+  /llms.txt:
+    get:
+      summary: Short LLM index
+      operationId: getLlmsIndex
+      responses:
+        "200":
+          description: Plain-text site index for language models
+          content:
+            text/plain:
+              schema:
+                type: string
+  /llms-full.txt:
+    get:
+      summary: Full LLM corpus export
+      operationId: getLlmsFull
+      responses:
+        "200":
+          description: Plain-text long-form corpus export
+          content:
+            text/plain:
+              schema:
+                type: string
+  /ai.txt:
+    get:
+      summary: AI discovery guidance
+      operationId: getAiDiscovery
+      responses:
+        "200":
+          description: Plain-text AI discovery and crawl guidance
+          content:
+            text/plain:
+              schema:
+                type: string
+  /sitemap.xml:
+    get:
+      summary: XML sitemap
+      operationId: getSitemap
+      responses:
+        "200":
+          description: XML sitemap
+          content:
+            application/xml:
+              schema:
+                type: string

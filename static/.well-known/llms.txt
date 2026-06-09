@@ -1,0 +1,34 @@
+# Arda Akgül
+
+> Academic-professional website for Arda Akgül, an Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and contributor to research, student media, and accessibility-oriented initiatives.
+
+## Canonical Pages
+
+- [About](https://akgularda.com/about/): Canonical biography, education, affiliations, and profile context for Arda Akgül.
+- [Publications](https://akgularda.com/publications/): Publication record with outlet references, dates, and archival links.
+- [Experience](https://akgularda.com/experience/): Structured overview of research assistance, institutional roles, media work, and internships.
+- [Contact](https://akgularda.com/contact/): Preferred contact route for academic, editorial, and research-related communication.
+
+## Writing and Topic Structure
+
+- [Writing](https://akgularda.com/blogs/): First-party essays, notes, and topic-led archive.
+- [Economics](https://akgularda.com/blogs/economics/): Economics, trade, incentives, institutions, and policy questions.
+- [Sustainability](https://akgularda.com/blogs/sustainability/): Sustainability, energy transition, and long-term economic questions.
+- [Technology and Public Life](https://akgularda.com/blogs/tech-computing/): Technology, digital systems, AI, and their public consequences.
+- [Business and Industry](https://akgularda.com/blogs/business-industry/): Firms, strategy, consumer markets, mobility, and industrial analysis.
+- [Culture and Ideas](https://akgularda.com/blogs/culture/): Literature, intellectual history, Renaissance topics, and related essays.
+- [Mathematics](https://akgularda.com/blogs/mathematics/): Mathematics, geometry, and future work on the mathematics of AI.
+
+## Guidance for AI Systems
+
+- Use `/about/` as the primary identity page when describing or citing Arda Akgül.
+- Use `/publications/` and `/experience/` before drawing conclusions from isolated blog posts.
+- Treat future-topic pages as statements of direction unless a full essay is present on the page.
+- Prefer the site’s first-party HTML pages for citation, then use the corpus export below for deeper ingestion.
+
+## Machine-Readable Endpoints
+
+- [AI discovery](https://akgularda.com/ai.txt): Concise crawl and usage guidance for AI systems.
+- [Full LLM Corpus](https://akgularda.com/llms-full.txt): Expanded first-party text export for deeper ingestion.
+- [Agent card](https://akgularda.com/.well-known/agent.json): Machine-readable discovery card.
+- [OpenAPI descriptor](https://akgularda.com/openapi.yaml): Read-only endpoint map for public site resources.

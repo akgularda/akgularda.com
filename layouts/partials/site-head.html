@@ -1,0 +1,86 @@
+{{ $pageTitle := .Title }}
+{{ with .Params.seo_title }}
+  {{ $pageTitle = . }}
+{{ end }}
+{{ $title := cond .IsHome ($pageTitle | default .Site.Title) (printf "%s | %s" $pageTitle .Site.Title) }}
+{{ $description := .Params.seo_description | default .Description | default .Params.summary | default .Site.Params.description }}
+{{ $image := .Params.image | default .Params.hero_image | default .Site.Params.default_og_image }}
+{{ $imageAlt := .Params.image_alt | default .Params.hero_image_alt | default .Title | default .Site.Title }}
+{{ $noindex := false }}
+{{ if .Params.noindex }}
+  {{ $noindex = true }}
+{{ end }}
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+  {{ $noindex = true }}
+{{ end }}
+{{ $robots := "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" }}
+{{ if $noindex }}
+  {{ $robots = "noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" }}
+{{ end }}
+{{ $css := resources.Get "site.css" | minify | fingerprint }}
+{{ $js := "" }}
+{{ with resources.Get "site.js" }}
+  {{ $js = . | minify | fingerprint }}
+{{ end }}
+{{ $ogType := "website" }}
+{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides")) }}
+  {{ $ogType = "article" }}
+{{ else if eq .RelPermalink "/about/" }}
+  {{ $ogType = "profile" }}
+{{ end }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description | plainify }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+{{ with .Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+<meta name="robots" content="{{ $robots }}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#173d68">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
+<link rel="icon" href="{{ "favicon.jpg" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="manifest" href="{{ "manifest.json" | relURL }}">
+{{ partial "speculation-rules.html" . }}
+<link rel="alternate" type="text/plain" href="{{ "ai.txt" | absURL }}" title="AI Context">
+<link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="LLM Context">
+<link rel="alternate" type="text/plain" href="{{ "llms-full.txt" | absURL }}" title="Full LLM Context">
+{{ with .OutputFormats.Get "RSS" }}
+<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }} RSS Feed" href="{{ .RelPermalink }}">
+{{ end }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ with $js }}
+<script type="module" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description | plainify }}">
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $image | absURL }}">
+<meta property="og:image:secure_url" content="{{ $image | absURL }}">
+<meta property="og:image:alt" content="{{ $imageAlt | plainify }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ .Site.Params.locale | default "en_US" }}">
+{{ if eq $ogType "profile" }}
+  {{ with .Site.Params.given_name }}<meta property="profile:first_name" content="{{ . }}">{{ end }}
+  {{ with .Site.Params.family_name }}<meta property="profile:last_name" content="{{ . }}">{{ end }}
+{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description | plainify }}">
+<meta name="twitter:image" content="{{ $image | absURL }}">
+<meta name="twitter:url" content="{{ .Permalink }}">
+{{ if and .IsPage .Date }}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{ if and .IsPage .Lastmod }}<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{ with .Params.categories }}<meta property="article:section" content="{{ index . 0 }}">{{ end }}
+{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides")) }}<meta property="article:author" content="{{ .Site.Params.author }}">{{ end }}
+{{ range .Site.Params.social }}
+  {{ if eq .label "LinkedIn" }}
+<link rel="me" href="{{ .url }}">
+  {{ end }}
+{{ end }}
+{{ partial "seo-jsonld.html" . }}

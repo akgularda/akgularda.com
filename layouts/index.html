@@ -1,0 +1,78 @@
+{{ define "main" }}
+{{ $about := site.GetPage "/about" }}
+{{ $aboutBody := "" }}
+{{ $homeProfileItems := slice }}
+{{ $homeInterestItems := slice }}
+{{ with $about }}
+  {{ with .Params.home_intro }}
+    {{ $aboutBody = . | markdownify }}
+  {{ else }}
+    {{ $aboutBody = .RawContent | replaceRE `(?m)^#\s+About\s*$` "" | strings.TrimSpace | markdownify }}
+  {{ end }}
+  {{ with .Params.home_profile_items }}
+    {{ $homeProfileItems = . }}
+  {{ end }}
+  {{ with .Params.home_interest_items }}
+    {{ $homeInterestItems = . }}
+  {{ end }}
+{{ end }}
+
+<section class="home-about" id="about">
+  <div class="home-about__copy">
+    <div class="home-about__intro">
+      <p class="eyebrow">About</p>
+      <h1>{{ .Site.Title }}</h1>
+      <p class="home-about__lead">{{ with .Site.Params.home_about_lead }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}</p>
+      <div class="prose">
+        {{ $aboutBody }}
+      </div>
+    </div>
+
+    {{ if or $homeProfileItems $homeInterestItems }}
+    <div class="home-about__details">
+      {{ with $homeProfileItems }}
+      <section class="home-about__panel" aria-labelledby="home-current-work">
+        <p class="eyebrow">Current Work</p>
+        <h2 id="home-current-work">Current Work</h2>
+        <dl class="home-about__facts">
+          {{ range . }}
+          <div>
+            <dt>{{ .label }}</dt>
+            <dd>{{ .value }}</dd>
+          </div>
+          {{ end }}
+        </dl>
+      </section>
+      {{ end }}
+
+      {{ with $homeInterestItems }}
+      <section class="home-about__panel" aria-labelledby="home-interest-areas">
+        <p class="eyebrow">Areas of Interest</p>
+        <h2 id="home-interest-areas">Areas of Interest</h2>
+        <ul class="home-about__interests">
+          {{ range . }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="home-about__media">
+    <img
+      class="home-about__art"
+      src="{{ .Site.Params.home_about_art | relURL }}"
+      alt="{{ .Site.Params.home_about_art_alt }}">
+  </div>
+</section>
+
+<section class="home-tiles-section" aria-labelledby="explore-site">
+  <div class="section-heading">
+    <p class="eyebrow">Explore</p>
+    <h2 id="explore-site">Sections</h2>
+  </div>
+  {{ partial "tiles.html" (dict "Page" . "Tiles" .Site.Params.home_tiles) }}
+</section>
+{{ end }}

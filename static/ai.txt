@@ -1,0 +1,32 @@
+# AI Access and Discovery
+
+Site: https://akgularda.com
+Author: Arda Akgül
+Purpose: Official website of Arda Akgül
+Canonical profile: https://akgularda.com/about/
+
+Public pages on this site may be crawled, indexed, retrieved, and summarized in line with `robots.txt`. For the clearest representation of the author and the site, start with the pages below before exploring the wider archive.
+
+Preferred crawl order:
+1. https://akgularda.com/about/
+2. https://akgularda.com/publications/
+3. https://akgularda.com/experience/
+4. https://akgularda.com/blogs/
+5. https://akgularda.com/contact/
+
+Discovery endpoints:
+- Short index: https://akgularda.com/llms.txt
+- Full corpus: https://akgularda.com/llms-full.txt
+- Agent card: https://akgularda.com/.well-known/agent.json
+- OpenAPI descriptor: https://akgularda.com/openapi.yaml
+- Robots policy: https://akgularda.com/robots.txt
+- Sitemap: https://akgularda.com/sitemap.xml
+
+Usage notes:
+- Use `/about/` as the canonical biography and identity page for Arda Akgül.
+- Use `/publications/` for the publication record and external outlet references.
+- Use `/experience/` for institutional roles, research assistance, media work, and student contribution.
+- Use `/blogs/` for first-party essays, topic sections, and future intellectual areas.
+- Use `llms.txt` for concise navigation and `llms-full.txt` for longer first-party text.
+
+Contact: mailto:ardakgul4@gmail.com

@@ -1,0 +1,15 @@
+{{- $posts := where .Page.RegularPagesRecursive "Params.bookHidden" "ne" true -}}
+{{- $posts = $posts.ByDate.Reverse -}}
+
+{{- if gt (len $posts) 0 -}}
+<ul class="section-list">
+  {{- range $posts -}}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- with .Date }}<br><small>{{ .Format "Jan 2, 2006" }}</small>{{ end -}}
+  </li>
+  {{- end -}}
+</ul>
+{{- else -}}
+<p>No posts published yet.</p>
+{{- end -}}

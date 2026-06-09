@@ -1,0 +1,8 @@
+{{ $destination := .Destination }}
+{{ $isExternal := or (hasPrefix $destination "https://") (hasPrefix $destination "http://") (hasPrefix $destination "//") }}
+{{ $isMail := hasPrefix $destination "mailto:" }}
+<a
+  href="{{ $destination | safeURL }}"
+  {{ with .Title }}title="{{ . }}"{{ end }}
+  {{ if $isExternal }}target="_blank" rel="external noopener noreferrer"{{ end }}
+  {{ if $isMail }}data-link-type="email"{{ else if $isExternal }}data-link-type="external"{{ else }}data-link-type="internal"{{ end }}>{{ .Text | safeHTML }}</a>

@@ -1,0 +1,4 @@
+{{ $style := .Get 0 | default "info" }}
+<div class="hint hint--{{ $style }}">
+  {{ .Inner | markdownify }}
+</div>

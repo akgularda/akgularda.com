@@ -1,0 +1,57 @@
+{{ $current := .RelPermalink }}
+{{ $corePages := slice
+  (site.GetPage "/about")
+  (site.GetPage "/blogs")
+  (site.GetPage "/publications")
+  (site.GetPage "/guides")
+  (site.GetPage "/experience")
+  (site.GetPage "/categories")
+  (site.GetPage "/contact")
+}}
+<section class="listing-section sitelinks-panel">
+  <div class="section-heading">
+    <p class="eyebrow">Explore</p>
+    <h2>{{ if .IsPage }}Continue Exploring{{ else }}Key Site Links{{ end }}</h2>
+    <p class="section-lead">Use these internal links to move between the main sections, topic pages, and contact points across the site.</p>
+  </div>
+
+  <div class="sitelinks-grid">
+    <div>
+      <h3 class="sitelinks-subheading">Internal links</h3>
+      <ul class="sitelinks-list">
+        {{ range $corePages }}
+          {{ with . }}
+            {{ if ne .RelPermalink $current }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <span>{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ $.Site.Params.description }}{{ end }}{{ end }}</span>
+            </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+
+    {{ $categoryTerms := .GetTerms "categories" }}
+    {{ $tagTerms := .GetTerms "tags" }}
+    {{ if or $categoryTerms $tagTerms }}
+    <div>
+      <h3 class="sitelinks-subheading">Topic links</h3>
+      <ul class="sitelinks-list">
+        {{ range first 5 $categoryTerms }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <span>Category archive</span>
+        </li>
+        {{ end }}
+        {{ range first 5 $tagTerms }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <span>Tag archive</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+</section>

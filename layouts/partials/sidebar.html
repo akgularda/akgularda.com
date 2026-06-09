@@ -1,0 +1,42 @@
+<div class="sidebar">
+  <a class="sidebar-brand" href="{{ .Site.Home.RelPermalink }}">
+    <span class="sidebar-brand__mark">
+      <img src="{{ .Site.Params.portrait | relURL }}" alt="Portrait of {{ .Site.Title }}">
+    </span>
+    <span class="sidebar-brand__text">
+      <span class="sidebar-brand__title">{{ .Site.Title }}</span>
+      <span class="sidebar-brand__subtitle">{{ .Site.Params.sidebar_note }}</span>
+    </span>
+  </a>
+
+  <nav class="sidebar-nav" aria-label="Main navigation">
+    <ul>
+      {{ range .Site.Menus.main }}
+      {{ $isAbout := and (eq .Identifier "about") (or $.IsHome (eq $.RelPermalink "/about/")) }}
+      {{ $isWriting := and (eq .Identifier "writing") (hasPrefix $.RelPermalink "/blogs/") }}
+      {{ $isPublications := and (eq .Identifier "publications") (hasPrefix $.RelPermalink "/publications/") }}
+      {{ $isGuides := and (eq .Identifier "guides") (hasPrefix $.RelPermalink "/guides/") }}
+      {{ $isExperience := and (eq .Identifier "experience") (hasPrefix $.RelPermalink "/experience/") }}
+      {{ $isContact := and (eq .Identifier "contact") (hasPrefix $.RelPermalink "/contact/") }}
+      {{ $isActive := or $isAbout $isWriting $isPublications $isGuides $isExperience $isContact ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+      <li>
+        <a class="{{ if $isActive }}is-active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-footer__lang">EN</div>
+    <div class="sidebar-footer__links">
+      {{ range .Site.Params.social }}
+      <a href="{{ .url }}">{{ .label }}</a>
+      {{ end }}
+    </div>
+    {{ if .Site.Params.webamp.enabled }}
+    <button class="sidebar-footer__webamp" type="button" data-webamp-launcher aria-controls="webamp-dock" aria-expanded="false">
+      {{ .Site.Params.webamp.button_label | default "Webamp" }}
+    </button>
+    {{ end }}
+  </div>
+</div>

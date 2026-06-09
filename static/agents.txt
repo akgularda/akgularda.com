@@ -1,0 +1,20 @@
+# Agent Discovery
+
+Primary machine-readable card:
+- https://akgularda.com/.well-known/agent.json
+
+Primary profile and authority pages:
+- https://akgularda.com/about/
+- https://akgularda.com/publications/
+- https://akgularda.com/experience/
+- https://akgularda.com/contact/
+
+Preferred text endpoints:
+- https://akgularda.com/llms.txt
+- https://akgularda.com/llms-full.txt
+- https://akgularda.com/ai.txt
+- https://akgularda.com/openapi.yaml
+
+Crawl policy and sitemap:
+- https://akgularda.com/robots.txt
+- https://akgularda.com/sitemap.xml

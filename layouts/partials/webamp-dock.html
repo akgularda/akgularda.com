@@ -1,0 +1,23 @@
+{{ if .Site.Params.webamp.enabled }}
+<div class="webamp-dock" id="webamp-dock" data-webamp-panel hidden>
+  <div class="webamp-dock__backdrop" data-webamp-close></div>
+  <div class="webamp-dock__card" role="dialog" aria-modal="true" aria-labelledby="webamp-dock-title">
+    <div class="webamp-dock__header">
+      <div>
+        <p class="eyebrow">Optional Media</p>
+        <h2 id="webamp-dock-title">{{ .Site.Params.webamp.title }}</h2>
+      </div>
+      <div class="webamp-dock__actions">
+        <button class="webamp-dock__pip" type="button" data-webamp-pip>Mini Window</button>
+        <button class="webamp-dock__close" type="button" data-webamp-close aria-label="Close listening desk">Close</button>
+      </div>
+    </div>
+    <p class="webamp-dock__intro">{{ .Site.Params.webamp.summary }}</p>
+    <p class="webamp-dock__status" data-webamp-status>Open the player only when you want it. It stays outside the main reading flow and does not autoplay.</p>
+    <div class="webamp-dock__meta">
+      <a href="/experience/">See the RadioTEDU work behind it</a>
+    </div>
+    <div class="webamp-dock__stage" data-webamp-stage></div>
+  </div>
+</div>
+{{ end }}

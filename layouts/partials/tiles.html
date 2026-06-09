@@ -1,0 +1,23 @@
+<div class="tile-grid">
+{{ range .Tiles }}
+  {{ $tile := . }}
+  {{ $theme := .theme | default "writing" }}
+  <article class="tile tile--theme-{{ $theme }}{{ with .size }} tile--{{ . }}{{ end }}">
+    <a class="tile__link" href="{{ .url }}">
+      <div class="tile__surface" aria-hidden="true">
+        <span class="tile__glow tile__glow--one"></span>
+        <span class="tile__glow tile__glow--two"></span>
+        <span class="tile__glow tile__glow--three"></span>
+        <span class="tile__mesh"></span>
+      </div>
+      <div class="tile__overlay"></div>
+      <div class="tile__content">
+        <p class="tile__eyebrow">{{ .eyebrow }}</p>
+        <h3>{{ .title }}</h3>
+        <p>{{ .summary }}</p>
+        {{ with .cta }}<span class="tile__cta">{{ . }}</span>{{ end }}
+      </div>
+    </a>
+  </article>
+  {{ end }}
+</div>

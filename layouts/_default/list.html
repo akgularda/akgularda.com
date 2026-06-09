@@ -1,0 +1,95 @@
+{{ define "main" }}
+{{ $heroImage := partial "section-image.html" . }}
+{{ $headingPattern := printf `(?s)^\s*<h1 id="%s">.*?</h1>` (.Title | anchorize) }}
+{{ $content := .Content | replaceRE $headingPattern "" }}
+{{ $sectionPages := .RegularPagesRecursive }}
+{{ $showAutoListing := true }}
+{{ if eq .Section "guides" }}
+  {{ $sectionPages = .RegularPages.ByWeight }}
+{{ end }}
+{{ if isset .Params "show_auto_listing" }}
+  {{ $showAutoListing = .Params.show_auto_listing }}
+{{ end }}
+{{ $listingHeading := "Section Pages" }}
+{{ if eq .Section "blogs" }}
+  {{ $listingHeading = "Recent Writing" }}
+{{ else if eq .Section "guides" }}
+  {{ $listingHeading = "Available Guides" }}
+{{ else if eq .Section "publications" }}
+  {{ $listingHeading = "Publication Pages" }}
+{{ else if eq .Section "experience" }}
+  {{ $listingHeading = "Experience Pages" }}
+{{ end }}
+{{ $listingLead := "Browse the main pages collected in this section." }}
+{{ if eq .Section "blogs" }}
+  {{ $listingLead = "Start with recent posts, then move into the section and topic archives." }}
+{{ else if eq .Section "guides" }}
+  {{ $listingLead = "Browse practical notes and longer-form guides collected in this section." }}
+{{ end }}
+{{ $sectionPages = where $sectionPages "RelPermalink" "ne" .RelPermalink }}
+{{ $limit := 8 }}
+{{ if eq .Section "blogs" }}
+  {{ $sectionPages = first $limit ($sectionPages.ByDate.Reverse) }}
+{{ else }}
+  {{ $sectionPages = first $limit $sectionPages }}
+{{ end }}
+{{ partial "breadcrumbs.html" . }}
+<header class="page-hero {{ if $heroImage }}page-hero--media{{ else }}page-hero--ornament{{ end }}">
+  <div class="page-hero__body">
+    <p class="eyebrow">{{ if .IsSection }}Section{{ else }}Browse{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ if .Description }}
+    <p class="page-hero__lead">{{ .Description }}</p>
+    {{ else if .Params.summary }}
+    <p class="page-hero__lead">{{ .Params.summary }}</p>
+    {{ else }}
+    <p class="page-hero__lead">{{ .Site.Params.description }}</p>
+    {{ end }}
+    {{ if .Params.future }}
+    <p class="page-status">Essays in preparation</p>
+    {{ end }}
+    {{ partial "page-tools.html" . }}
+  </div>
+
+  {{ with $heroImage }}
+  <div class="page-hero__media">
+    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+  </div>
+  {{ else }}
+  <div class="page-hero__ornament" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  {{ end }}
+</header>
+
+<div class="content-pane">
+  {{ with $content }}
+  <article class="prose">
+    {{ . | safeHTML }}
+  </article>
+  {{ end }}
+
+  {{ if and $showAutoListing (gt (len $sectionPages) 0) }}
+  <section class="listing-section">
+    <div class="section-heading">
+      <p class="eyebrow">{{ .Title }}</p>
+      <h2>{{ $listingHeading }}</h2>
+      <p class="section-lead">{{ $listingLead }}</p>
+    </div>
+    <div class="entry-grid">
+      {{ range $sectionPages }}
+      <article class="entry-card">
+        <p class="entry-card__meta">{{ with .Date }}{{ .Format "January 2, 2006" }}{{ else }}Section page{{ end }}</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ $.Site.Params.description }}{{ end }}{{ end }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ partial "context-links.html" . }}
+</div>
+{{ end }}

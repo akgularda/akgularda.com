@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<header class="page-hero">
+  <div class="page-hero__body">
+    <p class="eyebrow">{{ .Data.Plural | title }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="page-hero__lead">{{ len .Pages }} item{{ if ne (len .Pages) 1 }}s{{ end }} in this archive view.</p>
+  </div>
+</header>
+
+<section class="listing-section">
+  <div class="section-heading">
+    <p class="eyebrow">{{ .Title }}</p>
+    <h2>Pages Filed Under {{ .Title }}</h2>
+    <p class="section-lead">Browse the pages and posts connected to this archive term.</p>
+  </div>
+  <div class="entry-grid">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="entry-card">
+      <p class="entry-card__meta">{{ with .Date }}{{ .Format "January 2, 2006" }}{{ end }}</p>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ $.Site.Params.description }}{{ end }}{{ end }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ partial "context-links.html" . }}
+{{ end }}

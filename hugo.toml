@@ -1,0 +1,195 @@
+baseURL = "https://akgularda.com/"
+languageCode = "en-us"
+title = "Arda Akgül"
+
+enableRobotsTXT = true
+summaryLength = 1000
+
+[pagination]
+  pagerSize = 10
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
+  publishDate = ["publishDate", "date"]
+  expiryDate = ["expiryDate"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputFormats]
+  [outputFormats.llmsfull]
+    mediaType = "text/plain"
+    baseName = "llms-full"
+    isPlainText = true
+    isHTML = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON", "llmsfull"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[params]
+  description = "Official website of Arda Akgül, an Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."
+  home_about_lead = "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara."
+  author = "Arda Akgül"
+  alternate_name = "Arda Akgul"
+  given_name = "Arda"
+  family_name = "Akgül"
+  default_og_image = "/images/og-default.jpg"
+  portrait = "/images/ardaakgul.jpg"
+  home_about_art = "/images/home-about-painting-cropped.jpg"
+  home_about_art_alt = "Harbor painting with boats and clouded sky"
+  location = "TED University | Ankara"
+  role = "Economics and Business Administration Student"
+  sidebar_note = "Research, writing, public-purpose student work"
+  email = "ardakgul4@gmail.com"
+  linkedin = "https://www.linkedin.com/in/ardakgul"
+  locale = "en_US"
+  primary_affiliation_name = "TED University Sustainable Trade Research Center"
+  primary_affiliation_alternate_name = "TEDUsTRC"
+  primary_affiliation_type = "ResearchOrganization"
+  knows_about = ["Economics", "Trade", "Sustainability", "Energy policy", "Institutions", "Technology in public life", "Student media", "Game theory", "Mathematics", "Battery technology", "Electric vehicles", "Blockchain", "Cryptography"]
+  knows_language = ["English", "Turkish"]
+
+[[params.social]]
+  label = "Email"
+  url = "mailto:ardakgul4@gmail.com"
+
+[[params.social]]
+  label = "LinkedIn"
+  url = "https://www.linkedin.com/in/ardakgul"
+
+[[params.social]]
+  label = "RSS"
+  url = "/index.xml"
+
+[[params.same_as]]
+  url = "https://www.linkedin.com/in/ardakgul"
+
+[[params.affiliations]]
+  name = "TED University"
+  type = "CollegeOrUniversity"
+
+[[params.affiliations]]
+  name = "TED University Sustainable Trade Research Center"
+  alternateName = "TEDUsTRC"
+  type = "ResearchOrganization"
+
+[[params.affiliations]]
+  name = "TEDU Economics Research Union"
+  type = "Organization"
+
+[[params.affiliations]]
+  name = "RadioTEDU"
+  type = "Organization"
+
+[[params.member_of]]
+  name = "TEDU Economics Research Union"
+  type = "Organization"
+
+[[params.member_of]]
+  name = "RadioTEDU"
+  type = "Organization"
+
+[params.webamp]
+  enabled = true
+  title = "Listening Desk"
+  summary = "An optional RadioTEDU-inspired media desk. It loads only when opened and stays outside the main reading flow."
+  button_label = "Webamp"
+
+[[params.home_tiles]]
+  title = "Writing"
+  eyebrow = "Essays, notes, and analysis"
+  summary = "Economics, sustainability, technology, mathematics, and related questions."
+  url = "/blogs/"
+  theme = "writing"
+  size = "wide"
+  cta = "Open Writing"
+
+[[params.home_tiles]]
+  title = "Publications"
+  eyebrow = "Selected publication record"
+  summary = "Student publication, policy writing, and academic output."
+  url = "/publications/"
+  theme = "publications"
+  cta = "View Publications"
+
+[[params.home_tiles]]
+  title = "Experience"
+  eyebrow = "Research, service, media"
+  summary = "TEDUsTRC, TEDU Economics Research Union, RadioTEDU, and related work."
+  url = "/experience/"
+  theme = "experience"
+  size = "tall"
+  cta = "See Experience"
+
+[[params.home_tiles]]
+  title = "Guides"
+  eyebrow = "Useful practical notes"
+  summary = "Preparedness, sustainability, and everyday responsibility."
+  url = "/guides/"
+  theme = "guides"
+  cta = "Open Guides"
+
+[[params.home_tiles]]
+  title = "Topics"
+  eyebrow = "Categories and taxonomy"
+  summary = "Browse the archive by subject area and recurring themes."
+  url = "/categories/"
+  theme = "topics"
+  cta = "Browse Topics"
+
+[[params.home_tiles]]
+  title = "Contact"
+  eyebrow = "Academic and editorial contact"
+  summary = "Get in touch for research, writing, student media, or institutional work."
+  url = "/contact/"
+  theme = "contact"
+  cta = "Contact Arda"
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "writing"
+  name = "Writing"
+  url = "/blogs/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "publications"
+  name = "Publications"
+  url = "/publications/"
+  weight = 3
+
+[[menu.main]]
+  identifier = "guides"
+  name = "Guides"
+  url = "/guides/"
+  weight = 4
+
+[[menu.main]]
+  identifier = "experience"
+  name = "Experience"
+  url = "/experience/"
+  weight = 5
+
+[[menu.main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/contact/"
+  weight = 6
