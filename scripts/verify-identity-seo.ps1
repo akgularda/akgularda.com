@@ -24,9 +24,14 @@ $checks = @(
     @{ Name = "person alternateName"; Target = $homeHtml; Pattern = '"alternateName":"Arda Akgul"' },
     @{ Name = "person givenName"; Target = $homeHtml; Pattern = '"givenName":"Arda"' },
     @{ Name = "person worksFor"; Target = $homeHtml; Pattern = '"worksFor"' },
+    @{ Name = "person alumniOf"; Target = $homeHtml; Pattern = '"alumniOf"' },
+    @{ Name = "person founderOf"; Target = $homeHtml; Pattern = '"founderOf"' },
+    @{ Name = "home FAQ schema"; Target = $homeHtml; Pattern = '"@type":"FAQPage"' },
     @{ Name = "about page title"; Target = $aboutHtml; Pattern = "About Arda Akgül" },
     @{ Name = "ProfilePage schema"; Target = $aboutHtml; Pattern = '"@type":"ProfilePage"' },
-    @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://akgularda.com/about/#person"' }
+    @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://akgularda.com/about/#person"' },
+    @{ Name = "about FAQ schema"; Target = $aboutHtml; Pattern = '"@type":"FAQPage"' },
+    @{ Name = "about FAQ question"; Target = $aboutHtml; Pattern = 'Who is Arda Akgül?' }
 )
 
 $failedChecks = @()

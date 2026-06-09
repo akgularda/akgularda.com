@@ -17,6 +17,13 @@ keywords:
   - "sustainability"
   - "energy policy"
 image: "/images/og-default.jpg"
+faq:
+  - q: "Who is Arda Akgül?"
+    a: "Arda Akgül is an Economics and Business Administration student at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), founder of Monarch Castle Technologies, and a writer on trade, sustainability, energy policy, institutions, and technology in public life. This website, akgularda.com, is his official website."
+  - q: "What does Arda Akgül study and research?"
+    a: "He studies Economics and Business Administration at TED University and researches trade, sustainability, energy policy, and institutions. He has published 35+ articles through outlets including UDİAD, EUROPolitika, and the TEDU Economics Research Union (ERUMAG). The [About page](/about/) is the canonical source for his biography."
+  - q: "How can I contact Arda Akgül?"
+    a: "Email is the best first point of contact at ardakgul4@gmail.com, and he is on LinkedIn at linkedin.com/in/ardakgul. See the [contact page](/contact/)."
 params:
   hero:
     eyebrow: "TED University | Ankara"

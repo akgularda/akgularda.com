@@ -6,7 +6,10 @@
     "organization": "akgularda.com",
     "url": "https://akgularda.com/"
   },
-  "version": "1.1.0",
+  "sameAs": [
+    "https://www.linkedin.com/in/ardakgul"
+  ],
+  "version": "1.2.0",
   "discovery": {
     "profile": "https://akgularda.com/about/",
     "publications": "https://akgularda.com/publications/",

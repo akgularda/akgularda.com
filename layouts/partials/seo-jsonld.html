@@ -63,6 +63,29 @@
   {{ $memberOf = $memberOf | append $org }}
 {{ end }}
 
+{{ $alumniOf := slice }}
+{{ range .Site.Params.alumni_of }}
+  {{ $org := dict "@type" (.type | default "CollegeOrUniversity") "name" .name }}
+  {{ with .url }}
+    {{ $org = merge $org (dict "url" .) }}
+  {{ end }}
+  {{ $alumniOf = $alumniOf | append $org }}
+{{ end }}
+
+{{ $founderOf := slice }}
+{{ range .Site.Params.founder_of }}
+  {{ $org := dict "@type" (.type | default "Organization") "name" .name }}
+  {{ with .url }}
+    {{ $org = merge $org (dict "url" .) }}
+  {{ end }}
+  {{ $founderOf = $founderOf | append $org }}
+{{ end }}
+
+{{ $occupations := slice }}
+{{ range .Site.Params.occupations }}
+  {{ $occupations = $occupations | append (dict "@type" "Occupation" "name" .name) }}
+{{ end }}
+
 {{ $website := dict
   "@context" "https://schema.org"
   "@type" "WebSite"
@@ -118,6 +141,27 @@
 {{ end }}
 {{ if gt (len $memberOf) 0 }}
   {{ $person = merge $person (dict "memberOf" $memberOf) }}
+{{ end }}
+{{ if gt (len $alumniOf) 0 }}
+  {{ $person = merge $person (dict "alumniOf" $alumniOf) }}
+{{ end }}
+{{ if gt (len $founderOf) 0 }}
+  {{ $person = merge $person (dict "founderOf" $founderOf) }}
+{{ end }}
+{{ if gt (len $occupations) 0 }}
+  {{ $person = merge $person (dict "hasOccupation" $occupations) }}
+{{ end }}
+{{ with .Site.Params.nationality }}
+  {{ $person = merge $person (dict "nationality" (dict "@type" "Country" "name" .)) }}
+{{ end }}
+{{ with .Site.Params.address }}
+  {{ $postal := dict "@type" "PostalAddress" }}
+  {{ with .locality }}{{ $postal = merge $postal (dict "addressLocality" .) }}{{ end }}
+  {{ with .region }}{{ $postal = merge $postal (dict "addressRegion" .) }}{{ end }}
+  {{ with .country }}{{ $postal = merge $postal (dict "addressCountry" .) }}{{ end }}
+  {{ if gt (len $postal) 1 }}
+    {{ $person = merge $person (dict "address" $postal) }}
+  {{ end }}
 {{ end }}
 <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
 
@@ -208,4 +252,29 @@
     "itemListElement" $crumbs
   }}
 <script type="application/ld+json">{{ $breadcrumb | jsonify | safeJS }}</script>
+{{ end }}
+
+{{ with .Params.faq }}
+  {{ $questions := slice }}
+  {{ range . }}
+    {{ if and .q .a }}
+      {{ $questions = $questions | append (dict
+        "@type" "Question"
+        "name" .q
+        "acceptedAnswer" (dict "@type" "Answer" "text" (.a | markdownify | plainify | chomp))
+      ) }}
+    {{ end }}
+  {{ end }}
+  {{ if gt (len $questions) 0 }}
+    {{ $faqPage := dict
+      "@context" "https://schema.org"
+      "@type" "FAQPage"
+      "@id" (printf "%s#faq" $.Permalink)
+      "url" $.Permalink
+      "inLanguage" ($.Site.LanguageCode | default "en-us")
+      "about" $personReference
+      "mainEntity" $questions
+    }}
+<script type="application/ld+json">{{ $faqPage | jsonify | safeJS }}</script>
+  {{ end }}
 {{ end }}
