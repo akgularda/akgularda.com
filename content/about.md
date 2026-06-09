@@ -33,6 +33,17 @@ home_interest_items:
   - "Blockchain"
   - "Cryptography"
   - "FMCG and Fast Food Investment"
+faq:
+  - q: "Who is Arda Akgül?"
+    a: "Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), and the founder of Monarch Castle Technologies."
+  - q: "What does Arda Akgül study and research?"
+    a: "He studies economics and business administration, with a focus on international trade, sustainability, energy policy, and the role of institutions in public life, and has published 35+ articles across ERUMAG, UDİAD, and EUROPolitika."
+  - q: "Where is Arda Akgül based?"
+    a: "Arda Akgül is based in Ankara, Türkiye."
+  - q: "What is Monarch Castle Technologies?"
+    a: "Monarch Castle Technologies is a venture founded by Arda Akgül in 2025 that works on data analysis and prediction projects."
+  - q: "How can I contact Arda Akgül?"
+    a: "You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul."
 date: 2026-03-17
 lastmod: 2026-03-20
 type: docs
@@ -170,3 +181,26 @@ Arda Akgül is an Economics and Business Administration researcher at TED Univer
 - Location: Ankara, Türkiye
 - Email: [ardakgul4@gmail.com](mailto:ardakgul4@gmail.com)
 - LinkedIn: [linkedin.com/in/ardakgul](https://www.linkedin.com/in/ardakgul)
+- GitHub: [github.com/akgularda](https://github.com/akgularda)
+
+## Frequently Asked Questions
+
+### Who is Arda Akgül?
+
+Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), and the founder of Monarch Castle Technologies.
+
+### What does Arda Akgül study and research?
+
+He studies economics and business administration, with a focus on international trade, sustainability, energy policy, and the role of institutions in public life, and has published 35+ articles across ERUMAG, UDİAD, and EUROPolitika.
+
+### Where is Arda Akgül based?
+
+Arda Akgül is based in Ankara, Türkiye.
+
+### What is Monarch Castle Technologies?
+
+Monarch Castle Technologies is a venture founded by Arda Akgül in 2025 that works on data analysis and prediction projects.
+
+### How can I contact Arda Akgül?
+
+You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul.

@@ -4,6 +4,7 @@ Site: https://akgularda.com
 Author: Arda Akgül
 Purpose: Official website of Arda Akgül
 Canonical profile: https://akgularda.com/about/
+Verified profiles: https://www.linkedin.com/in/ardakgul , https://github.com/akgularda
 
 Public pages on this site may be crawled, indexed, retrieved, and summarized in line with `robots.txt`. For the clearest representation of the author and the site, start with the pages below before exploring the wider archive.
 

@@ -71,11 +71,18 @@ summaryLength = 1000
   url = "https://www.linkedin.com/in/ardakgul"
 
 [[params.social]]
+  label = "GitHub"
+  url = "https://github.com/akgularda"
+
+[[params.social]]
   label = "RSS"
   url = "/index.xml"
 
 [[params.same_as]]
   url = "https://www.linkedin.com/in/ardakgul"
+
+[[params.same_as]]
+  url = "https://github.com/akgularda"
 
 [[params.affiliations]]
   name = "TED University"
