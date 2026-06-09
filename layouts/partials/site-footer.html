@@ -22,7 +22,9 @@
       <p class="site-footer__heading">External links</p>
       <ul>
         {{ range .Site.Params.social }}
+        {{ if .url }}
         <li><a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="external noopener noreferrer"{{ end }}>{{ .label }}</a></li>
+        {{ end }}
         {{ end }}
       </ul>
     </div>

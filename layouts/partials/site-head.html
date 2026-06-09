@@ -70,6 +70,10 @@
   {{ with .Site.Params.family_name }}<meta property="profile:last_name" content="{{ . }}">{{ end }}
 {{ end }}
 <meta name="twitter:card" content="summary_large_image">
+{{ with .Site.Params.twitter_handle }}
+<meta name="twitter:site" content="{{ . }}">
+<meta name="twitter:creator" content="{{ . }}">
+{{ end }}
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description | plainify }}">
 <meta name="twitter:image" content="{{ $image | absURL }}">

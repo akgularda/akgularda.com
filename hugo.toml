@@ -61,6 +61,29 @@ summaryLength = 1000
   primary_affiliation_type = "ResearchOrganization"
   knows_about = ["Economics", "Trade", "Sustainability", "Energy policy", "Institutions", "Technology in public life", "Student media", "Game theory", "Mathematics", "Battery technology", "Electric vehicles", "Blockchain", "Cryptography"]
   knows_language = ["English", "Turkish"]
+  nationality = "Türkiye"
+  # Twitter/X handle used for twitter:site and twitter:creator meta tags.
+  # Leave empty to omit. Replace with the real handle, e.g. "@ardakgul".
+  twitter_handle = ""
+
+[params.address]
+  locality = "Ankara"
+  region = "Ankara"
+  country = "TR"
+
+[[params.occupations]]
+  name = "Undergraduate Research Assistant"
+
+[[params.occupations]]
+  name = "Writer"
+
+[[params.alumni_of]]
+  name = "TED University"
+  type = "CollegeOrUniversity"
+
+[[params.founder_of]]
+  name = "Monarch Castle Technologies"
+  type = "Organization"
 
 [[params.social]]
   label = "Email"
@@ -70,12 +93,34 @@ summaryLength = 1000
   label = "LinkedIn"
   url = "https://www.linkedin.com/in/ardakgul"
 
+# Replace the empty url values below with the real profile URLs before deploy.
+# Empty urls are ignored everywhere (no broken links / no empty sameAs entries).
+[[params.social]]
+  label = "X"
+  url = ""
+
+[[params.social]]
+  label = "Instagram"
+  url = ""
+
 [[params.social]]
   label = "RSS"
   url = "/index.xml"
 
 [[params.same_as]]
   url = "https://www.linkedin.com/in/ardakgul"
+
+# Academic and developer identifiers. Filling these in is the single strongest
+# signal for a Google Knowledge Panel and for AI engines treating this site as
+# the authoritative source. Add the real URLs when available, then redeploy.
+# [[params.same_as]]
+#   url = "https://orcid.org/0000-0000-0000-0000"
+# [[params.same_as]]
+#   url = "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
+# [[params.same_as]]
+#   url = "https://www.wikidata.org/wiki/YOUR_WIKIDATA_ID"
+# [[params.same_as]]
+#   url = "https://github.com/YOUR_GITHUB_USERNAME"
 
 [[params.affiliations]]
   name = "TED University"

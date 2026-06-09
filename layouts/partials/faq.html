@@ -1,0 +1,20 @@
+{{ with .Params.faq }}
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-heading">
+    <p class="eyebrow">FAQ</p>
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+  </div>
+  <div class="faq__list">
+    {{ range . }}
+    {{ if and .q .a }}
+    <details class="faq__item">
+      <summary class="faq__question">{{ .q }}</summary>
+      <div class="faq__answer prose">
+        {{ .a | markdownify }}
+      </div>
+    </details>
+    {{ end }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

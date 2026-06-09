@@ -30,7 +30,9 @@
     <div class="sidebar-footer__lang">EN</div>
     <div class="sidebar-footer__links">
       {{ range .Site.Params.social }}
-      <a href="{{ .url }}">{{ .label }}</a>
+      {{ if .url }}
+      <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="external noopener noreferrer"{{ end }}>{{ .label }}</a>
+      {{ end }}
       {{ end }}
     </div>
     {{ if .Site.Params.webamp.enabled }}
