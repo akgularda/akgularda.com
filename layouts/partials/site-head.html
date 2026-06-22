@@ -28,6 +28,8 @@
 {{ else if eq .RelPermalink "/about/" }}
   {{ $ogType = "profile" }}
 {{ end }}
+{{ $ogLocale := .Site.Params.locale | default "en_US" }}
+{{ if eq (.Params.contentlang | default "") "tr" }}{{ $ogLocale = "tr_TR" }}{{ end }}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ $title }}</title>
@@ -64,7 +66,7 @@
 <meta property="og:image:secure_url" content="{{ $image | absURL }}">
 <meta property="og:image:alt" content="{{ $imageAlt | plainify }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:locale" content="{{ .Site.Params.locale | default "en_US" }}">
+<meta property="og:locale" content="{{ $ogLocale }}">
 {{ if eq $ogType "profile" }}
   {{ with .Site.Params.given_name }}<meta property="profile:first_name" content="{{ . }}">{{ end }}
   {{ with .Site.Params.family_name }}<meta property="profile:last_name" content="{{ . }}">{{ end }}

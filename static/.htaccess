@@ -1,8 +1,12 @@
 RewriteEngine On
 
+# Canonical host: force HTTPS and apex (non-www).
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.akgularda\.com$ [NC]
 RewriteRule ^ https://akgularda.com%{REQUEST_URI} [L,R=301]
+
+# Custom error page.
+ErrorDocument 404 /404.html
 
 # Security headers (Apache/GoDaddy ignores the Netlify-style static/_headers file).
 <IfModule mod_headers.c>
@@ -11,4 +15,47 @@ RewriteRule ^ https://akgularda.com%{REQUEST_URI} [L,R=301]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set Permissions-Policy "camera=(), geolocation=(), microphone=(), payment=(), usb=()"
+</IfModule>
+
+# Correct content types and charset for text + machine-readable discovery files.
+AddDefaultCharset utf-8
+<IfModule mod_mime.c>
+  AddType text/plain .txt
+  AddType application/json .json .webmanifest
+  AddType application/yaml .yaml .yml
+  AddType application/manifest+json .webmanifest
+  AddCharset utf-8 .html .css .js .txt .json .xml .yaml .yml
+</IfModule>
+
+# Serve .well-known JSON and the agent/AI text files as UTF-8 plain/JSON.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(txt)$">
+    Header set Content-Type "text/plain; charset=utf-8"
+  </FilesMatch>
+  <FilesMatch "\.(json|webmanifest)$">
+    Header set Content-Type "application/json; charset=utf-8"
+  </FilesMatch>
+</IfModule>
+
+# Gzip compression.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+  AddOutputFilterByType DEFLATE application/rss+xml image/svg+xml application/yaml
+</IfModule>
+
+# Caching. Fingerprinted CSS/JS are immutable; images long-lived; html/discovery short.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType application/json "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 hour"
+  ExpiresByType application/xml "access plus 1 hour"
 </IfModule>

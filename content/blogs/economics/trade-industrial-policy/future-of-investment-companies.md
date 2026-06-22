@@ -1,7 +1,10 @@
 ---
 title: "The Future of Investment Companies: From Field Reports to Policy Influence"
+image: "/images/blogs/og/future-of-investment-companies.png"
+seo_title: "The Future of Investment Companies"
 date: "2026-03-02"
 description: "I look at how modern investment firms are moving beyond spreadsheets into geopolitics, field research, and policy influence."
+keywords: ["investment firms", "geopolitics", "BlackRock", "energy markets", "policy influence", "field research"]
 tags: ["Geopolitics", "Investment Firms", "Energy Markets", "Strait of Hormuz"]
 categories: ["Economics"]
 slug: "future-of-investment-companies"

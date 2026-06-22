@@ -11,6 +11,16 @@
 {{ end }}
 {{ $personId := printf "%s#person" $personUrl }}
 {{ $personReference := dict "@id" $personId "@type" "Person" "name" $personName "url" $personUrl }}
+{{ $publisherId := printf "%s#publisher" .Site.Home.Permalink }}
+{{ $publisher := dict
+  "@context" "https://schema.org"
+  "@type" "Organization"
+  "@id" $publisherId
+  "name" .Site.Title
+  "url" .Site.Home.Permalink
+  "logo" (dict "@type" "ImageObject" "url" (.Site.Params.default_og_image | absURL))
+}}
+{{ $publisherRef := dict "@id" $publisherId }}
 {{ $authorityLinks := slice }}
 {{ range (slice "/about" "/publications" "/experience" "/blogs" "/contact") }}
   {{ with $.Site.GetPage . }}
@@ -71,10 +81,11 @@
   "url" .Site.Home.Permalink
   "description" .Site.Params.description
   "inLanguage" (.Site.LanguageCode | default "en-us")
-  "publisher" $personReference
+  "publisher" $publisherRef
   "about" $personReference
 }}
 <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ $publisher | jsonify | safeJS }}</script>
 
 {{ $person := dict
   "@context" "https://schema.org"
@@ -125,14 +136,18 @@
   "hasOccupation" (dict "@type" "Occupation" "name" .Site.Params.role))
 }}
 <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ if or .IsHome (eq .RelPermalink "/about/") }}
 {{ $monarch := dict
   "@context" "https://schema.org"
   "@type" "Organization"
+  "@id" (printf "%s#monarch" .Site.Home.Permalink)
   "name" "Monarch Castle Technologies"
+  "description" "A venture founded by Arda Akgül in 2025 that works on data analysis and prediction projects."
   "founder" $personReference
-  "foundingDate" "2025"
+  "foundingDate" "2025-07"
 }}
 <script type="application/ld+json">{{ $monarch | jsonify | safeJS }}</script>
+{{ end }}
 
 {{ if .IsHome }}
   {{ $homeName := .Params.seo_title | default .Title | default .Site.Title }}
@@ -150,6 +165,7 @@
     "inLanguage" (.Site.LanguageCode | default "en-us")
     "primaryImageOfPage" (dict "@type" "ImageObject" "url" $image)
     "significantLink" $authorityLinks
+    "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".home-about__lead" ".prose"))
   }}
 <script type="application/ld+json">{{ $homePage | jsonify | safeJS }}</script>
 {{ else if .IsPage }}
@@ -183,14 +199,14 @@
     {{ $pageSchema = merge $pageSchema (dict "keywords" (delimit . ", ")) }}
   {{ end }}
   {{ if eq $pageType "ProfilePage" }}
-    {{ $pageSchema = merge $pageSchema (dict "mainEntity" $personReference "about" $personReference "mainEntityOfPage" .Permalink "significantLink" $authorityLinks) }}
+    {{ $pageSchema = merge $pageSchema (dict "mainEntity" $personReference "about" $personReference "mainEntityOfPage" .Permalink "significantLink" $authorityLinks "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".prose"))) }}
   {{ else if eq $pageType "ContactPage" }}
     {{ $pageSchema = merge $pageSchema (dict "mainEntity" $personReference "about" $personReference "mainEntityOfPage" .Permalink) }}
   {{ else if eq $pageType "Article" }}
-    {{ $pageSchema = merge $pageSchema (dict "author" $personReference "publisher" $personReference "mainEntityOfPage" .Permalink "image" $image) }}
+    {{ $pageSchema = merge $pageSchema (dict "author" $personReference "publisher" $publisherRef "mainEntityOfPage" .Permalink "image" $image) }}
     {{ $pageSchema = merge $pageSchema (dict
       "wordCount" .WordCount
-      "inLanguage" (.Params.lang | default (.Site.LanguageCode | default "en-us"))
+      "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
       "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".prose")))
     }}
     {{ with .Params.categories }}{{ $pageSchema = merge $pageSchema (dict "articleSection" (index . 0)) }}{{ end }}
@@ -226,7 +242,7 @@
     {{ range $i, $p := . }}
       {{ $work := dict "@type" "Article" "position" (add $i 1) "headline" $p.title "author" $personReference }}
       {{ with $p.publisher }}{{ $work = merge $work (dict "publisher" (dict "@type" "Organization" "name" .)) }}{{ end }}
-      {{ with $p.date }}{{ $work = merge $work (dict "datePublished" .) }}{{ end }}
+      {{ with ($p.date_iso | default $p.date) }}{{ $work = merge $work (dict "datePublished" .) }}{{ end }}
       {{ with $p.url }}{{ $work = merge $work (dict "url" .) }}{{ end }}
       {{ $list = $list | append $work }}
     {{ end }}

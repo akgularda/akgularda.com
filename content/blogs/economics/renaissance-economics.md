@@ -1,5 +1,6 @@
 ---
 title: "The Renaissance Economics"
+image: "/images/blogs/og/renaissance-economics.png"
 date: "2026-02-20"
 description: "I look at how banking, trade, and city-state competition in Renaissance Italy helped produce art, science, and political power."
 tags: ["Renaissance", "Economic History", "Florence", "Medici"]

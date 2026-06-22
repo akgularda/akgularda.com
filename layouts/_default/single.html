@@ -66,5 +66,26 @@
   {{ end }}
 </article>
 
+{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides")) }}
+  {{ $related := first 4 (where (.Site.RegularPages.Related .) "Section" "in" (slice "blogs" "guides")) }}
+  {{ with $related }}
+  <section class="listing-section related-writing">
+    <div class="section-heading">
+      <p class="eyebrow">Related</p>
+      <h2>Related writing</h2>
+      <p class="section-lead">More essays and notes on connected themes.</p>
+    </div>
+    <ul class="sitelinks-list">
+      {{ range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span>{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ end }}{{ end }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+{{ end }}
+
 {{ partial "context-links.html" . }}
 {{ end }}

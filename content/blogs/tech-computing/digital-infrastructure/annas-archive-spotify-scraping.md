@@ -1,5 +1,6 @@
 ---
 title: "How Did Anna's Archive Scrape Spotify's Library?"
+image: "/images/blogs/og/annas-archive-spotify-scraping.png"
 date: "2026-01-31"
 description: "I look at the likely technical logic behind Anna's Archive's Spotify dataset and what it says about scraping and open access culture."
 tags: ["Spotify", "Data Scraping", "Open Access", "Digital Archives"]

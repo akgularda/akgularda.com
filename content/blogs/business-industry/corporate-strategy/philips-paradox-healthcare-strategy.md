@@ -1,5 +1,6 @@
 ---
 title: "Philips Paradox: How Vanishing from Your Living Room Saved the Company"
+image: "/images/blogs/og/philips-paradox-healthcare-strategy.png"
 date: "2026-01-10"
 description: "I look at how Philips exited consumer electronics, focused on health technology, and used strategic shrinkage to survive."
 tags: ["Philips", "Business Strategy", "Healthcare", "Corporate Identity"]

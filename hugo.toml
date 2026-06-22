@@ -25,6 +25,23 @@ summaryLength = 1000
   tag = "tags"
   category = "categories"
 
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "keywords"
+    weight = 70
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
 [outputFormats]
   [outputFormats.llmsfull]
     mediaType = "text/plain"

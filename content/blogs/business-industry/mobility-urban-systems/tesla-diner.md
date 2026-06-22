@@ -1,11 +1,12 @@
 ---
 title: "Tesla Diner and Vision of Elon Musk"
+image: "/images/blogs/og/tesla-diner.png"
 date: 2025-08-09
 lastmod: 2026-02-28
 description: "How Elon Musk and Tesla think about lifestyle, technology, and the customer experience."
 keywords: ["tesla diner", "elon musk", "tesla", "technology", "innovation", "retrofuturism"]
 tags: ["technology", "tesla", "innovation"]
-categories: ["Technology"]
+categories: ["Technology & Public Life"]
 draft: false
 ---
 

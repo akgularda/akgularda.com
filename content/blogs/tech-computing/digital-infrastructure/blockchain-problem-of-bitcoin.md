@@ -1,5 +1,6 @@
 ---
 title: "The Blockchain Problem of Bitcoin"
+image: "/images/blogs/og/blockchain-problem-of-bitcoin.png"
 date: "2026-03-11"
 description: "I like Bitcoin and I own it, but I think its blockchain still has real scalability and efficiency problems worth taking seriously."
 tags: ["Bitcoin", "Blockchain", "Scalability", "Technology"]

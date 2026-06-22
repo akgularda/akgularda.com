@@ -18,8 +18,10 @@ Preferred crawl order:
 Discovery endpoints:
 - Short index: https://akgularda.com/llms.txt
 - Full corpus: https://akgularda.com/llms-full.txt
+- Agent discovery: https://akgularda.com/agents.txt
 - Agent card: https://akgularda.com/.well-known/agent.json
 - OpenAPI descriptor: https://akgularda.com/openapi.yaml
+- RSS feed: https://akgularda.com/index.xml
 - Robots policy: https://akgularda.com/robots.txt
 - Sitemap: https://akgularda.com/sitemap.xml
 

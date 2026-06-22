@@ -1,5 +1,6 @@
 ---
 title: "Turkcell and Huawei's Integration on 5G"
+image: "/images/blogs/og/turkcell-huawei-5g-integration.png"
 date: "2026-01-20"
 description: "I look at the technical and geopolitical meaning of Turkcell's long Huawei relationship as Turkey moves toward 5G."
 tags: ["5G", "Huawei", "Turkcell", "Geopolitics"]

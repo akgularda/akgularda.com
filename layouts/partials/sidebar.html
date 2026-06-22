@@ -20,7 +20,7 @@
       {{ $isContact := and (eq .Identifier "contact") (hasPrefix $.RelPermalink "/contact/") }}
       {{ $isActive := or $isAbout $isWriting $isPublications $isGuides $isExperience $isContact ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
       <li>
-        <a class="{{ if $isActive }}is-active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+        <a class="{{ if $isActive }}is-active{{ end }}"{{ if $isActive }} aria-current="page"{{ end }} href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
     </ul>

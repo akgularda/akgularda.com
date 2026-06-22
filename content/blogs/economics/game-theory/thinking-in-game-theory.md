@@ -1,5 +1,6 @@
 ---
 title: "Thinking in Game Theory"
+image: "/images/blogs/og/thinking-in-game-theory.png"
 date: "2026-02-10"
 description: "I explain why game theory changed how I think about firms, geopolitics, and ordinary choices people make every day."
 tags: ["Game Theory", "Economics", "Strategy", "Mathematics"]

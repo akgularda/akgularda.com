@@ -1,7 +1,10 @@
 ---
 title: "The Values Companies Provide: Chevron, McDonald's, and Apple"
+image: "/images/blogs/og/values-companies-provide-chevron-mcdonalds-apple.png"
+seo_title: "What Chevron, McDonald's, and Apple Really Sell"
 date: "2025-12-22"
 description: "I look at Chevron, McDonald's, and Apple to argue that companies do not just sell products. They sell different kinds of value."
+keywords: ["Chevron", "McDonald's", "Apple", "business strategy", "brand value", "global brands"]
 tags: ["Global Brands", "Business Strategy", "Apple", "McDonald's", "Chevron"]
 categories: ["Business & Industry"]
 slug: "values-companies-provide-chevron-mcdonalds-apple"

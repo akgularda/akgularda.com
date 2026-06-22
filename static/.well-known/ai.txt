@@ -2,7 +2,9 @@
 
 Site: https://akgularda.com
 Author: Arda Akgül
+Purpose: Official website of Arda Akgül
 Canonical profile: https://akgularda.com/about/
+Verified profiles: https://www.linkedin.com/in/ardakgul , https://github.com/akgularda
 
 Public pages on this site may be crawled, indexed, retrieved, and summarized in line with `robots.txt`. For the clearest representation of the author and the site, start with the pages below before exploring the wider archive.
 
@@ -16,8 +18,10 @@ Preferred crawl order:
 Discovery endpoints:
 - Short index: https://akgularda.com/llms.txt
 - Full corpus: https://akgularda.com/llms-full.txt
+- Agent discovery: https://akgularda.com/agents.txt
 - Agent card: https://akgularda.com/.well-known/agent.json
 - OpenAPI descriptor: https://akgularda.com/openapi.yaml
+- RSS feed: https://akgularda.com/index.xml
 - Robots policy: https://akgularda.com/robots.txt
 - Sitemap: https://akgularda.com/sitemap.xml
 

@@ -1,5 +1,6 @@
 ---
 title: "BlackRock Meets Erdoğan in Dolmabahçe: Sustainable Finance, FDI, and Turkey's Energy Transition"
+image: "/images/blogs/og/blackrock-erdogan-dolmabahce.png"
 date: "2026-04-04"
 description: "I look at the BlackRock-Erdoğan meeting through energy transition, sustainable finance, and Turkey's bid to become a regional hub."
 tags: ["BlackRock", "FDI", "Sustainable Finance", "Turkey"]

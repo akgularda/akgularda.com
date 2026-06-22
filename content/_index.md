@@ -40,12 +40,12 @@ params:
     title: "About"
     paragraphs:
       - "I study Economics and Business Administration at TED University in Ankara. My academic interests center on trade, sustainability, energy policy, institutions, and the place of technology in public life."
-      - "Alongside coursework and research, I contribute to student media and accessibility-oriented initiatives. I am most interested in work that is careful, useful, and constructive rather than performative."
+      - "Alongside coursework and research, I edit and coordinate university radio and podcasts at RadioTEDU, contribute to accessibility work through the UnlimiTED Student Society, and write on trade, energy, and policy."
   research_areas:
     - title: "Research support at TEDUsTRC"
       summary: "I assist with research and report preparation connected to sustainable trade, policy questions, and evidence-based academic work."
     - title: "Trade, sustainability, and energy policy"
-      summary: "My strongest long-term interests sit around trade, industrial development, energy security, sustainability, and institutional resilience."
+      summary: "My strongest long-term interests are trade, industrial development, energy security, and sustainability, and how institutions hold up under economic pressure."
     - title: "Technology in public life"
       summary: "I am interested in how digital systems, data, and AI affect economic life, governance, and everyday institutions."
   service_highlights:
@@ -57,9 +57,9 @@ params:
       role: "Board Member and former Chairman of the Supervisory Board"
       summary: "I helped build and support student work focused on accessibility, inclusion, and practical improvements to campus life."
       url: "/experience/"
-    - title: "Institutional contribution"
-      role: "Student-led projects and university initiatives"
-      summary: "Across roles, I try to contribute through dependable work, careful communication, and respect for the institutions I represent."
+    - title: "Anadolu Tarih ve Kültür Birliği"
+      role: "Vice President and former Chairman of the Supervisory Board"
+      summary: "Board oversight and communications during the association's early institutional development, including its work alongside the Ministry of Culture and Tourism."
       url: "/about/"
   media_highlights:
     - title: "RadioTEDU"

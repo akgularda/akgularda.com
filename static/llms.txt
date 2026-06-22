@@ -39,6 +39,9 @@
 ## Machine-Readable Endpoints
 
 - [AI discovery](https://akgularda.com/ai.txt): Concise crawl and usage guidance for AI systems.
+- [Agent discovery](https://akgularda.com/agents.txt): Entry points and preferred endpoints for autonomous agents.
 - [Full LLM Corpus](https://akgularda.com/llms-full.txt): Expanded first-party text export for deeper ingestion.
 - [Agent card](https://akgularda.com/.well-known/agent.json): Machine-readable discovery card.
 - [OpenAPI descriptor](https://akgularda.com/openapi.yaml): Read-only endpoint map for public site resources.
+- [RSS feed](https://akgularda.com/index.xml): Chronological feed of new writing.
+- [Sitemap](https://akgularda.com/sitemap.xml): Full list of canonical, indexable URLs.

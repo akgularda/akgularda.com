@@ -1,5 +1,6 @@
 ---
 title: "The Unhidden Aesthetic of Corporations: Chevron, McDonald's, and Buildings with Ads"
+image: "/images/blogs/og/corporate-aesthetic-urban-space.png"
 date: "2025-12-30"
 description: "I look at how corporate signs, logos, and branded buildings create a second visual layer over the modern city."
 tags: ["Global Brands", "Urban Space", "Corporate Aesthetics", "Culture"]

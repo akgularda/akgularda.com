@@ -1,7 +1,10 @@
 ---
 title: "Japan Inc.: Why State-Directed Capitalism Worked, Stalled, and Still Matters"
+image: "/images/blogs/og/japan-inc.png"
+seo_title: "Japan Inc.: Why State Capitalism Worked and Stalled"
 date: "2025-12-03"
 description: "I look at how MITI, keiretsu, and long-term thinking built Japan Inc., why it stalled, and what it still teaches."
+keywords: ["Japan Inc", "MITI", "keiretsu", "industrial policy", "state-directed capitalism", "Lost Decades"]
 tags: ["Japan", "Industrial Policy", "Supply Chain", "Economic Systems"]
 categories: ["Economics"]
 slug: "japan-inc"

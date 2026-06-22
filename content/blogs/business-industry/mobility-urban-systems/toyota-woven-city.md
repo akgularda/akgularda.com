@@ -1,11 +1,12 @@
 ---
 title: "I'd Live in Toyota Woven City"
+image: "/images/blogs/og/toyota-woven-city.png"
 date: 2025-08-05
 lastmod: 2026-02-28
 description: "Explore the vision and progress of Toyota Woven City, a prototype city of the future designed for smart technologies, sustainable living, and human-centered innovation."
 keywords: ["Toyota Woven City", "smart city", "sustainable living", "innovation", "Japan"]
 tags: ["Toyota Woven City", "smart city", "future city", "sustainable living", "innovation", "mobility", "Toyota"]
-categories: ["Technology"]
+categories: ["Technology & Public Life"]
 draft: false
 ---
 

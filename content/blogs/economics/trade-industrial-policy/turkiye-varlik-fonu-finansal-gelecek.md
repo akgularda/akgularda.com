@@ -1,7 +1,10 @@
 ---
 title: "Türkiye Varlık Fonu: Finansal Geleceğimizin Teminatı"
+image: "/images/blogs/og/turkiye-varlik-fonu-finansal-gelecek.png"
 date: "2025-12-14"
+contentlang: "tr"
 description: "Türkiye Varlık Fonu'nun yapısını, varlıklarını ve neden Türkiye'nin uzun vadeli ekonomik kapasitesi için önemli olduğunu yazıyorum."
+keywords: ["Türkiye Varlık Fonu", "Turkey Wealth Fund", "sovereign wealth fund", "devlet kapasitesi", "kalkınma", "stratejik yatırım"]
 tags: ["Türkiye Varlık Fonu", "Devlet Kapasitesi", "Kalkınma", "Finans"]
 categories: ["Economics"]
 slug: "turkiye-varlik-fonu-finansal-gelecek"
