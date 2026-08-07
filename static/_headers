@@ -4,6 +4,12 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml",
+        </index.xml>; rel="alternate"; type="application/rss+xml"; title="RSS Feed",
+        </llms.txt>; rel="describedby"; type="text/plain"; title="LLM Context",
+        </llms-full.txt>; rel="describedby"; type="text/plain"; title="Full LLM Context",
+        </ai.txt>; rel="describedby"; type="text/plain"; title="AI Context",
+        </agents.txt>; rel="describedby"; type="text/plain"; title="Agent Discovery"
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable

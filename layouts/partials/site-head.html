@@ -13,9 +13,9 @@
 {{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
   {{ $noindex = true }}
 {{ end }}
-{{ $robots := "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" }}
+{{ $robots := "index, follow, max-image-preview:large, max-snippet:500, max-video-preview:-1" }}
 {{ if $noindex }}
-  {{ $robots = "noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" }}
+  {{ $robots = "noindex, follow, max-image-preview:large, max-snippet:500, max-video-preview:-1" }}
 {{ end }}
 {{ $css := resources.Get "site.css" | minify | fingerprint }}
 {{ $js := "" }}

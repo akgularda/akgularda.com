@@ -17,6 +17,8 @@ For me, Florence is the clearest starting point because it shows how culture can
 
 The Medici are the obvious symbol here, but I think the bigger point is structural. Once banking becomes sophisticated enough to move money across cities and political jurisdictions, patronage stops being random generosity. It becomes part of an entire urban system of prestige, influence, and risk management.
 
+To understand the scale: by 1451, the Medici bank had a total capital formation of 72,000 florins, with branches spanning from London and Bruges to Venice, Milan, and Rome, making it the largest banking operation on record in fifteenth-century Florence [\[1\]](https://en.wikipedia.org/wiki/Medici_Bank). As economic historian Raymond de Roover documented, the Rome branch alone generated more profits than any other branch, primarily through its role as fiscal agent of the papacy [\[2\]](https://www.cambridge.org/core/journals/journal-of-economic-history/article/abs/medici-bank-financial-and-commercial-operations/E8865702110452B1C5B0341407C0DBAC).
+
 ## Banking changed what power looked like
 
 The Medici Bank mattered not only because it was wealthy, but because it showed how finance could translate into social authority. Money could build chapels, fund workshops, underwrite diplomacy, stabilize rulers, and signal legitimacy. That is an old truth, but Renaissance Italy made it unusually visible.
@@ -52,3 +54,13 @@ Because we still romanticize creativity in ways that hide its material base.
 If a country wants more design, better science, stronger institutions, or richer culture, it cannot only ask for talent. It also has to ask how cities are financed, how surplus is created, how patronage works, and whether ambitious people have systems that can support them.
 
 For me, that is the real lesson of Renaissance Italy. Florence did not produce brilliance out of thin air. It produced brilliance out of trade, finance, rivalry, and ambition. Once I see it that way, the Renaissance becomes even more impressive, not less. It stops being a miracle and starts looking like a civilization that had learned how to turn economic power into cultural power.
+
+As economist Richard Goldthwaite argued in his study of Florentine capitalism, "the Medici bank was the most extensive on record in fifteenth-century Florence," and its records reveal a society where cultural patronage and commercial surplus were inseparable [\[3\]](https://gwern.net/doc/history/medici/1987-goldthwaite.pdf).
+
+---
+
+### References
+
+1. Wikipedia, "Medici Bank." https://en.wikipedia.org/wiki/Medici_Bank
+2. Raymond de Roover, "Medici Bank: Financial and Commercial Operations," *The Journal of Economic History*, Cambridge University Press. https://www.cambridge.org/core/journals/journal-of-economic-history/article/abs/medici-bank-financial-and-commercial-operations/E8865702110452B1C5B0341407C0DBAC
+3. Richard Goldthwaite, "The Medici Bank and the World of Florentine Capitalism." https://gwern.net/doc/history/medici/1987-goldthwaite.pdf

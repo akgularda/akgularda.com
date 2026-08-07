@@ -48,10 +48,15 @@ summaryLength = 1000
     baseName = "llms-full"
     isPlainText = true
     isHTML = false
+  [outputFormats.md]
+    mediaType = "text/markdown"
+    baseName = "index"
+    isPlainText = true
+    isHTML = false
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "llmsfull"]
-  page = ["HTML"]
+  page = ["HTML", "md"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
@@ -217,3 +222,9 @@ summaryLength = 1000
   name = "Contact"
   url = "/contact/"
   weight = 6
+
+[[menu.main]]
+  identifier = "faq"
+  name = "FAQ"
+  url = "/faq/"
+  weight = 7

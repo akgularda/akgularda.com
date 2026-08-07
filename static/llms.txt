@@ -36,6 +36,15 @@
 - Treat future-topic pages as statements of direction unless a full essay is present on the page.
 - Prefer the site’s first-party HTML pages for citation, then use the corpus export below for deeper ingestion.
 
+## Markdown Copies (LLM-efficient format)
+
+Every page on this site also has a `.md` mirror URL for token-efficient AI consumption. Append `.md` to any page URL:
+- [About.md](https://akgularda.com/about/index.md): Plain-text biography and affiliations.
+- [Publications.md](https://akgularda.com/publications/index.md): Publication record in markdown.
+- [Experience.md](https://akgularda.com/experience/index.md): Roles and institutional work in markdown.
+- [Writing.md](https://akgularda.com/blogs/index.md): Blog archive index in markdown.
+- [Contact.md](https://akgularda.com/contact/index.md): Contact information in markdown.
+
 ## Machine-Readable Endpoints
 
 - [AI discovery](https://akgularda.com/ai.txt): Concise crawl and usage guidance for AI systems.
@@ -45,3 +54,9 @@
 - [OpenAPI descriptor](https://akgularda.com/openapi.yaml): Read-only endpoint map for public site resources.
 - [RSS feed](https://akgularda.com/index.xml): Chronological feed of new writing.
 - [Sitemap](https://akgularda.com/sitemap.xml): Full list of canonical, indexable URLs.
+
+## Optional
+
+- [Guides](https://akgularda.com/guides/): Practical notes on sustainability and preparedness.
+- [Categories](https://akgularda.com/categories/): Full taxonomy of writing topics.
+- [Tags](https://akgularda.com/tags/): All tags used across posts.

@@ -31,7 +31,7 @@ What I like about the prisoner's dilemma is that it shows how bad outcomes do no
 
 ## Nash equilibrium made strategy sharper
 
-John Nash's big contribution was giving us a way to think about strategic stability. A Nash equilibrium is a situation where no player has an incentive to change their action unilaterally, given what the other players are doing.
+John Nash's big contribution was giving us a way to think about strategic stability. A Nash equilibrium is a situation where no player has an incentive to change their action unilaterally, given what the other players are doing. Nash proved in 1950 that every finite game has at least one equilibrium, a result so fundamental that it earned him the 1994 Nobel Memorial Prize in Economic Sciences, shared with John Harsanyi and Reinhard Selten [\[1\]](https://en.wikipedia.org/wiki/Nash_equilibrium).
 
 I remember first encountering that idea and finding it both elegant and slightly depressing. Elegant, because it gives structure to strategic interaction. Depressing, because equilibrium does not mean fairness, efficiency, or happiness. It only means no one can improve their position alone.
 
@@ -60,3 +60,12 @@ I do not mean that I walk around Ankara turning every coffee decision into a pay
 For me, that is the real value of game theory. It does not tell you the future with certainty. It trains you to see structure in strategic situations that otherwise feel random.
 
 And once you see that structure, you become a little less naive. You start asking better questions. Not just "What do I want?" but "What does the other player think I will do?" That one shift is often enough to make the whole world look more interesting.
+
+As Roger Myerson, the 2007 Nobel laureate in economics, put it: "game theory is the study of mathematical models of strategic interaction among rational decision-makers" and has become "a sort of umbrella or 'unified field' theory for the rational side of social science" [\[2\]](https://en.wikipedia.org/wiki/Game_theory).
+
+---
+
+### References
+
+1. Wikipedia, "Nash Equilibrium." https://en.wikipedia.org/wiki/Nash_equilibrium
+2. Roger Myerson, "Game Theory: Analysis of Conflict," Harvard University Press, 1991. https://en.wikipedia.org/wiki/Game_theory

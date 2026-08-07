@@ -204,8 +204,12 @@
     {{ $pageSchema = merge $pageSchema (dict "mainEntity" $personReference "about" $personReference "mainEntityOfPage" .Permalink) }}
   {{ else if eq $pageType "Article" }}
     {{ $pageSchema = merge $pageSchema (dict "author" $personReference "publisher" $publisherRef "mainEntityOfPage" .Permalink "image" $image) }}
+    {{ $minutes := div .WordCount 200 }}
+    {{ if lt $minutes 1 }}{{ $minutes = 1 }}{{ end }}
+    {{ $timeRequired := printf "PT%dM" $minutes }}
     {{ $pageSchema = merge $pageSchema (dict
       "wordCount" .WordCount
+      "timeRequired" $timeRequired
       "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
       "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".prose")))
     }}

@@ -57,6 +57,15 @@
   {{ end }}
 </header>
 
+{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides")) }}
+{{ $tlDrMatches := findRE `(?s)<p>(.*?)</p>` .Content 1 }}
+{{ with $tlDrMatches }}
+<div class="tl-dr" aria-label="Summary">
+  <p><strong>TL;DR:</strong> {{ index . 0 | plainify | truncate 300 }}</p>
+</div>
+{{ end }}
+{{ end }}
+
 <article class="content-pane{{ if eq .RelPermalink "/about/" }} content-pane--split content-pane--about{{ end }}">
   <div class="prose{{ if eq .RelPermalink "/about/" }} prose--dossier{{ end }}">
     {{ $content | safeHTML }}
