@@ -131,11 +131,6 @@ summaryLength = 1000
   name = "RadioTEDU"
   type = "Organization"
 
-[params.webamp]
-  enabled = true
-  title = "Listening Desk"
-  summary = "An optional RadioTEDU-inspired media desk. It loads only when opened and stays outside the main reading flow."
-  button_label = "Webamp"
 
 [[params.home_tiles]]
   title = "Writing"
