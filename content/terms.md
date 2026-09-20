@@ -10,7 +10,7 @@ noindex: true
 
 **Last Updated:** January 18, 2026
 
-Welcome to **akgularda.com**. By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.
+Welcome to **arda-akgul.com**. By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.
 
 ## 1. Use of Content
 
@@ -46,3 +46,4 @@ We reserve the right to modify these terms at any time. Continued use of the web
 ## 7. Contact
 
 For questions about these terms, contact: **ardakgul4@gmail.com**
+

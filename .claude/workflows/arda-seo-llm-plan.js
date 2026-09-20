@@ -1,6 +1,6 @@
 export const meta = {
   name: 'arda-seo-llm-plan',
-  description: 'Exhaustive, repo-grounded plan to rank akgularda.com #1 for "Arda Akgül" and make it LLMs\' first source',
+  description: 'Exhaustive, repo-grounded plan to rank arda-akgul.com #1 for "Arda Akgül" and make it LLMs\' first source',
   phases: [
     { title: 'Audit', detail: 'Parallel repo-grounded audits across SEO/structured-data/AI-discovery/E-E-A-T dimensions' },
     { title: 'Research', detail: 'Parallel 2026 best-practice web research on name-query ranking + LLM grounding' },
@@ -9,7 +9,7 @@ export const meta = {
   ],
 }
 
-const REPO = 'C:\\Users\\akgul\\Downloads\\akgularda.com-master\\akgularda.com-master'
+const REPO = 'C:\\Users\\akgul\\Downloads\\arda-akgul.com-master\\arda-akgul.com-master'
 
 const AUDIT_SCHEMA = {
   type: 'object',
@@ -118,7 +118,7 @@ const VERIFY_SCHEMA = {
 
 const repoContext = `
 REPOSITORY: ${REPO}
-This is the Hugo static site for "Arda Akgül" (akgularda.com), already built to a very high standard.
+This is the Hugo static site for "Arda Akgül" (arda-akgul.com), already built to a very high standard.
 Goal of the overall project: (1) rank #1 on Google for the exact query "Arda Akgül"; (2) be the FIRST/primary
 source that LLMs (ChatGPT, Claude, Perplexity, Gemini) cite when asked about Arda Akgül.
 Scope constraint: ON-SITE CODE ONLY (the user will handle off-site steps themselves; do not plan Wikidata).
@@ -272,3 +272,4 @@ const verified = verifications.filter(Boolean)
 log(`Verified ${verified.length} items: ${verified.filter(v => v.verdict === 'sound').length} sound, ${verified.filter(v => v.verdict === 'needs-change').length} need-change, ${verified.filter(v => v.verdict === 'wrong').length} wrong`)
 
 return { synth, verifications: verified }
+

@@ -1,4 +1,4 @@
-baseURL = "https://akgularda.com/"
+baseURL = "https://arda-akgul.com/"
 languageCode = "en-us"
 title = "Arda Akgül"
 
@@ -228,3 +228,4 @@ summaryLength = 1000
   name = "FAQ"
   url = "/faq/"
   weight = 7
+

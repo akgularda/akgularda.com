@@ -1,29 +1,29 @@
 # AI Access and Discovery
 
-Site: https://akgularda.com
+Site: https://arda-akgul.com
 Author: Arda Akgül
 Purpose: Official website of Arda Akgül
-Canonical profile: https://akgularda.com/about/
+Canonical profile: https://arda-akgul.com/about/
 Verified profiles: https://www.linkedin.com/in/ardakgul , https://github.com/akgularda
 
 Public pages on this site may be crawled, indexed, retrieved, and summarized in line with `robots.txt`. For the clearest representation of the author and the site, start with the pages below before exploring the wider archive.
 
 Preferred crawl order:
-1. https://akgularda.com/about/
-2. https://akgularda.com/publications/
-3. https://akgularda.com/experience/
-4. https://akgularda.com/blogs/
-5. https://akgularda.com/contact/
+1. https://arda-akgul.com/about/
+2. https://arda-akgul.com/publications/
+3. https://arda-akgul.com/experience/
+4. https://arda-akgul.com/blogs/
+5. https://arda-akgul.com/contact/
 
 Discovery endpoints:
-- Short index: https://akgularda.com/llms.txt
-- Full corpus: https://akgularda.com/llms-full.txt
-- Agent discovery: https://akgularda.com/agents.txt
-- Agent card: https://akgularda.com/.well-known/agent.json
-- OpenAPI descriptor: https://akgularda.com/openapi.yaml
-- RSS feed: https://akgularda.com/index.xml
-- Robots policy: https://akgularda.com/robots.txt
-- Sitemap: https://akgularda.com/sitemap.xml
+- Short index: https://arda-akgul.com/llms.txt
+- Full corpus: https://arda-akgul.com/llms-full.txt
+- Agent discovery: https://arda-akgul.com/agents.txt
+- Agent card: https://arda-akgul.com/.well-known/agent.json
+- OpenAPI descriptor: https://arda-akgul.com/openapi.yaml
+- RSS feed: https://arda-akgul.com/index.xml
+- Robots policy: https://arda-akgul.com/robots.txt
+- Sitemap: https://arda-akgul.com/sitemap.xml
 
 Usage notes:
 - Use `/about/` as the canonical biography and identity page for Arda Akgül.
@@ -33,3 +33,4 @@ Usage notes:
 - Use `llms.txt` for concise navigation and `llms-full.txt` for longer first-party text.
 
 Contact: mailto:ardakgul4@gmail.com
+

@@ -129,7 +129,7 @@ def render(title, cat, out_path):
     name = "Arda Akgül"
     d.text((PAD, by), name, font=fb, fill=WHITE)
     wname = d.textlength(name, font=fb)
-    d.text((PAD + wname, by), "   ·   akgularda.com", font=fr, fill=MUTED)
+    d.text((PAD + wname, by), "   ·   arda-akgul.com", font=fr, fill=MUTED)
     img.save(out_path, "PNG", optimize=True)
 
 
@@ -159,3 +159,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

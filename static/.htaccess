@@ -2,8 +2,8 @@ RewriteEngine On
 
 # Canonical host: force HTTPS and apex (non-www).
 RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} ^www\.akgularda\.com$ [NC]
-RewriteRule ^ https://akgularda.com%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.arda-akgul\.com$ [NC]
+RewriteRule ^ https://arda-akgul.com%{REQUEST_URI} [L,R=301]
 
 # Custom error page.
 ErrorDocument 404 /404.html
@@ -59,3 +59,4 @@ AddDefaultCharset utf-8
   ExpiresByType text/plain "access plus 1 hour"
   ExpiresByType application/xml "access plus 1 hour"
 </IfModule>
+

@@ -21,7 +21,7 @@ param(
 )
 
 $IndexNowKey = "149e6aa80447477daf5e34771966db2c"
-$HostName = "akgularda.com"
+$HostName = "arda-akgul.com"
 $ApiEndpoint = "https://api.indexnow.org/indexnow"
 
 $LogFile = "$PSScriptRoot\indexnow_log.txt"
@@ -106,3 +106,4 @@ try {
 
 Write-Log "IndexNow sync completed successfully."
 exit 0
+
