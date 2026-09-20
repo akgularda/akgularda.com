@@ -22,5 +22,3 @@ node_modules/
 *.pfx
 *.p12
 
-# Local deploy state (machine-specific upload log)
-scripts/deployment_history.json
