@@ -81,7 +81,7 @@ summaryLength = 1000
   primary_affiliation_name = "TED University Sustainable Trade Research Center"
   primary_affiliation_alternate_name = "TEDUsTRC"
   primary_affiliation_type = "ResearchOrganization"
-  knows_about = ["Economics", "Trade", "Sustainability", "Energy policy", "Institutions", "Technology in public life", "Student media", "Game theory", "Mathematics", "Battery technology", "Electric vehicles", "Blockchain", "Cryptography"]
+  knows_about = ["Economics", "Trade", "Sustainability", "Energy policy", "Institutions", "Technology in public life", "Student media", "Game theory", "Mathematics", "Battery technology", "Electric vehicles", "Blockchain", "Cryptography", "ESG", "Sustainable finance", "Financial analysis", "Portfolio management", "Geopolitical risk", "Python"]
   knows_language = ["English", "Turkish"]
 
 [[params.social]]
@@ -97,6 +97,14 @@ summaryLength = 1000
   url = "https://github.com/akgularda"
 
 [[params.social]]
+  label = "Medium"
+  url = "https://medium.com/@ardakgul"
+
+[[params.social]]
+  label = "X"
+  url = "https://x.com/ardakgul"
+
+[[params.social]]
   label = "RSS"
   url = "/index.xml"
 
@@ -106,6 +114,12 @@ summaryLength = 1000
 [[params.same_as]]
   url = "https://github.com/akgularda"
 
+[[params.same_as]]
+  url = "https://medium.com/@ardakgul"
+
+[[params.same_as]]
+  url = "https://x.com/ardakgul"
+
 [[params.affiliations]]
   name = "TED University"
   type = "CollegeOrUniversity"
@@ -114,6 +128,14 @@ summaryLength = 1000
   name = "TED University Sustainable Trade Research Center"
   alternateName = "TEDUsTRC"
   type = "ResearchOrganization"
+
+[[params.affiliations]]
+  name = "DASAM (Diplomasi ve Stratejik Araştırmalar Merkezi)"
+  type = "ResearchOrganization"
+
+[[params.affiliations]]
+  name = "SDCofA (Strategic Data Company of Ankara)"
+  type = "Organization"
 
 [[params.affiliations]]
   name = "TEDU Economics Research Union"

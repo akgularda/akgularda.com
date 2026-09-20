@@ -38,6 +38,8 @@ faq:
     a: "Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), and the founder of Monarch Castle Technologies."
   - q: "What does Arda Akgül study and research?"
     a: "He studies economics and business administration, with a focus on international trade, sustainability, energy policy, and the role of institutions in public life, and has published 35+ articles across ERUMAG, UDİAD, and EUROPolitika."
+  - q: "What is Arda Akgül’s thesis about?"
+    a: "His economics thesis examines EU exposure, the Carbon Border Adjustment Mechanism (CBAM), and sustainability reporting in the aluminum sector."
   - q: "Where is Arda Akgül based?"
     a: "Arda Akgül is based in Ankara, Türkiye."
   - q: "What is Monarch Castle Technologies?"
@@ -57,7 +59,7 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 ## Education
 
 - **TED University**  
-  Bachelor of Science in Economics, 2022-2027
+  Bachelor of Science in Economics, 2022-2027 (GPA: 3.83)
 
 - **TED University**  
   Bachelor of Science in Business Administration and Management, 2024-2027
@@ -65,6 +67,11 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 ## Certifications
 
 - McKinsey Forward Program
+- Economics of Money and Banking
+- Introduction to Data Science
+- Microsoft Excel Temelleri
+- Birey ve Aileler için Afet Bilinci Eğitimi Programı
+- Basic Concepts and Major Advantages of Web Conferences
 
 ## Selected Affiliations
 
@@ -74,16 +81,23 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 - **UDİAD (International Association for Diplomatic Relations)**  
   Assistant Researcher focused on energy, diplomacy, and geopolitics.
 
+- **DASAM (Diplomasi ve Stratejik Araştırmalar Merkezi)**  
+  Researcher focused on international relations, energy diplomacy, and geopolitical risk.
+
 - **EUROPolitika**  
   Contributing author on European politics, international relations, and foreign policy.
 
 - **TEDU Economics Research Union**  
-  Member of the Supervisory Board, member of the Academic Committee, and contributor to ERUMAG.
+  Vice President (February 2026 - Present); formerly Board Member and member of the Supervisory Board and Academic Committee; contributor to ERUMAG.
+
+- **SDCofA (Strategic Data Company of Ankara)**  
+  Co-Founder and Geopolitical Data Strategist working on data-driven geopolitical risk assessment.
 
 ## Research and Writing Focus
 
 - Published 35+ articles on international economics, energy policy, NATO, European politics, and sustainability.
-- Interested in international economics, cryptography, blockchain, digital identity, urban mobility, battery technology, electric vehicles, radio technology, and fast-moving consumer goods and fast food investment.
+- Economics thesis on EU exposure, the Carbon Border Adjustment Mechanism (CBAM), and sustainability reporting in the aluminum sector.
+- Interested in international economics, cryptography, blockchain, digital identity, urban mobility, battery technology, electric vehicles, radio technology, fast-moving consumer goods and fast food investment, sustainable finance, and geopolitical risk.
 
 ## Experience
 
@@ -91,18 +105,43 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 
 **Undergraduate Research Assistant** | October 2024 - Present
 
-- Assisting in data collection, analysis, and report preparation for academic publications and policy recommendations.
+- Analyzing qualitative and quantitative corporate ESG data on sustainability practices, disclosure quality, and stakeholder relevance.
+- Synthesizing academic literature and empirical findings into research reports supporting institutional sustainability initiatives.
+
+**Intern** | June 2026 - July 2026
+
+- Supported research on corporate sustainability, sustainable trade, and company-level sustainability assessment through data collection and literature review.
+
+### DASAM (Diplomasi ve Stratejik Araştırmalar Merkezi)
+
+**Researcher** | February 2026 - Present | Ankara, Türkiye
+
+- Conducting literature reviews and policy analysis on international relations, regional security, energy diplomacy, and geopolitical risk.
+- Contributing to research papers, policy briefs, seminars, and workshops with an emphasis on evidence quality and practical relevance.
 
 ### Monarch Castle Technologies
 
-**Founder** | July 2025 - Present
+**Founder and Lead Architect** | July 2025 - Present
 
-- Working on data analysis and prediction projects.
+- Leading quantitative macro-financial intelligence, automated market sentiment analysis, and international trade network modeling.
+- Building Cloudy-Shiny, a real-time macro-financial sentiment barometer and composite risk index for global financial instruments.
+- Building macrointel, an interactive graph network visualizer for cross-country macroeconomic outlooks and policy rate trajectories.
+- Building supplychain, dependency mapping and supply chain graph architecture for the world’s top 100 enterprises by market capitalization.
+
+### SDCofA (Strategic Data Company of Ankara)
+
+**Co-Founder and Geopolitical Data Strategist**
+
+- Building data-driven geopolitical risk assessment, conflict intensity quantification, and regional security modeling.
+- Developing BNTI (Border Neighbor Threat Index), an algorithmic index tracking conflict dynamics and cross-border security across Türkiye’s immediate regional neighbors.
+- Maintaining quantitative regional security indices covering the Black Sea, the Caucasus, the Eastern Mediterranean, and MENA.
 
 ### TEDU Economics Research Union
 
-**Member of Supervisory Board and Academic Committee** | March 2025 - Present | Ankara, Türkiye
+**Vice President** | February 2026 - Present | Ankara, Türkiye
 
+- Leading media and communications strategy for ERUMAG and the union’s digital channels, connecting economic research with a student audience.
+- Previously served as Board Member (September 2025 - February 2026) and on the Supervisory Board (March 2025 - October 2025) while contributing to the Academic Committee.
 - Serves in student publication and academic work connected to the Economic Research Union, where Prof. Dr. Erdem Başçı is the advisor.
 - Authored and edited articles on economics, sustainability, and policy topics for ERUMAG.
 - Ensured academic compliance through careful sourcing and citation standards.
@@ -118,11 +157,14 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 - Co-hosts segments on the FieldTalks x TEDU ERU podcast, including interviews with economists such as Dr. Günnur Ege Bilgin and Prof. Altuğ Yalçıntaş.
 - Facilitates discussions on topics including game theory, decision-making, market design, and the economics of artificial intelligence.
 - Supports the production of programs including *Geçmişin Güncesi*, *In&Out with Professor Yalman*, *GreenTalks*, *FieldTalks*, and *Voice of Culture*.
+- Contributing to the RadioTEDU software ecosystem as project co-manager and technical lead, including the cross-platform RadioTEDU Mobile app with multi-station Icecast streaming, an AI-assisted jingle production suite, and a terminal radio client.
+- Co-managing the RadioTEDU OnAir broadcast automation engine for continuous 24/7 streams, scheduling, and station syndication.
+- Building interactive listener services including real-time song voting rounds, a multiplayer Study World campus, and dedicated Lo-Fi and Classical focus stream pipelines.
 - Previously co-hosted the weekly radio program *Young Voices of Literature* and helped shape each episode's content and planning.
 
 ### Uluslararası Diplomatik İlişkiler ve Akademik Araştırmalar Derneği (UDİAD)
 
-**Assistant Researcher** | July 2024 - Present
+**Assistant Researcher** | July 2024 - November 2025
 
 - Conducts research and analysis on international relations, diplomacy, and security.
 - Authored published pieces on energy policy, cybersecurity, regional alliances, and diplomacy.
@@ -160,6 +202,13 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 - Helped build partnerships with external organizations to strengthen accessibility efforts at the university.
 - Oversaw whether society activities remained aligned with the goal of promoting a barrier-free environment.
 
+### TED University International Students’ Society
+
+**Board Member** | September 2025 - May 2026 | Ankara, Türkiye
+
+- Represented international-student interests across inclusion, academic life, and campus integration initiatives.
+- Coordinated cultural-exchange and community-building events with students and university stakeholders.
+
 ### EUROPolitika
 
 **Author** | September 2023 - October 2024
@@ -176,11 +225,19 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 - Supported process review, start-date coordination, partner communication, and contract preparation for exchange participants.
 - Used CRM tools and spreadsheets to support records, operations, and candidate follow-up.
 
+## Technical Toolkit
+
+- **Data and intelligence:** Python, R, Stata, NetworkX, Pandas, NumPy, time-series econometrics, OSINT pipelines.
+- **Mobile and web engineering:** React Native, TypeScript, JavaScript, Android Jetpack Media3, Kotlin, Swift, Node.js, Vite, TailwindCSS.
+- **Broadcast and audio:** Icecast2, Liquidsoap, FFmpeg, automated playout, digital audio workstations, audio DSP.
+
 ## Contact
 
 - Location: Ankara, Türkiye
 - Email: [ardakgul4@gmail.com](mailto:ardakgul4@gmail.com)
 - LinkedIn: [linkedin.com/in/ardakgul](https://www.linkedin.com/in/ardakgul)
+- Medium: [medium.com/@ardakgul](https://medium.com/@ardakgul)
+- X: [@ardakgul](https://x.com/ardakgul)
 - GitHub: [github.com/akgularda](https://github.com/akgularda)
 
 ## Frequently Asked Questions
