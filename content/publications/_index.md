@@ -95,7 +95,7 @@ Date: November 2025
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 17.07.2025
-Link: [Read Article](https://udiad.org/turkiye-varlik-fonu-ve-varlik-fonlarinin-kalkinma-noktasinda-onemi/) | [Archive](https://web.archive.org/web/*/https://udiad.org/turkiye-varlik-fonu-ve-varlik-fonlarinin-kalkinma-noktasinda-onemi/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/turkiye-varlik-fonu-ve-varlik-fonlarinin-kalkinma-noktasinda-onemi/)
 
 ---
 
@@ -111,7 +111,7 @@ Date: July 2025
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 08.06.2025
-Link: [Read Article](https://udiad.org/ahmed-sara-yonetimindeki-suriyeye-yapilan-yatirimlar/) | [Archive](https://web.archive.org/web/*/https://udiad.org/ahmed-sara-yonetimindeki-suriyeye-yapilan-yatirimlar/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/ahmed-sara-yonetimindeki-suriyeye-yapilan-yatirimlar/)
 
 ---
 
@@ -127,7 +127,7 @@ Date: May 2025
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 13.05.2025
-Link: [Read Article](https://udiad.org/avrupada-elektrik-kesintisi-enerji-arz-guvenligi-ve-cozumler/) | [Archive](https://web.archive.org/web/*/https://udiad.org/avrupada-elektrik-kesintisi-enerji-arz-guvenligi-ve-cozumler/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/avrupada-elektrik-kesintisi-enerji-arz-guvenligi-ve-cozumler/)
 
 ---
 
@@ -136,7 +136,7 @@ Link: [Read Article](https://udiad.org/avrupada-elektrik-kesintisi-enerji-arz-gu
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 20.02.2025
-Link: [Read Article](https://udiad.org/gazzeyi-yeniden-insa-projesinin-ekonomik-temeli-dr-pelzmanin-plani/) | [Archive](https://web.archive.org/web/*/https://udiad.org/gazzeyi-yeniden-insa-projesinin-ekonomik-temeli-dr-pelzmanin-plani/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/gazzeyi-yeniden-insa-projesinin-ekonomik-temeli-dr-pelzmanin-plani/)
 
 ---
 
@@ -145,7 +145,7 @@ Link: [Read Article](https://udiad.org/gazzeyi-yeniden-insa-projesinin-ekonomik-
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 01.01.2025
-Link: [Read Article](https://udiad.org/turkiyesiz-dogu-akdeniz-tahayyulu-eastmed-projesi/) | [Archive](https://web.archive.org/web/*/https://udiad.org/turkiyesiz-dogu-akdeniz-tahayyulu-eastmed-projesi/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/turkiyesiz-dogu-akdeniz-tahayyulu-eastmed-projesi/)
 
 ---
 
@@ -154,7 +154,7 @@ Link: [Read Article](https://udiad.org/turkiyesiz-dogu-akdeniz-tahayyulu-eastmed
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 13.11.2024
-Link: [Read Article](https://udiad.org/turkiyenin-enerjide-disa-bagimliligi-azaltma-hedefi/) | [Archive](https://web.archive.org/web/*/https://udiad.org/turkiyenin-enerjide-disa-bagimliligi-azaltma-hedefi/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/turkiyenin-enerjide-disa-bagimliligi-azaltma-hedefi/)
 
 ---
 
@@ -163,7 +163,7 @@ Link: [Read Article](https://udiad.org/turkiyenin-enerjide-disa-bagimliligi-azal
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 10.10.2024
-Link: [Read Article](https://udiad.org/devletler-icin-bir-guvenlik-sorunu-olarak-incellik) | [Archive](https://web.archive.org/web/*/https://udiad.org/devletler-icin-bir-guvenlik-sorunu-olarak-incellik)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/devletler-icin-bir-guvenlik-sorunu-olarak-incellik)
 
 ---
 
@@ -172,7 +172,7 @@ Link: [Read Article](https://udiad.org/devletler-icin-bir-guvenlik-sorunu-olarak
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 29.09.2024
-Link: [Read Article](https://udiad.org/hizbullaha-yonelik-elektronik-harp-operasyonu-ve-haberlesmede-yerliligin-onemi/) | [Archive](https://web.archive.org/web/*/https://udiad.org/hizbullaha-yonelik-elektronik-harp-operasyonu-ve-haberlesmede-yerliligin-onemi/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/hizbullaha-yonelik-elektronik-harp-operasyonu-ve-haberlesmede-yerliligin-onemi/)
 
 ---
 
@@ -190,7 +190,7 @@ Link: [Read Article](https://www.europolitika.com/starmer-scholzla-iyi-anlasiyor
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 24.08.2024
-Link: [Read Article](https://udiad.org/sahel-devletleri-konfederasyonu-turkiye-sahel-iliskileri/) | [Archive](https://web.archive.org/web/*/https://udiad.org/sahel-devletleri-konfederasyonu-turkiye-sahel-iliskileri/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/sahel-devletleri-konfederasyonu-turkiye-sahel-iliskileri/)
 
 ---
 
@@ -199,7 +199,7 @@ Link: [Read Article](https://udiad.org/sahel-devletleri-konfederasyonu-turkiye-s
 
 Publisher: International Center for Economic, Social, Political and Strategic Research
 Date: 20.08.2024
-Link: [Read Article](https://ulesam.org/natonun-yeni-genel-sekreteri-mark-rutteyi-bekleyen-zorluklar.html) | [Archive](https://web.archive.org/web/*/https://ulesam.org/natonun-yeni-genel-sekreteri-mark-rutteyi-bekleyen-zorluklar.html)
+Link: [Archived copy](https://web.archive.org/web/2024/https://ulesam.org/natonun-yeni-genel-sekreteri-mark-rutteyi-bekleyen-zorluklar.html)
 
 ---
 
@@ -208,7 +208,7 @@ Link: [Read Article](https://ulesam.org/natonun-yeni-genel-sekreteri-mark-ruttey
 
 Publisher: International Association for Diplomatic Relations, Academic Research and Education
 Date: 16.08.2024
-Link: [Read Article](https://udiad.org/diplomasi-ve-hafiza-nagasakinin-israili-davet-etmeme-karari/) | [Archive](https://web.archive.org/web/*/https://udiad.org/diplomasi-ve-hafiza-nagasakinin-israili-davet-etmeme-karari/)
+Link: [Archived copy](https://web.archive.org/web/2025/https://udiad.org/diplomasi-ve-hafiza-nagasakinin-israili-davet-etmeme-karari/)
 
 ---
 
