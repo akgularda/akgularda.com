@@ -4,6 +4,7 @@ description: "Future writing on the mathematical foundations behind machine lear
 summary: "A subsection for future writing on probability, optimization, linear algebra, and related AI foundations."
 weight: 20
 future: true
+noindex: true
 ---
 
 # Mathematics of AI

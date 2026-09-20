@@ -4,6 +4,7 @@ weight: 20
 description: "A short note on practical habits that make everyday life more sustainable."
 summary: "A brief sustainability guide with a fuller version still in progress."
 future: true
+noindex: true
 ---
 # How to Make Our Lives Sustainable?
 

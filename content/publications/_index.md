@@ -7,6 +7,11 @@ seo_title: "Publications by Arda Akgül"
 seo_description: "Selected publication record for Arda Akgül across ERUMAG, UDIAD, EUROPolitika, and related outlets."
 weight: 20
 featured_publications:
+  - title: "sTAM Sustainability Agenda Q2 2026 (with Prof. Dr. Erdem Ba\u015f\u00e7\u0131 interview)"
+    publisher: "TEDUsTRC bulletin"
+    date: "2026"
+    date_iso: "2026-07"
+    summary: "Co-prepared sustainability bulletin featuring an interview on sustainability, central banking, CBAM, and green transition."
   - title: "Global Seasonal Consumption Peak"
     publisher: "ERUMAG, Issue 4"
     date: "January 2026"
@@ -32,9 +37,27 @@ featured_publications:
 
 # Publications
 
-A selected record of academic, policy, and student-publication work. The list below includes work published through TEDU Economics Research Union, UDIAD, EUROPolitika, and related outlets.
+A selected record of academic, policy, and student-publication work. The list below includes work published through TEDU Economics Research Union, TEDUsTRC bulletins, UDIAD, EUROPolitika, and related outlets.
 
-*Last updated: 28.02.2026*
+*Last updated: 20.09.2026*
+
+## sTAM Sustainability Agenda Q2 2026
+<small>*Co-prepared with Ezgi Eylem Erdo\u011fan; features an interview with Prof. Dr. Erdem Ba\u015f\u00e7\u0131 on sustainability, central banking, CBAM, and green transition*</small>
+
+Publisher: TED University Sustainable Trade Research Center (sTAM bulletin)
+Date: 2026
+Link: [Bulletins](https://strc.tedu.edu.tr/stam-bulten) | [PDF](https://strc.tedu.edu.tr/sites/default/files/inline-files/sTRC-Sustainability-Agenda--2026-Q2.pdf)
+
+---
+
+## sTAM Monthly Sustainability Agenda, Issue 01
+<small>*Co-prepared with Ezgi Eylem Erdo\u011fan*</small>
+
+Publisher: TED University Sustainable Trade Research Center (sTAM bulletin)
+Date: February 2026
+Link: [Bulletins](https://strc.tedu.edu.tr/stam-bulten) | [PDF](https://strc.tedu.edu.tr/sites/default/files/inline-files/sTRC-Monthly-Sustainability-Agenda.pdf)
+
+---
 
 ## Global Seasonal Consumption Peak
 

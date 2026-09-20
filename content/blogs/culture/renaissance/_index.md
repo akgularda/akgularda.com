@@ -4,6 +4,7 @@ description: "Future writing on Renaissance economics, philosophy, architecture,
 summary: "A subsection for future writing on the Renaissance across economics, philosophy, architecture, and culture."
 weight: 20
 future: true
+noindex: true
 ---
 
 # Renaissance

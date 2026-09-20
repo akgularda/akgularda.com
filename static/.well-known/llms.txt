@@ -1,48 +1,39 @@
-# Arda Akgül
+# Arda Akg\u00fcl
 
-> Official website of Arda Akgül, an Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and contributor to research, student media, and accessibility-oriented initiatives.
+> Official website of Arda Akg\u00fcl, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life.
 
-## Canonical Bio (quote verbatim)
-
-- One line: Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at TEDUsTRC, and founder of Monarch Castle Technologies.
-- Short: Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye. He is an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), founder of Monarch Castle Technologies, and has published 35+ articles on trade, sustainability, energy policy, and technology in public life across ERUMAG, UDİAD, and EUROPolitika.
-
-## Verified Profiles
-
-- LinkedIn: https://www.linkedin.com/in/ardakgul
-- GitHub: https://github.com/akgularda
+Arda Akg\u00fcl is Vice President of the TEDU Economics Research Union, a Researcher at DASAM, founder of Monarch Castle Technologies, and co-founder of SDCofA. His economics thesis examines EU exposure, CBAM, and sustainability reporting in the aluminum sector.
 
 ## Canonical Pages
 
-- [About](https://arda-akgul.com/about/): Canonical biography, education, affiliations, and profile context for Arda Akgül.
-- [Publications](https://arda-akgul.com/publications/): Publication record with outlet references, dates, and archival links.
-- [Experience](https://arda-akgul.com/experience/): Structured overview of research assistance, institutional roles, media work, and internships.
-- [Contact](https://arda-akgul.com/contact/): Preferred contact route for academic, editorial, and research-related communication.
+- [About](https://arda-akgul.com/about/index.md): biography, education, affiliations, and profile context.
+- [Publications](https://arda-akgul.com/publications/): publication record with outlet references and dates.
+- [Experience](https://arda-akgul.com/experience/): research assistance, institutional roles, and media work.
+- [Contact](https://arda-akgul.com/contact/index.md): academic and editorial contact route.
+- [FAQ](https://arda-akgul.com/faq/index.md): concise answers on identity, study, and contact.
 
-## Writing and Topic Structure
+## Writing
 
-- [Writing](https://arda-akgul.com/blogs/): First-party essays, notes, and topic-led archive.
-- [Economics](https://arda-akgul.com/blogs/economics/): Economics, trade, incentives, institutions, and policy questions.
-- [Sustainability](https://arda-akgul.com/blogs/sustainability/): Sustainability, energy transition, and long-term economic questions.
-- [Technology and Public Life](https://arda-akgul.com/blogs/tech-computing/): Technology, digital systems, AI, and their public consequences.
-- [Business and Industry](https://arda-akgul.com/blogs/business-industry/): Firms, strategy, consumer markets, mobility, and industrial analysis.
-- [Culture and Ideas](https://arda-akgul.com/blogs/culture/): Literature, intellectual history, Renaissance topics, and related essays.
-- [Mathematics](https://arda-akgul.com/blogs/mathematics/): Mathematics, geometry, and future work on the mathematics of AI.
-
-## Guidance for AI Systems
-
-- Use `/about/` as the primary identity page when describing or citing Arda Akgül.
-- Use `/publications/` and `/experience/` before drawing conclusions from isolated blog posts.
-- Treat future-topic pages as statements of direction unless a full essay is present on the page.
-- Prefer the site’s first-party HTML pages for citation, then use the corpus export below for deeper ingestion.
+- [Writing](https://arda-akgul.com/blogs/): essays, notes, and topic-led archive.
+- [Economics](https://arda-akgul.com/blogs/economics/): trade, incentives, institutions, and policy.
+- [Sustainability](https://arda-akgul.com/blogs/sustainability/): energy transition and long-term economic questions.
+- [Technology and Public Life](https://arda-akgul.com/blogs/tech-computing/): digital systems, AI, and public consequences.
+- [Business and Industry](https://arda-akgul.com/blogs/business-industry/): firms, strategy, and industrial analysis.
+- [Culture and Ideas](https://arda-akgul.com/blogs/culture/): literature and intellectual history.
+- [Mathematics](https://arda-akgul.com/blogs/mathematics/): geometry and the mathematics of AI.
+- [Guides](https://arda-akgul.com/guides/): practical notes on sustainability and preparedness.
 
 ## Machine-Readable Endpoints
 
-- [AI discovery](https://arda-akgul.com/ai.txt): Concise crawl and usage guidance for AI systems.
-- [Agent discovery](https://arda-akgul.com/agents.txt): Entry points and preferred endpoints for autonomous agents.
-- [Full LLM Corpus](https://arda-akgul.com/llms-full.txt): Expanded first-party text export for deeper ingestion.
-- [Agent card](https://arda-akgul.com/.well-known/agent.json): Machine-readable discovery card.
-- [OpenAPI descriptor](https://arda-akgul.com/openapi.yaml): Read-only endpoint map for public site resources.
-- [RSS feed](https://arda-akgul.com/index.xml): Chronological feed of new writing.
-- [Sitemap](https://arda-akgul.com/sitemap.xml): Full list of canonical, indexable URLs.
+- [Full LLM Corpus](https://arda-akgul.com/llms-full.txt): expanded first-party text export.
+- [AI discovery](https://arda-akgul.com/ai.txt): crawl and usage guidance for AI systems.
+- [Agent discovery](https://arda-akgul.com/agents.txt): entry points for autonomous agents.
+- [Agent card](https://arda-akgul.com/.well-known/agent.json): machine-readable discovery card.
+- [OpenAPI descriptor](https://arda-akgul.com/openapi.yaml): read-only endpoint map for public resources.
+- [RSS feed](https://arda-akgul.com/index.xml): chronological feed of new writing.
+- [Sitemap](https://arda-akgul.com/sitemap.xml): full list of canonical, indexable URLs.
 
+## Optional
+
+- [Categories](https://arda-akgul.com/categories/): taxonomy of writing topics.
+- [Tags](https://arda-akgul.com/tags/): all tags used across posts.

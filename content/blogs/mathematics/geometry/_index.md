@@ -4,6 +4,7 @@ description: "Future writing on form, space, proof, and geometric reasoning."
 summary: "A subsection for future writing on geometry."
 weight: 10
 future: true
+noindex: true
 ---
 
 # Geometry
