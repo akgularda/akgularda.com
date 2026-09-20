@@ -15,7 +15,7 @@ You know, Tesla is known for electric cars, rocket launches, and ambitious proje
 ## What is Tesla Diner?
 The Tesla Diner is part restaurant, part charging station, and part entertainment hub. The idea is simple: while your Tesla charges, you can enjoy a meal, watch a movie, and hang out in a space designed with Tesla’s signature sleekness. It’s the kind of place where your fries might be delivered by a robot and your coffee order could be confirmed by an AI system that already knows your caffeine habits. Think “drive-in cinema meets Apple Store meets 1950s diner.”
 
-![Tesla Diner official website rendering and preview image](/images/blogs/tesla-diner/ardaakgultesla.png)
+![Tesla Diner official website rendering and preview image](/images/blogs/tesla-diner/ardaakgultesla.jpg)
 *Tesla Diner website.*
 
 ## It Has Opportunities for Local Farming

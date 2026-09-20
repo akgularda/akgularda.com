@@ -14,14 +14,14 @@ keywords:
 home_intro: |
   I study Economics and Business Administration at TED University, with a practical interest in trade, sustainability, energy policy, and the role of institutions in public life.
 
-  I serve as an Undergraduate Research Assistant at TEDUsTRC and contribute to TEDU Economics Research Union and RadioTEDU through research, editorial work, and student media initiatives.
+  I serve as an Undergraduate Research Assistant at TEDUsTRC and as a Researcher at DASAM, lead the TEDU Economics Research Union as Vice President, and build data-driven ventures alongside research, editorial work, and student media initiatives.
 home_profile_items:
   - label: "Study"
     value: "Economics and Business Administration at TED University"
   - label: "Research"
-    value: "Undergraduate Research Assistant at TEDUsTRC"
-  - label: "Institutional work"
-    value: "TEDU Economics Research Union and RadioTEDU"
+    value: "Undergraduate Research Assistant at TEDUsTRC; Researcher at DASAM"
+  - label: "Leadership"
+    value: "Vice President of the TEDU Economics Research Union"
   - label: "Current focus"
     value: "Trade, sustainability, and energy policy"
 home_interest_items:
