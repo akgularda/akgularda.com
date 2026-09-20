@@ -8,7 +8,7 @@ RewriteRule ^ https://arda-akgul.com%{REQUEST_URI} [L,R=301]
 # Custom error page.
 ErrorDocument 404 /404.html
 
-# Security headers (Apache/GoDaddy ignores the Netlify-style static/_headers file).
+# Security headers (GitHub Pages ignores this file; these rules apply only when served from Apache).
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "DENY"
