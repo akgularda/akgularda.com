@@ -7,7 +7,7 @@ seo_title: "Publications by Arda Akgül"
 seo_description: "Selected publication record for Arda Akgül across ERUMAG, UDIAD, EUROPolitika, and related outlets."
 weight: 20
 featured_publications:
-  - title: "sTAM Sustainability Agenda Q2 2026 (with Prof. Dr. Erdem Ba\u015f\u00e7\u0131 interview)"
+  - title: "sTAM Sustainability Agenda Q2 2026 (with Prof. Dr. Erdem Başçı interview)"
     publisher: "TEDUsTRC bulletin"
     date: "2026"
     date_iso: "2026-07"
@@ -42,7 +42,7 @@ A selected record of academic, policy, and student-publication work. The list be
 *Last updated: 20.09.2026*
 
 ## sTAM Sustainability Agenda Q2 2026
-<small>*Co-prepared with Ezgi Eylem Erdo\u011fan; features an interview with Prof. Dr. Erdem Ba\u015f\u00e7\u0131 on sustainability, central banking, CBAM, and green transition*</small>
+<small>*Co-prepared with Ezgi Eylem Erdoğan; features an interview with Prof. Dr. Erdem Başçı on sustainability, central banking, CBAM, and green transition*</small>
 
 Publisher: TED University Sustainable Trade Research Center (sTAM bulletin)
 Date: 2026
@@ -51,7 +51,7 @@ Link: [Bulletins](https://strc.tedu.edu.tr/stam-bulten) | [PDF](https://strc.ted
 ---
 
 ## sTAM Monthly Sustainability Agenda, Issue 01
-<small>*Co-prepared with Ezgi Eylem Erdo\u011fan; features an interview with Prof. Dr. Ay\u00e7a Tekin-Koru on the founding story and strategic vision of TEDUsTRC*</small>
+<small>*Co-prepared with Ezgi Eylem Erdoğan; features an interview with Prof. Dr. Ayça Tekin-Koru on the founding story and strategic vision of TEDUsTRC*</small>
 
 Publisher: TED University Sustainable Trade Research Center (sTAM bulletin)
 Date: February 2026
