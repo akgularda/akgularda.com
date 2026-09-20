@@ -37,7 +37,7 @@ The secret to McDonald’s speed and efficiency dates back to the “Speedee Ser
 ## Why do Donald Trump, Warren Buffett, and Bill Gates prefer McDonald’s?
 It might seem surprising that some of the world’s wealthiest people and most powerful individuals eat McDonald’s, but it makes perfect sense when you think about it. For busy people like Donald Trump, Warren Buffett, and Bill Gates, time is their most valuable asset. McDonald’s offers a quick, consistent, and reliable meal, which eliminates the need to spend time and mental energy on deciding what and where to eat. It is proof that value and efficiency matter for everyone, regardless of their net worth.
 
-![Warren Buffett enjoys a McDonald’s meal.](/images/blogs/mcdonalds/warrenbuffett.png)
+![Warren Buffett enjoys a McDonald’s meal.](/images/blogs/mcdonalds/warrenbuffett.jpg)
 *Warren Buffett enjoys a McDonald’s meal.*
 
 ## McDonald’s Türkiye Suppliers
