@@ -51,7 +51,7 @@ Link: [Bulletins](https://strc.tedu.edu.tr/stam-bulten) | [PDF](https://strc.ted
 ---
 
 ## sTAM Monthly Sustainability Agenda, Issue 01
-<small>*Co-prepared with Ezgi Eylem Erdo\u011fan*</small>
+<small>*Co-prepared with Ezgi Eylem Erdo\u011fan; features an interview with Prof. Dr. Ay\u00e7a Tekin-Koru on the founding story and strategic vision of TEDUsTRC*</small>
 
 Publisher: TED University Sustainable Trade Research Center (sTAM bulletin)
 Date: February 2026
