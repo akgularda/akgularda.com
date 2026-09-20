@@ -6,6 +6,11 @@ summary: "A running publication record across student publication, research, and
 seo_title: "Publications by Arda Akgül"
 seo_description: "Selected publication record for Arda Akgül across ERUMAG, UDIAD, EUROPolitika, and related outlets."
 weight: 20
+faq:
+  - q: "Where has Arda Akgul published?"
+    a: "His work appears in ERUMAG, TEDUsTRC bulletins, UDIAD publications, EUROPolitika, and ULESAM."
+  - q: "Has Arda Akgul conducted interviews?"
+    a: "Yes. He co-conducted interviews with Prof. Dr. Erdem Basci for ERUMAG and the sTAM bulletin, and with Prof. Dr. Ayca Tekin-Koru for the sTAM bulletin."
 featured_publications:
   - title: "sTAM Sustainability Agenda Q2 2026 (with Prof. Dr. Erdem Başçı interview)"
     publisher: "TEDUsTRC bulletin"

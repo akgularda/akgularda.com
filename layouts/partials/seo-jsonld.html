@@ -127,6 +127,13 @@
 {{ if gt (len $primaryAffiliation) 0 }}
   {{ $person = merge $person (dict "worksFor" $primaryAffiliation) }}
 {{ end }}
+{{ $credentials := slice }}
+{{ range .Site.Params.credentials }}
+  {{ $credentials = $credentials | append (dict "@type" "EducationalOccupationalCredential" "credentialCategory" "certification" "name" .name) }}
+{{ end }}
+{{ if gt (len $credentials) 0 }}
+  {{ $person = merge $person (dict "hasCredential" $credentials) }}
+{{ end }}
 {{ if gt (len $memberOf) 0 }}
   {{ $person = merge $person (dict "memberOf" $memberOf) }}
 {{ end }}
