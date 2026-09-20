@@ -149,6 +149,24 @@ summaryLength = 1000
   name = "TEDU Economics Research Union"
   type = "Organization"
 
+[[params.credentials]]
+  name = "McKinsey Forward Program"
+
+[[params.credentials]]
+  name = "Economics of Money and Banking"
+
+[[params.credentials]]
+  name = "Introduction to Data Science"
+
+[[params.credentials]]
+  name = "Microsoft Excel Temelleri"
+
+[[params.credentials]]
+  name = "Basic Concepts and Major Advantages of Web Conferences"
+
+[[params.credentials]]
+  name = "Birey ve Aileler için Afet Bilinci Eğitimi Programı"
+
 [[params.member_of]]
   name = "RadioTEDU"
   type = "Organization"

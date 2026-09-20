@@ -3,6 +3,13 @@ title: "Experience"
 description: "Research, service, media, and selected work experience."
 summary: "A structured overview of research assistance, student service, media work, and related institutional experience."
 seo_title: "Experience of Arda Akgül"
+faq:
+  - q: "Where does Arda Akgul work as a researcher?"
+    a: "He is an Undergraduate Research Assistant at TEDUsTRC and a Researcher at DASAM in Ankara, working on ESG data, sustainable trade, energy diplomacy, and geopolitical risk."
+  - q: "What does Arda Akgul do at Monarch Castle Technologies?"
+    a: "He is the Founder and Lead Architect, building macro-financial intelligence, market sentiment analysis, and trade network modeling products."
+  - q: "Which student organizations does Arda Akgul lead?"
+    a: "He is Vice President of the TEDU Economics Research Union and contributes to RadioTEDU as broadcast coordinator and technical lead."
 seo_description: "Research, service, media, and selected work experience by Arda Akgül, including TEDUsTRC, RadioTEDU, and student organizations."
 weight: 40
 bookCollapseSection: true

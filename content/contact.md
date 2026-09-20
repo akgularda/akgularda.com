@@ -5,6 +5,11 @@ summary: "Email and LinkedIn details for academic, editorial, and research-relat
 seo_title: "Contact Arda Akgül"
 seo_description: "Contact Arda Akgül for academic, editorial, student-media, or research-related communication."
 weight: 50
+faq:
+  - q: "How can I contact Arda Akgul?"
+    a: "Email at ardakgul4@gmail.com is the best first point of contact for academic, editorial, student-media, or research-related conversations."
+  - q: "What should a message include?"
+    a: "Messages that are clear about their purpose and context get the best response."
 ---
 
 # Contact
