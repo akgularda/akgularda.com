@@ -9,6 +9,11 @@
     </span>
   </a>
 
+  <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu">
+    <span data-menu-label>Menu</span>
+  </button>
+
+  <div class="sidebar-menu" id="site-menu">
   <nav class="sidebar-nav" aria-label="Main navigation">
     <ul>
       {{ range .Site.Menus.main }}
@@ -33,10 +38,6 @@
       <a href="{{ .url }}">{{ .label }}</a>
       {{ end }}
     </div>
-    {{ if .Site.Params.webamp.enabled }}
-    <button class="sidebar-footer__webamp" type="button" data-webamp-launcher aria-controls="webamp-dock" aria-expanded="false">
-      {{ .Site.Params.webamp.button_label | default "Webamp" }}
-    </button>
-    {{ end }}
+  </div>
   </div>
 </div>
