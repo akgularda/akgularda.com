@@ -10,7 +10,7 @@ noindex: true
 
 **Last Updated:** January 18, 2026
 
-This Cookie Policy explains how **akgularda.com** uses cookies and similar technologies.
+This Cookie Policy explains how **arda-akgul.com** uses cookies and similar technologies.
 
 ## What Are Cookies?
 
@@ -52,3 +52,4 @@ We may update this Cookie Policy from time to time. Changes will be posted on th
 ## Contact
 
 For questions about our use of cookies, contact: **ardakgul4@gmail.com**
+

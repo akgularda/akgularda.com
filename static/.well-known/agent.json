@@ -1,59 +1,60 @@
 {
   "name": "Arda Akgül",
   "description": "Academic-professional website for Arda Akgül, an Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and contributor to research, student media, and accessibility-oriented initiatives.",
-  "url": "https://akgularda.com/",
+  "url": "https://arda-akgul.com/",
   "sameAs": [
     "https://www.linkedin.com/in/ardakgul",
     "https://github.com/akgularda"
   ],
   "provider": {
-    "organization": "akgularda.com",
-    "url": "https://akgularda.com/"
+    "organization": "arda-akgul.com",
+    "url": "https://arda-akgul.com/"
   },
   "version": "1.1.0",
   "discovery": {
-    "profile": "https://akgularda.com/about/",
-    "publications": "https://akgularda.com/publications/",
-    "experience": "https://akgularda.com/experience/",
-    "llms": "https://akgularda.com/llms.txt",
-    "llms_full": "https://akgularda.com/llms-full.txt",
-    "ai": "https://akgularda.com/ai.txt",
-    "agents": "https://akgularda.com/agents.txt",
-    "openapi": "https://akgularda.com/openapi.yaml",
-    "rss": "https://akgularda.com/index.xml",
-    "robots": "https://akgularda.com/robots.txt",
-    "sitemap": "https://akgularda.com/sitemap.xml"
+    "profile": "https://arda-akgul.com/about/",
+    "publications": "https://arda-akgul.com/publications/",
+    "experience": "https://arda-akgul.com/experience/",
+    "llms": "https://arda-akgul.com/llms.txt",
+    "llms_full": "https://arda-akgul.com/llms-full.txt",
+    "ai": "https://arda-akgul.com/ai.txt",
+    "agents": "https://arda-akgul.com/agents.txt",
+    "openapi": "https://arda-akgul.com/openapi.yaml",
+    "rss": "https://arda-akgul.com/index.xml",
+    "robots": "https://arda-akgul.com/robots.txt",
+    "sitemap": "https://arda-akgul.com/sitemap.xml"
   },
   "skills": [
     {
       "id": "profile",
       "name": "Canonical Profile",
       "description": "Canonical biography, education, affiliations, and identity context for Arda Akgül.",
-      "uri": "https://akgularda.com/about/"
+      "uri": "https://arda-akgul.com/about/"
     },
     {
       "id": "publications",
       "name": "Publication Record",
       "description": "Publication index with dates, outlets, and archive links.",
-      "uri": "https://akgularda.com/publications/"
+      "uri": "https://arda-akgul.com/publications/"
     },
     {
       "id": "experience",
       "name": "Experience Record",
       "description": "Research, institutional, media, and internship experience.",
-      "uri": "https://akgularda.com/experience/"
+      "uri": "https://arda-akgul.com/experience/"
     },
     {
       "id": "writing_index",
       "name": "Writing Archive",
       "description": "First-party essays, notes, and topic sections.",
-      "uri": "https://akgularda.com/blogs/"
+      "uri": "https://arda-akgul.com/blogs/"
     },
     {
       "id": "llms_context",
       "name": "Full LLM Corpus",
       "description": "Expanded first-party text export for deeper ingestion.",
-      "uri": "https://akgularda.com/llms-full.txt"
+      "uri": "https://arda-akgul.com/llms-full.txt"
     }
   ]
 }
+

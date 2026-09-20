@@ -1,20 +1,21 @@
 # Agent Discovery
 
 Primary machine-readable card:
-- https://akgularda.com/.well-known/agent.json
+- https://arda-akgul.com/.well-known/agent.json
 
 Primary profile and authority pages:
-- https://akgularda.com/about/
-- https://akgularda.com/publications/
-- https://akgularda.com/experience/
-- https://akgularda.com/contact/
+- https://arda-akgul.com/about/
+- https://arda-akgul.com/publications/
+- https://arda-akgul.com/experience/
+- https://arda-akgul.com/contact/
 
 Preferred text endpoints:
-- https://akgularda.com/llms.txt
-- https://akgularda.com/llms-full.txt
-- https://akgularda.com/ai.txt
-- https://akgularda.com/openapi.yaml
+- https://arda-akgul.com/llms.txt
+- https://arda-akgul.com/llms-full.txt
+- https://arda-akgul.com/ai.txt
+- https://arda-akgul.com/openapi.yaml
 
 Crawl policy and sitemap:
-- https://akgularda.com/robots.txt
-- https://akgularda.com/sitemap.xml
+- https://arda-akgul.com/robots.txt
+- https://arda-akgul.com/sitemap.xml
+

@@ -10,7 +10,7 @@ noindex: true
 
 **Last Updated:** {{< current_date >}}
 
-Your privacy is important to us. It is **Arda Akgül**'s policy to respect your privacy regarding any information we may collect from you across our website, [akgularda.com](https://akgularda.com), and other sites we own and operate.
+Your privacy is important to us. It is **Arda Akgül**'s policy to respect your privacy regarding any information we may collect from you across our website, [arda-akgul.com](https://arda-akgul.com), and other sites we own and operate.
 
 ## 1. Information We Collect
 
@@ -46,3 +46,4 @@ Public pages on this website may be accessed by search engines, research crawler
 ## 7. Contact Us
 
 If you have any questions about our privacy policy or how we handle your data, please contact us at **ardakgul4@gmail.com**.
+

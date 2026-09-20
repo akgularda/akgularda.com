@@ -18,10 +18,10 @@
 {{- end -}}
 # Arda Akgül - Full LLM Corpus
 
-Source: https://akgularda.com/
+Source: https://arda-akgul.com/
 Purpose: Canonical long-form first-party context export for deeper ingestion.
-Use: Start with https://akgularda.com/llms.txt for the short index.
-Scope: Includes first-party about, publications index, blog posts, and any non-placeholder guides published on akgularda.com. External publication texts are referenced through the publications index and are not copied here.
+Use: Start with https://arda-akgul.com/llms.txt for the short index.
+Scope: Includes first-party about, publications index, blog posts, and any non-placeholder guides published on arda-akgul.com. External publication texts are referenced through the publications index and are not copied here.
 
 Preferred interpretation order:
 - Use /about/ as the canonical identity and biography page.
@@ -93,3 +93,4 @@ Description: {{ . }}
 
 {{ end }}
 {{ end }}
+

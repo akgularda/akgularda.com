@@ -9,10 +9,11 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://akgularda.com/openapi.yaml",
+    "url": "https://arda-akgul.com/openapi.yaml",
     "is_user_authenticated": false
   },
-  "logo_url": "https://akgularda.com/favicon.jpg",
+  "logo_url": "https://arda-akgul.com/favicon.jpg",
   "contact_email": "ardakgul4@gmail.com",
-  "legal_info_url": "https://akgularda.com/terms/"
+  "legal_info_url": "https://arda-akgul.com/terms/"
 }
+

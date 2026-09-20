@@ -20,13 +20,13 @@ $htaccess = Get-Content -LiteralPath $htaccessPath -Raw
 $checks = @(
     @{ Name = "home title"; Target = $homeHtml; Pattern = "Arda Akgül - Official Website" },
     @{ Name = "home meta description"; Target = $homeHtml; Pattern = "Official website of Arda Akgül" },
-    @{ Name = "home canonical"; Target = $homeHtml; Pattern = 'rel="canonical" href="https://akgularda.com/"' },
+    @{ Name = "home canonical"; Target = $homeHtml; Pattern = 'rel="canonical" href="https://arda-akgul.com/"' },
     @{ Name = "person alternateName"; Target = $homeHtml; Pattern = '"alternateName":"Arda Akgul"' },
     @{ Name = "person givenName"; Target = $homeHtml; Pattern = '"givenName":"Arda"' },
     @{ Name = "person worksFor"; Target = $homeHtml; Pattern = '"worksFor"' },
     @{ Name = "about page title"; Target = $aboutHtml; Pattern = "About Arda Akgül" },
     @{ Name = "ProfilePage schema"; Target = $aboutHtml; Pattern = '"@type":"ProfilePage"' },
-    @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://akgularda.com/about/#person"' }
+    @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://arda-akgul.com/about/#person"' }
 )
 
 $failedChecks = @()
@@ -43,8 +43,8 @@ if ($failedChecks.Count -gt 0) {
 
 $redirectChecks = @(
     "RewriteEngine On",
-    "RewriteCond %{HTTP_HOST} ^www\.akgularda\.com$ [NC]",
-    "RewriteRule ^ https://akgularda.com%{REQUEST_URI} [L,R=301]"
+    "RewriteCond %{HTTP_HOST} ^www\.arda-akgul\.com$ [NC]",
+    "RewriteRule ^ https://arda-akgul.com%{REQUEST_URI} [L,R=301]"
 )
 
 $failedRedirectChecks = @()
@@ -60,3 +60,4 @@ if ($failedRedirectChecks.Count -gt 0) {
 }
 
 Write-Output "Identity SEO checks passed."
+

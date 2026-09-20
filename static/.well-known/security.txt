@@ -1,4 +1,5 @@
 Contact: mailto:ardakgul4@gmail.com
 Preferred-Languages: en, tr
-Canonical: https://akgularda.com/.well-known/security.txt
+Canonical: https://arda-akgul.com/.well-known/security.txt
 Expires: 2027-12-31T23:59:00.000Z
+

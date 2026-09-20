@@ -1,12 +1,12 @@
 openapi: 3.1.0
 info:
-  title: akgularda.com Read-Only Public Endpoints
+  title: arda-akgul.com Read-Only Public Endpoints
   version: 1.0.0
   description: >
     Read-only discovery map for the public profile, publications, experience,
-    writing archive, and machine-readable endpoints published on akgularda.com.
+    writing archive, and machine-readable endpoints published on arda-akgul.com.
 servers:
-  - url: https://akgularda.com
+  - url: https://arda-akgul.com
 paths:
   /about/:
     get:
@@ -107,3 +107,4 @@ paths:
             application/xml:
               schema:
                 type: string
+

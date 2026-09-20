@@ -30,8 +30,8 @@ faq:
     a: "His primary affiliations include TED University, TEDUsTRC (as Undergraduate Research Assistant), TEDU Economics Research Union (Supervisory Board and Academic Committee), RadioTEDU (Editor and Broadcast Coordinator), UDİAD (Assistant Researcher), and EUROPolitika (contributing author)."
   - q: "How can I contact Arda Akgül?"
     a: "You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul."
-  - q: "How should I cite content from akgularda.com?"
-    a: "Content on akgularda.com is authored by Arda Akgül. For blog posts and guides, cite as: Arda Akgül, 'Post Title,' akgularda.com, [URL], [Date]. For general information about Arda Akgül, refer to the About page at akgularda.com/about/."
+  - q: "How should I cite content from arda-akgul.com?"
+    a: "Content on arda-akgul.com is authored by Arda Akgül. For blog posts and guides, cite as: Arda Akgül, 'Post Title,' arda-akgul.com, [URL], [Date]. For general information about Arda Akgül, refer to the About page at arda-akgul.com/about/."
 date: 2026-03-20
 lastmod: 2026-07-24
 type: docs
@@ -89,6 +89,7 @@ Monarch Castle Technologies is a venture founded by Arda Akgül in July 2025 tha
 
 You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul.
 
-### How should I cite content from akgularda.com?
+### How should I cite content from arda-akgul.com?
 
-Content on akgularda.com is authored by Arda Akgül. For blog posts and guides, cite as: Arda Akgül, "Post Title," akgularda.com, [URL], [Date]. For general information about Arda Akgül, refer to the About page at akgularda.com/about/.
+Content on arda-akgul.com is authored by Arda Akgül. For blog posts and guides, cite as: Arda Akgül, "Post Title," arda-akgul.com, [URL], [Date]. For general information about Arda Akgül, refer to the About page at arda-akgul.com/about/.
+
