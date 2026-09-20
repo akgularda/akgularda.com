@@ -90,7 +90,7 @@ $payload = @{
 # Send request
 Write-Log "Submitting to $ApiEndpoint..."
 try {
-    $response = Invoke-RestMethod -Uri $ApiEndpoint -Method Post -Body $payload -ContentType "application/json" -Scope Default
+    $response = Invoke-RestMethod -Uri $ApiEndpoint -Method Post -Body $payload -ContentType "application/json"
     Write-Log "SUCCESS: IndexNow submission accepted (Returned $($response | Out-String))."
 } catch {
     $ex = $_.Exception.Response
