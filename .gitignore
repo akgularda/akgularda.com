@@ -22,3 +22,5 @@ node_modules/
 *.pfx
 *.p12
 
+# IndexNow run log (local only)
+scripts/indexnow_log.txt
