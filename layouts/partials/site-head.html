@@ -49,6 +49,10 @@
 <link rel="alternate" type="text/plain" href="{{ "ai.txt" | absURL }}" title="AI Context">
 <link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="LLM Context">
 <link rel="alternate" type="text/plain" href="{{ "llms-full.txt" | absURL }}" title="Full LLM Context">
+<link rel="describedby" type="text/plain" href="{{ "llms.txt" | absURL }}" title="LLM Context">
+{{ with .OutputFormats.Get "md" }}
+<link rel="alternate" type="text/markdown" href="{{ .Permalink }}" title="Markdown version">
+{{ end }}
 {{ with .OutputFormats.Get "RSS" }}
 <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }} RSS Feed" href="{{ .RelPermalink }}">
 {{ end }}

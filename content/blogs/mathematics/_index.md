@@ -4,6 +4,7 @@ description: "Writing on mathematical thinking, formal structure, and analytical
 summary: "A future-facing mathematics section that supports interests in geometry and the mathematics of AI."
 weight: 50
 future: true
+noindex: true
 bookCollapseSection: true
 ---
 

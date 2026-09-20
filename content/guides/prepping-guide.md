@@ -4,6 +4,7 @@ weight: 10
 description: "A short note on calm, practical household preparedness."
 summary: "A brief guide to basic preparedness with a fuller version still in progress."
 future: true
+noindex: true
 ---
 # Prepping Guide
 

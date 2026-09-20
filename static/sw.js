@@ -1,6 +1,6 @@
 self.addEventListener("install", (event) => {
     event.waitUntil(
-        caches.open("akgularda-cache-v2").then((cache) => {
+        caches.open("arda-akgul-cache-v3").then((cache) => {
             return cache.addAll([
                 "/",
                 "/about/",
@@ -25,7 +25,7 @@ self.addEventListener("fetch", (event) => {
                 return cachedResponse;
             }
             return fetch(event.request).then((networkResponse) => {
-                return caches.open("akgularda-cache-v2").then((cache) => {
+                return caches.open("arda-akgul-cache-v3").then((cache) => {
                     cache.put(event.request, networkResponse.clone());
                     return networkResponse;
                 });
