@@ -13,6 +13,8 @@ For academic, editorial, student-media, or research-related conversations, email
 
 - Email: [ardakgul4@gmail.com](mailto:ardakgul4@gmail.com)
 - LinkedIn: [linkedin.com/in/ardakgul](https://www.linkedin.com/in/ardakgul)
+- Medium: [medium.com/@ardakgul](https://medium.com/@ardakgul)
+- X: [@ardakgul](https://x.com/ardakgul)
 - Location: Ankara, Turkiye
 
 I respond best to messages that are clear about their purpose and context.
