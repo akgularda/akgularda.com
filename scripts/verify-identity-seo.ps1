@@ -36,24 +36,37 @@ $checks = @(
 )
 
 $llmsPath = Join-Path $SiteRoot "public\llms.txt"
+$llmsFullPath = Join-Path $SiteRoot "public\llms-full.txt"
 $humansPath = Join-Path $SiteRoot "public\humans.txt"
+$robotsPath = Join-Path $SiteRoot "public\robots.txt"
+$essayPath = Join-Path $SiteRoot "public\publications\why-i-stopped-fighting-the-cameras\index.html"
 $blogPostPath = Join-Path $SiteRoot "public\blogs\economics\renaissance-economics\index.html"
-$extraRequired = @($llmsPath, $humansPath, $blogPostPath)
+$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $essayPath, $blogPostPath)
 $missingExtra = $extraRequired | Where-Object { -not (Test-Path -LiteralPath $_) }
 if ($missingExtra.Count -gt 0) {
     Write-Error ("Missing verification targets:`n- " + ($missingExtra -join "`n- "))
     exit 1
 }
 $llms = Get-Content -LiteralPath $llmsPath -Raw
+$llmsFull = Get-Content -LiteralPath $llmsFullPath -Raw
 $humans = Get-Content -LiteralPath $humansPath -Raw
+$robots = Get-Content -LiteralPath $robotsPath -Raw
+$essayHtml = Get-Content -LiteralPath $essayPath -Raw
 $blogHtml = Get-Content -LiteralPath $blogPostPath -Raw
 $checks += @(
     @{ Name = "llms.txt privacy link"; Target = $llms; Pattern = "https://arda-akgul.com/privacy/" },
     @{ Name = "llms.txt cookies link"; Target = $llms; Pattern = "https://arda-akgul.com/cookies/" },
     @{ Name = "llms.txt terms link"; Target = $llms; Pattern = "https://arda-akgul.com/terms/" },
+    @{ Name = "llms.txt publication essays"; Target = $llms; Pattern = "Publication Essays" },
+    @{ Name = "llms.txt essay link"; Target = $llms; Pattern = "publications/why-i-stopped-fighting-the-cameras" },
+    @{ Name = "llms-full publication essays"; Target = $llmsFull; Pattern = "## Publication Essays" },
+    @{ Name = "llms-full essay voice"; Target = $llmsFull; Pattern = "I think a lot of people still treat urban sensors" },
+    @{ Name = "robots GPTBot allow"; Target = $robots; Pattern = "User-agent: GPTBot" },
     @{ Name = "humans.txt author"; Target = $humans; Pattern = "Arda Akgül" },
     @{ Name = "BlogPosting schema"; Target = $blogHtml; Pattern = '"@type":"BlogPosting"' },
-    @{ Name = "BlogPosting genre"; Target = $blogHtml; Pattern = '"genre"' }
+    @{ Name = "BlogPosting genre"; Target = $blogHtml; Pattern = '"genre"' },
+    @{ Name = "essay Article schema"; Target = $essayHtml; Pattern = '"@type":"Article"' },
+    @{ Name = "essay voice"; Target = $essayHtml; Pattern = "I think a lot of people still treat urban sensors" }
 )
 
 $failedChecks = @()
