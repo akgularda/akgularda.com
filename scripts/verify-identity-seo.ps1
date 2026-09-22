@@ -20,18 +20,22 @@ $htaccess = Get-Content -LiteralPath $htaccessPath -Raw
 $checks = @(
     @{ Name = "home title"; Target = $homeHtml; Pattern = "Arda Akgül - Official Website" },
     @{ Name = "home meta description"; Target = $homeHtml; Pattern = "Official website of Arda Akgül" },
-    @{ Name = "home canonical"; Target = $homeHtml; Pattern = 'rel="canonical" href="https://arda-akgul.com/"' },
+    @{ Name = "home canonical"; Target = $homeHtml; Pattern = 'rel="?canonical"? href="?https://arda-akgul\.com/"?'; IsRegex = $true },
     @{ Name = "person alternateName"; Target = $homeHtml; Pattern = '"alternateName":"Arda Akgul"' },
     @{ Name = "person givenName"; Target = $homeHtml; Pattern = '"givenName":"Arda"' },
     @{ Name = "person worksFor"; Target = $homeHtml; Pattern = '"worksFor"' },
     @{ Name = "about page title"; Target = $aboutHtml; Pattern = "About Arda Akgül" },
     @{ Name = "ProfilePage schema"; Target = $aboutHtml; Pattern = '"@type":"ProfilePage"' },
-    @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://arda-akgul.com/about/#person"' }
+    @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://arda-akgul.com/about/#person"' },
+    @{ Name = "gtag"; Target = $homeHtml; Pattern = "G-RY2DML1TZX" },
+    @{ Name = "Preferred Sources link"; Target = $homeHtml; Pattern = "google.com/preferences/source?q=arda-akgul.com" }
 )
 
 $failedChecks = @()
 foreach ($check in $checks) {
-    if ($check.Target -notmatch [regex]::Escape($check.Pattern)) {
+    if ($check.IsRegex) {
+        if ($check.Target -notmatch $check.Pattern) { $failedChecks += $check.Name }
+    } elseif ($check.Target -notmatch [regex]::Escape($check.Pattern)) {
         $failedChecks += $check.Name
     }
 }
