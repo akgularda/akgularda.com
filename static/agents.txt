@@ -13,9 +13,15 @@ Preferred text endpoints:
 - https://arda-akgul.com/llms.txt
 - https://arda-akgul.com/llms-full.txt
 - https://arda-akgul.com/ai.txt
+- https://arda-akgul.com/humans.txt
 - https://arda-akgul.com/openapi.yaml
 
 Crawl policy and sitemap:
 - https://arda-akgul.com/robots.txt
 - https://arda-akgul.com/sitemap.xml
+
+Legal and privacy:
+- https://arda-akgul.com/privacy/
+- https://arda-akgul.com/cookies/
+- https://arda-akgul.com/terms/
 

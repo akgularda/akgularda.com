@@ -181,7 +181,9 @@
     {{ $pageType = "ProfilePage" }}
   {{ else if eq .RelPermalink "/contact/" }}
     {{ $pageType = "ContactPage" }}
-  {{ else if or (eq .Section "blogs") (eq .Section "guides") }}
+  {{ else if eq .Section "blogs" }}
+    {{ $pageType = "BlogPosting" }}
+  {{ else if eq .Section "guides" }}
     {{ $pageType = "Article" }}
   {{ end }}
   {{ $pageSchema := dict
@@ -209,6 +211,20 @@
     {{ $pageSchema = merge $pageSchema (dict "mainEntity" $personReference "about" $personReference "mainEntityOfPage" .Permalink "significantLink" $authorityLinks "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".prose"))) }}
   {{ else if eq $pageType "ContactPage" }}
     {{ $pageSchema = merge $pageSchema (dict "mainEntity" $personReference "about" $personReference "mainEntityOfPage" .Permalink) }}
+  {{ else if eq $pageType "BlogPosting" }}
+    {{ $pageSchema = merge $pageSchema (dict "author" $personReference "publisher" $publisherRef "mainEntityOfPage" .Permalink "image" $image) }}
+    {{ $minutes := div .WordCount 200 }}
+    {{ if lt $minutes 1 }}{{ $minutes = 1 }}{{ end }}
+    {{ $timeRequired := printf "PT%dM" $minutes }}
+    {{ $pageSchema = merge $pageSchema (dict
+      "wordCount" .WordCount
+      "timeRequired" $timeRequired
+      "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
+      "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".prose")))
+    }}
+    {{ with .Params.categories }}{{ $pageSchema = merge $pageSchema (dict "articleSection" (delimit . ", ")) }}{{ end }}
+    {{ with .Params.tags }}{{ $pageSchema = merge $pageSchema (dict "genre" (index . 0)) }}{{ end }}
+    {{ $pageSchema = merge $pageSchema (dict "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)) }}
   {{ else if eq $pageType "Article" }}
     {{ $pageSchema = merge $pageSchema (dict "author" $personReference "publisher" $publisherRef "mainEntityOfPage" .Permalink "image" $image) }}
     {{ $minutes := div .WordCount 200 }}
@@ -223,6 +239,27 @@
     {{ with .Params.categories }}{{ $pageSchema = merge $pageSchema (dict "articleSection" (index . 0)) }}{{ end }}
   {{ end }}
 <script type="application/ld+json">{{ $pageSchema | jsonify | safeJS }}</script>
+  {{ if and (eq .Section "guides") .Params.howto_steps }}
+    {{ $howtoSteps := slice }}
+    {{ range $i, $step := .Params.howto_steps }}
+      {{ $howtoSteps = $howtoSteps | append (dict "@type" "HowToStep" "position" (add $i 1) "name" ($step.name | default (printf "Step %d" (add $i 1))) "text" ($step.text | default "")) }}
+    {{ end }}
+    {{ $howto := dict
+      "@context" "https://schema.org"
+      "@type" "HowTo"
+      "@id" (printf "%s#howto" .Permalink)
+      "name" .Title
+      "description" $description
+      "url" .Permalink
+      "inLanguage" (.Site.LanguageCode | default "en-us")
+      "totalTime" (printf "PT%dM" (default 10 .Params.howto_minutes))
+      "step" $howtoSteps
+      "author" $personReference
+      "publisher" $publisherRef
+    }}
+    {{ with .Date }}{{ $howto = merge $howto (dict "datePublished" (.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
+<script type="application/ld+json">{{ $howto | jsonify | safeJS }}</script>
+  {{ end }}
 {{ else if or .IsSection (eq .Kind "taxonomy") (eq .Kind "term") }}
   {{ $collection := dict
     "@context" "https://schema.org"

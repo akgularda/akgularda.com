@@ -35,6 +35,27 @@ $checks = @(
     @{ Name = "cookie settings link"; Target = $homeHtml; Pattern = "cookie-settings-btn" }
 )
 
+$llmsPath = Join-Path $SiteRoot "public\llms.txt"
+$humansPath = Join-Path $SiteRoot "public\humans.txt"
+$blogPostPath = Join-Path $SiteRoot "public\blogs\economics\renaissance-economics\index.html"
+$extraRequired = @($llmsPath, $humansPath, $blogPostPath)
+$missingExtra = $extraRequired | Where-Object { -not (Test-Path -LiteralPath $_) }
+if ($missingExtra.Count -gt 0) {
+    Write-Error ("Missing verification targets:`n- " + ($missingExtra -join "`n- "))
+    exit 1
+}
+$llms = Get-Content -LiteralPath $llmsPath -Raw
+$humans = Get-Content -LiteralPath $humansPath -Raw
+$blogHtml = Get-Content -LiteralPath $blogPostPath -Raw
+$checks += @(
+    @{ Name = "llms.txt privacy link"; Target = $llms; Pattern = "https://arda-akgul.com/privacy/" },
+    @{ Name = "llms.txt cookies link"; Target = $llms; Pattern = "https://arda-akgul.com/cookies/" },
+    @{ Name = "llms.txt terms link"; Target = $llms; Pattern = "https://arda-akgul.com/terms/" },
+    @{ Name = "humans.txt author"; Target = $humans; Pattern = "Arda Akgül" },
+    @{ Name = "BlogPosting schema"; Target = $blogHtml; Pattern = '"@type":"BlogPosting"' },
+    @{ Name = "BlogPosting genre"; Target = $blogHtml; Pattern = '"genre"' }
+)
+
 $failedChecks = @()
 foreach ($check in $checks) {
     if ($check.IsRegex) {
