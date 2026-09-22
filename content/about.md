@@ -33,6 +33,8 @@ home_interest_items:
   - "Blockchain"
   - "Cryptography"
   - "FMCG and Fast Food Investment"
+  - "Data-Driven Governance"
+  - "Digital Public Infrastructure"
 faq:
   - q: "Who is Arda Akgül?"
     a: "Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), and the founder of Monarch Castle Technologies."
