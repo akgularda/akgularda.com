@@ -8,7 +8,7 @@ noindex: true
 
 # Terms of Service
 
-**Last Updated:** January 18, 2026
+**Last Updated:** {{< current_date >}}
 
 Welcome to **arda-akgul.com**. By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.
 
@@ -45,5 +45,7 @@ We reserve the right to modify these terms at any time. Continued use of the web
 
 ## 7. Contact
 
-For questions about these terms, contact: **ardakgul4@gmail.com**
+For questions about these terms, contact: **[ardakgul4@gmail.com](mailto:ardakgul4@gmail.com)**
+
+Related pages: [Privacy Policy](/privacy/) · [Cookie Policy](/cookies/)
 
