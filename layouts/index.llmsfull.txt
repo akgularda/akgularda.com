@@ -1,6 +1,6 @@
 {{- $about := .Site.GetPage "/about" -}}
 {{- $publications := .Site.GetPage "/publications" -}}
-{{- $pubPages := where .Site.RegularPages "Section" "publications" -}}
+{{- $pubEssays := where .Site.RegularPages "Section" "publications" -}}
 {{- $guides := (where .Site.RegularPages "Section" "guides").ByWeight -}}
 {{- $blogs := (where .Site.RegularPages "Section" "blogs").ByDate.Reverse -}}
 {{- $stripTemplateLines := "(?m)^\\s*\\{\\{[^\\n]*\\}\\}\\s*(\\r?\\n)?" -}}
