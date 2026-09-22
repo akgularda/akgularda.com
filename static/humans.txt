@@ -1,0 +1,27 @@
+# TEAM
+
+Site: https://arda-akgul.com
+Author: Arda Akgül
+Role: Writer, researcher, and site owner
+Location: Ankara, Türkiye
+Contact: mailto:ardakgul4@gmail.com
+
+Verified profiles:
+- https://www.linkedin.com/in/ardakgul
+- https://github.com/akgularda
+
+# SITE
+
+Last update: 2026/09/22
+Language: en, tr
+Standards: HTML5, CSS3, JSON-LD (schema.org)
+Platform: Hugo (static site generator), GitHub Pages
+Analytics: Google Analytics 4 (consent-gated, Google Consent Mode v2)
+Fonts: self-hosted where possible; Google Fonts with privacy safeguards
+
+# COLOPHON
+
+Theme: custom Hugo layout
+Source: https://github.com/akgularda/akgularda.com
+Machine endpoints: /llms.txt, /ai.txt, /agents.txt, /humans.txt
+Legal: /privacy/, /cookies/, /terms/

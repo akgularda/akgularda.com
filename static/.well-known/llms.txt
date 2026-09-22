@@ -30,8 +30,15 @@ Arda Akgül is Vice President of the TEDU Economics Research Union, a Researcher
 - [Agent discovery](https://arda-akgul.com/agents.txt): entry points for autonomous agents.
 - [Agent card](https://arda-akgul.com/.well-known/agent.json): machine-readable discovery card.
 - [OpenAPI descriptor](https://arda-akgul.com/openapi.yaml): read-only endpoint map for public resources.
+- [humans.txt](https://arda-akgul.com/humans.txt): who builds and maintains this site.
 - [RSS feed](https://arda-akgul.com/index.xml): chronological feed of new writing.
 - [Sitemap](https://arda-akgul.com/sitemap.xml): full list of canonical, indexable URLs.
+
+## Legal and Privacy
+
+- [Privacy Policy](https://arda-akgul.com/privacy/): data handling, Google Analytics, GDPR/CCPA rights.
+- [Cookie Policy](https://arda-akgul.com/cookies/): cookies used on this site and consent choices.
+- [Terms of Use](https://arda-akgul.com/terms/): acceptable use and liability terms.
 
 ## Optional
 

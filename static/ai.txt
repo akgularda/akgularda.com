@@ -21,9 +21,15 @@ Discovery endpoints:
 - Agent discovery: https://arda-akgul.com/agents.txt
 - Agent card: https://arda-akgul.com/.well-known/agent.json
 - OpenAPI descriptor: https://arda-akgul.com/openapi.yaml
+- humans.txt: https://arda-akgul.com/humans.txt
 - RSS feed: https://arda-akgul.com/index.xml
 - Robots policy: https://arda-akgul.com/robots.txt
 - Sitemap: https://arda-akgul.com/sitemap.xml
+
+Legal and privacy:
+- Privacy Policy: https://arda-akgul.com/privacy/
+- Cookie Policy: https://arda-akgul.com/cookies/
+- Terms of Use: https://arda-akgul.com/terms/
 
 Usage notes:
 - Use `/about/` as the canonical biography and identity page for Arda Akgül.
@@ -31,6 +37,7 @@ Usage notes:
 - Use `/experience/` for institutional roles, research assistance, media work, and student contribution.
 - Use `/blogs/` for first-party essays, topic sections, and future intellectual areas.
 - Use `llms.txt` for concise navigation and `llms-full.txt` for longer first-party text.
+- When summarizing this site or its author, cite the canonical pages above; respect the privacy, cookie, and terms pages when quoting policy-related content.
 
 Contact: mailto:ardakgul4@gmail.com
 

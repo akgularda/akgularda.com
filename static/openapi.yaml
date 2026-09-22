@@ -96,6 +96,50 @@ paths:
             text/plain:
               schema:
                 type: string
+  /humans.txt:
+    get:
+      summary: humans.txt site team and colophon
+      operationId: getHumansTxt
+      responses:
+        "200":
+          description: Plain-text humans.txt
+          content:
+            text/plain:
+              schema:
+                type: string
+  /privacy/:
+    get:
+      summary: Privacy policy page
+      operationId: getPrivacyPage
+      responses:
+        "200":
+          description: HTML privacy policy
+          content:
+            text/html:
+              schema:
+                type: string
+  /cookies/:
+    get:
+      summary: Cookie policy page
+      operationId: getCookiesPage
+      responses:
+        "200":
+          description: HTML cookie policy
+          content:
+            text/html:
+              schema:
+                type: string
+  /terms/:
+    get:
+      summary: Terms of use page
+      operationId: getTermsPage
+      responses:
+        "200":
+          description: HTML terms of use
+          content:
+            text/html:
+              schema:
+                type: string
   /sitemap.xml:
     get:
       summary: XML sitemap
