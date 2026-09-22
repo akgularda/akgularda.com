@@ -34,4 +34,3 @@ Palantir. (n.d.). *Engineering Blog*. https://blog.palantir.com/
 Palantir. (n.d.). *Foundry Documentation*. https://docs.palantir.com/
 
 Palantir. (n.d.). *Artificial Intelligence Platform (AIP)*. https://www.palantir.com/platforms/aip/
-

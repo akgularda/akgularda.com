@@ -9,9 +9,9 @@ slug: "why-i-stopped-fighting-the-cameras"
 draft: false
 ---
 
-I think a lot of people still treat urban sensors the way earlier generations treated speed cameras: as small insults that must be noticed, resented, and sometimes avoided. For years I did the same. I counted cameras the way other people count exit signs. A new dome above a metro entrance, a lens on a bus, a body cam on a patrol — I logged them mentally and felt vaguely principled for noticing.
+I think a lot of people still treat urban sensors the way earlier generations treated speed cameras: as small insults that must be noticed, resented, and sometimes dodged. For years I did exactly that. I counted cameras the way other people count exit signs. A new dome above a metro entrance, a lens on a bus, a body cam on a patrol — I logged them mentally and felt vaguely principled for noticing.
 
-The shift was not a movie speech. It was logistics. I missed a bus because I had walked the "less watched" side of the street. I spent ten minutes finding a pharmacy the map already ranked poorly because I refused a route with better live traffic data. Once that pattern repeated, the old ritual started to look less like principle and more like friction I was choosing on purpose.
+The shift was not a movie speech. It was logistics. I missed a bus because I had walked the "less watched" side of the street. I spent ten minutes finding a pharmacy the map already ranked poorly because I refused a route with better live traffic data. Once that pattern repeated, the old habit stopped looking like principle. It started looking like friction I was choosing on purpose.
 
 ## Visibility is becoming infrastructure, not drama
 
