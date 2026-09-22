@@ -15,7 +15,7 @@ That seam is where better services are stuck — not for lack of numbers, but fo
 
 ## What a partnership would actually mean
 
-In practice: stable identifiers, published schemas, versioned endpoints, and rules for who may query what under which mandate. The European Union's Data Act and Data Governance Act package those ideas into law — portability, sharing obligations, trusted intermediaries. Turkey does not need to import Brussels paperwork wholesale to steal the engineering discipline underneath it.
+In practice: stable identifiers, published schemas, versioned endpoints, and rules for who may query what under which mandate. The European Union's [Data Act](https://eur-lex.europa.eu/eli/reg/2023/2854/oj) and [Data Governance Act](https://eur-lex.europa.eu/eli/reg/2022/868/oj) package those ideas into law — portability, sharing obligations, trusted intermediaries. Turkey does not need to import Brussels paperwork wholesale to steal the engineering discipline underneath it.
 
 Critics warn about vendor lock-in and capture by whichever firm integrates first. I understand that reaction; it is not naive. But I think the answer is procurement that demands exportable schemas and open interfaces, not a retreat into disconnected folders. Once that becomes normal, the old image of inter-agency cooperation as informal spreadsheet favors starts to look exactly as fragile as it is.
 

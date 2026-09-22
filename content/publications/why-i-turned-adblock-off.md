@@ -24,7 +24,7 @@ What surprised me was not the ads I got back. It was the sites that stopped look
 
 Consent dialogs finished their logic. Layout slots filled instead of collapsing. Embedded players and read-later tools no longer depended on a whitelist I had forgotten I curated.
 
-The IAB Europe Transparency and Consent Framework describes how publishers, vendors, and browsers are supposed to coordinate these requests. In theory that is plumbing. In practice, blocking the plumbing left me debugging other people's sites during ordinary reading sessions.
+The [IAB Europe Transparency and Consent Framework](https://iabeurope.eu/transparency-consent-framework/) describes how publishers, vendors, and browsers are supposed to coordinate these requests. In theory that is plumbing. In practice, blocking the plumbing left me debugging other people's sites during ordinary reading sessions.
 
 Some people prefer a quieter canvas and will trade breakage for it. I understand that reaction. But I also think there is something intellectually interesting here: the exception list had become a second hobby, and the hobby was costing me complete pages. Frictionless loading of a full layout beats a pristine page that needs three reloads and a guessed rule.
 

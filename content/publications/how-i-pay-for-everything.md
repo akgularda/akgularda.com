@@ -24,7 +24,7 @@ I used to keep a small note in my jacket "for emergencies." The emergency never 
 
 Some people budget better with physical money. Fair enough; envelopes work. For me the opposite happened. Cash made spending easy to do and hard to see. A card statement makes spending easy to see, and therefore easier to steer.
 
-Instant transfers handled the fixed side of student life: rent share, utilities, dues to organizations I work with. The Bank for International Settlements Red Book and the ECB's consumer payment surveys both show the same long trend across Europe — cash retaining a role while card and instant rails take the everyday volume. My week is a small sample of that curve.
+Instant transfers handled the fixed side of student life: rent share, utilities, dues to organizations I work with. The [Bank for International Settlements Red Book](https://www.bis.org/statistics/payment_statistics.htm) and the ECB's consumer payment surveys both show the same long trend across Europe — cash retaining a role while card and instant rails take the everyday volume. My week is a small sample of that curve.
 
 That is why I think the interesting shift is not "cards beat cash" as a slogan. The real change is that spending has become a readable dataset. Once that becomes normal, the old image of budgeting as a jar on the shelf starts to look incomplete.
 
