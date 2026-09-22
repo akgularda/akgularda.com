@@ -250,6 +250,10 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 
 He studies economics and business administration, with a focus on international trade, sustainability, energy policy, and the role of institutions in public life, and has published 35+ articles across ERUMAG, UDİAD, and EUROPolitika.
 
+### What is Arda Akgül’s thesis about?
+
+His economics thesis examines EU exposure, the Carbon Border Adjustment Mechanism (CBAM), and sustainability reporting in the aluminum sector.
+
 ### Where is Arda Akgül based?
 
 Arda Akgül is based in Ankara, Türkiye.
