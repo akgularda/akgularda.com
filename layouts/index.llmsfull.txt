@@ -1,5 +1,6 @@
 {{- $about := .Site.GetPage "/about" -}}
 {{- $publications := .Site.GetPage "/publications" -}}
+{{- $pubPages := where .Site.RegularPages "Section" "publications" -}}
 {{- $guides := (where .Site.RegularPages "Section" "guides").ByWeight -}}
 {{- $blogs := (where .Site.RegularPages "Section" "blogs").ByDate.Reverse -}}
 {{- $stripTemplateLines := "(?m)^\\s*\\{\\{[^\\n]*\\}\\}\\s*(\\r?\\n)?" -}}
@@ -21,7 +22,7 @@
 Source: https://arda-akgul.com/
 Purpose: Canonical long-form first-party context export for deeper ingestion.
 Use: Start with https://arda-akgul.com/llms.txt for the short index.
-Scope: Includes first-party about, publications index, blog posts, and any non-placeholder guides published on arda-akgul.com. External publication texts are referenced through the publications index and are not copied here.
+Scope: Includes first-party about, publications index, publication essays, blog posts, and any non-placeholder guides published on arda-akgul.com. External publication texts are referenced through the publications index and are not copied here.
 
 Preferred interpretation order:
 - Use /about/ as the canonical identity and biography page.
@@ -33,6 +34,9 @@ Preferred interpretation order:
 
 - About
 - Publications Index
+{{- if gt (len $pubEssays) 0 }}
+- Publication Essays
+{{- end }}
 {{- if gt (len $includedGuides) 0 }}
 - Guides
 {{- end }}
@@ -57,6 +61,24 @@ Content-Type: publication-index
 
 {{ .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace }}
 
+{{ end }}
+{{ if gt (len $pubEssays) 0 }}
+## Publication Essays
+
+{{ range $pubEssays.ByDate.Reverse }}
+### {{ .Title }}
+
+Source: {{ .Permalink }}
+Content-Type: site-essay
+{{ with .Date }}Date: {{ .Format "2006-01-02" }}{{ end }}
+{{ with .Params.tags }}Tags: {{ delimit . ", " }}{{ end }}
+{{ with .Params.description }}
+Description: {{ . }}
+{{ end }}
+
+{{ .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace }}
+
+{{ end }}
 {{ end }}
 {{ if gt (len $includedGuides) 0 }}
 ## Guides

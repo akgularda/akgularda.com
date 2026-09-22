@@ -183,7 +183,7 @@
     {{ $pageType = "ContactPage" }}
   {{ else if eq .Section "blogs" }}
     {{ $pageType = "BlogPosting" }}
-  {{ else if eq .Section "guides" }}
+  {{ else if or (eq .Section "guides") (eq .Section "publications") }}
     {{ $pageType = "Article" }}
   {{ end }}
   {{ $pageSchema := dict
@@ -236,7 +236,8 @@
       "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
       "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".prose")))
     }}
-    {{ with .Params.categories }}{{ $pageSchema = merge $pageSchema (dict "articleSection" (index . 0)) }}{{ end }}
+    {{ with .Params.categories }}{{ $pageSchema = merge $pageSchema (dict "articleSection" (delimit . ", ")) }}{{ end }}
+    {{ with .Params.tags }}{{ $pageSchema = merge $pageSchema (dict "genre" (index . 0)) }}{{ end }}
   {{ end }}
 <script type="application/ld+json">{{ $pageSchema | jsonify | safeJS }}</script>
   {{ if and (eq .Section "guides") .Params.howto_steps }}

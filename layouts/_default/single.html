@@ -37,7 +37,7 @@
 
     {{ if $showMeta }}
     <div class="meta-row">
-      {{ if or (eq .Section "blogs") (eq .Section "guides") }}<span>By {{ .Site.Params.author }}</span>{{ end }}
+      {{ if or (eq .Section "blogs") (eq .Section "guides") (eq .Section "publications") }}<span>By {{ .Site.Params.author }}</span>{{ end }}
       {{ with .Date }}<span>{{ .Format "January 2, 2006" }}</span>{{ end }}
       {{ with .Params.categories }}<span>{{ delimit . ", " }}</span>{{ end }}
     </div>
@@ -57,7 +57,7 @@
   {{ end }}
 </header>
 
-{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides")) }}
+{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides") (eq .Section "publications")) }}
 {{ $tlDrMatches := findRE `(?s)<p>(.*?)</p>` .Content 1 }}
 {{ with $tlDrMatches }}
 <div class="tl-dr" aria-label="Summary">
@@ -75,8 +75,8 @@
   {{ end }}
 </article>
 
-{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides")) }}
-  {{ $related := first 4 (where (.Site.RegularPages.Related .) "Section" "in" (slice "blogs" "guides")) }}
+{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides") (eq .Section "publications")) }}
+  {{ $related := first 4 (where (.Site.RegularPages.Related .) "Section" "in" (slice "blogs" "guides" "publications")) }}
   {{ with $related }}
   <section class="listing-section related-writing">
     <div class="section-heading">
