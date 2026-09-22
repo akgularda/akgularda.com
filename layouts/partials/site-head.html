@@ -39,6 +39,9 @@
 <meta name="robots" content="{{ $robots }}">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#173d68">
+{{ with .Site.Params.verification.google }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
+{{ with .Site.Params.verification.bing }}<meta name="msvalidate.01" content="{{ . }}">{{ end }}
+{{ with .Site.Params.verification.yandex }}<meta name="yandex-verification" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">

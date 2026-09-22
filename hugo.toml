@@ -62,6 +62,10 @@ summaryLength = 1000
   term = ["HTML", "RSS"]
 
 [params]
+  # Search engine verification tokens (emit <meta> tags when set):
+  # [params.verification]
+  #   google = "token-from-google-search-console"
+  #   bing = "token-from-bing-webmaster-tools"
   description = "Official website of Arda Akgül, an Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."
   home_about_lead = "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara."
   author = "Arda Akgül"
