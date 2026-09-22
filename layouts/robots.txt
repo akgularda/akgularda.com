@@ -1,5 +1,6 @@
 # AI assistants and search crawlers are explicitly welcomed to read and cite this site.
 Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Agentmap: https://arda-akgul.com/.well-known/ard.json
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -23,6 +24,7 @@ User-agent: Bytespider
 Allow: /
 
 User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
 Sitemap: {{ "sitemap.xml" | absURL }}
