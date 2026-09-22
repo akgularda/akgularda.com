@@ -105,5 +105,23 @@ try {
 }
 
 Write-Log "IndexNow sync completed successfully."
+
+# WebSub: notify hubs that the RSS feed changed (real-time feed readers / aggregators).
+$FeedUrl = "https://$HostName/index.xml"
+foreach ($Hub in @(
+        "https://pubsubhubbub.appspot.com/",
+        "https://websub.superfeedr.com/"
+    )) {
+    try {
+        Invoke-RestMethod -Uri $Hub -Method Post -Body @{
+            "hub.mode" = "publish"
+            "hub.url"  = $FeedUrl
+        } | Out-Null
+        Write-Log "SUCCESS: WebSub publish notified $Hub"
+    } catch {
+        Write-Log "Warning: WebSub publish to $Hub failed: $($_.Exception.Message)"
+    }
+}
+
 exit 0
 
