@@ -1,0 +1,105 @@
+<div id="consent-banner" class="consent-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <div class="consent-banner__inner">
+    <div class="consent-banner__text">
+      <p class="consent-banner__title">We value your privacy</p>
+      <p class="consent-banner__body">
+        This site uses cookies and Google Analytics to understand how visitors use it.
+        With your consent, Google may also use data for advertising-related measurement.
+        You can accept or reject non-essential cookies at any time.
+        See our <a href="/privacy/">Privacy Policy</a> and <a href="/cookies/">Cookie Policy</a>.
+      </p>
+    </div>
+    <div class="consent-banner__actions">
+      <button type="button" class="consent-btn" id="consent-reject">Reject all</button>
+      <button type="button" class="consent-btn" id="consent-customize" aria-expanded="false" aria-controls="consent-prefs">Customize</button>
+      <button type="button" class="consent-btn consent-btn--primary" id="consent-accept">Accept all</button>
+    </div>
+    <div class="consent-banner__prefs" id="consent-prefs" hidden>
+      <label class="consent-pref">
+        <input type="checkbox" id="consent-pref-analytics">
+        <span><strong>Analytics storage</strong> — Google Analytics usage statistics (measurement ID G-RY2DML1TZX).</span>
+      </label>
+      <label class="consent-pref">
+        <input type="checkbox" id="consent-pref-ads">
+        <span><strong>Advertising storage &amp; personalization</strong> — reserved for Google advertising signals. This site does not currently show ads.</span>
+      </label>
+      <button type="button" class="consent-btn consent-btn--primary" id="consent-save">Save preferences</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'ac_consent_v1';
+  var banner = document.getElementById('consent-banner');
+  var prefs = document.getElementById('consent-prefs');
+  var customizeBtn = document.getElementById('consent-customize');
+  var analyticsBox = document.getElementById('consent-pref-analytics');
+  var adsBox = document.getElementById('consent-pref-ads');
+
+  function readConsent() {
+    var match = document.cookie.match('(?:^|;\\s*)' + KEY + '=([^;]*)');
+    if (!match) { return null; }
+    try { return JSON.parse(decodeURIComponent(match[1])); } catch (e) { return null; }
+  }
+
+  function writeConsent(analytics, ads) {
+    var value = JSON.stringify({ v: 1, a: analytics ? 1 : 0, d: ads ? 1 : 0, t: Date.now() });
+    document.cookie = KEY + '=' + encodeURIComponent(value) + ';path=/;max-age=31536000;SameSite=Lax';
+  }
+
+  function applyConsent(analytics, ads) {
+    if (typeof gtag !== 'function') { return; }
+    gtag('consent', 'update', {
+      'analytics_storage': analytics ? 'granted' : 'denied',
+      'ad_storage': ads ? 'granted' : 'denied',
+      'ad_user_data': ads ? 'granted' : 'denied',
+      'ad_personalization': ads ? 'granted' : 'denied'
+    });
+  }
+
+  function saveAndApply(analytics, ads) {
+    writeConsent(analytics, ads);
+    applyConsent(analytics, ads);
+    banner.hidden = true;
+    prefs.hidden = true;
+    customizeBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  function openBanner() {
+    var stored = readConsent();
+    analyticsBox.checked = !stored || !!stored.a;
+    adsBox.checked = !stored || !!stored.d;
+    banner.hidden = false;
+  }
+
+  var existing = readConsent();
+  if (existing) {
+    applyConsent(!!existing.a, !!existing.d);
+  } else {
+    openBanner();
+  }
+
+  document.getElementById('consent-accept').addEventListener('click', function () {
+    saveAndApply(true, true);
+  });
+  document.getElementById('consent-reject').addEventListener('click', function () {
+    saveAndApply(false, false);
+  });
+  document.getElementById('consent-save').addEventListener('click', function () {
+    saveAndApply(analyticsBox.checked, adsBox.checked);
+  });
+  customizeBtn.addEventListener('click', function () {
+    var open = prefs.hidden;
+    prefs.hidden = !open;
+    customizeBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  var settingsBtn = document.getElementById('cookie-settings-btn');
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+      openBanner();
+    });
+  }
+})();
+</script>

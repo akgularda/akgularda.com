@@ -435,6 +435,126 @@ body a[role="button"] {
   background: rgba(15, 23, 42, 0.22);
 }
 
+.site-footer__legal {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--site-rule);
+}
+
+.site-footer__legal ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.site-footer__legal a {
+  color: var(--site-muted);
+}
+
+.site-footer__legal a:hover {
+  color: var(--site-link);
+}
+
+.consent-banner {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: var(--site-panel);
+  border-top: 1px solid var(--site-border);
+  box-shadow: 0 -8px 30px rgba(15, 23, 42, 0.08);
+  padding: 1rem 1.25rem 1.15rem;
+}
+
+.consent-banner[hidden],
+.consent-banner__prefs[hidden] {
+  display: none;
+}
+
+.consent-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.consent-banner__text {
+  margin-bottom: 0.85rem;
+}
+
+.consent-banner__title {
+  margin: 0 0 0.35rem;
+  font-weight: 800;
+  color: var(--site-ink);
+}
+
+.consent-banner__body {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--site-muted);
+}
+
+.consent-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.consent-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius);
+  background: var(--site-panel);
+  color: var(--site-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.consent-btn:hover {
+  border-color: var(--site-link);
+  color: var(--site-link);
+}
+
+.consent-btn--primary {
+  background: var(--site-accent);
+  border-color: var(--site-accent);
+  color: #ffffff;
+}
+
+.consent-btn--primary:hover {
+  background: var(--site-link);
+  border-color: var(--site-link);
+  color: #ffffff;
+}
+
+.consent-banner__prefs {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--site-rule);
+}
+
+.consent-pref {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--site-muted);
+}
+
+.consent-pref input {
+  margin-top: 0.3rem;
+}
+
+.consent-banner__prefs .consent-btn {
+  justify-self: start;
+}
+
+
 @media screen and (max-width: 1200px) {
   .book-page {
     padding: 2rem 1.75rem 2.5rem;

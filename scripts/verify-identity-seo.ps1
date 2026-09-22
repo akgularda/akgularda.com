@@ -28,7 +28,11 @@ $checks = @(
     @{ Name = "ProfilePage schema"; Target = $aboutHtml; Pattern = '"@type":"ProfilePage"' },
     @{ Name = "about page mainEntity"; Target = $aboutHtml; Pattern = '"mainEntity":{"@id":"https://arda-akgul.com/about/#person"' },
     @{ Name = "gtag"; Target = $homeHtml; Pattern = "G-RY2DML1TZX" },
-    @{ Name = "Preferred Sources link"; Target = $homeHtml; Pattern = "google.com/preferences/source?q=arda-akgul.com" }
+    @{ Name = "Preferred Sources link"; Target = $homeHtml; Pattern = "google.com/preferences/source?q=arda-akgul.com" },
+    @{ Name = "consent mode default"; Target = $homeHtml; Pattern = "analytics_storage\s*:\s*[`"']?denied"; IsRegex = $true },
+    @{ Name = "consent banner"; Target = $homeHtml; Pattern = "consent-banner" },
+    @{ Name = "privacy link"; Target = $homeHtml; Pattern = "href=[`"']?/privacy/"; IsRegex = $true },
+    @{ Name = "cookie settings link"; Target = $homeHtml; Pattern = "cookie-settings-btn" }
 )
 
 $failedChecks = @()
