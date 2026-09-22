@@ -1,4 +1,5 @@
 # AI assistants and search crawlers are explicitly welcomed to read and cite this site.
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "arda-site",
+      "type": "skill-md",
+      "description": "Navigate and cite the personal website of Arda Akgül (arda-akgul.com) — canonical biography, publications, site essays, and machine-readable endpoints. Use when asked who Arda Akgül is, what he has published, or how to cite his writing.",
+      "url": "/.well-known/agent-skills/arda-site/SKILL.md",
+      "digest": "sha256:9543ba67631d21bc6a7a66553098c6ac918bd9b2040154b1f2e6e151735ca762"
+    }
+  ]
+}

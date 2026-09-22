@@ -39,9 +39,13 @@ $llmsPath = Join-Path $SiteRoot "public\llms.txt"
 $llmsFullPath = Join-Path $SiteRoot "public\llms-full.txt"
 $humansPath = Join-Path $SiteRoot "public\humans.txt"
 $robotsPath = Join-Path $SiteRoot "public\robots.txt"
+$apiCatalogPath = Join-Path $SiteRoot "public\.well-known\api-catalog"
+$ardPath = Join-Path $SiteRoot "public\.well-known\ard.json"
+$skillsIndexPath = Join-Path $SiteRoot "public\.well-known\agent-skills\index.json"
+$authMdPath = Join-Path $SiteRoot "public\auth.md"
 $essayPath = Join-Path $SiteRoot "public\publications\why-i-stopped-fighting-the-cameras\index.html"
 $blogPostPath = Join-Path $SiteRoot "public\blogs\economics\renaissance-economics\index.html"
-$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $essayPath, $blogPostPath)
+$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $apiCatalogPath, $ardPath, $skillsIndexPath, $authMdPath, $essayPath, $blogPostPath)
 $missingExtra = $extraRequired | Where-Object { -not (Test-Path -LiteralPath $_) }
 if ($missingExtra.Count -gt 0) {
     Write-Error ("Missing verification targets:`n- " + ($missingExtra -join "`n- "))
@@ -51,6 +55,10 @@ $llms = Get-Content -LiteralPath $llmsPath -Raw
 $llmsFull = Get-Content -LiteralPath $llmsFullPath -Raw
 $humans = Get-Content -LiteralPath $humansPath -Raw
 $robots = Get-Content -LiteralPath $robotsPath -Raw
+$apiCatalog = Get-Content -LiteralPath $apiCatalogPath -Raw
+$ard = Get-Content -LiteralPath $ardPath -Raw
+$skillsIndex = Get-Content -LiteralPath $skillsIndexPath -Raw
+$authMd = Get-Content -LiteralPath $authMdPath -Raw
 $essayHtml = Get-Content -LiteralPath $essayPath -Raw
 $blogHtml = Get-Content -LiteralPath $blogPostPath -Raw
 $checks += @(
@@ -62,6 +70,14 @@ $checks += @(
     @{ Name = "llms-full publication essays"; Target = $llmsFull; Pattern = "## Publication Essays" },
     @{ Name = "llms-full essay voice"; Target = $llmsFull; Pattern = "I think a lot of people still treat urban sensors" },
     @{ Name = "robots GPTBot allow"; Target = $robots; Pattern = "User-agent: GPTBot" },
+    @{ Name = "robots Content-Signal"; Target = $robots; Pattern = "Content-Signal: ai-train=yes, search=yes, ai-input=yes" },
+    @{ Name = "api-catalog linkset"; Target = $apiCatalog; Pattern = '"linkset"' },
+    @{ Name = "api-catalog service-desc"; Target = $apiCatalog; Pattern = "openapi.yaml" },
+    @{ Name = "ard.json entries"; Target = $ard; Pattern = '"entries"' },
+    @{ Name = "ard.json urn"; Target = $ard; Pattern = "urn:air:arda-akgul.com" },
+    @{ Name = "skills index schema"; Target = $skillsIndex; Pattern = "schemas.agentskills.io/discovery/0.2.0" },
+    @{ Name = "skills index digest"; Target = $skillsIndex; Pattern = "sha256:" },
+    @{ Name = "auth.md public"; Target = $authMd; Pattern = "No registration is required" },
     @{ Name = "humans.txt author"; Target = $humans; Pattern = "Arda Akgül" },
     @{ Name = "BlogPosting schema"; Target = $blogHtml; Pattern = '"@type":"BlogPosting"' },
     @{ Name = "BlogPosting genre"; Target = $blogHtml; Pattern = '"genre"' },

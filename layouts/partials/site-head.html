@@ -70,6 +70,35 @@
 <link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="LLM Context">
 <link rel="alternate" type="text/plain" href="{{ "llms-full.txt" | absURL }}" title="Full LLM Context">
 <link rel="describedby" type="text/plain" href="{{ "llms.txt" | absURL }}" title="LLM Context">
+<link rel="ard" type="application/json" href="{{ ".well-known/ard.json" | absURL }}" title="ARD manifest">
+<link rel="api-catalog" type="application/json" href="{{ ".well-known/api-catalog" | absURL }}" title="API catalog">
+<script>
+(function () {
+  try {
+    if (navigator.modelContext && navigator.modelContext.provideContext) {
+      navigator.modelContext.provideContext({
+        tools: [
+          {
+            name: "open_site_page",
+            description: "Open a canonical page of arda-akgul.com by short name: about, publications, experience, blogs, faq, contact, llms.",
+            inputSchema: {
+              type: "object",
+              properties: { page: { type: "string", enum: ["about", "publications", "experience", "blogs", "faq", "contact", "llms"] } },
+              required: ["page"]
+            },
+            execute: function (input) {
+              var map = { about: "/about/", publications: "/publications/", experience: "/experience/", blogs: "/blogs/", faq: "/faq/", contact: "/contact/", llms: "/llms.txt" };
+              var path = map[input.page] || "/about/";
+              window.location.href = path;
+              return { opened: path };
+            }
+          }
+        ]
+      });
+    }
+  } catch (e) {}
+})();
+</script>
 {{ with .OutputFormats.Get "md" }}
 <link rel="alternate" type="text/markdown" href="{{ .Permalink }}" title="Markdown version">
 {{ end }}

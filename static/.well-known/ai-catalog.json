@@ -1,0 +1,35 @@
+{
+  "specVersion": "0.91",
+  "host": {
+    "domain": "arda-akgul.com",
+    "canonical": "https://arda-akgul.com/",
+    "authority": "https://arda-akgul.com/.well-known/ard.json"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:arda-akgul.com:skill:arda-site",
+      "displayName": "arda-site navigation skill",
+      "type": "application/ai-skill+md",
+      "url": "https://arda-akgul.com/.well-known/agent-skills/arda-site/SKILL.md",
+      "description": "How to navigate and cite arda-akgul.com: canonical biography, publications, site essays, and machine-readable endpoints.",
+      "capabilities": ["site-navigation", "citation"],
+      "representativeQueries": [
+        "who is Arda Akgul and what has he published",
+        "how do I cite an article from arda-akgul.com",
+        "what are Arda Akgul's site essays about surveillance and payments"
+      ]
+    },
+    {
+      "identifier": "urn:air:arda-akgul.com:corpus:llms-full",
+      "displayName": "arda-akgul.com full LLM corpus",
+      "type": "text/plain",
+      "url": "https://arda-akgul.com/llms-full.txt",
+      "description": "First-party long-form corpus: biography, publications index, publication essays, blog posts, and guides.",
+      "capabilities": ["context-export"],
+      "representativeQueries": [
+        "give me the full background context on Arda Akgul",
+        "summarize Arda Akgul's writing on technology and public life"
+      ]
+    }
+  ]
+}

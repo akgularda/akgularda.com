@@ -1,0 +1,29 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://arda-akgul.com/",
+      "service-desc": [
+        {
+          "href": "https://arda-akgul.com/openapi.yaml",
+          "type": "application/yaml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://arda-akgul.com/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://arda-akgul.com/about/",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://arda-akgul.com/ai.txt",
+          "type": "text/plain"
+        }
+      ]
+    }
+  ]
+}
