@@ -1,0 +1,18 @@
+{{ with .Params.faq }}
+  {{ $firstQ := "" }}
+  {{ with index . 0 }}{{ $firstQ = .q }}{{ end }}
+  {{ if and $firstQ (not (in $.Content $firstQ)) }}
+  <section class="listing-section faq-block" aria-label="Frequently asked questions">
+    <div class="section-heading">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <dl class="faq-list">
+      {{ range . }}
+      <dt>{{ .q }}</dt>
+      <dd>{{ .a }}</dd>
+      {{ end }}
+    </dl>
+  </section>
+  {{ end }}
+{{ end }}

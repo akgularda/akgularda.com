@@ -9,6 +9,13 @@ aliases:
 date: 2026-03-17
 lastmod: 2026-03-17
 weight: 10
+faq:
+  - q: "What does Arda Akgul write about?"
+    a: "He writes about economics, sustainability, technology in public life, business and industry, culture, mathematics, geopolitics, and practical guides, with an emphasis on clarity and evidence."
+  - q: "How is the writing archive organized?"
+    a: "Writing is grouped into sections such as Economics, Sustainability, Technology and Public Life, Business and Industry, Culture and Ideas, Mathematics, and Guides, each with topic sub-sections."
+  - q: "How can I follow new writing by Arda Akgul?"
+    a: "New posts appear in the writing archive and in the site RSS feed at arda-akgul.com/index.xml."
 show_auto_listing: false
 bookCollapseSection: true
 ---
