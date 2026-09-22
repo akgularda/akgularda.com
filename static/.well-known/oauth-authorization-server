@@ -1,0 +1,10 @@
+{
+  "issuer": "https://arda-akgul.com",
+  "authorization_endpoint": "https://arda-akgul.com/oauth/authorize",
+  "token_endpoint": "https://arda-akgul.com/oauth/token",
+  "jwks_uri": "https://arda-akgul.com/.well-known/jwks.json",
+  "grant_types_supported": [],
+  "response_types_supported": [],
+  "scopes_supported": [],
+  "documentation_uri": "https://arda-akgul.com/auth.md"
+}

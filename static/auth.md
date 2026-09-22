@@ -1,4 +1,4 @@
-# Auth.md — arda-akgul.com
+# auth.md — arda-akgul.com
 
 Site: https://arda-akgul.com
 Author: Arda Akgül
@@ -9,11 +9,15 @@ Agent registration is open and automatic. No register_uri call, API key, or invi
 
 ```yaml
 agent_auth:
-  registration: open
+  skill: https://arda-akgul.com/.well-known/agent-skills/arda-site/SKILL.md
   register_uri: "https://arda-akgul.com/auth.md"
-  identity_types: [none]
-  credential_types: [none]
-  authorization_servers: []
+  registration_method: anonymous
+  identity_types_supported: [anonymous]
+  anonymous:
+    credential_types_supported: []
+    claim_uri: "https://arda-akgul.com/auth.md"
+  revocation_uri: "https://arda-akgul.com/auth.md"
+  authorization_servers: ["https://arda-akgul.com"]
 ```
 
 - identity_types: none (anonymous access)
@@ -29,6 +33,8 @@ agent_auth:
 - API catalog: https://arda-akgul.com/.well-known/api-catalog
 - ARD manifest: https://arda-akgul.com/.well-known/ard.json
 - Protected resource metadata: https://arda-akgul.com/.well-known/oauth-protected-resource
+- Authorization server metadata: https://arda-akgul.com/.well-known/oauth-authorization-server
+- MCP server card: https://arda-akgul.com/.well-known/mcp/server-card.json
 - Contact: mailto:ardakgul4@gmail.com
 
 ## Crawl policy

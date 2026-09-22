@@ -1,0 +1,17 @@
+{
+  "serverInfo": {
+    "name": "arda-akgul.com",
+    "version": "1.0.0"
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://arda-akgul.com/mcp"
+  },
+  "endpoint": "https://arda-akgul.com/mcp",
+  "capabilities": {
+    "tools": { "listChanged": false },
+    "resources": {},
+    "prompts": {}
+  },
+  "documentation_url": "https://arda-akgul.com/llms.txt"
+}

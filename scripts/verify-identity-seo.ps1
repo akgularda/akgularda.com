@@ -43,9 +43,13 @@ $apiCatalogPath = Join-Path $SiteRoot "public\.well-known\api-catalog"
 $ardPath = Join-Path $SiteRoot "public\.well-known\ard.json"
 $skillsIndexPath = Join-Path $SiteRoot "public\.well-known\agent-skills\index.json"
 $authMdPath = Join-Path $SiteRoot "public\auth.md"
+$prmPath = Join-Path $SiteRoot "public\.well-known\oauth-protected-resource"
+$asPath = Join-Path $SiteRoot "public\.well-known\oauth-authorization-server"
+$jwksPath = Join-Path $SiteRoot "public\.well-known\jwks.json"
+$mcpCardPath = Join-Path $SiteRoot "public\.well-known\mcp\server-card.json"
 $essayPath = Join-Path $SiteRoot "public\publications\why-i-stopped-fighting-the-cameras\index.html"
 $blogPostPath = Join-Path $SiteRoot "public\blogs\economics\renaissance-economics\index.html"
-$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $apiCatalogPath, $ardPath, $skillsIndexPath, $authMdPath, $essayPath, $blogPostPath)
+$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $apiCatalogPath, $ardPath, $skillsIndexPath, $authMdPath, $prmPath, $asPath, $jwksPath, $mcpCardPath, $essayPath, $blogPostPath)
 $missingExtra = $extraRequired | Where-Object { -not (Test-Path -LiteralPath $_) }
 if ($missingExtra.Count -gt 0) {
     Write-Error ("Missing verification targets:`n- " + ($missingExtra -join "`n- "))
@@ -59,6 +63,10 @@ $apiCatalog = Get-Content -LiteralPath $apiCatalogPath -Raw
 $ard = Get-Content -LiteralPath $ardPath -Raw
 $skillsIndex = Get-Content -LiteralPath $skillsIndexPath -Raw
 $authMd = Get-Content -LiteralPath $authMdPath -Raw
+$prm = Get-Content -LiteralPath $prmPath -Raw
+$asMeta = Get-Content -LiteralPath $asPath -Raw
+$jwks = Get-Content -LiteralPath $jwksPath -Raw
+$mcpCard = Get-Content -LiteralPath $mcpCardPath -Raw
 $essayHtml = Get-Content -LiteralPath $essayPath -Raw
 $blogHtml = Get-Content -LiteralPath $blogPostPath -Raw
 $checks += @(
@@ -77,8 +85,18 @@ $checks += @(
     @{ Name = "ard.json urn"; Target = $ard; Pattern = "urn:air:arda-akgul.com" },
     @{ Name = "skills index schema"; Target = $skillsIndex; Pattern = "schemas.agentskills.io/discovery/0.2.0" },
     @{ Name = "skills index digest"; Target = $skillsIndex; Pattern = "sha256:" },
-    @{ Name = "auth.md registration"; Target = $authMd; Pattern = "registration: open" },
-    @{ Name = "auth.md no register_uri needed"; Target = $authMd; Pattern = "No register_uri call" },
+    @{ Name = "auth.md h1"; Target = $authMd; Pattern = "# auth.md" },
+    @{ Name = "auth.md agent_auth"; Target = $authMd; Pattern = "agent_auth:" },
+    @{ Name = "auth.md register_uri"; Target = $authMd; Pattern = "register_uri" },
+    @{ Name = "PRM bearer header"; Target = $prm; Pattern = '"bearer_methods_supported": \["header"\]'; IsRegex = $true },
+    @{ Name = "PRM authorization_servers"; Target = $prm; Pattern = "authorization_servers" },
+    @{ Name = "AS issuer"; Target = $asMeta; Pattern = '"issuer": "https://arda-akgul.com"' },
+    @{ Name = "AS grant_types"; Target = $asMeta; Pattern = "grant_types_supported" },
+    @{ Name = "AS jwks_uri"; Target = $asMeta; Pattern = "jwks_uri" },
+    @{ Name = "JWKS keys"; Target = $jwks; Pattern = '"keys"' },
+    @{ Name = "MCP serverInfo"; Target = $mcpCard; Pattern = '"serverInfo"' },
+    @{ Name = "MCP endpoint"; Target = $mcpCard; Pattern = "arda-akgul.com/mcp" },
+    @{ Name = "MCP capabilities"; Target = $mcpCard; Pattern = '"capabilities"' },
     @{ Name = "humans.txt author"; Target = $humans; Pattern = "Arda Akgül" },
     @{ Name = "BlogPosting schema"; Target = $blogHtml; Pattern = '"@type":"BlogPosting"' },
     @{ Name = "BlogPosting genre"; Target = $blogHtml; Pattern = '"genre"' },
