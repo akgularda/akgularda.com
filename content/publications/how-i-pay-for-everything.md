@@ -1,8 +1,8 @@
 ---
-title: "How I pay for everything"
+title: "How I Pay for Everything"
 date: "2026-09-22"
 lastmod: "2026-09-22"
-description: "A student budget run entirely on cards and instant transfers: what broke, what got frictionless, and how I keep spending visible without cash envelopes."
+description: "I think cashless daily life is less about ideology than visibility. Here is how a student budget runs on cards and instant transfers."
 tags: ["Payments", "Cashless", "Budgeting", "Personal Finance"]
 categories: ["Technology & Public Life"]
 slug: "how-i-pay-for-everything"
@@ -16,15 +16,17 @@ faq:
     a: "One primary card, instant transfer for fixed costs, and a weekly five-minute review of categories. The discipline moves from willpower at the counter to a scheduled check-in at home."
 ---
 
-Last month I paid for a bus top-up, two coffees, a textbook, and a late-night grocery run without touching a banknote. Not as a stunt. I simply could not remember the last time cash was the fastest option in my day.
+I think payment debates are usually argued as if they were moral contests: cash versus cards, tradition versus convenience. That framing misses the point for ordinary life. Last month I paid for a bus top-up, two coffees, a textbook, and a late-night grocery run without touching a banknote. Not as a stunt. I simply could not remember the last time cash was the fastest option in my day.
 
-I used to keep a small note in my jacket “for emergencies.” The emergency never arrived. The note wrinkled, the jacket went out of rotation, and my actual emergencies — a dead transit card, a split restaurant bill — were already settled by phone.
+I used to keep a small note in my jacket "for emergencies." The emergency never arrived. The note wrinkled, the jacket went out of rotation, and my actual emergencies — a dead transit card, a split restaurant bill — were already settled by phone.
 
-## Cards removed friction I did not know I was paying
+## Cash makes spending easy to do and hard to see
 
 Some people budget better with physical money. Fair enough; envelopes work. For me the opposite happened. Cash made spending easy to do and hard to see. A card statement makes spending easy to see, and therefore easier to steer.
 
-Instant transfers handled the fixed side of student life: rent share, utilities, dues to organizations I work with. The [Bank for International Settlements Red Book](https://www.bis.org/statistics/payment_statistics.htm) and the ECB's consumer payment surveys both show the same long trend across Europe — cash retaining a role while card and instant rails take the everyday volume. My week is a small sample of that curve.
+Instant transfers handled the fixed side of student life: rent share, utilities, dues to organizations I work with. The Bank for International Settlements Red Book and the ECB's consumer payment surveys both show the same long trend across Europe — cash retaining a role while card and instant rails take the everyday volume. My week is a small sample of that curve.
+
+That is why I think the interesting shift is not "cards beat cash" as a slogan. The real change is that spending has become a readable dataset. Once that becomes normal, the old image of budgeting as a jar on the shelf starts to look incomplete.
 
 ## The habit that replaced the wallet
 
@@ -34,7 +36,7 @@ Instant transfers handled the fixed side of student life: rent share, utilities,
 
 Critics say it is easier to overspend when payment feels frictionless. Sometimes true. The counterweight for me has been visibility: a category climbing for three weeks in a row is harder to ignore than a thinning wallet, because the wallet's decline is ambient and the chart is not.
 
-What I wanted from money was not anonymity or texture. I wanted a system that runs without ceremony. Cards and instant rails do that. The jacket pocket can keep its wrinkle.
+What I wanted from money was not texture or ceremony. I wanted a system that runs without friction and still leaves a trail I can audit. Cards and instant rails do that. For me, that is enough of a reason to keep them in the jacket pocket's old job.
 
 ### References
 

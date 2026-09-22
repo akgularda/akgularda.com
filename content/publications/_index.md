@@ -44,7 +44,11 @@ featured_publications:
 
 A selected record of academic, policy, and student-publication work. The list below includes work published through TEDU Economics Research Union, TEDUsTRC bulletins, UDIAD, EUROPolitika, and related outlets.
 
-*Last updated: 20.09.2026*
+*Last updated: 22.09.2026*
+
+## Site Essays
+
+First-person analytical essays published on this site (English), listed under Publication Pages below: *Why I Stopped Fighting the Cameras*, *How I Pay for Everything*, *Why I Turned Adblock Off*, *What Palantir Actually Builds*, and *Data Partnerships in Turkish Public Services*.
 
 ## sTAM Sustainability Agenda Q2 2026
 <small>*Co-prepared with Ezgi Eylem Erdoğan; features an interview with Prof. Dr. Erdem Başçı on sustainability, central banking, CBAM, and green transition*</small>
