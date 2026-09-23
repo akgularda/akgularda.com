@@ -16,7 +16,7 @@ Arda Akgül is Vice President of the TEDU Economics Research Union, a Researcher
 
 - [Publication Essays](https://arda-akgul.com/publications/): first-person analytical site essays on surveillance, payments, adblocking, data integration, and Turkish public data.
   - [We Have to Give Up Our Privacy](https://arda-akgul.com/publications/we-have-to-give-up-our-privacy/): privacy as a wasting asset; HNDL, qualified rights, accountability over secrecy.
-  - [Why I Stopped Fighting the Cameras](https://arda-akgul.com/publications/why-i-stopped-fighting-the-cameras/): urban sensors as infrastructure, judged by outcomes.
+  - [I Have Always Been Interested in Surveillance](https://arda-akgul.com/publications/why-i-stopped-fighting-the-cameras/): long-standing interest in surveillance; urban sensors judged by outcomes, not drama.
   - [How I Pay for Everything](https://arda-akgul.com/publications/how-i-pay-for-everything/): cashless student budgeting and spending visibility.
   - [Why I Turned Adblock Off](https://arda-akgul.com/publications/why-i-turned-adblock-off/): ad blockers, half-pages, and the relevance feedback loop.
   - [What Palantir Actually Builds](https://arda-akgul.com/publications/what-palantir-actually-builds/): ontology layers and data integration as infrastructure.

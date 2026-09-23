@@ -89,7 +89,7 @@ $checks += @(
     @{ Name = "llms.txt publication essays"; Target = $llms; Pattern = "Publication Essays" },
     @{ Name = "llms.txt essay link"; Target = $llms; Pattern = "publications/why-i-stopped-fighting-the-cameras" },
     @{ Name = "llms-full publication essays"; Target = $llmsFull; Pattern = "## Publication Essays" },
-    @{ Name = "llms-full essay voice"; Target = $llmsFull; Pattern = "I think a lot of people still treat urban sensors" },
+    @{ Name = "llms-full essay voice"; Target = $llmsFull; Pattern = "A lot of people still treat urban sensors" },
     @{ Name = "robots GPTBot allow"; Target = $robots; Pattern = "User-agent: GPTBot" },
     @{ Name = "robots Content-Signal"; Target = $robots; Pattern = "Content-Signal: ai-train=yes, search=yes, ai-input=yes" },
     @{ Name = "api-catalog linkset"; Target = $apiCatalog; Pattern = '"linkset"' },
@@ -114,7 +114,7 @@ $checks += @(
     @{ Name = "BlogPosting schema"; Target = $blogHtml; Pattern = '"@type":"BlogPosting"' },
     @{ Name = "BlogPosting genre"; Target = $blogHtml; Pattern = '"genre"' },
     @{ Name = "essay Article schema"; Target = $essayHtml; Pattern = '"@type":"Article"' },
-    @{ Name = "essay voice"; Target = $essayHtml; Pattern = "I think a lot of people still treat urban sensors" }
+    @{ Name = "essay voice"; Target = $essayHtml; Pattern = "A lot of people still treat urban sensors" }
 )
 
 $failedChecks = @()
