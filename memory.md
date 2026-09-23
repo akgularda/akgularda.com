@@ -17,7 +17,7 @@
 - Person JSON-LD sameAs from `hugo.toml` params.social/same_as (LinkedIn, GitHub, Medium, X).
 - Footer: machine-readable nav (llms.txt, llms-full.txt, ai.txt, humans.txt) — minify strips quotes in HTML.
 - GA4 `G-RY2DML1TZX` + consent banner/GDPR. sitemap, RSS, WebSub, IndexNow.
--5 site essays at `content/publications/*.md` (author voice: I think / For me / That is why / the real / interesting), listed under Publications "Site Essays"; Article JSON-LD; verify script guards essays/robots/llms-full.
+-6 site essays at `content/publications/*.md` (author voice: I think / For me / That is why / the real / interesting), listed under Publications "Site Essays"; Article JSON-LD; verify script guards essays/robots/llms-full.
 
 ## Pending (user-owned)
 - GSC + Bing WMT verification & sitemap submit (need token/HTML file).

@@ -2,6 +2,12 @@
 
 Primary machine-readable card:
 - https://arda-akgul.com/.well-known/agent.json
+- https://arda-akgul.com/.well-known/agent-card.json
+
+Agent registration:
+- https://arda-akgul.com/auth.md
+- https://arda-akgul.com/.well-known/oauth-protected-resource
+- https://arda-akgul.com/.well-known/oauth-authorization-server
 
 Primary profile and authority pages:
 - https://arda-akgul.com/about/
