@@ -9,20 +9,22 @@ Agent registration is open and automatic. No register_uri call, API key, or invi
 
 ```yaml
 agent_auth:
-  skill: https://arda-akgul.com/.well-known/agent-skills/arda-site/SKILL.md
+  skill: https://arda-akgul.com/auth.md
   register_uri: "https://arda-akgul.com/auth.md"
+  claim_uri: "https://arda-akgul.com/auth.md"
   registration_method: anonymous
   identity_types_supported: [anonymous]
+  credential_types_supported: [none]
   anonymous:
-    credential_types_supported: []
+    credential_types_supported: [none]
     claim_uri: "https://arda-akgul.com/auth.md"
   revocation_uri: "https://arda-akgul.com/auth.md"
   authorization_servers: ["https://arda-akgul.com"]
 ```
 
-- identity_types: none (anonymous access)
-- credential_types: none (no credentials issued)
-- Supported grant types: none (no token endpoint exists)
+- identity_types: anonymous (no IdP assertion required)
+- credential_types: none (no credentials issued; public read-only site)
+- Supported grant types: none (no token endpoint issues tokens)
 - All content is public, read-only, and safe to fetch with plain GET.
 
 ## Endpoints
@@ -34,6 +36,7 @@ agent_auth:
 - ARD manifest: https://arda-akgul.com/.well-known/ard.json
 - Protected resource metadata: https://arda-akgul.com/.well-known/oauth-protected-resource
 - Authorization server metadata: https://arda-akgul.com/.well-known/oauth-authorization-server
+- A2A agent card: https://arda-akgul.com/.well-known/agent-card.json
 - MCP server card: https://arda-akgul.com/.well-known/mcp/server-card.json
 - Contact: mailto:ardakgul4@gmail.com
 

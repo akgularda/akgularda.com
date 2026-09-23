@@ -1,0 +1,39 @@
+{
+  "protocolVersion": "0.3.0",
+  "version": "1.0.0",
+  "name": "arda-akgul.com",
+  "description": "Public agent surface for Arda Akgül: canonical biography, publications, site essays, and machine-readable discovery endpoints.",
+  "url": "https://arda-akgul.com/",
+  "provider": {
+    "organizationId": "arda-akgul",
+    "organizationName": "Arda Akgül",
+    "url": "https://arda-akgul.com/"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "supportedInterfaces": [
+    {
+      "protocol": "agent-to-agent",
+      "version": "0.3.0",
+      "url": "https://arda-akgul.com/",
+      "endpoint": "https://arda-akgul.com/",
+      "transport": "https"
+    }
+  ],
+  "skills": [
+    {
+      "id": "site-navigation",
+      "name": "arda-site",
+      "description": "Navigate and cite arda-akgul.com pages, publications, and essays.",
+      "url": "https://arda-akgul.com/.well-known/agent-skills/arda-site/SKILL.md",
+      "tags": ["navigation", "citation"]
+    }
+  ],
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "documentationUrl": "https://arda-akgul.com/llms.txt",
+  "supportsAuthenticatedExtendedCard": false
+}

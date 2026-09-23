@@ -47,9 +47,10 @@ $prmPath = Join-Path $SiteRoot "public\.well-known\oauth-protected-resource"
 $asPath = Join-Path $SiteRoot "public\.well-known\oauth-authorization-server"
 $jwksPath = Join-Path $SiteRoot "public\.well-known\jwks.json"
 $mcpCardPath = Join-Path $SiteRoot "public\.well-known\mcp\server-card.json"
+$agentCardPath = Join-Path $SiteRoot "public\.well-known\agent-card.json"
 $essayPath = Join-Path $SiteRoot "public\publications\why-i-stopped-fighting-the-cameras\index.html"
 $blogPostPath = Join-Path $SiteRoot "public\blogs\economics\renaissance-economics\index.html"
-$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $apiCatalogPath, $ardPath, $skillsIndexPath, $authMdPath, $prmPath, $asPath, $jwksPath, $mcpCardPath, $essayPath, $blogPostPath)
+$extraRequired = @($llmsPath, $llmsFullPath, $humansPath, $robotsPath, $apiCatalogPath, $ardPath, $skillsIndexPath, $authMdPath, $prmPath, $asPath, $jwksPath, $mcpCardPath, $agentCardPath, $essayPath, $blogPostPath)
 $missingExtra = $extraRequired | Where-Object { -not (Test-Path -LiteralPath $_) }
 if ($missingExtra.Count -gt 0) {
     Write-Error ("Missing verification targets:`n- " + ($missingExtra -join "`n- "))
@@ -67,9 +68,21 @@ $prm = Get-Content -LiteralPath $prmPath -Raw
 $asMeta = Get-Content -LiteralPath $asPath -Raw
 $jwks = Get-Content -LiteralPath $jwksPath -Raw
 $mcpCard = Get-Content -LiteralPath $mcpCardPath -Raw
+$agentCard = Get-Content -LiteralPath $agentCardPath -Raw
 $essayHtml = Get-Content -LiteralPath $essayPath -Raw
 $blogHtml = Get-Content -LiteralPath $blogPostPath -Raw
 $checks += @(
+    @{ Name = "PRM scopes_supported non-empty"; Target = $prm; Pattern = '"scopes_supported": \["read"\]'; IsRegex = $true },
+    @{ Name = "AS agent_auth block"; Target = $asMeta; Pattern = "agent_auth" },
+    @{ Name = "AS agent_auth register_uri"; Target = $asMeta; Pattern = "register_uri" },
+    @{ Name = "AS agent_auth claim_uri"; Target = $asMeta; Pattern = "claim_uri" },
+    @{ Name = "AS agent_auth identity_types"; Target = $asMeta; Pattern = "identity_types_supported" },
+    @{ Name = "AS agent_auth credential_types"; Target = $asMeta; Pattern = "credential_types_supported" },
+    @{ Name = "agent-card protocolVersion"; Target = $agentCard; Pattern = '"protocolVersion": "0.3.0"' },
+    @{ Name = "agent-card supportedInterfaces"; Target = $agentCard; Pattern = "supportedInterfaces" },
+    @{ Name = "agent-card skills url"; Target = $agentCard; Pattern = "arda-site/SKILL.md" },
+    @{ Name = "auth.md claim_uri"; Target = $authMd; Pattern = "claim_uri" },
+    @{ Name = "auth.md A2A endpoint"; Target = $authMd; Pattern = "agent-card.json" },
     @{ Name = "llms.txt privacy link"; Target = $llms; Pattern = "https://arda-akgul.com/privacy/" },
     @{ Name = "llms.txt cookies link"; Target = $llms; Pattern = "https://arda-akgul.com/cookies/" },
     @{ Name = "llms.txt terms link"; Target = $llms; Pattern = "https://arda-akgul.com/terms/" },

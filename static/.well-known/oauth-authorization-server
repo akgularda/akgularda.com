@@ -5,6 +5,21 @@
   "jwks_uri": "https://arda-akgul.com/.well-known/jwks.json",
   "grant_types_supported": [],
   "response_types_supported": [],
-  "scopes_supported": [],
-  "documentation_uri": "https://arda-akgul.com/auth.md"
+  "scopes_supported": ["read"],
+  "documentation_uri": "https://arda-akgul.com/auth.md",
+  "agent_auth": {
+    "skill": "https://arda-akgul.com/auth.md",
+    "register_uri": "https://arda-akgul.com/auth.md",
+    "claim_uri": "https://arda-akgul.com/auth.md",
+    "registration_method": "anonymous",
+    "registration_methods": ["anonymous"],
+    "identity_types_supported": ["anonymous"],
+    "credential_types_supported": ["none"],
+    "anonymous": {
+      "credential_types_supported": ["none"],
+      "claim_uri": "https://arda-akgul.com/auth.md"
+    },
+    "revocation_uri": "https://arda-akgul.com/auth.md",
+    "authorization_servers": ["https://arda-akgul.com"]
+  }
 }
