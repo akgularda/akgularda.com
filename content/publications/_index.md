@@ -48,7 +48,7 @@ A selected record of academic, policy, and student-publication work. The list be
 
 ## Site Essays
 
-First-person analytical essays published on this site (English), listed under Publication Pages below: *We Have to Give Up Our Privacy*, *Why I Stopped Fighting the Cameras*, *How I Pay for Everything*, *Why I Turned Adblock Off*, *What Palantir Actually Builds*, and *Data Partnerships in Turkish Public Services*.
+First-person analytical essays published on this site (English), listed under Publication Pages below: *We Have to Give Up Our Privacy*, *I Have Always Been Interested in Surveillance*, *How I Pay for Everything*, *Why I Turned Adblock Off*, *What Palantir Actually Builds*, and *Data Partnerships in Turkish Public Services*.
 
 ## sTAM Sustainability Agenda Q2 2026
 <small>*Co-prepared with Ezgi Eylem Erdoğan; features an interview with Prof. Dr. Erdem Başçı on sustainability, central banking, CBAM, and green transition*</small>
