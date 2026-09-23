@@ -1,6 +1,6 @@
 ---
 title: "With 5G Standalone, IoT Will Be in Its Peak"
-date: "2026-09-23"
+date: "2026-07-03"
 description: "I think 5G Standalone matters less as a consumer speed bump and more as the moment networks stop treating devices as phones with better antennas."
 tags: ["5G", "5G SA", "IoT", "Telecom", "Digital Infrastructure"]
 categories: ["Technology & Public Life"]
