@@ -4,6 +4,7 @@ title = "Arda Akgül"
 
 enableRobotsTXT = true
 summaryLength = 1000
+buildFuture = true
 
 [pagination]
   pagerSize = 10
