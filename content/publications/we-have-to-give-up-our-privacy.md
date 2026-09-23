@@ -1,7 +1,7 @@
 ---
 title: "We Have to Give Up Our Privacy"
-date: "2026-09-23"
-lastmod: "2026-09-23"
+date: "2026-06-24"
+lastmod: "2026-06-24"
 description: "Privacy as secrecy is a wasting asset: contingent history, qualified rights, commercial surrender, and Harvest Now, Decrypt Later. What deserves defense is accountability, not the locked drawer."
 tags: ["Privacy", "Surveillance", "Encryption", "Quantum", "Civil Liberties"]
 categories: ["Technology & Public Life"]
