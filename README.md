@@ -37,10 +37,12 @@ powershell -ExecutionPolicy Bypass -File scripts\verify-blog-import.ps1
 powershell -ExecutionPolicy Bypass -File scripts\submit_indexnow.ps1
 ```
 
-## DNS
+## DNS ve yayın
 
-Domain Squarespace DNS'te durur (`domains.squarespace.com`):
+DNS Cloudflare üzerinden yönetilir. Ana site ve `/econ/` arayüzü GitHub Pages üzerinde yayımlanır. Kök alan adı ve `www` için GitHub Pages hedefi `akgularda.github.io` kullanılır.
 
-- `A @` → GitHub Pages IP'leri (`185.199.108.153/.109/.110/.111`)
-- `CNAME www` → `akgularda.github.io`
-- Mail (MX/TXT/DKIM, Google Workspace) kayıtlarına dokunulmaz.
+`arda-edge` Worker’ı `/econ/api/` isteklerini `econ-origin.arda-akgul.com` üzerinden mevcut sınıf sunucusuna iletir. Bu bağlantı mevcut Windows sunucusunun Cloudflare Tunnel servisini kullanır. Sunucu çevrimdışıyken tek kişilik oyun ve ana site Pages’ten çalışır.
+
+## Ekonomi Laboratuvarı
+
+`static/econ/`, [oyun kaynak deposunun](https://github.com/akgularda/ekonomi-laboratuvari) yayımlanabilir arayüzünü içerir. Kaynak commit `static/econ/version.json` içinde kayıtlıdır. Oyunu güncellerken deponun `public/` dosyalarını buraya eşitle ve kaynak commit’i güncelle. Sınıf veritabanı ayrı sunucuda kalır.

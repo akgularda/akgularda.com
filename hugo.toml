@@ -270,3 +270,9 @@ buildFuture = true
   url = "/faq/"
   weight = 7
 
+[[menu.main]]
+  identifier = "econ"
+  name = "Ekonomi Laboratuvarı"
+  url = "/econ/"
+  weight = 8
+
