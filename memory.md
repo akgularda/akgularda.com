@@ -1,5 +1,13 @@
 # memory.md — arda-akgul.com (akgularda.com repo)
 
+## Lisbon publication 2026-11-05
+- Current publication checkout is `C:\Users\akgul\Downloads\arda-akgul-pages-migration`.
+- Lisbon travel essay lives in `content/blogs/culture/lisbon-economics-everyday-life.md`.
+- Images live in `static/images/blogs/lisbon/`. The last couple PNG must remain byte-identical
+  to `word/media/image26.png` in the supplied DOCX. Do not crop or re-encode it.
+- Three album architectural images are WebP derivatives, without people or cropping.
+- User explicitly requested public blog publication on arda-akgul.com, including photographs.
+
 ## Project
 - Hugo personal site for Arda Akgül, live at https://arda-akgul.com (GitHub Pages, `hugo --baseURL https://arda-akgul.com/ --minify`).
 - Working copy: `C:\Users\akgul\AppData\Local\Temp\opencode\akgularda.com`, branch `master`.
