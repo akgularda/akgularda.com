@@ -41,7 +41,7 @@ powershell -ExecutionPolicy Bypass -File scripts\submit_indexnow.ps1
 
 DNS Cloudflare üzerinden yönetilir. Ana site ve `/econ/` arayüzü GitHub Pages üzerinde yayımlanır. Kök alan adı ve `www` için GitHub Pages hedefi `akgularda.github.io` kullanılır.
 
-`arda-edge` Worker’ı `/econ/api/` isteklerini `econ-origin.arda-akgul.com` üzerinden mevcut sınıf sunucusuna iletir. Bu bağlantı mevcut Windows sunucusunun Cloudflare Tunnel servisini kullanır. Sunucu çevrimdışıyken tek kişilik oyun ve ana site Pages’ten çalışır.
+`arda-edge` Worker’ı `/econ/api/` için DNS çözümlemesini `econ-origin.arda-akgul.com` tüneline yönlendirir ve özgün Host başlığını korur. Bu sayede Windows sunucusunun mevcut yerel tünel kuralları kullanılabilir. Worker kaynak kodu `infra/arda-edge.mjs` dosyasındadır. Sunucu çevrimdışıyken tek kişilik oyun ve ana site Pages’ten çalışır.
 
 ## Ekonomi Laboratuvarı
 
