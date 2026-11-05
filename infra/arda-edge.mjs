@@ -11,7 +11,7 @@ function htmlToMd(html) {
     '\n' + '#'.repeat(Number(n)) + ' ' + t.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() + '\n\n');
   s = s.replace(/<a\s[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (_, href, txt) => {
     const t = txt.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    return t ? `[${t}](${href})` : '';
+    return t ? '[' + t + '](' + href + ')' : '';
   });
   s = s.replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, (_, t) =>
     '- ' + t.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() + '\n');
