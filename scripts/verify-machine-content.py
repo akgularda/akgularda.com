@@ -36,6 +36,13 @@ for project in catalogue:
     for text in (project_export, corpus):
         assert project['title'] in text, 'Project missing from text export: ' + project['title']
         assert project['url'] in text, 'Project link missing from text export: ' + project['url']
+music = json.loads((REPO / 'data/music.json').read_text(encoding='utf-8'))['groups']
+music_export = (ROOT / 'music/index.md').read_text(encoding='utf-8')
+for group in music:
+    for piece in group['tracks']:
+        for text in (music_export, corpus):
+            assert piece['title'] in text, 'Music piece missing from text export: ' + piece['title']
+            assert piece['artist'] in text, 'Music credit missing from text export: ' + piece['artist']
 feed = json.loads((ROOT / 'index.json').read_text(encoding='utf-8'))
 assert feed['items'], 'Empty JSON Feed'
 assert len({item['id'] for item in feed['items']}) == len(feed['items']), 'Duplicate feed entries'

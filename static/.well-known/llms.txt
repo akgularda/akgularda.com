@@ -13,6 +13,10 @@ This is a public, read-only website. No account, registration, API key, MCP conn
 - [CV](https://arda-akgul.com/cv/index.md): concise biography and selected experience.
 - [Contact](https://arda-akgul.com/contact/index.md): contact details.
 
+## Personal interests
+
+- [Music](https://arda-akgul.com/music/index.md): my selection of jazz, classical and early music, and lo-fi pieces.
+
 ## Project portfolios
 
 - [RadioTEDU](https://arda-akgul.com/projects/radiotedu/index.md): projects I created and developed, with the mobile contribution listed separately.

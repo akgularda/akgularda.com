@@ -1,0 +1,9 @@
+{{ $art := hugo.Data.artwork }}
+{{ $image := resources.Get $art.image_path }}
+{{ $small := $image.Resize "800x webp q85" }}
+{{ $medium := $image.Resize "1600x webp q85" }}
+{{ $large := $image.Resize "2400x webp q85" }}
+<figure class="trade-art" aria-labelledby="trade-art-caption">
+  <a class="trade-art__image" href="{{ $large.RelPermalink }}" aria-label="View Vroom’s painting at full size"><picture><source type="image/webp" srcset="{{ $small.RelPermalink }} 800w, {{ $medium.RelPermalink }} 1600w, {{ $large.RelPermalink }} 2400w" sizes="(min-width: 981px) calc(100vw - 22rem), calc(100vw - 3rem)"><img src="{{ $image.RelPermalink }}" alt="{{ $art.alt }}" width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async"></picture></a>
+  <figcaption id="trade-art-caption"><p><cite>{{ $art.title }}</cite><br>{{ $art.artist }}, {{ $art.year }}</p><p><a href="{{ $art.source_url }}">{{ $art.museum }}</a> · <a href="{{ $art.rights_url }}">{{ $art.rights }}</a><span class="trade-art__view">Select the painting to view it at full size.</span></p></figcaption>
+</figure>

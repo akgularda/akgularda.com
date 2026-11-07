@@ -244,3 +244,38 @@ summary { cursor: pointer; font-size: .9rem; font-weight: 600; padding: .25rem 0
 @media (max-width: 420px) {
   .project-context { gap: .5rem 1rem; }
 }
+
+/* Art and listening: preserve the painting and keep the music collection text-only. */
+.trade-art { margin: 2.7rem 0 0; padding-bottom: 2.7rem; border-bottom: 1px solid var(--site-line); }
+.trade-art__image { display: block; background: #e4e8e6; outline-offset: 5px; }
+.trade-art picture, .trade-art img { display: block; width: 100%; }
+.trade-art img { height: auto; }
+.trade-art figcaption { display: flex; justify-content: space-between; gap: 1rem 2rem; padding-top: .9rem; font-size: .76rem; line-height: 1.6; color: var(--site-muted); }
+.trade-art figcaption p { margin: 0; }
+.trade-art figcaption cite { color: var(--site-ink); }
+.trade-art figcaption a { color: var(--site-link); text-decoration: underline; }
+.trade-art__view { display: block; margin-top: .3rem; font-size: .7rem; }
+.music-genres { display: flex; flex-wrap: wrap; gap: .75rem 1.8rem; margin-top: 1.5rem; font-size: .86rem; }
+.music-genres a { color: var(--site-link); padding-block: .3rem; text-decoration: underline; }
+.music-genres span { margin-left: .3rem; color: var(--site-muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.music-genre { display: grid; grid-template-columns: minmax(10rem,1fr) minmax(0,2fr); gap: 2rem 3rem; padding: 1.5rem 0 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--site-line); scroll-margin-top: 1.5rem; }
+.music-genre__intro h2 { font-family: Georgia,'Times New Roman',serif; font-size: clamp(1.7rem,2.4vw,2.1rem); font-weight: 400; line-height: 1.2; letter-spacing: -.03em; margin: .3rem 0 1rem; }
+.music-genre__intro > p:not(.eyebrow) { color: var(--site-muted); font-size: .88rem; max-width: 30ch; }
+.music-genre__note { margin-top: 1.4rem; }
+.music-pieces { list-style: none; margin: 0; padding: 0; }
+.music-piece { display: grid; grid-template-columns: 1.4rem minmax(0,1fr); gap: .9rem; padding: 1.1rem 0; border-top: 1px solid var(--site-line); }
+.music-piece:first-child { padding-top: 0; border-top: 0; }
+.music-piece__number { color: #6b8296; font-size: .72rem; padding-top: .3rem; font-variant-numeric: tabular-nums; }
+.music-piece h3 { font-family: Georgia,'Times New Roman',serif; font-size: 1.25rem; font-weight: 400; line-height: 1.35; letter-spacing: -.015em; margin: 0 0 .4rem; }
+.music-piece__artist { font-size: .88rem; color: var(--site-muted); margin: 0; }
+.music-piece__note { font-size: .74rem; color: var(--site-muted); margin: .25rem 0 0; }
+@media (max-width: 720px) {
+  .trade-art { margin-top: 2rem; padding-bottom: 2rem; }
+  .trade-art figcaption { flex-direction: column; gap: .65rem; }
+  .music-genre { grid-template-columns: 1fr; gap: 1.2rem; padding-bottom: 2rem; }
+  .music-genre__intro h2 { margin-bottom: .6rem; }
+  .music-genre__intro > p:not(.eyebrow) { max-width: none; }
+  .music-genre__note { margin-top: .6rem; }
+  .music-genres { gap: .5rem 1.1rem; }
+  .music-genres a { display: inline-flex; align-items: center; min-height: 44px; }
+}

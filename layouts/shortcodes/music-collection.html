@@ -1,0 +1,12 @@
+<div class="music-collection">
+{{ range hugo.Data.music.groups }}
+<section class="music-genre" id="{{ .id }}" aria-labelledby="music-{{ .id }}-title">
+  <header class="music-genre__intro"><p class="eyebrow">{{ len .tracks }} pieces</p><h2 id="music-{{ .id }}-title">{{ .title }}</h2><p>{{ .description }}</p>{{ with .note }}<p class="music-genre__note">{{ . }}</p>{{ end }}</header>
+  <ol class="music-pieces">
+    {{ range $i, $track := .tracks }}
+    <li class="music-piece"><span class="music-piece__number" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span><div><h3>{{ .title }}</h3><p class="music-piece__artist">{{ .artist }}</p>{{ with .note }}<p class="music-piece__note">{{ . }}</p>{{ end }}</div></li>
+    {{ end }}
+  </ol>
+</section>
+{{ end }}
+</div>
