@@ -1,53 +1,39 @@
 # Arda Akgül
 
-> Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life.
+> Economics and business student at TED University. Research and writing on trade, sustainability, energy policy, and technology.
 
-Arda Akgül is Vice President of the TEDU Economics Research Union, a Researcher at DASAM, founder of Monarch Castle Technologies, and co-founder of SDCofA. His economics thesis examines EU exposure, CBAM, and sustainability reporting in the aluminum sector.
+This is a public, read-only website. No account, registration, API key, MCP connection, or agent protocol is required to read its content. The files below are navigation aids, not a guarantee of search ranking or AI citations.
 
-## Canonical Pages
+## Profile and work
 
-- [About](https://arda-akgul.com/about/index.md): biography, education, affiliations, and profile context.
-- [Publications](https://arda-akgul.com/publications/): publication record with outlet references and dates.
-- [Experience](https://arda-akgul.com/experience/): research assistance, institutional roles, and media work.
-- [Contact](https://arda-akgul.com/contact/index.md): academic and editorial contact route.
-- [FAQ](https://arda-akgul.com/faq/index.md): concise answers on identity, study, and contact.
+- [About](https://arda-akgul.com/about/index.md): biography, education, and research interests.
+- [Publications](https://arda-akgul.com/publications/index.md): publication record, credits, dates, and source links.
+- [Experience](https://arda-akgul.com/experience/index.md): research, institutional roles, and media work.
+- [Projects](https://arda-akgul.com/projects/index.md): case studies and links to working projects.
+- [CV](https://arda-akgul.com/cv/index.md): concise biography and selected experience.
+- [Contact](https://arda-akgul.com/contact/index.md): contact details.
 
 ## Writing
 
-- [Publication Essays](https://arda-akgul.com/publications/): first-person analytical site essays on surveillance, payments, adblocking, data integration, and Turkish public data.
-  - [We Have to Give Up Our Privacy](https://arda-akgul.com/publications/we-have-to-give-up-our-privacy/): privacy as a wasting asset; HNDL, qualified rights, accountability over secrecy.
-  - [I Have Always Been Interested in Surveillance](https://arda-akgul.com/publications/why-i-stopped-fighting-the-cameras/): long-standing interest in surveillance; urban sensors judged by outcomes, not drama.
-  - [How I Pay for Everything](https://arda-akgul.com/publications/how-i-pay-for-everything/): cashless student budgeting and spending visibility.
-  - [Why I Turned Adblock Off](https://arda-akgul.com/publications/why-i-turned-adblock-off/): ad blockers, half-pages, and the relevance feedback loop.
-  - [What Palantir Actually Builds](https://arda-akgul.com/publications/what-palantir-actually-builds/): ontology layers and data integration as infrastructure.
-  - [Data Partnerships in Turkish Public Services](https://arda-akgul.com/publications/data-partnerships-turkish-public-services/): join keys, EU Data Act patterns, and stakeholder value.
-- [Writing](https://arda-akgul.com/blogs/): essays, notes, and topic-led archive.
-- [Economics](https://arda-akgul.com/blogs/economics/): trade, incentives, institutions, and policy.
-- [Sustainability](https://arda-akgul.com/blogs/sustainability/): energy transition and long-term economic questions.
-- [Technology and Public Life](https://arda-akgul.com/blogs/tech-computing/): digital systems, AI, and public consequences.
-- [Business and Industry](https://arda-akgul.com/blogs/business-industry/): firms, strategy, and industrial analysis.
-- [Culture and Ideas](https://arda-akgul.com/blogs/culture/): literature and intellectual history.
-- [Mathematics](https://arda-akgul.com/blogs/mathematics/): geometry and the mathematics of AI.
-- [Guides](https://arda-akgul.com/guides/): practical notes on sustainability and preparedness.
+- [Writing archive](https://arda-akgul.com/blogs/index.md): essays and notes in English and Turkish.
+- [Guides](https://arda-akgul.com/guides/index.md): practical notes on sustainability, preparedness, and analysis.
+- [Publication Essays](https://arda-akgul.com/publications/): essays published on this website, listed separately from external publication records.
+- [I Have Always Been Interested in Surveillance](https://arda-akgul.com/publications/why-i-stopped-fighting-the-cameras/): an essay on urban sensors and public outcomes.
 
-## Machine-Readable Endpoints
+## Content exports
 
-- [Full LLM Corpus](https://arda-akgul.com/llms-full.txt): expanded first-party text export.
-- [AI discovery](https://arda-akgul.com/ai.txt): crawl and usage guidance for AI systems.
-- [Agent discovery](https://arda-akgul.com/agents.txt): entry points for autonomous agents.
-- [Agent card](https://arda-akgul.com/.well-known/agent.json): machine-readable discovery card.
-- [OpenAPI descriptor](https://arda-akgul.com/openapi.yaml): read-only endpoint map for public resources.
-- [humans.txt](https://arda-akgul.com/humans.txt): who builds and maintains this site.
-- [RSS feed](https://arda-akgul.com/index.xml): chronological feed of new writing.
-- [Sitemap](https://arda-akgul.com/sitemap.xml): full list of canonical, indexable URLs.
+- [Full content export](https://arda-akgul.com/llms-full.txt): biography, publication record, experience, projects, CV, essays, and guides.
+- [JSON Feed](https://arda-akgul.com/index.json): structured feed of published writing.
+- [RSS](https://arda-akgul.com/index.xml): chronological writing feed.
+- [Sitemap](https://arda-akgul.com/sitemap.xml): canonical, indexable HTML pages.
+- [OpenAPI](https://arda-akgul.com/openapi.yaml): GET endpoints for public documents.
+- [Access notes](https://arda-akgul.com/auth.md): public access and the limits of this site's integrations.
 
-## Legal and Privacy
+## Policies
 
-- [Privacy Policy](https://arda-akgul.com/privacy/): data handling, Google Analytics, GDPR/CCPA rights.
-- [Cookie Policy](https://arda-akgul.com/cookies/): cookies used on this site and consent choices.
-- [Terms of Use](https://arda-akgul.com/terms/): acceptable use and liability terms.
+- [Robots](https://arda-akgul.com/robots.txt): crawler policy.
+- [Privacy](https://arda-akgul.com/privacy/): privacy policy.
+- [Cookies](https://arda-akgul.com/cookies/): cookie policy.
+- [Terms](https://arda-akgul.com/terms/): terms of use.
 
-## Optional
-
-- [Categories](https://arda-akgul.com/categories/): taxonomy of writing topics.
-- [Tags](https://arda-akgul.com/tags/): all tags used across posts.
+Cite the original page URL for each claim. Dates and titles in the exports describe the source content; they do not imply independent verification by an AI provider.

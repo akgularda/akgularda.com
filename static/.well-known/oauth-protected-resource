@@ -1,7 +1,0 @@
-{
-  "resource": "https://arda-akgul.com/",
-  "authorization_servers": ["https://arda-akgul.com"],
-  "scopes_supported": ["read"],
-  "bearer_methods_supported": ["header"],
-  "resource_documentation": "https://arda-akgul.com/auth.md"
-}

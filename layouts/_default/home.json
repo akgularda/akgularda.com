@@ -1,1 +1,8 @@
-{ "version": "https://jsonfeed.org/version/1", "title": "Arda Akgül", "items": [] } 
+{{- $items := slice -}}
+{{- range (where site.RegularPages "Section" "in" (slice "blogs" "publications" "guides")).ByDate.Reverse -}}
+  {{- $item := dict "id" .Permalink "url" .Permalink "title" .Title "content_text" .Plain "summary" (.Description | default .Params.summary) "language" (.Params.contentlang | default "en") -}}
+  {{- with .Date -}}{{- $item = merge $item (dict "date_published" (.Format "2006-01-02T15:04:05Z07:00")) -}}{{- end -}}
+  {{- with .Lastmod -}}{{- $item = merge $item (dict "date_modified" (.Format "2006-01-02T15:04:05Z07:00")) -}}{{- end -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+{{- dict "version" "https://jsonfeed.org/version/1.1" "title" site.Title "home_page_url" site.Home.Permalink "feed_url" ("index.json" | absURL) "description" site.Params.description "authors" (slice (dict "name" site.Params.author "url" ("about/" | absURL))) "items" $items | jsonify -}}

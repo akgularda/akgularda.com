@@ -1,0 +1,31 @@
+# {{ .Title }}
+
+Source: {{ .Permalink }}
+Language: {{ .Params.contentlang | default "en" }}
+{{ with .Lastmod }}Updated: {{ .Format "2006-01-02" }}{{ end }}
+{{ with .Description }}
+{{ . }}
+{{ end }}
+{{ if eq .RelPermalink "/cv/" }}
+{{ $cv := hugo.Data.cv }}
+{{ $cv.bio }}
+## Education
+{{ range $cv.education }}
+- {{ .degree }}, {{ .institution }} ({{ .dates }}). {{ .detail }}
+{{ end }}
+## Selected current roles
+{{ range $cv.roles }}
+### {{ .institution }}
+{{ .role }}{{ with .dates }} · {{ . }}{{ end }}
+{{ .detail }}
+{{ end }}
+[Download CV](https://arda-akgul.com/downloads/arda-akgul-cv.pdf)
+{{ else }}
+{{ partial "markdown-content.txt" . }}
+{{ end }}
+{{ if and .IsSection (ne .Section "publications") }}
+## Pages in this section
+{{ range .RegularPagesRecursive.ByDate.Reverse }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+{{ end }}

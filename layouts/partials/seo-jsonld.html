@@ -76,6 +76,7 @@
 {{ $website := dict
   "@context" "https://schema.org"
   "@type" "WebSite"
+  "alternateName" (slice "Arda Akgul" "arda-akgul.com")
   "@id" $websiteId
   "name" .Site.Title
   "url" .Site.Home.Permalink

@@ -36,3 +36,9 @@
 - PowerShell: `gh pr edit --body` multi-word args break; `$var` interpolates inside double-quoted commit messages (escaped once, message came out without name).
 - HTML minify removes attribute quotes — live grep must use `href=/llms.txt` not `href="/llms.txt"`.
 - Subagents free-tier blocked; user speaks Turkish, site content English.
+
+## Search copy and machine content audit 2026-11-07
+- Public reading is supported; MCP/A2A/OAuth service claims were unsupported by running endpoints (POST returned 405). Remove those descriptors rather than treating file presence as protocol support.
+- Markdown and full corpus exports now render publication shortcodes, retain 43 records and citation links, and include projects, experience, and CV. JSON Feed contains actual writing.
+- Run scripts/verify-machine-content.py and node scripts/verify-edge.mjs after Hugo build.
+- infra/arda-edge.mjs is Cloudflare Worker source. GitHub Pages deployment does not deploy the Worker. Its Link-header and content-negotiation fixes require a separate Cloudflare deployment; do not report them as live based on a Pages deployment.

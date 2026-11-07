@@ -1,15 +1,16 @@
-const LINK = '</.well-known/api-catalog>; rel="api-catalog", </openapi.yaml>; rel="service-desc", </about/>; rel="service-doc", </llms.txt>; rel="describedby", <https://arda-akgul.com/.well-known/oauth-protected-resource>; rel="oauth-protected-resource"';
+const LINK = '</.well-known/api-catalog>; rel="api-catalog", </openapi.yaml>; rel="service-desc", </about/>; rel="service-doc", </llms.txt>; rel="describedby"';
 
 function htmlToMd(html) {
   let s = html;
   s = s.replace(/<script[\s\S]*?<\/script>/gi, '');
   s = s.replace(/<style[\s\S]*?<\/style>/gi, '');
   s = s.replace(/<nav[\s\S]*?<\/nav>/gi, '');
-  s = s.replace(/<header[\s\S]*?<\/header>/gi, '');
+  s = s.replace(/<header\b[^>]*class=(?:"[^"]*site-header[^"]*"|'[^']*site-header[^']*'|[^\s>]*site-header[^\s>]*)[^>]*>[\s\S]*?<\/header>/gi, '');
   s = s.replace(/<footer[\s\S]*?<\/footer>/gi, '');
   s = s.replace(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/gi, (_, n, t) =>
     '\n' + '#'.repeat(Number(n)) + ' ' + t.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() + '\n\n');
-  s = s.replace(/<a\s[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (_, href, txt) => {
+  s = s.replace(/<a\b[^>]*?\bhref=(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>([\s\S]*?)<\/a>/gi, (_, double, single, bare, txt) => {
+    const href = double ?? single ?? bare;
     const t = txt.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     return t ? '[' + t + '](' + href + ')' : '';
   });
@@ -29,8 +30,6 @@ function htmlToMd(html) {
 
 const JSON_WELL_KNOWN = new Set([
   '/.well-known/api-catalog',
-  '/.well-known/oauth-protected-resource',
-  '/.well-known/oauth-authorization-server',
   '/.well-known/http-message-signatures-directory',
 ]);
 

@@ -2,14 +2,13 @@
 lastmod: 2026-11-07
 title: "Arda Akgül"
 type: docs
-description: "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."
-summary: "Official website of Arda Akgül, featuring research, writing, publications, and institutional work."
-seo_title: "Arda Akgül - Official Website"
-seo_description: "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."
+description: "Economics and business student at TED University. Research and writing on trade, sustainability, energy policy, and technology."
+summary: "Research, writing, and projects by Arda Akgül."
+seo_title: "Arda Akgül | Economics, Research & Writing"
+seo_description: "Economics and business student at TED University. Research and writing on trade, sustainability, energy policy, and technology."
 keywords:
   - "Arda Akgül"
   - "Arda Akgul"
-  - "Arda Akgül official website"
   - "TED University"
   - "TEDUsTRC"
   - "economics student"
@@ -29,7 +28,7 @@ params:
   hero:
     eyebrow: "TED University | Ankara"
     title: "Arda Akgül"
-    summary: "Official website of Arda Akgül, Economics and Business Administration student, Undergraduate Research Assistant, and writer focused on trade, sustainability, energy policy, institutions, and technology in public life."
+    summary: "Research, writing, and projects on economics, sustainability, and technology in public life."
     image: "/images/ardaakgul.jpg"
     primary_cta:
       label: "View Publications"
