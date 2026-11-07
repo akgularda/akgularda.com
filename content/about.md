@@ -99,7 +99,13 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 
 - Published 35+ articles on international economics, energy policy, NATO, European politics, and sustainability.
 - Economics thesis on EU exposure, the Carbon Border Adjustment Mechanism (CBAM), and sustainability reporting in the aluminum sector.
-- Interested in international economics, cryptography, blockchain, digital identity, urban mobility, battery technology, electric vehicles, radio technology, fast-moving consumer goods and fast food investment, sustainable finance, and geopolitical risk.
+- **Trade and sustainability:** international economics, energy policy, CBAM, and sustainable finance.
+- **Institutions and public policy:** geopolitical risk, digital identity, and data-driven governance.
+- **Data and technology:** research tools, economic simulations, and student-media systems.
+
+### Other interests
+
+Cryptography, blockchain, urban mobility, battery technology, electric vehicles, radio technology, fast-moving consumer goods, and fast food investment.
 
 ## Experience
 
@@ -241,29 +247,3 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 - Medium: [medium.com/@ardakgul](https://medium.com/@ardakgul)
 - X: [@ardakgul](https://x.com/ardakgul)
 - GitHub: [github.com/akgularda](https://github.com/akgularda)
-
-## Frequently Asked Questions
-
-### Who is Arda Akgül?
-
-Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye, an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC), and the founder of Monarch Castle Technologies.
-
-### What does Arda Akgül study and research?
-
-He studies economics and business administration, with a focus on international trade, sustainability, energy policy, and the role of institutions in public life, and has published 35+ articles across ERUMAG, UDİAD, and EUROPolitika.
-
-### What is Arda Akgül’s thesis about?
-
-His economics thesis examines EU exposure, the Carbon Border Adjustment Mechanism (CBAM), and sustainability reporting in the aluminum sector.
-
-### Where is Arda Akgül based?
-
-Arda Akgül is based in Ankara, Türkiye.
-
-### What is Monarch Castle Technologies?
-
-Monarch Castle Technologies is a venture founded by Arda Akgül in 2025 that works on data analysis and prediction projects.
-
-### How can I contact Arda Akgül?
-
-You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul.

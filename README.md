@@ -46,3 +46,13 @@ DNS Cloudflare üzerinden yönetilir. Ana site ve `/econ/` arayüzü GitHub Page
 ## Ekonomi Laboratuvarı
 
 `static/econ/`, [oyun kaynak deposunun](https://github.com/akgularda/ekonomi-laboratuvari) yayımlanabilir arayüzünü içerir. Kaynak commit `static/econ/version.json` içinde kayıtlıdır. Oyunu güncellerken deponun `public/` dosyalarını buraya eşitle ve kaynak commit’i güncelle. Sınıf veritabanı ayrı sunucuda kalır.
+
+## Portfolio content
+
+- Homepage: `layouts/index.html`; navigation: `hugo.toml`.
+- Shared editorial styles: `assets/portfolio.css` (combined with the existing stylesheet).
+- Writing filters use title, description, and tags; topic, language, and year are reflected in the URL. The archive remains readable without JavaScript. Set `contentlang: "tr"` on Turkish articles.
+- Project case studies: `content/projects/`. The economic simulation in `static/econ/` is preserved.
+- Publication records: `data/publications.json`. The publication page and Markdown/LLM content use this shared data.
+- CV and short biography: `data/cv.json`. Run `python scripts/build_cv.py` (requires ReportLab and Arial on Windows or DejaVu Sans on Linux) after changing the CV data, then commit the regenerated `static/downloads/arda-akgul-cv.pdf`.
+- The PR workflow runs Hugo 0.169.0 and both verification scripts before review.

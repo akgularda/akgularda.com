@@ -17,7 +17,7 @@
 {{ if $noindex }}
   {{ $robots = "noindex, follow, max-image-preview:large, max-snippet:500, max-video-preview:-1" }}
 {{ end }}
-{{ $css := resources.Get "site.css" | minify | fingerprint }}
+{{ $css := slice (resources.Get "site.css") (resources.Get "portfolio.css") | resources.Concat "styles/portfolio.css" | minify | fingerprint }}
 {{ $js := "" }}
 {{ with resources.Get "site.js" }}
   {{ $js = . | minify | fingerprint }}

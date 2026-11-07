@@ -1,0 +1,7 @@
+{{ $p := .Page }}
+{{ $topic := "" }}{{ if eq $p.Section "blogs" }}{{ $parts := split $p.RelPermalink "/" }}{{ with site.GetPage (printf "/blogs/%s" (index $parts 2)) }}{{ $topic = .Title }}{{ end }}{{ end }}
+<article class="writing-entry"{{ if .Filter }} data-entry data-title="{{ $p.Title | lower }}" data-search="{{ printf "%s %s %s" $p.Title ($p.Description | default $p.Params.summary) (delimit ($p.Params.tags | default slice) " ") | lower }}" data-topic="{{ $topic }}" data-year="{{ $p.Date.Format "2006" }}" data-lang="{{ $p.Params.contentlang | default "en" }}"{{ end }}>
+  <div class="entry-meta"><time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "02 Jan 2006" }}</time>{{ with $topic }}<span>{{ . }}</span>{{ end }}<span lang="{{ $p.Params.contentlang | default "en" }}">{{ if eq $p.Params.contentlang "tr" }}Türkçe{{ else }}English{{ end }}</span><span>{{ $p.ReadingTime }} min read</span></div>
+  <h3><a href="{{ $p.RelPermalink }}"{{ if eq $p.Params.contentlang "tr" }} lang="tr"{{ end }}>{{ $p.Title }}</a></h3>
+  <p{{ if eq $p.Params.contentlang "tr" }} lang="tr"{{ end }}>{{ $p.Description | default $p.Params.summary | default ($p.Summary | plainify | truncate 180) }}</p>
+</article>

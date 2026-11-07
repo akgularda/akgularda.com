@@ -229,9 +229,9 @@ buildFuture = true
   cta = "Contact Arda"
 
 [[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
+  identifier = "home"
+  name = "Home"
+  url = "/"
   weight = 1
 
 [[menu.main]]
@@ -241,21 +241,21 @@ buildFuture = true
   weight = 2
 
 [[menu.main]]
-  identifier = "publications"
-  name = "Publications"
-  url = "/publications/"
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
   weight = 3
 
 [[menu.main]]
-  identifier = "guides"
-  name = "Guides"
-  url = "/guides/"
+  identifier = "publications"
+  name = "Publications"
+  url = "/publications/"
   weight = 4
 
 [[menu.main]]
-  identifier = "experience"
-  name = "Experience"
-  url = "/experience/"
+  identifier = "about"
+  name = "About"
+  url = "/about/"
   weight = 5
 
 [[menu.main]]
@@ -263,16 +263,3 @@ buildFuture = true
   name = "Contact"
   url = "/contact/"
   weight = 6
-
-[[menu.main]]
-  identifier = "faq"
-  name = "FAQ"
-  url = "/faq/"
-  weight = 7
-
-[[menu.main]]
-  identifier = "econ"
-  name = "Ekonomi Laboratuvarı"
-  url = "/econ/"
-  weight = 8
-

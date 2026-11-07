@@ -1,102 +1,15 @@
 {{ define "main" }}
-{{ $heroPage := . }}
-{{ with .CurrentSection }}
-  {{ if ne .RelPermalink "/" }}
-    {{ $heroPage = . }}
-  {{ end }}
-{{ end }}
-{{ $heroImage := partial "section-image.html" $heroPage }}
-{{ $headingPattern := printf `(?s)^\s*<h1 id="%s">.*?</h1>` (.Title | anchorize) }}
+{{ $article := in (slice "blogs" "guides" "publications") .Section }}
+{{ $headingPattern := printf "(?s)^\\s*<h1[^>]*>.*?</h1>" }}
 {{ $content := .Content | replaceRE $headingPattern "" }}
-{{ $eyebrow := "Page" }}
-{{ $showMeta := false }}
-{{ if and (ne .Type "docs") .Date }}
-  {{ $showMeta = true }}
-{{ end }}
-{{ with .Params.categories }}
-  {{ $showMeta = true }}
-{{ end }}
-{{ with .CurrentSection }}
-  {{ if ne .RelPermalink "/" }}
-    {{ $eyebrow = .Title }}
-  {{ end }}
-{{ end }}
-
 {{ partial "breadcrumbs.html" . }}
-<header class="page-hero {{ if $heroImage }}page-hero--media{{ else }}page-hero--ornament{{ end }}">
-  <div class="page-hero__body">
-    <p class="eyebrow">{{ $eyebrow }}</p>
-    <h1>{{ .Title }}</h1>
-    {{ with .Description }}
-    <p class="page-hero__lead">{{ . }}</p>
-    {{ end }}
-    {{ if .Params.future }}
-    <p class="page-status">Essays in preparation</p>
-    {{ end }}
-    {{ partial "page-tools.html" . }}
-
-    {{ if $showMeta }}
-    <div class="meta-row">
-      {{ if or (eq .Section "blogs") (eq .Section "guides") (eq .Section "publications") }}<span>By {{ .Site.Params.author }}</span>{{ end }}
-      {{ with .Date }}<span>{{ .Format "January 2, 2006" }}</span>{{ end }}
-      {{ with .Params.categories }}<span>{{ delimit . ", " }}</span>{{ end }}
-    </div>
-    {{ end }}
-  </div>
-
-  {{ with $heroImage }}
-  <div class="page-hero__media">
-    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
-  </div>
-  {{ else }}
-  <div class="page-hero__ornament" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  {{ end }}
-</header>
-
-{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides") (eq .Section "publications")) }}
-{{ $tlDrMatches := findRE `(?s)<p>(.*?)</p>` .Content 1 }}
-{{ with $tlDrMatches }}
-<div class="tl-dr" aria-label="Summary">
-  <p><strong>TL;DR:</strong> {{ index . 0 | plainify | truncate 300 }}</p>
-</div>
+<header class="page-hero page-hero--plain"><div class="page-hero__body"><p class="eyebrow">{{ if $article }}{{ with .CurrentSection }}{{ .Title }}{{ end }}{{ else }}Profile &amp; information{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Description }}<p class="page-hero__lead">{{ . }}</p>{{ end }}{{ if $article }}<div class="meta-row"><span>By {{ .Site.Params.author }}</span>{{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 January 2006" }}</time>{{ end }}<span>{{ .ReadingTime }} min read</span><span>{{ if eq .Params.contentlang "tr" }}Türkçe{{ else }}English{{ end }}</span></div>{{ end }}{{ if eq .RelPermalink "/about/" }}<div class="actions"><a class="button button--primary" href="/cv/">CV &amp; short biography</a><a class="text-link" href="/experience/">Experience ↗</a></div>{{ end }}</div></header>
+{{ if and $article (gt .WordCount 700) }}{{ if gt (len (findRE "<li>" .TableOfContents)) 2 }}<details class="article-toc"><summary>{{ if eq .Params.contentlang "tr" }}Bu yazıda{{ else }}On this page{{ end }}</summary>{{ .TableOfContents }}</details>{{ end }}{{ end }}
+<article class="content-pane"><div class="prose">{{ $content | safeHTML }}</div></article>
+{{ if $article }}
+{{ $related := first 2 (where (.Site.RegularPages.Related .) "Section" "in" (slice "blogs" "guides" "publications")) }}
+{{ if not $related }}{{ $related = first 2 (where (where .Site.RegularPages "Section" .Section) "RelPermalink" "ne" .RelPermalink).ByDate.Reverse }}{{ end }}
+{{ with $related }}<section class="home-section" aria-labelledby="related-title"><div class="section-top"><h2 id="related-title">{{ if eq $.Params.contentlang "tr" }}Okumaya devam edin{{ else }}Keep reading{{ end }}</h2><a class="text-link" href="/blogs/">Writing archive ↗</a></div><div class="writing-list">{{ range . }}{{ partial "entry.html" (dict "Page" .) }}{{ end }}</div></section>{{ end }}
+<div class="reading-footer"><p>{{ if eq .Params.contentlang "tr" }}Yeni yazıları takip edin.{{ else }}Follow new essays and notes.{{ end }}</p><a class="button" href="/index.xml">Follow via RSS ↗</a><a class="text-link" href="/contact/">Contact the author ↗</a></div>
 {{ end }}
-{{ end }}
-
-<article class="content-pane{{ if eq .RelPermalink "/about/" }} content-pane--split content-pane--about{{ end }}">
-  <div class="prose{{ if eq .RelPermalink "/about/" }} prose--dossier{{ end }}">
-    {{ $content | safeHTML }}
-  </div>
-  {{ if eq .RelPermalink "/about/" }}
-    {{ partial "about-aside.html" . }}
-  {{ end }}
-</article>
-
-{{ if and .IsPage (or (eq .Section "blogs") (eq .Section "guides") (eq .Section "publications")) }}
-  {{ $related := first 4 (where (.Site.RegularPages.Related .) "Section" "in" (slice "blogs" "guides" "publications")) }}
-  {{ with $related }}
-  <section class="listing-section related-writing">
-    <div class="section-heading">
-      <p class="eyebrow">Related</p>
-      <h2>Related writing</h2>
-      <p class="section-lead">More essays and notes on connected themes.</p>
-    </div>
-    <ul class="sitelinks-list">
-      {{ range . }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span>{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ end }}{{ end }}</span>
-      </li>
-      {{ end }}
-    </ul>
-  </section>
-  {{ end }}
-{{ end }}
-
-{{ partial "faq-block.html" . }}
-
-{{ partial "context-links.html" . }}
 {{ end }}

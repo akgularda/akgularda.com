@@ -1,4 +1,5 @@
 ---
+contentlang: "tr"
 title: "Modern Devrin Hattatları: Yapay Zeka Üzerine"
 date: "2026-07-03"
 description: "Yapay zekayı icat olarak değil, tekrar eden bir el işi geleneği olarak okuyorum: hattatların aksine, modelin kendi yazısını bilmediğini düşünüyorum."
