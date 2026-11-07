@@ -23,7 +23,7 @@ This page brings together the parts of my work that most clearly reflect researc
 
 - **TED University Sustainable Trade Research Center (TEDUsTRC)**  
   Undergraduate Research Assistant, October 2024 - Present  
-  Analyzes corporate ESG data and supports research and report preparation connected to sustainable trade, policy questions, and academic work.  
+  Analyzes corporate ESG data and supports research and report preparation connected to sustainable trade, policy questions, and academic work. Research assistant on [Beyond Epicenters](/projects/beyond-epicenters/) and co-editor of the [sTAM Sustainability Agenda](/projects/sustainability-agenda/) with Ezgi Eylem Erdoğan.\
   Intern, June 2026 - July 2026  
   Supported corporate sustainability research through data collection and literature review.
 
@@ -56,7 +56,7 @@ This page brings together the parts of my work that most clearly reflect researc
   Editor and Broadcast Coordinator, August 2024 - Present  
   Former Radio Show Host, October 2022 - July 2024  
   Helped produce university radio and podcast programming, including conversations on economics, literature, and public questions.
-  Contributes to the station software ecosystem, including the cross-platform mobile app, the OnAir broadcast automation engine, and interactive listener services.
+  Created and developed OnAir, AI Radio, RTAI, Situation Room, Agentic Web & MCP, Social / Study World, and RadioTEDU Terminal. Contributes to the collaborative Mobile & Connected Devices project. [Explore the RadioTEDU projects](/projects/?area=radiotedu).
 
 ## Selected Professional Experience
 

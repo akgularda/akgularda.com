@@ -30,6 +30,12 @@ for url in re.findall(r'https://arda-akgul\.com/[^\s)]+', index):
     if not target.suffix:
         target = target / 'index.html'
     assert target.is_file(), 'Broken discovery link: ' + url
+catalogue = json.loads((REPO / 'data/projects.json').read_text(encoding='utf-8'))['items']
+project_export = (ROOT / 'projects/index.md').read_text(encoding='utf-8')
+for project in catalogue:
+    for text in (project_export, corpus):
+        assert project['title'] in text, 'Project missing from text export: ' + project['title']
+        assert project['url'] in text, 'Project link missing from text export: ' + project['url']
 feed = json.loads((ROOT / 'index.json').read_text(encoding='utf-8'))
 assert feed['items'], 'Empty JSON Feed'
 assert len({item['id'] for item in feed['items']}) == len(feed['items']), 'Duplicate feed entries'

@@ -3,7 +3,7 @@
   "description": "Research assistance and bulletin work at TEDUsTRC, with a focus on sustainability and trade.",
   "layout": "project",
   "kind": "Research & policy",
-  "contribution": "Corporate ESG analysis, literature review, research support, and co-prepared sustainability bulletins.",
+  "contribution": "Research assistance, including Beyond Epicenters, and co-editorship of the sTAM Sustainability Agenda.",
   "project_links": [
     {
       "label": "Read the bulletins",
@@ -14,7 +14,9 @@
       "url": "/publications/"
     }
   ],
-  "weight": 2
+  "weight": 2,
+  "role_label": "Research assistant & co-editor",
+  "lastmod": "2026-11-07"
 }
 
 ## The question
@@ -32,3 +34,8 @@ My economics thesis examines EU exposure, the Carbon Border Adjustment Mechanism
 I co-prepared the sTAM Monthly Sustainability Agenda, Issue 01, and the Q2 2026 Sustainability Agenda with Ezgi Eylem Erdoğan. These include interviews with Prof. Dr. Ayça Tekin-Koru and Prof. Dr. Erdem Başçı.
 
 [Explore the publication record](/publications/) for original bulletin and PDF links.
+
+## Research and editorial projects
+
+- [Beyond Epicenters](/projects/beyond-epicenters/): research assistant on the project examining vulnerability through economic and social networks.
+- [sTAM Sustainability Agenda](/projects/sustainability-agenda/): co-editor of the sustainability bulletin with Ezgi Eylem Erdoğan.

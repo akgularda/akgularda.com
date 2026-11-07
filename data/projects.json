@@ -1,0 +1,443 @@
+{
+  "groups": [
+    {
+      "id": "radiotedu",
+      "title": "RadioTEDU",
+      "subtitle": "Broadcast systems, applied media intelligence, and connected listening."
+    },
+    {
+      "id": "research",
+      "title": "Research & editorial",
+      "subtitle": "Research assistance and editorial work at TED University sTRC."
+    },
+    {
+      "id": "monarch",
+      "title": "Monarch Castle Technologies",
+      "subtitle": "Economic, energy, and decision-intelligence tools I created and developed."
+    },
+    {
+      "id": "sdcofa",
+      "title": "SDCofA",
+      "subtitle": "Geopolitical monitoring projects within the Monarch Castle portfolio."
+    },
+    {
+      "id": "independent",
+      "title": "Independent projects",
+      "subtitle": "Interactive tools for exploring economic ideas."
+    }
+  ],
+  "items": [
+    {
+      "id": "radiotedu-onair",
+      "title": "RadioTEDU OnAir",
+      "description": "Broadcast scheduling, playout, and automation that turn a programme into a continuous audio signal.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Broadcast automation",
+      "url": "/projects/radiotedu-onair/",
+      "source_url": "https://radiotedu.com/technology/projects/onair/"
+    },
+    {
+      "id": "radiotedu-ai-radio",
+      "title": "AI Radio",
+      "description": "An experimental radio station combining machine-assisted music selection, hosting, and spoken presentation.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Experimental radio",
+      "url": "/projects/radiotedu-ai-radio/",
+      "source_url": "https://radiotedu.com/technology/projects/ai-radio/",
+      "status": "Experimental"
+    },
+    {
+      "id": "rtai",
+      "title": "RTAI · Applied Media Intelligence",
+      "description": "An applied AI practice connecting radio, audio production, media discovery, and human editorial judgement.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Applied media intelligence",
+      "url": "/projects/rtai/",
+      "source_url": "https://radiotedu.com/technology/intelligence/"
+    },
+    {
+      "id": "situation-room",
+      "title": "RadioTEDU Situation Room",
+      "description": "A geographic news interface bringing together a 3D globe, source-linked reports, and spoken summaries.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Geographic news interface",
+      "url": "/projects/situation-room/",
+      "source_url": "https://radiotedu.com/technology/projects/situation-room/"
+    },
+    {
+      "id": "agentic-web",
+      "title": "RadioTEDU Agentic Web & MCP",
+      "description": "An assistant interface to public stations, schedules, podcasts, search, and live media context.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Agent interfaces",
+      "url": "/projects/agentic-web/",
+      "source_url": "https://radiotedu.com/technology/projects/agentic-web/",
+      "keywords": [
+        "MCP",
+        "Model Context Protocol",
+        "SSE",
+        "podcasts"
+      ]
+    },
+    {
+      "id": "radiotedu-social",
+      "title": "RadioTEDU Social / Study World",
+      "description": "A virtual campus for shared rooms, avatars, study sessions, and moderated community interaction.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Community platform",
+      "url": "/projects/radiotedu-social/",
+      "source_url": "https://radiotedu.com/technology/projects/social/"
+    },
+    {
+      "id": "radiotedu-terminal",
+      "title": "RadioTEDU Terminal",
+      "description": "A cross-platform terminal radio client with station discovery, favourites, playback controls, and focus sessions.",
+      "group": "radiotedu",
+      "role": "Creator & developer",
+      "kind": "Terminal application",
+      "url": "/projects/radiotedu-terminal/",
+      "source_url": "https://radiotedu.com/tui",
+      "keywords": [
+        "TUI",
+        "CLI",
+        "Windows",
+        "macOS",
+        "Linux"
+      ]
+    },
+    {
+      "id": "radiotedu-mobile",
+      "title": "RadioTEDU Mobile & Connected Devices",
+      "description": "A collaborative mobile project exploring listening across phones, cars, televisions, casting, and wearables.",
+      "group": "radiotedu",
+      "role": "Contributor",
+      "kind": "Mobile & connected devices",
+      "url": "/projects/radiotedu-mobile/",
+      "source_url": "https://radiotedu.com/technology/projects/mobile/",
+      "status": "In development"
+    },
+    {
+      "id": "beyond-epicenters",
+      "title": "Beyond Epicenters",
+      "description": "Research on earthquake vulnerability and cascading effects across economic, social, and infrastructure networks.",
+      "group": "research",
+      "role": "Research assistant",
+      "kind": "Research project",
+      "url": "/projects/beyond-epicenters/",
+      "source_url": "https://strc.tedu.edu.tr/beyond-epicenters-projesi"
+    },
+    {
+      "id": "sustainability-agenda",
+      "title": "sTAM Sustainability Agenda",
+      "description": "A sustainability bulletin connecting trade, climate policy, data, research, and interviews.",
+      "group": "research",
+      "role": "Co-editor",
+      "kind": "Editorial project",
+      "url": "/projects/sustainability-agenda/",
+      "source_url": "https://strc.tedu.edu.tr/stam-bulten"
+    },
+    {
+      "id": "mc-caspian-black-sea-monitor",
+      "title": "Caspian & Black Sea Monitor",
+      "description": "A maritime early-warning dashboard combining regional port activity, official publications, weather, and market signals.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/caspian-black-sea-monitor/",
+      "source_url": "https://monarchcastle.com/caspian-black-sea-monitor/",
+      "methods_url": "https://github.com/MonarchCastleTech/caspian-black-sea-monitor/blob/main/README.md"
+    },
+    {
+      "id": "mc-cloudy-shiny",
+      "title": "Cloudy&Shiny Index",
+      "description": "A market sentiment dashboard combining equity, crypto, and volatility indicators with a published weighting model.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/Cloudy-Shiny/",
+      "source_url": "https://monarchcastle.com/Cloudy-Shiny/",
+      "methods_url": "https://github.com/MonarchCastleTech/Cloudy-Shiny/blob/main/README.md"
+    },
+    {
+      "id": "mc-defense-procurement",
+      "title": "Defense Procurement Intelligence",
+      "description": "A defense-industrial monitoring dashboard drawing on procurement notices, awards, policy activity, and public sources.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/defense-procurement/",
+      "source_url": "https://monarchcastle.com/defense-procurement/",
+      "methods_url": "https://github.com/MonarchCastleTech/defense-procurement/blob/main/README.md"
+    },
+    {
+      "id": "mc-econmap",
+      "title": "EconMap",
+      "description": "An interactive economic and city intelligence workspace for exploring countries, infrastructure, datasets, and source-linked briefs.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/econmap/",
+      "source_url": "https://monarchcastle.com/econmap/",
+      "methods_url": "https://github.com/MonarchCastleTech/econmap/blob/main/README.md"
+    },
+    {
+      "id": "mc-esgmap",
+      "title": "ESGMap",
+      "description": "A global sustainability atlas for exploring environmental, social, and governance indicators.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/esgmap/",
+      "source_url": "https://monarchcastle.com/esgmap/",
+      "methods_url": "https://github.com/MonarchCastleTech/esgmap/blob/master/README.md"
+    },
+    {
+      "id": "mc-macrointel",
+      "title": "MacroIntel",
+      "description": "An interactive view of country GDP, bilateral trade flows, sectors, and economic blocs.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/macrointel/",
+      "source_url": "https://monarchcastle.com/macrointel/",
+      "methods_url": "https://github.com/MonarchCastleTech/macrointel/blob/main/README.md"
+    },
+    {
+      "id": "mc-mena-energy-flow",
+      "title": "MENA Energy Flow Tracker",
+      "description": "A regional energy-corridor monitoring tool connecting chokepoint activity, market signals, and source evidence.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/mena-energy-flow/",
+      "source_url": "https://monarchcastle.com/mena-energy-flow/",
+      "methods_url": "https://github.com/MonarchCastleTech/mena-energy-flow/blob/main/README.md"
+    },
+    {
+      "id": "mc-milcodec-receiver",
+      "title": "MILCODEC Receiver",
+      "description": "A browser-based acoustic packet receiver with a local decoding demonstration and message diagnostics.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/milcodec-receiver/",
+      "source_url": "https://monarchcastle.com/milcodec-receiver/",
+      "methods_url": "https://github.com/MonarchCastleTech/milcodec-receiver/blob/main/README.md"
+    },
+    {
+      "id": "mc-nuclear-energy-intelligence",
+      "title": "Nuclear Energy Intelligence",
+      "description": "A source-linked exploration of nuclear electricity shares and country-level energy records.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/NuclearEnergyIntelligence/",
+      "source_url": "https://monarchcastle.com/NuclearEnergyIntelligence/",
+      "methods_url": "https://github.com/MonarchCastleTech/NuclearEnergyIntelligence/blob/main/README.md"
+    },
+    {
+      "id": "mc-port-congestion-pulse",
+      "title": "Port Congestion Pulse",
+      "description": "A port-disruption monitoring dashboard using maritime activity, weather, and nearby hazard data.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/port-congestion-pulse/",
+      "source_url": "https://monarchcastle.com/port-congestion-pulse/",
+      "methods_url": "https://github.com/MonarchCastleTech/port-congestion-pulse/blob/main/README.md"
+    },
+    {
+      "id": "mc-prepturk",
+      "title": "PrepTurk",
+      "description": "An emergency-preparedness resource with official-source guides, household checklists, and local browser storage.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/prepturk/",
+      "source_url": "https://monarchcastle.com/prepturk/",
+      "methods_url": "https://github.com/MonarchCastleTech/prepturk/blob/master/README.md"
+    },
+    {
+      "id": "mc-superlig-forecast",
+      "title": "Süper Lig Forecast",
+      "description": "A football forecasting and model-evaluation project focused on the Turkish Süper Lig.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/superlig-forecast/",
+      "source_url": "https://monarchcastle.com/superlig-forecast/",
+      "methods_url": "https://github.com/MonarchCastleTech/superlig-forecast/blob/main/README.md"
+    },
+    {
+      "id": "mc-supplychain",
+      "title": "Supply Chain Intelligence",
+      "description": "An interactive company and supply-chain research workspace with source-linked profiles and scenario exploration.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/supplychain/",
+      "source_url": "https://monarchcastle.com/supplychain/",
+      "methods_url": "https://github.com/MonarchCastleTech/supplychain/blob/master/README.md"
+    },
+    {
+      "id": "mc-tr-economic-sentiment",
+      "title": "Türkiye Economic Sentiment Radar",
+      "description": "An economic-strain monitoring tool combining public data channels into a reproducible screening indicator.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/tr-economic-sentiment/",
+      "source_url": "https://monarchcastle.com/tr-economic-sentiment/",
+      "methods_url": "https://github.com/MonarchCastleTech/tr-economic-sentiment/blob/main/README.md"
+    },
+    {
+      "id": "mc-monarch-signal",
+      "title": "Monarch Signal",
+      "description": "A source-linked economic outlook connecting current events, recent observations, and evolving economic themes.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Data & intelligence",
+      "url": "https://monarchcastle.com/monarch-signal/",
+      "source_url": "https://monarchcastle.com/monarch-signal/",
+      "methods_url": "https://github.com/MonarchCastleTech/monarch-signal/blob/main/README.md"
+    },
+    {
+      "id": "mc-climate-security-index",
+      "title": "Climate Security News Monitor",
+      "description": "A source-linked news monitor for exploring climate and security coverage.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/climate-security-index/",
+      "source_url": "https://monarchcastle.com/sdcofa/climate-security-index/",
+      "methods_url": "https://github.com/SDCofA/climate-security-index/blob/main/README.md"
+    },
+    {
+      "id": "mc-conflict-early-warning",
+      "title": "Conflict News Monitor",
+      "description": "A news-reading interface collecting source-linked reports on conflict and regional developments.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/conflict-early-warning/",
+      "source_url": "https://monarchcastle.com/sdcofa/conflict-early-warning/",
+      "methods_url": "https://github.com/SDCofA/conflict-early-warning/blob/main/README.md"
+    },
+    {
+      "id": "mc-cyber-exposure-map",
+      "title": "Cyber Threat News Monitor",
+      "description": "A source-linked monitor for cyber incident and vulnerability news.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/cyber-exposure-map/",
+      "source_url": "https://monarchcastle.com/sdcofa/cyber-exposure-map/",
+      "methods_url": "https://github.com/SDCofA/cyber-exposure-map/blob/main/README.md"
+    },
+    {
+      "id": "mc-nuclear-proliferation-watch",
+      "title": "Nuclear Policy News Monitor",
+      "description": "A news monitor for nuclear policy and related international developments.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/nuclear-proliferation-watch/",
+      "source_url": "https://monarchcastle.com/sdcofa/nuclear-proliferation-watch/",
+      "methods_url": "https://github.com/SDCofA/nuclear-proliferation-watch/blob/main/README.md"
+    },
+    {
+      "id": "mc-sanctions-exposure-index",
+      "title": "Sanctions News Monitor",
+      "description": "A source-linked reading interface for sanctions news and policy developments.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/sanctions-exposure-index/",
+      "source_url": "https://monarchcastle.com/sdcofa/sanctions-exposure-index/",
+      "methods_url": "https://github.com/SDCofA/sanctions-exposure-index/blob/main/README.md"
+    },
+    {
+      "id": "mc-border-neighbor-threat-index",
+      "title": "Border Neighbor Threat Index",
+      "description": "A regional geopolitical monitoring project focused on Türkiye’s land neighbours; current index publication is paused.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/bnti/",
+      "source_url": "https://monarchcastle.com/sdcofa/bnti/",
+      "methods_url": "https://github.com/SDCofA/border-neighbor-threat-index/blob/main/README.md",
+      "status": "Publication paused"
+    },
+    {
+      "id": "mc-mena-threat-index",
+      "title": "MENA Threat Index",
+      "description": "A regional news-pressure and geopolitical monitoring interface covering the Middle East and North Africa.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/mena/",
+      "source_url": "https://monarchcastle.com/sdcofa/mena/",
+      "methods_url": "https://github.com/SDCofA/mena-threat-index/blob/main/README.md"
+    },
+    {
+      "id": "mc-world-threat-index",
+      "title": "World Threat Index",
+      "description": "A global geopolitical monitoring interface with country readings, group comparisons, maps, and source context.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/wti/",
+      "source_url": "https://monarchcastle.com/sdcofa/wti/",
+      "methods_url": "https://github.com/SDCofA/world-threat-index/blob/main/docs/wti-methodology.md"
+    },
+    {
+      "id": "mc-election",
+      "title": "Election Monitor",
+      "description": "A source-linked election atlas combining calendars, country briefs, and historical model evaluation.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/election/",
+      "source_url": "https://monarchcastle.com/sdcofa/election/",
+      "methods_url": "https://github.com/SDCofA/election/blob/master/README.md"
+    },
+    {
+      "id": "mc-georisk",
+      "title": "GeoRisk",
+      "description": "A geopolitical scenario project whose country scores are withheld pending a current source-backed snapshot.",
+      "group": "sdcofa",
+      "role": "Creator & developer",
+      "kind": "Geopolitical intelligence",
+      "url": "https://monarchcastle.com/sdcofa/georisk/",
+      "source_url": "https://monarchcastle.com/sdcofa/georisk/",
+      "methods_url": "https://github.com/SDCofA/georisk/blob/main/README.md",
+      "status": "Snapshot expired"
+    },
+    {
+      "id": "the-keep",
+      "title": "The Keep",
+      "description": "A public intelligence workspace for country records, source-linked readings, watchlists, and data exports.",
+      "group": "monarch",
+      "role": "Creator & developer",
+      "kind": "Public intelligence workspace",
+      "url": "https://monarchcastle.com/platform/",
+      "source_url": "https://monarchcastle.com/platform/"
+    },
+    {
+      "id": "economics-lab",
+      "title": "Ekonomi Laboratuvarı",
+      "description": "An economic simulation connecting individual decisions, markets, and policy in solo or classroom play.",
+      "group": "independent",
+      "role": "Creator & developer",
+      "kind": "Interactive simulation",
+      "url": "/projects/economics-lab/",
+      "source_url": "https://github.com/akgularda/ekonomi-laboratuvari"
+    }
+  ]
+}

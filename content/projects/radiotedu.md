@@ -1,20 +1,22 @@
 {
   "title": "RadioTEDU: media and systems",
-  "description": "Editorial coordination, university podcasts, and the systems behind student radio.",
+  "description": "My broadcast and media technology projects, alongside editorial work and a contribution to mobile development.",
   "layout": "project",
   "kind": "Student media & technology",
-  "contribution": "Editorial and broadcast coordination, project co-management, and technical development.",
+  "contribution": "Creator and developer of the listed media technology projects; contributor to the collaborative mobile project.",
   "project_links": [
+    {
+      "label": "RadioTEDU Technologies",
+      "url": "https://radiotedu.com/technology/"
+    },
     {
       "label": "Experience & roles",
       "url": "/experience/"
-    },
-    {
-      "label": "Contact about media work",
-      "url": "/contact/"
     }
   ],
-  "weight": 3
+  "weight": 3,
+  "role_label": "Editorial & technical work",
+  "lastmod": "2026-11-07"
 }
 
 ## The question
@@ -27,10 +29,18 @@ I coordinate editorial processes, production schedules, hosts, and technical tea
 
 I co-host segments in the FieldTalks x TEDU ERU podcast and support programs including GreenTalks, Geçmişin Güncesi, and Voice of Culture.
 
-## Technical contribution
+## Systems I created and developed
 
-As project co-manager and technical lead, I contribute to the RadioTEDU software ecosystem: the cross-platform mobile app, multi-station Icecast streaming, jingle production tools, and a terminal radio client.
+- [RadioTEDU OnAir](/projects/radiotedu-onair/): broadcast scheduling and playout.
+- [AI Radio](/projects/radiotedu-ai-radio/): an experimental AI-assisted station.
+- [RTAI](/projects/rtai/): applied media intelligence.
+- [Situation Room](/projects/situation-room/): geographic news and briefings.
+- [Agentic Web & MCP](/projects/agentic-web/): assistant-based media discovery.
+- [Social / Study World](/projects/radiotedu-social/): shared rooms and community experiences.
+- [RadioTEDU Terminal](/projects/radiotedu-terminal/): a command-line radio client.
 
-I also co-manage the OnAir broadcast automation engine and work on interactive listener services. These are collaborative projects; my role spans coordination and technical development.
+## Collaborative development
 
-[Read the experience overview](/experience/) for role dates and related work.
+I also contribute to [Mobile & Connected Devices](/projects/radiotedu-mobile/), the collaborative project extending listening across mobile and connected-device surfaces.
+
+[Browse all RadioTEDU projects](/projects/?area=radiotedu), or [read the experience overview](/experience/) for editorial roles and dates.
