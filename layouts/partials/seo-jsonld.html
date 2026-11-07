@@ -319,3 +319,7 @@
   }}
 <script type="application/ld+json">{{ $breadcrumb | jsonify | safeJS }}</script>
 {{ end }}
+
+{{ if eq .Section "projects" }}
+{{ partial "project-jsonld.html" (dict "Page" . "Person" $personReference) }}
+{{ end }}

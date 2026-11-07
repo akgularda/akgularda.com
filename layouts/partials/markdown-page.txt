@@ -1,7 +1,9 @@
 # {{ .Title | safeHTML }}
 
 Source: {{ .Permalink }}
+Author: {{ .Site.Params.author }}
 Language: {{ .Params.contentlang | default "en" }}
+{{ if and .IsPage (in (slice "blogs" "guides" "publications") .Section) }}{{ with .Date }}Published: {{ .Format "2006-01-02" }}{{ end }}{{ end }}
 {{ with .Params.role_label }}Role: {{ . | safeHTML }}{{ end }}
 {{ with .Lastmod }}Updated: {{ .Format "2006-01-02" }}{{ end }}
 {{ with .Description }}

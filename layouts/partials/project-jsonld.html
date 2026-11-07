@@ -1,0 +1,17 @@
+{{ $page := .Page }}
+{{ $person := .Person }}
+{{ if eq $page.RelPermalink "/projects/" }}
+  {{ $items := slice }}
+  {{ range $i, $project := hugo.Data.projects.items }}
+    {{ $work := partial "project-entity.html" (dict "Project" $project "Person" $person) }}
+    {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "item" $work) }}
+  {{ end }}
+  {{ $list := dict "@context" "https://schema.org" "@type" "ItemList" "@id" (printf "%s#catalogue" $page.Permalink) "name" "Projects and contributions by Arda Akgül" "numberOfItems" (len $items) "itemListElement" $items }}
+<script type="application/ld+json">{{ $list | jsonify | safeJS }}</script>
+{{ else }}
+  {{ range where hugo.Data.projects.items "url" $page.RelPermalink }}
+    {{ $work := partial "project-entity.html" (dict "Project" . "Person" $person) }}
+    {{ $work = merge $work (dict "@context" "https://schema.org" "mainEntityOfPage" $page.Permalink) }}
+<script type="application/ld+json">{{ $work | jsonify | safeJS }}</script>
+  {{ end }}
+{{ end }}

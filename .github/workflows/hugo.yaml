@@ -25,6 +25,7 @@ jobs:
       - run: hugo --baseURL https://arda-akgul.com/ --minify
       - run: python3 scripts/verify-search-seo.py
       - run: python3 scripts/verify-machine-content.py
+      - run: python3 scripts/verify-geo.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public

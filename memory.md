@@ -54,3 +54,9 @@
 - Midnight Room’s Calm Men Win and Mimi’s Faded Hours’ 3 AM Coding Session were explicitly excluded. The remaining list in data/music.json was approved by Arda.
 - Vroom’s The Return to Amsterdam of the Second Expedition to the East Indies (1599), Rijksmuseum SK-A-2858, appears after Selected Work. Preserve its full panoramic composition and attribution. Source/rights are recorded in data/artwork.json; use the responsive Hugo image resources from the museum-sourced original.
 - The user explicitly approved implementing and publishing both the Music page and painting in this session.
+
+## GEO consistency 2026-11-07
+- FAQ visible answers and FAQPage JSON-LD share content/faq.md front matter via profile-faq shortcode. Keep current vs former roles and project contribution distinctions consistent with About/Experience.
+- Project CreativeWork entities and the 37-item catalogue ItemList use data/projects.json. Creator/developer, contributor, research-assistant, and co-editor credits must remain distinct; project-entity.html holds the shared mapping.
+- Markdown exports carry author/source/language/date provenance; llms-full.txt includes FAQ and the complete project catalogue.
+- scripts/verify-geo.py guards profile identity, project credits, visible/structured FAQ parity, text exports, and robots policy; --live adds declared-user-agent requests from the local machine, not verified provider IPs. These checks do not prove indexing or AI citations.
