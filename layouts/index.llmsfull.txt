@@ -2,9 +2,9 @@
 
 Source: {{ .Permalink }}
 Index: {{ "llms.txt" | absURL }}
-This export contains public biography, publication records, experience, projects, CV, essays, and guides. Cite each page's source URL. External publication texts are linked, not reproduced.
+This export contains public biography, publication records, experience, projects, CV, music, essays, and guides. Cite each page's source URL. External publication texts are linked, not reproduced.
 
-{{ range slice "/about" "/publications" "/experience" "/cv" "/contact" }}
+{{ range slice "/about" "/publications" "/experience" "/cv" "/contact" "/music" }}
 {{ with site.GetPage . }}
 {{ partial "markdown-page.txt" . }}
 

@@ -48,3 +48,9 @@
 - Ownership/roles were specified by Arda: creator/developer for the listed RadioTEDU and Monarch/SDCofA projects; Contributor for Mobile; Research assistant for Beyond Epicenters; Co-editor for the sTAM bulletin. Agentic Web and MCP are a single project, with both original links retained.
 - Keep project descriptions and publication state aligned with original sources. Shared catalogue markup renders in HTML and Markdown/full text exports.
 - PR #28 and its separate Cloudflare Worker source were both deployed on 2026-11-07; the observed active Worker version was e6494a23.
+
+## Music and trade artwork 2026-11-07
+- Music is a text-only personal collection at /music/: 19 approved pieces across Jazz (9), Classical & Early Music (6), and Lo-Fi (4). Keep song titles and artists as text, without song links or embedded/audio players.
+- Midnight Room’s Calm Men Win and Mimi’s Faded Hours’ 3 AM Coding Session were explicitly excluded. The remaining list in data/music.json was approved by Arda.
+- Vroom’s The Return to Amsterdam of the Second Expedition to the East Indies (1599), Rijksmuseum SK-A-2858, appears after Selected Work. Preserve its full panoramic composition and attribution. Source/rights are recorded in data/artwork.json; use the responsive Hugo image resources from the museum-sourced original.
+- The user explicitly approved implementing and publishing both the Music page and painting in this session.

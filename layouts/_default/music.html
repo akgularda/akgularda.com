@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<header class="page-hero page-hero--plain music-hero"><div class="page-hero__body"><p class="eyebrow">Personal collection</p><h1>{{ .Title }}</h1><p class="page-hero__lead">{{ .Description }}</p><nav class="music-genres" aria-label="Music genres">{{ range hugo.Data.music.groups }}<a href="#{{ .id }}">{{ .title }} <span>{{ len .tracks }}</span></a>{{ end }}</nav></div></header>
+{{ .Content }}
+{{ end }}

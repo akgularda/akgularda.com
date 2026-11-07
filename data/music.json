@@ -1,0 +1,106 @@
+{
+  "groups": [
+    {
+      "id": "jazz",
+      "title": "Jazz",
+      "description": "Saxophone, guitar, and piano.",
+      "note": "Kenny G is one of my favourite artists.",
+      "tracks": [
+        {
+          "title": "Emeline",
+          "artist": "Kenny G"
+        },
+        {
+          "title": "Sonora",
+          "artist": "Nelson Rangell",
+          "note": "From Destiny"
+        },
+        {
+          "title": "Nothing’s Gonna Change My Love for You",
+          "artist": "Laviva Gold",
+          "note": "Saxophone cover"
+        },
+        {
+          "title": "Songbird",
+          "artist": "Kenny G"
+        },
+        {
+          "title": "Forever in Love",
+          "artist": "Kenny G"
+        },
+        {
+          "title": "The Moment",
+          "artist": "Kenny G"
+        },
+        {
+          "title": "Breezin’",
+          "artist": "George Benson"
+        },
+        {
+          "title": "Take Five",
+          "artist": "The Dave Brubeck Quartet"
+        },
+        {
+          "title": "Peace Piece",
+          "artist": "Bill Evans"
+        }
+      ]
+    },
+    {
+      "id": "classical",
+      "title": "Classical & Early Music",
+      "description": "Baroque and Renaissance pieces.",
+      "tracks": [
+        {
+          "title": "Passacaglia in G minor",
+          "artist": "Handel",
+          "note": "Horst Sohm version"
+        },
+        {
+          "title": "Sarabande, HWV 437",
+          "artist": "Handel"
+        },
+        {
+          "title": "Winter: II. Largo",
+          "artist": "Vivaldi"
+        },
+        {
+          "title": "Lute Concerto in D major: II. Largo, RV 93",
+          "artist": "Vivaldi"
+        },
+        {
+          "title": "Lachrimae Pavan",
+          "artist": "John Dowland"
+        },
+        {
+          "title": "The Earle of Salisbury: Pavan",
+          "artist": "William Byrd"
+        }
+      ]
+    },
+    {
+      "id": "lofi",
+      "title": "Lo-Fi",
+      "description": "Instrumental beats and mellow melodies.",
+      "tracks": [
+        {
+          "title": "breaking point",
+          "artist": "Bhxa, Dimension 32 & Lofi Girl",
+          "note": "From Best-of lofi hip-hop 2021"
+        },
+        {
+          "title": "affection",
+          "artist": "jinsang"
+        },
+        {
+          "title": "aruarian dance",
+          "artist": "Nujabes"
+        },
+        {
+          "title": "mystline",
+          "artist": "Nujabes"
+        }
+      ]
+    }
+  ]
+}
