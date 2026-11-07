@@ -1,0 +1,1 @@
+{{ range site.Data.publications }}<h2>{{ .title }}</h2><p>{{ .publisher }} · {{ .date }} · {{ .type }}</p>{{ with .translation }}<p>{{ . }}</p>{{ end }}{{ with .notes }}<p>{{ . }}</p>{{ end }}<p>{{ range .links }}<a href="{{ .url }}">{{ .label }}</a> {{ end }}</p>{{ end }}

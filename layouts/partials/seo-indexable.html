@@ -1,0 +1,4 @@
+{{- $indexable := not (.Params.noindex | default false) -}}
+{{- if in (slice "taxonomy" "term" "404") .Kind -}}{{- $indexable = false -}}{{- end -}}
+{{- if and .IsSection (eq .Section "blogs") (eq (len .RegularPagesRecursive) 0) -}}{{- $indexable = false -}}{{- end -}}
+{{- return $indexable -}}

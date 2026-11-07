@@ -1,4 +1,5 @@
 ---
+contentlang: "tr"
 title: "Türkiye'nin QSR'ları Üzerine"
 date: "2026-07-03"
 description: "Türkiye'de hızlı servis restoranlarını (QSR) franchise disiplini, yerel tedarik ve veri operasyonu üzerinden okuyorum: glocal strateji vitrinden ibaret değil."

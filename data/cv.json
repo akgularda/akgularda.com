@@ -1,0 +1,102 @@
+{
+  "name": "Arda Akgül",
+  "updated": "7 November 2026",
+  "email": "ardakgul4@gmail.com",
+  "location": "Ankara, Türkiye",
+  "website": "https://arda-akgul.com/",
+  "bio": "Arda Akgül studies Economics and Business Administration at TED University in Ankara. He is an Undergraduate Research Assistant at TEDUsTRC and a Researcher at DASAM. His work focuses on trade, sustainability, energy policy, and technology in public life. Alongside research and writing, he contributes to student media at RadioTEDU and develops data-driven projects.",
+  "education": [
+    {
+      "institution": "TED University",
+      "degree": "BSc in Economics",
+      "dates": "2022 - 2027 (expected)",
+      "detail": "GPA: 3.83. Thesis: EU exposure, CBAM, and sustainability reporting in the aluminum sector."
+    },
+    {
+      "institution": "TED University",
+      "degree": "BSc in Business Administration and Management",
+      "dates": "2024 - 2027 (expected)",
+      "detail": ""
+    }
+  ],
+  "roles": [
+    {
+      "institution": "TED University Sustainable Trade Research Center (TEDUsTRC)",
+      "role": "Undergraduate Research Assistant",
+      "dates": "October 2024 - Present",
+      "detail": "Corporate ESG analysis, literature synthesis, and sustainability research reports. Research internship: June - July 2026."
+    },
+    {
+      "institution": "DASAM",
+      "role": "Researcher",
+      "dates": "February 2026 - Present",
+      "detail": "Policy analysis on international relations, energy diplomacy, and geopolitical risk."
+    },
+    {
+      "institution": "TEDU Economics Research Union",
+      "role": "Vice President",
+      "dates": "February 2026 - Present",
+      "detail": "Media and communications strategy for ERUMAG; editorial and academic publication support."
+    },
+    {
+      "institution": "RadioTEDU",
+      "role": "Editor and Broadcast Coordinator",
+      "dates": "August 2024 - Present",
+      "detail": "Editorial coordination, podcasts, and technical development. Former Radio Show Host: October 2022 - July 2024."
+    },
+    {
+      "institution": "Monarch Castle Technologies",
+      "role": "Founder and Lead Architect",
+      "dates": "July 2025 - Present",
+      "detail": "Macro-financial intelligence, sentiment analysis, and trade network modeling products."
+    },
+    {
+      "institution": "SDCofA",
+      "role": "Co-Founder and Geopolitical Data Strategist",
+      "dates": "",
+      "detail": "Data-driven geopolitical risk assessment and regional security indices."
+    }
+  ],
+  "previous": [
+    {
+      "institution": "UDIAD",
+      "role": "Assistant Researcher",
+      "dates": "July 2024 - November 2025"
+    },
+    {
+      "institution": "EUROPolitika",
+      "role": "Author",
+      "dates": "September 2023 - October 2024"
+    },
+    {
+      "institution": "BLUESENSE",
+      "role": "Business Development Intern",
+      "dates": "March - June 2025"
+    },
+    {
+      "institution": "DenizBank",
+      "role": "Intern",
+      "dates": "July 2025"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Data & research",
+      "detail": "Python, R, Stata, Pandas, NumPy, NetworkX, time-series econometrics, OSINT pipelines."
+    },
+    {
+      "title": "Web & mobile",
+      "detail": "TypeScript, JavaScript, React Native, Node.js, Kotlin, Swift, Android Jetpack Media3."
+    },
+    {
+      "title": "Broadcast & audio",
+      "detail": "Icecast2, Liquidsoap, FFmpeg, automated playout, audio production."
+    }
+  ],
+  "certifications": [
+    "McKinsey Forward Program",
+    "Economics of Money and Banking",
+    "Introduction to Data Science",
+    "Microsoft Excel Temelleri"
+  ]
+}

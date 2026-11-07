@@ -1,4 +1,5 @@
 ---
+lastmod: 2026-11-07
 title: "Arda Akgül"
 type: docs
 description: "Official website of Arda Akgül, Economics and Business Administration student at TED University in Ankara, Undergraduate Research Assistant at TEDUsTRC, and writer on trade, sustainability, energy policy, and technology in public life."

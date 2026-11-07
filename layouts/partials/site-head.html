@@ -2,22 +2,17 @@
 {{ with .Params.seo_title }}
   {{ $pageTitle = . }}
 {{ end }}
-{{ $title := cond .IsHome ($pageTitle | default .Site.Title) (printf "%s | %s" $pageTitle .Site.Title) }}
+{{ $title := $pageTitle | default .Site.Title }}
+{{ if and (not .IsHome) (not (strings.Contains $title .Site.Title)) }}{{ $title = printf "%s | %s" $title .Site.Title }}{{ end }}
 {{ $description := .Params.seo_description | default .Description | default .Params.summary | default .Site.Params.description }}
 {{ $image := .Params.image | default .Params.hero_image | default .Site.Params.default_og_image }}
 {{ $imageAlt := .Params.image_alt | default .Params.hero_image_alt | default .Title | default .Site.Title }}
-{{ $noindex := false }}
-{{ if .Params.noindex }}
-  {{ $noindex = true }}
-{{ end }}
-{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
-  {{ $noindex = true }}
-{{ end }}
+{{ $noindex := not (partial "seo-indexable.html" .) }}
 {{ $robots := "index, follow, max-image-preview:large, max-snippet:500, max-video-preview:-1" }}
 {{ if $noindex }}
   {{ $robots = "noindex, follow, max-image-preview:large, max-snippet:500, max-video-preview:-1" }}
 {{ end }}
-{{ $css := resources.Get "site.css" | minify | fingerprint }}
+{{ $css := slice (resources.Get "site.css") (resources.Get "portfolio.css") | resources.Concat "styles/portfolio.css" | minify | fingerprint }}
 {{ $js := "" }}
 {{ with resources.Get "site.js" }}
   {{ $js = . | minify | fingerprint }}

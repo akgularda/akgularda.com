@@ -55,8 +55,18 @@ $brokenImageRefs = @()
 foreach ($relativePath in $contentFiles) {
     $absolutePath = Join-Path $SiteRoot $relativePath
     $content = Get-Content -LiteralPath $absolutePath -Raw
-    if ($content -match "(https://akgularda\.com)?/images/blogs/") {
-        $brokenImageRefs += $relativePath
+    if ($content -match 'https://akgularda\.com') {
+        $brokenImageRefs += "$relativePath (old domain)"
+    }
+    # Imported articles now have valid local OG images. Check each actual file,
+    # instead of rejecting every /images/blogs/ reference indiscriminately.
+    $imageRefs = [regex]::Matches($content, '/images/blogs/[^\s"''<>\)]+')
+    foreach ($imageRef in $imageRefs) {
+        $imagePath = ($imageRef.Value -split '[?#]')[0]
+        $localPath = Join-Path (Join-Path $SiteRoot 'static') $imagePath.TrimStart('/')
+        if (-not (Test-Path -LiteralPath $localPath)) {
+            $brokenImageRefs += "$relativePath -> $imagePath"
+        }
     }
 }
 

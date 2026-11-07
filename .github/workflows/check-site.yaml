@@ -1,0 +1,20 @@
+name: Check site
+on:
+  pull_request:
+  push:
+    branches: [master]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.169.0'
+          extended: true
+      - run: hugo --baseURL https://arda-akgul.com/ --minify
+      - run: ./scripts/verify-identity-seo.ps1
+      - run: ./scripts/verify-blog-import.ps1
+      - run: python scripts/verify-search-seo.py

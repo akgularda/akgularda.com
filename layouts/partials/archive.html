@@ -1,0 +1,10 @@
+{{ $pages := .Pages.ByDate.Reverse }}
+{{ $topics := slice }}{{ $years := slice }}
+{{ range $pages }}{{ $parts := split .RelPermalink "/" }}{{ with site.GetPage (printf "/blogs/%s" (index $parts 2)) }}{{ $topics = $topics | append .Title }}{{ end }}{{ $years = $years | append (.Date.Format "2006") }}{{ end }}
+<section class="archive" data-archive aria-labelledby="archive-title">
+<div class="archive-heading"><h2 id="archive-title">{{ if .Root }}All writing{{ else }}In this section{{ end }}</h2><a class="text-link" href="/blogs/index.xml">Follow via RSS <span aria-hidden="true">↗</span></a></div>
+<form class="archive-controls" data-controls hidden role="search" aria-label="Filter writing"><div class="search-field"><label for="archive-search">Search writing</label><input id="archive-search" type="search" name="q" placeholder="Title, subject, or keyword…" autocomplete="off" data-search-input></div><div><label for="archive-topic">Topic</label><select id="archive-topic" name="topic" data-filter="topic"><option value="">All topics</option>{{ range sort (uniq $topics) }}<option value="{{ . }}">{{ . }}</option>{{ end }}</select></div><div><label for="archive-language">Language</label><select id="archive-language" name="lang" data-filter="lang"><option value="">All languages</option><option value="en">English</option><option value="tr">Türkçe</option></select></div><div><label for="archive-year">Year</label><select id="archive-year" name="year" data-filter="year"><option value="">All years</option>{{ range sort (uniq $years) "value" "desc" }}<option value="{{ . }}">{{ . }}</option>{{ end }}</select></div><button class="reset-button" type="button" data-reset>Clear filters</button></form>
+<p class="archive-count" data-count role="status" aria-live="polite" aria-atomic="true">{{ len $pages }} articles</p>
+<div class="writing-list">{{ range $pages }}{{ partial "entry.html" (dict "Page" . "Filter" true) }}{{ end }}</div>
+<div class="empty-state" data-empty hidden><h3>No matching articles</h3><p>Try a different keyword or clear the filters to see all writing.</p><button class="button" type="button" data-clear>Clear filters</button></div>
+</section>

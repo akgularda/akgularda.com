@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<header class="page-hero page-hero--plain"><div class="page-hero__body"><p class="eyebrow">The archive</p><h1>{{ .Title }}</h1><p class="page-hero__lead">{{ .Description }}</p>{{ if eq .RelPermalink "/blogs/" }}<p class="hero-note">Essays and notes in English and Turkish. Pick a subject, or start with something recent.</p>{{ else }}<a class="text-link" href="/blogs/">← All writing</a>{{ end }}</div></header>
+{{ if eq .RelPermalink "/blogs/" }}<section class="featured-writing" aria-labelledby="featured-title"><p class="eyebrow">Editor’s selection</p><h2 id="featured-title">Start here</h2><div class="featured-writing__grid">{{ range slice "/blogs/culture/lisbon-economics-everyday-life" "/blogs/economics/macroeconomics/data-looks-good-world-economics" }}{{ with site.GetPage . }}{{ partial "entry.html" (dict "Page" .) }}{{ end }}{{ end }}</div></section>{{ end }}
+{{ partial "archive.html" (dict "Pages" .RegularPagesRecursive "Root" (eq .RelPermalink "/blogs/")) }}
+{{ if not .RegularPagesRecursive }}<p class="section-lead">There are no published articles here yet. <a href="/blogs/">Explore the full writing archive.</a></p>{{ end }}
+<details class="topic-directory"><summary>Browse all subjects and practical guides</summary><div class="topic-directory__links">{{ with site.GetPage "/blogs" }}{{ range .Sections }}{{ if .RegularPagesRecursive }}<a href="{{ .RelPermalink }}">{{ .Title }} <span>({{ len .RegularPagesRecursive }})</span></a>{{ end }}{{ end }}{{ end }}<a href="/guides/">Practical guides</a><a href="/categories/">All topics</a></div></details>
+{{ end }}
