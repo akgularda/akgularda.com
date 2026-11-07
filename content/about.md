@@ -11,7 +11,7 @@ keywords:
   - "TED University"
   - "TEDUsTRC"
 home_intro: |
-  I study Economics and Business Administration at TED University, with a practical interest in trade, sustainability, energy policy, and the role of institutions in public life.
+  I study Economics and Business Administration at TED University. I enjoy mathematics and working with data, alongside my interests in trade, sustainability, energy policy, and institutions.
 
   I serve as an Undergraduate Research Assistant at TEDUsTRC and as a Researcher at DASAM, lead the TEDU Economics Research Union as Vice President, and build data-driven ventures alongside research, editorial work, and student media initiatives.
 home_profile_items:
@@ -24,6 +24,8 @@ home_profile_items:
   - label: "Current focus"
     value: "Trade, sustainability, and energy policy"
 home_interest_items:
+  - "Mathematics"
+  - "Data"
   - "Sustainability and Energy"
   - "International Relations"
   - "Battery Technology"
@@ -103,6 +105,8 @@ Arda Akgül is an Economics and Business Administration student and researcher a
 - **Data and technology:** research tools, economic simulations, and student-media systems.
 
 ### Other interests
+
+Arda enjoys mathematics and working with data.
 
 Cryptography, blockchain, urban mobility, battery technology, electric vehicles, radio technology, fast-moving consumer goods, and fast food investment.
 
