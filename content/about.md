@@ -49,7 +49,7 @@ faq:
   - q: "How can I contact Arda Akgül?"
     a: "You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul."
 date: 2026-03-17
-lastmod: 2026-03-20
+lastmod: 2026-11-07
 type: docs
 bookHidden: true
 ---

@@ -1,0 +1,11 @@
+{{- $lastmod := .Lastmod -}}
+{{- $children := .RegularPagesRecursive -}}
+{{- if .IsHome -}}{{- $children = site.RegularPages -}}{{- end -}}
+{{- if or .IsHome .IsSection -}}
+  {{- range $children -}}
+    {{- if partial "seo-indexable.html" . -}}
+      {{- if .Lastmod.After $lastmod -}}{{- $lastmod = .Lastmod -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $lastmod -}}

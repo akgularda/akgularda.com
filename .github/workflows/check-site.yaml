@@ -17,3 +17,4 @@ jobs:
       - run: hugo --baseURL https://arda-akgul.com/ --minify
       - run: ./scripts/verify-identity-seo.ps1
       - run: ./scripts/verify-blog-import.ps1
+      - run: python scripts/verify-search-seo.py

@@ -56,3 +56,5 @@ DNS Cloudflare üzerinden yönetilir. Ana site ve `/econ/` arayüzü GitHub Page
 - Publication records: `data/publications.json`. The publication page and Markdown/LLM content use this shared data.
 - CV and short biography: `data/cv.json`. Run `python scripts/build_cv.py` (requires ReportLab and Arial on Windows or DejaVu Sans on Linux) after changing the CV data, then commit the regenerated `static/downloads/arda-akgul-cv.pdf`.
 - The PR workflow runs Hugo 0.169.0 and both verification scripts before review.
+
+Search SEO validation after a production build: `python scripts/verify-search-seo.py`. The same check runs before deployment; maintain canonical/indexability policy in `layouts/partials/seo-indexable.html`. See `docs/seo/README.md` for Search Console maintenance.

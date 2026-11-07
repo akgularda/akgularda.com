@@ -80,7 +80,7 @@
   "name" .Site.Title
   "url" .Site.Home.Permalink
   "description" .Site.Params.description
-  "inLanguage" (.Site.LanguageCode | default "en-us")
+  "inLanguage" (slice "en" "tr")
   "publisher" $publisherRef
   "about" $personReference
 }}
@@ -138,8 +138,6 @@
   {{ $person = merge $person (dict "memberOf" $memberOf) }}
 {{ end }}
 {{ $person = merge $person (dict
-  "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "TED University")
-  "award" "McKinsey Forward Program"
   "hasOccupation" (dict "@type" "Occupation" "name" .Site.Params.role))
 }}
 <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
@@ -169,10 +167,10 @@
     "about" $personReference
     "mainEntity" $personReference
     "isPartOf" (dict "@id" $websiteId)
-    "inLanguage" (.Site.LanguageCode | default "en-us")
+    "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
     "primaryImageOfPage" (dict "@type" "ImageObject" "url" $image)
     "significantLink" $authorityLinks
-    "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".home-about__lead" ".prose"))
+    "speakable" (dict "@type" "SpeakableSpecification" "cssSelector" (slice "h1" ".home-intro__text" ".prose"))
   }}
 <script type="application/ld+json">{{ $homePage | jsonify | safeJS }}</script>
 {{ else if .IsPage }}
@@ -195,7 +193,7 @@
     "url" .Permalink
     "description" $description
     "isPartOf" (dict "@id" $websiteId)
-    "inLanguage" (.Site.LanguageCode | default "en-us")
+    "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
     "primaryImageOfPage" (dict "@type" "ImageObject" "url" $image)
   }}
   {{ with .Date }}
@@ -252,7 +250,7 @@
       "name" .Title
       "description" $description
       "url" .Permalink
-      "inLanguage" (.Site.LanguageCode | default "en-us")
+      "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
       "totalTime" (printf "PT%dM" (default 10 .Params.howto_minutes))
       "step" $howtoSteps
       "author" $personReference
@@ -270,12 +268,13 @@
     "url" .Permalink
     "description" $description
     "isPartOf" (dict "@id" $websiteId)
-    "inLanguage" (.Site.LanguageCode | default "en-us")
+    "inLanguage" (.Params.contentlang | default (.Site.LanguageCode | default "en-us"))
     "about" $personReference
   }}
 <script type="application/ld+json">{{ $collection | jsonify | safeJS }}</script>
 {{ end }}
 
+{{ if eq .RelPermalink "/faq/" }}
 {{ with .Params.faq }}
   {{ $items := slice }}
   {{ range . }}
@@ -285,15 +284,17 @@
 <script type="application/ld+json">{{ $faq | jsonify | safeJS }}</script>
 {{ end }}
 
+{{ end }}
+
 {{ if eq .RelPermalink "/publications/" }}
   {{ with .Params.featured_publications }}
     {{ $list := slice }}
     {{ range $i, $p := . }}
-      {{ $work := dict "@type" "Article" "position" (add $i 1) "headline" $p.title "author" $personReference }}
+      {{ $work := dict "@type" "Article" "headline" $p.title "author" $personReference }}
       {{ with $p.publisher }}{{ $work = merge $work (dict "publisher" (dict "@type" "Organization" "name" .)) }}{{ end }}
-      {{ with ($p.date_iso | default $p.date) }}{{ $work = merge $work (dict "datePublished" .) }}{{ end }}
+      {{ with $p.date_iso }}{{ if findRE "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" . }}{{ $work = merge $work (dict "datePublished" .) }}{{ end }}{{ end }}
       {{ with $p.url }}{{ $work = merge $work (dict "url" .) }}{{ end }}
-      {{ $list = $list | append $work }}
+      {{ $list = $list | append (dict "@type" "ListItem" "position" (add $i 1) "item" $work) }}
     {{ end }}
     {{ $itemList := dict "@context" "https://schema.org" "@type" "ItemList" "name" "Publications by Arda Akgül" "itemListElement" $list }}
 <script type="application/ld+json">{{ $itemList | jsonify | safeJS }}</script>

@@ -1,4 +1,5 @@
 ---
+lastmod: 2026-11-07
 title: "Publications"
 type: publications
 description: "Selected academic, policy, and student-publication work by Arda Akgül."
