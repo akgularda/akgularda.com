@@ -1,14 +1,13 @@
 ---
 title: "About Arda Akgül"
-description: "Official biography, research work, publications, and institutional roles of Arda Akgül."
-summary: "Official profile of Arda Akgül, Economics and Business Administration student at TED University, Undergraduate Research Assistant at TEDUsTRC, founder of Monarch Castle Technologies, and contributor to student media and policy writing."
-seo_title: "About Arda Akgül | Official Website"
-seo_description: "Official biography of Arda Akgül, covering research, publications, experience, and institutional work at TED University, TEDUsTRC, and related organizations."
+description: "Education, research interests, and experience across economics, sustainable trade, technology, and student media."
+summary: "Education, research, and student media work by Arda Akgül."
+seo_title: "About Arda Akgül"
+seo_description: "Arda Akgül studies economics and business at TED University. Explore his education, research, and work in student media."
 keywords:
   - "Arda Akgül"
   - "Arda Akgul"
   - "Arda Akgül biography"
-  - "Arda Akgül official website"
   - "TED University"
   - "TEDUsTRC"
 home_intro: |
@@ -56,7 +55,7 @@ bookHidden: true
 
 # About Arda Akgül
 
-Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye. This official website collects his research, publications, writing, and institutional work. He currently serves as an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC) and is the founder of Monarch Castle Technologies. His published writing covers international economics, energy policy, NATO, European politics, sustainability, and related public-policy questions through outlets and organizations including UDİAD, EUROPolitika, and the TEDU Economics Research Union.
+Arda Akgül is an Economics and Business Administration student and researcher at TED University in Ankara, Türkiye. This site brings together his research, writing, and projects. He currently serves as an Undergraduate Research Assistant at the TED University Sustainable Trade Research Center (TEDUsTRC) and is the founder of Monarch Castle Technologies. His published writing covers international economics, energy policy, NATO, European politics, sustainability, and related public-policy questions through outlets and organizations including UDİAD, EUROPolitika, and the TEDU Economics Research Union.
 
 ## Education
 

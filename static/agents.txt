@@ -1,33 +1,27 @@
-# Agent Discovery
+# Public website content for automated readers
 
-Primary machine-readable card:
-- https://arda-akgul.com/.well-known/agent.json
-- https://arda-akgul.com/.well-known/agent-card.json
+This is a public, read-only website. It does not provide an MCP or A2A service. No agent registration is needed to retrieve public content.
 
-Agent registration:
-- https://arda-akgul.com/auth.md
-- https://arda-akgul.com/.well-known/oauth-protected-resource
-- https://arda-akgul.com/.well-known/oauth-authorization-server
-
-Primary profile and authority pages:
-- https://arda-akgul.com/about/
-- https://arda-akgul.com/publications/
-- https://arda-akgul.com/experience/
-- https://arda-akgul.com/contact/
-
-Preferred text endpoints:
+Content indexes:
 - https://arda-akgul.com/llms.txt
 - https://arda-akgul.com/llms-full.txt
-- https://arda-akgul.com/ai.txt
-- https://arda-akgul.com/humans.txt
-- https://arda-akgul.com/openapi.yaml
+- https://arda-akgul.com/index.json
 
-Crawl policy and sitemap:
+Canonical pages and Markdown alternatives:
+- https://arda-akgul.com/about/
+- https://arda-akgul.com/about/index.md
+- https://arda-akgul.com/publications/
+- https://arda-akgul.com/publications/index.md
+- https://arda-akgul.com/experience/
+- https://arda-akgul.com/projects/
+- https://arda-akgul.com/cv/
+- https://arda-akgul.com/blogs/
+- https://arda-akgul.com/contact/
+
+Access and crawl policy:
+- https://arda-akgul.com/auth.md
 - https://arda-akgul.com/robots.txt
 - https://arda-akgul.com/sitemap.xml
-
-Legal and privacy:
 - https://arda-akgul.com/privacy/
 - https://arda-akgul.com/cookies/
 - https://arda-akgul.com/terms/
-

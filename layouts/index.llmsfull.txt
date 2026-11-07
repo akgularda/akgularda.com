@@ -1,118 +1,37 @@
-{{- $about := .Site.GetPage "/about" -}}
-{{- $publications := .Site.GetPage "/publications" -}}
-{{- $pubEssays := where .Site.RegularPages "Section" "publications" -}}
-{{- $guides := (where .Site.RegularPages "Section" "guides").ByWeight -}}
-{{- $blogs := (where .Site.RegularPages "Section" "blogs").ByDate.Reverse -}}
-{{- $stripTemplateLines := "(?m)^\\s*\\{\\{[^\\n]*\\}\\}\\s*(\\r?\\n)?" -}}
-{{- $stripHtmlTags := "<[^>]+>" -}}
-{{- $stripPlaceholderLines := "(?m)^.*YOUR_(ORCID|SCHOLAR_ID|WIKIDATA_ID)_HERE.*(\\r?\\n)?" -}}
-{{- $collapseBlankLines := "(\\r?\\n){3,}" -}}
-{{- $stripLeadingMarkdownH1 := "(?m)^#\\s+.*(?:\\r?\\n)+" -}}
-{{- $guideStubBody := "Content coming soon..." -}}
-{{- $includedGuides := slice -}}
-{{- range $guides -}}
-  {{- $guideContent := .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace -}}
-  {{- $guideBody := $guideContent | replaceRE $stripLeadingMarkdownH1 "" | strings.TrimSpace -}}
-  {{- if ne $guideBody $guideStubBody -}}
-    {{- $includedGuides = $includedGuides | append (dict "page" . "content" $guideContent) -}}
-  {{- end -}}
-{{- end -}}
-# Arda Akgül - Full LLM Corpus
+# Arda Akgül — Content export
 
-Source: https://arda-akgul.com/
-Purpose: Canonical long-form first-party context export for deeper ingestion.
-Use: Start with https://arda-akgul.com/llms.txt for the short index.
-Scope: Includes first-party about, publications index, publication essays, blog posts, and any non-placeholder guides published on arda-akgul.com. External publication texts are referenced through the publications index and are not copied here.
-
-Preferred interpretation order:
-- Use /about/ as the canonical identity and biography page.
-- Use /publications/ for the publication record and external outlet references.
-- Use /experience/ for institutional roles, media work, and student contribution.
-- Use blog posts and future-topic pages as supporting material rather than primary biography.
-
-## Included Sections
-
-- About
-- Publications Index
-{{- if gt (len $pubEssays) 0 }}
-- Publication Essays
-{{- end }}
-{{- if gt (len $includedGuides) 0 }}
-- Guides
-{{- end }}
-- Blog Posts
-
-{{ with $about }}
-## About
-
-### {{ .Title }}
 Source: {{ .Permalink }}
-Content-Type: biography
+Index: {{ "llms.txt" | absURL }}
+This export contains public biography, publication records, experience, projects, CV, essays, and guides. Cite each page's source URL. External publication texts are linked, not reproduced.
 
-{{ .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace }}
+{{ range slice "/about" "/publications" "/experience" "/cv" "/contact" }}
+{{ with site.GetPage . }}
+{{ partial "markdown-page.txt" . }}
 
+---
 {{ end }}
-{{ with $publications }}
-## Publications Index
-
-### {{ .Title }}
-Source: {{ .Permalink }}
-Content-Type: publication-index
-
-{{ .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace }}
-
 {{ end }}
-{{ if gt (len $pubEssays) 0 }}
+## Projects
+{{ range where site.RegularPages "Section" "projects" }}
+{{ partial "markdown-page.txt" . }}
+
+---
+{{ end }}
 ## Publication Essays
+{{ range (where site.RegularPages "Section" "publications").ByDate.Reverse }}
+{{ partial "markdown-page.txt" . }}
 
-{{ range $pubEssays.ByDate.Reverse }}
-### {{ .Title }}
-
-Source: {{ .Permalink }}
-Content-Type: site-essay
-{{ with .Date }}Date: {{ .Format "2006-01-02" }}{{ end }}
-{{ with .Params.tags }}Tags: {{ delimit . ", " }}{{ end }}
-{{ with .Params.description }}
-Description: {{ . }}
+---
 {{ end }}
-
-{{ .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace }}
-
-{{ end }}
-{{ end }}
-{{ if gt (len $includedGuides) 0 }}
-## Guides
-
-{{ range $includedGuides }}
-### {{ .page.Title }}
-
-Source: {{ .page.Permalink }}
-Content-Type: guide
-{{ with .page.Date }}Date: {{ .Format "2006-01-02" }}{{ end }}
-{{ with .page.Params.description }}
-Description: {{ . }}
-{{ end }}
-
-{{ .content }}
-
-{{ end }}
-{{ end }}
-{{ if gt (len $blogs) 0 }}
 ## Blog Posts
+{{ range (where site.RegularPages "Section" "blogs").ByDate.Reverse }}
+{{ partial "markdown-page.txt" . }}
 
-{{ range $blogs }}
-### {{ .Title }}
-
-Source: {{ .Permalink }}
-Content-Type: blog-post
-{{ with .Date }}Date: {{ .Format "2006-01-02" }}{{ end }}
-{{ with .Params.tags }}Tags: {{ delimit . ", " }}{{ end }}
-{{ with .Params.description }}
-Description: {{ . }}
+---
 {{ end }}
+## Guides
+{{ range (where site.RegularPages "Section" "guides").ByWeight }}
+{{ partial "markdown-page.txt" . }}
 
-{{ .RawContent | htmlUnescape | replaceRE $stripTemplateLines "" | replaceRE $stripHtmlTags "" | replaceRE $stripPlaceholderLines "" | replaceRE $collapseBlankLines "\n\n" | strings.TrimSpace }}
-
+---
 {{ end }}
-{{ end }}
-

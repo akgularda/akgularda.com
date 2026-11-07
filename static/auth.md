@@ -1,45 +1,17 @@
 # auth.md — arda-akgul.com
 
-Site: https://arda-akgul.com
-Author: Arda Akgül
+## Public read access
 
-## Agent registration
+Public pages and text exports can be read with ordinary HTTP GET requests, subject to robots.txt. No account, registration, API key, or access token is required to read them.
 
-Agent registration is open and automatic. No register_uri call, API key, or invitation is required to read this site.
+This website does not operate an OAuth authorization server, issue credentials, or offer an MCP or A2A service. Discovery files describe public website content; they do not establish a tool connection.
 
-```yaml
-agent_auth:
-  skill: https://arda-akgul.com/auth.md
-  register_uri: "https://arda-akgul.com/auth.md"
-  claim_uri: "https://arda-akgul.com/auth.md"
-  registration_method: anonymous
-  identity_types_supported: [anonymous]
-  credential_types_supported: [none]
-  anonymous:
-    credential_types_supported: [none]
-    claim_uri: "https://arda-akgul.com/auth.md"
-  revocation_uri: "https://arda-akgul.com/auth.md"
-  authorization_servers: ["https://arda-akgul.com"]
-```
-
-- identity_types: anonymous (no IdP assertion required)
-- credential_types: none (no credentials issued; public read-only site)
-- Supported grant types: none (no token endpoint issues tokens)
-- All content is public, read-only, and safe to fetch with plain GET.
-
-## Endpoints
+## Content endpoints
 
 - Short index: https://arda-akgul.com/llms.txt
-- Full corpus: https://arda-akgul.com/llms-full.txt
-- OpenAPI descriptor: https://arda-akgul.com/openapi.yaml
-- API catalog: https://arda-akgul.com/.well-known/api-catalog
-- ARD manifest: https://arda-akgul.com/.well-known/ard.json
-- Protected resource metadata: https://arda-akgul.com/.well-known/oauth-protected-resource
-- Authorization server metadata: https://arda-akgul.com/.well-known/oauth-authorization-server
-- A2A agent card: https://arda-akgul.com/.well-known/agent-card.json
-- MCP server card: https://arda-akgul.com/.well-known/mcp/server-card.json
+- Full content export: https://arda-akgul.com/llms-full.txt
+- Biography as Markdown: https://arda-akgul.com/about/index.md
+- Publications as Markdown: https://arda-akgul.com/publications/index.md
+- JSON Feed: https://arda-akgul.com/index.json
+- Crawl policy: https://arda-akgul.com/robots.txt
 - Contact: mailto:ardakgul4@gmail.com
-
-## Crawl policy
-
-Respect robots.txt (AI crawlers are explicitly welcomed; Content-Signal: ai-train=yes, search=yes, ai-input=yes) and the privacy, cookie, and terms pages when quoting policy content.

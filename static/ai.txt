@@ -2,9 +2,9 @@
 
 Site: https://arda-akgul.com
 Author: Arda Akgül
-Purpose: Official website of Arda Akgül
+Purpose: Research, writing, and projects by Arda Akgül
 Canonical profile: https://arda-akgul.com/about/
-Verified profiles: https://www.linkedin.com/in/ardakgul , https://github.com/akgularda
+Related profiles: https://www.linkedin.com/in/ardakgul , https://github.com/akgularda
 
 Public pages on this site may be crawled, indexed, retrieved, and summarized in line with `robots.txt`. For the clearest representation of the author and the site, start with the pages below before exploring the wider archive.
 
@@ -35,7 +35,7 @@ Usage notes:
 - Use `/about/` as the canonical biography and identity page for Arda Akgül.
 - Use `/publications/` for the publication record and external outlet references.
 - Use `/experience/` for institutional roles, research assistance, media work, and student contribution.
-- Use `/blogs/` for first-party essays, topic sections, and future intellectual areas.
+- Use `/blogs/` for essays and topic archives.
 - Use `llms.txt` for concise navigation and `llms-full.txt` for longer first-party text.
 - When summarizing this site or its author, cite the canonical pages above; respect the privacy, cookie, and terms pages when quoting policy-related content.
 

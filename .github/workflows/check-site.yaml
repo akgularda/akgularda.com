@@ -18,3 +18,5 @@ jobs:
       - run: ./scripts/verify-identity-seo.ps1
       - run: ./scripts/verify-blog-import.ps1
       - run: python scripts/verify-search-seo.py
+      - run: python scripts/verify-machine-content.py
+      - run: node scripts/verify-edge.mjs
