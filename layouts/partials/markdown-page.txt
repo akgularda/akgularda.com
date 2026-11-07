@@ -1,7 +1,8 @@
-# {{ .Title }}
+# {{ .Title | safeHTML }}
 
 Source: {{ .Permalink }}
 Language: {{ .Params.contentlang | default "en" }}
+{{ with .Params.role_label }}Role: {{ . | safeHTML }}{{ end }}
 {{ with .Lastmod }}Updated: {{ .Format "2006-01-02" }}{{ end }}
 {{ with .Description }}
 {{ . }}
@@ -26,6 +27,6 @@ Language: {{ .Params.contentlang | default "en" }}
 {{ if and .IsSection (ne .Section "publications") }}
 ## Pages in this section
 {{ range .RegularPagesRecursive.ByDate.Reverse }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+- [{{ .Title | safeHTML }}]({{ .Permalink }}): {{ .Description }}
 {{ end }}
 {{ end }}

@@ -42,3 +42,9 @@
 - Markdown and full corpus exports now render publication shortcodes, retain 43 records and citation links, and include projects, experience, and CV. JSON Feed contains actual writing.
 - Run scripts/verify-machine-content.py and node scripts/verify-edge.mjs after Hugo build.
 - infra/arda-edge.mjs is Cloudflare Worker source. GitHub Pages deployment does not deploy the Worker. Its Link-header and content-negotiation fixes require a separate Cloudflare deployment; do not report them as live based on a Pages deployment.
+
+## Project portfolio 2026-11-07
+- data/projects.json holds 37 project entries: RadioTEDU 8, sTRC research/editorial 2, Monarch Castle 16 (including The Keep), SDCofA 10, and Ekonomi Laboratuvarı 1.
+- Ownership/roles were specified by Arda: creator/developer for the listed RadioTEDU and Monarch/SDCofA projects; Contributor for Mobile; Research assistant for Beyond Epicenters; Co-editor for the sTAM bulletin. Agentic Web and MCP are a single project, with both original links retained.
+- Keep project descriptions and publication state aligned with original sources. Shared catalogue markup renders in HTML and Markdown/full text exports.
+- PR #28 and its separate Cloudflare Worker source were both deployed on 2026-11-07; the observed active Worker version was e6494a23.

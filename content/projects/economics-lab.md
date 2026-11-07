@@ -14,7 +14,9 @@
       "url": "https://github.com/akgularda/ekonomi-laboratuvari"
     }
   ],
-  "weight": 1
+  "weight": 1,
+  "role_label": "Creator & developer",
+  "lastmod": "2026-11-07"
 }
 
 ## The question

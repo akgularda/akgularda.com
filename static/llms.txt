@@ -13,6 +13,13 @@ This is a public, read-only website. No account, registration, API key, MCP conn
 - [CV](https://arda-akgul.com/cv/index.md): concise biography and selected experience.
 - [Contact](https://arda-akgul.com/contact/index.md): contact details.
 
+## Project portfolios
+
+- [RadioTEDU](https://arda-akgul.com/projects/radiotedu/index.md): projects I created and developed, with the mobile contribution listed separately.
+- [Monarch Castle & SDCofA](https://arda-akgul.com/projects/monarch-castle/index.md): the complete project portfolio, linked to the individual applications.
+- [Beyond Epicenters](https://arda-akgul.com/projects/beyond-epicenters/index.md): my research assistant role.
+- [sTAM Sustainability Agenda](https://arda-akgul.com/projects/sustainability-agenda/index.md): my co-editor role.
+
 ## Writing
 
 - [Writing archive](https://arda-akgul.com/blogs/index.md): essays and notes in English and Turkish.

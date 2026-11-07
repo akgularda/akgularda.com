@@ -1,0 +1,33 @@
+{{ $scope := .Scope | default "all" }}
+{{ $items := hugo.Data.projects.items }}
+{{ $groups := hugo.Data.projects.groups }}
+{{ if eq $scope "monarch" }}
+  {{ $items = where $items "group" "in" (slice "monarch" "sdcofa") }}
+  {{ $groups = where $groups "id" "in" (slice "monarch" "sdcofa") }}
+{{ end }}
+<section class="project-catalog archive" data-archive data-unit="projects" aria-label="Project catalogue">
+  <form class="archive-controls archive-controls--projects" data-controls hidden role="search" aria-label="Filter projects">
+    <div class="search-field"><label for="projects-{{ $scope }}-search">Search projects</label><input id="projects-{{ $scope }}-search" type="search" name="q" placeholder="Title, subject, or keyword…" autocomplete="off" data-search-input></div>
+    <div><label for="projects-{{ $scope }}-area">Area</label><select id="projects-{{ $scope }}-area" name="area" data-filter="group"><option value="">All areas</option>{{ range $groups }}<option value="{{ .id }}">{{ .title }}</option>{{ end }}</select></div>
+    <div><label for="projects-{{ $scope }}-role">My role</label><select id="projects-{{ $scope }}-role" name="role" data-filter="role"><option value="">All roles</option>{{ $roles := slice }}{{ range $items }}{{ $roles = $roles | append .role }}{{ end }}{{ range sort (uniq $roles) }}<option value="{{ . }}">{{ . }}</option>{{ end }}</select></div>
+    <button class="reset-button" type="button" data-reset>Clear filters</button>
+  </form>
+  <div class="project-catalog__index"><p class="archive-count" data-count role="status" aria-live="polite" aria-atomic="true">{{ len $items }} projects</p><nav aria-label="Project areas" data-project-jumps>{{ range $groups }}<a href="#{{ $scope }}-{{ .id }}">{{ .title }} <span>{{ len (where $items "group" .id) }}</span></a>{{ end }}</nav></div>
+  {{ range $groups }}
+    {{ $group := . }}
+    <section class="project-group" id="{{ $scope }}-{{ .id }}" data-project-group aria-labelledby="{{ $scope }}-{{ .id }}-title">
+      <header class="project-group__header"><div><p class="eyebrow">{{ $n := len (where $items "group" .id) }}{{ $n }} {{ if eq $n 1 }}project{{ else }}projects{{ end }}</p><h2 id="{{ $scope }}-{{ .id }}-title">{{ .title }}</h2></div><p>{{ .subtitle }}</p></header>
+      <div class="project-catalog__grid">
+        {{ range where $items "group" $group.id }}
+          <article class="portfolio-project" data-entry data-group="{{ .group }}" data-role="{{ .role }}" data-search="{{ .title }} {{ .description }} {{ .kind }} {{ .role }} {{ $group.title }} {{ with .keywords }}{{ delimit . " " }}{{ end }}">
+            <div class="portfolio-project__meta"><p class="eyebrow">{{ .kind }}</p><span class="project-role">{{ .role }}</span></div>
+            <h3><a href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a></h3>
+            <p class="portfolio-project__description">{{ .description }}</p>
+            {{ with .status }}<p class="project-status">{{ . }}</p>{{ end }}
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  <div class="empty-state" data-empty hidden><h2>No matching projects</h2><p>Try another keyword or clear the filters to see all projects.</p><button class="button" type="button" data-clear>Clear filters</button></div>
+</section>

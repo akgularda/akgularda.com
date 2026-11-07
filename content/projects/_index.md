@@ -1,4 +1,7 @@
 ---
 title: "Projects"
-description: "Research, economic simulations, and systems for student media."
+description: "Projects by Arda Akgül across RadioTEDU, Monarch Castle, SDCofA, economic simulations, research, and editorial work."
+lastmod: 2026-11-07
 ---
+
+{{< project-catalog >}}

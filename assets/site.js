@@ -44,6 +44,11 @@ const bootArchives = () => {
         entry.hidden = !visible;
         if (visible) count++;
       });
+      archive.querySelectorAll('[data-project-group]').forEach(group => {
+        group.hidden = !Array.from(group.querySelectorAll('[data-entry]')).some(entry => !entry.hidden);
+      });
+      const jumps = archive.querySelector('[data-project-jumps]');
+      if (jumps) jumps.hidden = count !== entries.length;
       archive.querySelector('[data-count]').textContent = count + ' of ' + entries.length + ' ' + (archive.dataset.unit || 'articles');
       archive.querySelector('[data-empty]').hidden = count !== 0;
       if (writeURL) {

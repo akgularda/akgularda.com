@@ -28,7 +28,7 @@ params:
   hero:
     eyebrow: "TED University | Ankara"
     title: "Arda Akgül"
-    summary: "Research, writing, and projects on economics, sustainability, and technology in public life."
+    summary: "I study economics and business at TED University. I enjoy mathematics and working with data, with a particular interest in trade, sustainability, and technology."
     image: "/images/ardaakgul.jpg"
     primary_cta:
       label: "View Publications"
