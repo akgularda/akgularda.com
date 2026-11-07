@@ -11,6 +11,7 @@ This is a public, read-only website. No account, registration, API key, MCP conn
 - [Experience](https://arda-akgul.com/experience/index.md): research, institutional roles, and media work.
 - [Projects](https://arda-akgul.com/projects/index.md): case studies and links to working projects.
 - [CV](https://arda-akgul.com/cv/index.md): concise biography and selected experience.
+- [FAQ](https://arda-akgul.com/faq/index.md): concise answers about identity, current and former roles, project credits, and citation.
 - [Contact](https://arda-akgul.com/contact/index.md): contact details.
 
 ## Personal interests

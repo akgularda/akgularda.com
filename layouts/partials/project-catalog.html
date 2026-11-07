@@ -19,7 +19,7 @@
       <header class="project-group__header"><div><p class="eyebrow">{{ $n := len (where $items "group" .id) }}{{ $n }} {{ if eq $n 1 }}project{{ else }}projects{{ end }}</p><h2 id="{{ $scope }}-{{ .id }}-title">{{ .title }}</h2></div><p>{{ .subtitle }}</p></header>
       <div class="project-catalog__grid">
         {{ range where $items "group" $group.id }}
-          <article class="portfolio-project" data-entry data-group="{{ .group }}" data-role="{{ .role }}" data-search="{{ .title }} {{ .description }} {{ .kind }} {{ .role }} {{ $group.title }} {{ with .keywords }}{{ delimit . " " }}{{ end }}">
+          <article id="{{ .id }}" class="portfolio-project" data-entry data-group="{{ .group }}" data-role="{{ .role }}" data-search="{{ .title }} {{ .description }} {{ .kind }} {{ .role }} {{ $group.title }} {{ with .keywords }}{{ delimit . " " }}{{ end }}">
             <div class="portfolio-project__meta"><p class="eyebrow">{{ .kind }}</p><span class="project-role">{{ .role }}</span></div>
             <h3><a href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a></h3>
             <p class="portfolio-project__description">{{ .description }}</p>

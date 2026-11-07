@@ -1,0 +1,12 @@
+{{- $project := .Project -}}
+{{- $person := .Person -}}
+{{- $work := dict "@type" "CreativeWork" "@id" (printf "%s#%s" ("projects/" | absURL) $project.id) "name" $project.title "description" $project.description "url" ($project.url | absURL) "genre" $project.kind "creditText" (printf "%s: %s" $project.role $person.name) -}}
+{{- if eq $project.role "Creator & developer" -}}
+  {{- $work = merge $work (dict "creator" $person) -}}
+{{- else if eq $project.role "Co-editor" -}}
+  {{- $work = merge $work (dict "editor" $person) -}}
+{{- else -}}
+  {{- $work = merge $work (dict "contributor" (dict "@type" "Role" "roleName" $project.role "contributor" $person)) -}}
+{{- end -}}
+{{- with $project.source_url -}}{{- $work = merge $work (dict "subjectOf" (dict "@type" "WebPage" "url" .)) -}}{{- end -}}
+{{- return $work -}}
