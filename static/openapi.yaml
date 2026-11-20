@@ -52,6 +52,28 @@ paths:
             text/html:
               schema:
                 type: string
+  /projects/:
+    get:
+      summary: Project catalogue with creator and contribution credits
+      operationId: getProjectsPage
+      responses:
+        "200":
+          description: HTML project catalogue
+          content:
+            text/html:
+              schema:
+                type: string
+  /faq/:
+    get:
+      summary: Frequently asked questions with identity and citation answers
+      operationId: getFaqPage
+      responses:
+        "200":
+          description: HTML FAQ page
+          content:
+            text/html:
+              schema:
+                type: string
   /contact/:
     get:
       summary: Contact page

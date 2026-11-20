@@ -3,6 +3,8 @@ title: "Privacy Policy"
 description: "Privacy policy for arda-akgul.com: data collection, Google Analytics, Consent Mode, cookies, and your rights."
 type: "docs"
 bookHidden: true
+date: 2026-03-20
+lastmod: 2026-11-07
 ---
 
 # Privacy Policy

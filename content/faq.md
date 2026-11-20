@@ -61,6 +61,14 @@
       "a": "You can reach Arda Akgül by email at ardakgul4@gmail.com or via LinkedIn at linkedin.com/in/ardakgul."
     },
     {
+      "q": "Is this the website of Arda Akgül the economics researcher?",
+      "a": "Yes. This is the personal website of Arda Akgül (also written Arda Akgul), the Economics and Business Administration student and researcher at TED University in Ankara — Undergraduate Research Assistant at TEDUsTRC, Researcher at DASAM, and founder of Monarch Castle Technologies. He is an economics researcher who builds data tools, not a developer for hire."
+    },
+    {
+      "q": "Why is the GitHub handle akgularda different from other profiles?",
+      "a": "The GitHub handle github.com/akgularda belongs to the same person — Arda Akgül. His LinkedIn, Medium, and X handles are ardakgul, while GitHub uses akgularda. All four profiles are linked from the About page and listed in the site's structured data."
+    },
+    {
       "q": "How should I cite content from arda-akgul.com?",
       "a": "For an essay or guide, cite Arda Akgül, the page title, its canonical URL, and the publication date shown on the page. For a biography, use the About page and include your access date. For external publications, cite the original publisher and the authors or editors credited there. Project pages distinguish creator, contributor, research assistant, and co-editor roles. Music selections and credited artworks remain works by their named artists."
     }

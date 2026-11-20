@@ -1,4 +1,5 @@
 {{- $lastmod := .Lastmod -}}
+{{- if $lastmod.IsZero -}}{{- $lastmod = site.Home.Lastmod -}}{{- end -}}
 {{- $children := .RegularPagesRecursive -}}
 {{- if .IsHome -}}{{- $children = site.RegularPages -}}{{- end -}}
 {{- if or .IsHome .IsSection -}}

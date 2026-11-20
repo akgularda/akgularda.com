@@ -1,6 +1,6 @@
 {{ $scope := .Scope | default "all" }}
-{{ $items := hugo.Data.projects.items }}
-{{ $groups := hugo.Data.projects.groups }}
+{{ $items := site.Data.projects.items }}
+{{ $groups := site.Data.projects.groups }}
 {{ if eq $scope "monarch" }}
   {{ $items = where $items "group" "in" (slice "monarch" "sdcofa") }}
   {{ $groups = where $groups "id" "in" (slice "monarch" "sdcofa") }}

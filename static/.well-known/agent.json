@@ -4,13 +4,15 @@
   "url": "https://arda-akgul.com/",
   "sameAs": [
     "https://www.linkedin.com/in/ardakgul",
-    "https://github.com/akgularda"
+    "https://github.com/akgularda",
+    "https://medium.com/@ardakgul",
+    "https://x.com/ardakgul"
   ],
   "provider": {
     "organization": "arda-akgul.com",
     "url": "https://arda-akgul.com/"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "discovery": {
     "profile": "https://arda-akgul.com/about/",
     "publications": "https://arda-akgul.com/publications/",

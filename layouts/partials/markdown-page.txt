@@ -10,7 +10,7 @@ Language: {{ .Params.contentlang | default "en" }}
 {{ . }}
 {{ end }}
 {{ if eq .RelPermalink "/cv/" }}
-{{ $cv := hugo.Data.cv }}
+{{ $cv := site.Data.cv }}
 {{ $cv.bio }}
 ## Education
 {{ range $cv.education }}

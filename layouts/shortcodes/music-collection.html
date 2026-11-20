@@ -1,5 +1,5 @@
 <div class="music-collection">
-{{ range hugo.Data.music.groups }}
+{{ range site.Data.music.groups }}
 <section class="music-genre" id="{{ .id }}" aria-labelledby="music-{{ .id }}-title">
   <header class="music-genre__intro"><p class="eyebrow">{{ len .tracks }} pieces</p><h2 id="music-{{ .id }}-title">{{ .title }}</h2><p>{{ .description }}</p>{{ with .note }}<p class="music-genre__note">{{ . }}</p>{{ end }}</header>
   <ol class="music-pieces">
