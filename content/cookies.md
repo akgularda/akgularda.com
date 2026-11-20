@@ -3,6 +3,8 @@ title: "Cookie Policy"
 description: "Cookie policy for arda-akgul.com: which cookies are used, why, and how to control them."
 type: "docs"
 bookHidden: true
+date: 2026-03-20
+lastmod: 2026-11-07
 ---
 
 # Cookie Policy

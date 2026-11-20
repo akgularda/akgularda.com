@@ -1,4 +1,4 @@
-{{ $art := hugo.Data.artwork }}
+{{ $art := site.Data.artwork }}
 {{ $image := resources.Get $art.image_path }}
 {{ $small := $image.Resize "800x webp q85" }}
 {{ $medium := $image.Resize "1600x webp q85" }}

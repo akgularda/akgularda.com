@@ -11,6 +11,8 @@ faq:
   - q: "Which student organizations does Arda Akgul lead?"
     a: "He is Vice President of the TEDU Economics Research Union and contributes to RadioTEDU as broadcast coordinator and technical lead."
 seo_description: "Research, service, media, and selected work experience by Arda Akgül, including TEDUsTRC, RadioTEDU, and student organizations."
+date: 2026-03-20
+lastmod: 2026-11-07
 weight: 40
 bookCollapseSection: true
 ---

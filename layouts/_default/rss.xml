@@ -29,6 +29,7 @@
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
     <atom:link href="https://websub.superfeedr.com/" rel="hub" />
     {{- range $pages }}
+    {{- if and (not .Params.noindex) (not .Params.future) (not .Date.IsZero) }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
@@ -36,6 +37,7 @@
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       <description>{{ .Summary | html }}</description>
     </item>
+    {{- end }}
     {{- end }}
   </channel>
 </rss>
