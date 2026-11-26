@@ -386,13 +386,10 @@ function initCampus3D(renderer) {
     c.textAlign = 'center';
     c.fillStyle = '#FFFFFF';
     c.font = '700 28px Arial';
-    c.fillText('KARİYER VE İNOVASYON ZİRVESİ · DAVOS × SLUSH\'D MODELİ', 512, 308);
-    const snap = window.SummitTEDCore ? window.SummitTEDCore.getSnapshot() : null;
-    const total = snap ? snap.totalAccredited : 646;
-    const mpActive = snap ? `${snap.occupiedTablesCount}/${snap.totalTablesCount} MP MASA AKTİF` : '24 MP MASA AKTİF';
+    c.fillText('KARİYER VE İNOVASYON ZİRVESİ · 20–21 EKİM 2026', 512, 308);
     c.fillStyle = '#FF8A88';
     c.font = '700 23px Arial';
-    c.fillText(`AKREDİTE KAMPÜS: ${total} KİŞİ · ${mpActive}`, 512, 372);
+    c.fillText('3 AKREDİTASYON KAPISI · 10 ZONE · 24 SLUSH\'D MEETING POINT', 512, 372);
     screen.texture.needsUpdate = true;
   }
   drawLED();
@@ -526,23 +523,29 @@ function initCampus3D(renderer) {
     loc.vector = V(...loc.pin);
   }
 
+  const PIN_BADGES = {
+    'gate-1': 'ANA KAPI',
+    'gate-2': 'METRO',
+    'gate-3': 'VIP',
+    red: '6 ŞİRKET',
+    blue: '6 ŞİRKET',
+    promenade: '4 PAVİLYON',
+    communities: '8 ÇADIR',
+    innovation: '5 DK PITCH',
+    matchmaking: '24 MASA',
+    plenary: 'ANA SAHNE',
+    tech: 'AMFİ',
+    'teacher-plus': 'FORUM',
+    plaza: 'LOUNGE'
+  };
+
   function refreshPinMetrics() {
-    if (!window.SummitTEDCore) return;
-    const snap = window.SummitTEDCore.getSnapshot();
     for (const [key, loc] of Object.entries(locations)) {
       const pctEl = loc.element?.querySelector('[data-pin-pct]');
-      if (!pctEl) continue;
-      if (snap.zonesById[key]) {
-        pctEl.textContent = `%${snap.zonesById[key].pct}`;
-      } else {
-        const g = snap.gates.find((x) => x.id === key);
-        if (g) pctEl.textContent = `${g.count}`;
-      }
+      if (pctEl) pctEl.textContent = PIN_BADGES[key] || '';
     }
-    drawLED();
   }
   refreshPinMetrics();
-  if (window.SummitTEDCore) window.SummitTEDCore.subscribe(refreshPinMetrics);
 
   const ring = new THREE.Mesh(
     new THREE.RingGeometry(1.7, 2.05, 48),

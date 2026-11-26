@@ -14,174 +14,302 @@
 </head>
 <body>
 
-  <!-- Executive Sticky Header -->
+  <!-- Floating Glass Header -->
   <header class="site-topbar" id="top">
     <div class="container topbar-inner">
       <a href="#top" class="brand-lockup" aria-label="SummitTED Kariyer ve İnovasyon Zirvesi 2026">
-        <img src="./assets/submitted-logo-ted-white.svg?v=3" alt="SummitTED Kariyer ve İnovasyon Zirvesi 2026" class="topbar-logo-img">
+        <img src="./assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED Kariyer ve İnovasyon Zirvesi 2026" class="topbar-logo-img">
       </a>
 
       <nav class="topbar-nav" aria-label="Ana Bölümler">
-        <a href="#campus-map" class="topbar-link">3D/2D Kampüs Haritası</a>
-        <a href="#zones-directory" class="topbar-link">10 Zone &amp; Çadırlar</a>
-        <a href="#slush-system" class="topbar-link">Slush'D Eşleşme (MP)</a>
-        <a href="#schedule" class="topbar-link">Konferans Programı</a>
-        <a href="#partners" class="topbar-link">Şirketler &amp; Topluluklar</a>
+        <a href="#portfolio" class="topbar-link">Vizyon &amp; Portfolyo</a>
+        <a href="#app-showcase" class="topbar-link">Slush'D Eşleşme Sistemi</a>
+        <a href="#campus-map" class="topbar-link">3D Kampüs Master Planı</a>
+        <a href="#zones-stream" class="topbar-link">Alanlar &amp; Çadırlar</a>
+        <a href="#register" class="topbar-link">Ön Kayıt &amp; İş Birliği</a>
       </nav>
 
       <div class="topbar-actions">
-        <a href="../tedu-dashboard/" class="topbar-ghost-btn">TV Dashboard</a>
-        <a href="../tedu-app/" class="topbar-cta">SummitTED App &rarr;</a>
+        <a href="../tedu-app/" class="btn-kinetic-ghost hide-mob">Web App Önizleme</a>
+        <a href="#register" class="btn-kinetic-red">Ön Kayıt Ol &rarr;</a>
         <button type="button" class="mobile-menu-toggle" id="mobile-toggle" aria-label="Menüyü Aç" aria-expanded="false">&#9776;</button>
       </div>
     </div>
 
     <div class="mobile-nav-drawer" id="mobile-drawer" hidden>
       <div class="container mobile-drawer-inner">
-        <a href="#campus-map" class="mobile-drawer-link">3D / 2D Detaylı Kampüs Haritası</a>
-        <a href="#zones-directory" class="mobile-drawer-link">3 Giriş Çadırı &amp; 10 Kampüs Zone</a>
-        <a href="#slush-system" class="mobile-drawer-link">Slush'D 5 Dk Eşleşme &amp; Meeting Points</a>
-        <a href="#schedule" class="mobile-drawer-link">Konferans ve Sahne Programı</a>
-        <a href="../tedu-app/" class="mobile-drawer-link">SummitTED Uygulaması (Kayıt, Eşleşme &amp; QR)</a>
-        <a href="../tedu-dashboard/" class="mobile-drawer-link">Canlı Kampüs TV Dashboard</a>
+        <a href="#portfolio" class="mobile-drawer-link">Vizyon &amp; Kurumsal Portfolyo</a>
+        <a href="#app-showcase" class="mobile-drawer-link">Slush'D 5 Dk Eşleşme Uygulaması</a>
+        <a href="#campus-map" class="mobile-drawer-link">3D / 2D Kampüs Master Planı</a>
+        <a href="#zones-stream" class="mobile-drawer-link">Çadırlar, Topluluklar &amp; 10 Zone</a>
+        <a href="#register" class="mobile-drawer-link">Öğrenci &amp; Şirket Ön Kaydı</a>
+        <a href="../tedu-app/" class="mobile-drawer-link">SummitTED Web Uygulamasını Aç &rarr;</a>
       </div>
     </div>
   </header>
 
-  <!-- WEF Davos × Slush'D Institutional Hero -->
-  <section class="hero-showcase" aria-labelledby="hero-heading">
-    <div class="hero-bg-media" aria-hidden="true">
-      <img src="./assets/hero-summit-bg.jpg" alt="" class="hero-bg-img">
-      <div class="hero-scrim"></div>
-    </div>
+  <!-- Full-Bleed Three.js Kinetic Flagship Hero -->
+  <section class="hero-flagship" aria-labelledby="hero-heading">
+    <video class="hero-ambient-video" autoplay muted loop playsinline poster="./assets/hero-summit-bg.jpg" aria-hidden="true">
+      <source src="./assets/video/submitted-intro.mp4" type="video/mp4">
+    </video>
+    <div class="hero-webgl" id="hero-webgl" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
 
-    <div class="container hero-inner">
-      <div class="hero-top-grid">
-        <div>
-          <div class="hero-meta-line">
-            <span>20–21 EKİM 2026 &middot; TED ÜNİVERSİTESİ İNCESU &amp; AKSU YERLEŞKELERİ, ANKARA</span>
-          </div>
-          <h1 class="hero-title" id="hero-heading">
-            SummitTED <span>Kariyer ve İnovasyon</span> Zirvesi 2026
-          </h1>
-          <p class="hero-lead">
-            WEF Davos kurumsal protokolü ile Slush'D 5 dakikalık hızlı eşleşme mimarisini TED Üniversitesi kampüsünde birleştiren yeni nesil zirve: 3 akreditasyon çadırı, 10 uzmanlaşmış zone, öğrenci toplulukları köyü, şirket pavilyonları ve 24 numaralı Meeting Point.
-          </p>
-          <div class="hero-cta-row">
-            <a href="../tedu-app/" class="btn-sharp-red">
-              <span>UYGULAMAYA GİR: KAYIT, EŞLEŞME &amp; QR</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-            <a href="#campus-map" class="btn-sharp-outline">
-              <span>DETAYLI KAMPÜS HARİTASINI İNCELE</span>
-              <span aria-hidden="true">&darr;</span>
-            </a>
-          </div>
-        </div>
-
-        <aside class="hero-pulse-card" aria-label="Canlı Kampüs Sinerji Özeti">
-          <div class="pulse-head">
-            <span><i class="pulse-dot"></i>CANLI KAMPÜS TELEMETRİSİ</span>
-            <span id="hero-summit-clock">13:48</span>
-          </div>
-          <div class="pulse-metrics-grid">
-            <div class="pulse-metric">
-              <strong id="hero-total-accredited">646</strong>
-              <small>Akredite Katılımcı (3 Kapı)</small>
-            </div>
-            <div class="pulse-metric">
-              <strong id="hero-mp-active">14 / 24</strong>
-              <small>Aktif Meeting Point Masası</small>
-            </div>
-            <div class="pulse-metric">
-              <strong>16 Şirket</strong>
-              <small>Red, Blue &amp; Promenade</small>
-            </div>
-            <div class="pulse-metric">
-              <strong>10 Zone</strong>
-              <small>İncesu &amp; Aksu Blokları</small>
-            </div>
-          </div>
-          <div class="pulse-now-strip" id="hero-live-routing">
-            <strong>ŞU AN SAHNEDE:</strong> MİLSOFT Yapay Zeka Söyleşisi &rarr; Tech&amp;Innovation (D Blok Amfi)
-          </div>
-        </aside>
+    <div class="container hero-content-wrap">
+      <div class="hero-eyebrow-pill reveal is-visible">
+        <span>20–21 EKİM 2026 &middot; TED ÜNİVERSİTESİ ANKARA &middot; DAVOS × SLUSH'D MODELİ</span>
       </div>
 
-      <div class="hero-kpi-bar">
-        <div class="hero-kpi-cell">
-          <small>GİRİŞ &amp; AKREDİTASYON</small>
-          <strong>Gate 1 İncesu &middot; Gate 2 Aksu &middot; Gate 3 VIP</strong>
+      <h1 class="hero-display-title reveal is-visible delay-1" id="hero-heading">
+        Kariyerin ve İnovasyonun<br>
+        <span class="hero-gradient-word">Yeni Nesil Zirve Mimarisi.</span>
+      </h1>
+
+      <p class="hero-sublead reveal is-visible delay-2">
+        <strong>SummitTED 2026</strong>; klasik kariyer fuarlarının ötesine geçerek TED Üniversitesi'nin kalbinde üst düzey liderlik oturumlarını, kurumsal deneyim pavilyonlarını, öğrenci toplulukları köyünü ve 5 dakikalık yapılandırılmış <strong>Slush'D Meeting Point</strong> eşleşmelerini tek bir sinerji ekosisteminde buluşturur.
+      </p>
+
+      <div class="hero-cta-cluster reveal is-visible delay-3">
+        <a href="#register" class="btn-kinetic-red hero-cta-lg">
+          <span>ERKEN KAYIT &amp; KURUMSAL BAŞVURU</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="../tedu-app/" class="btn-kinetic-ghost hero-cta-lg">
+          <span>3D SLUSH'D WEB APP'İ DENEYİMLE</span>
+          <span aria-hidden="true">&#8599;</span>
+        </a>
+      </div>
+
+      <div class="hero-metrics-ribbon reveal is-visible delay-3">
+        <div class="ribbon-stat">
+          <strong><span data-count="40">40</span><em>+</em></strong>
+          <span>Öncü Kurumsal İşveren &amp; Teknoloji Lideri</span>
         </div>
-        <div class="hero-kpi-cell">
-          <small>ŞİRKET PAVİLYONLARI</small>
-          <strong>Red Fuaye &middot; Blue Spor Mrk. &middot; Promenade</strong>
+        <div class="ribbon-stat">
+          <strong><span data-count="10">10</span><em> Zone</em></strong>
+          <span>İncesu &amp; Aksu Yerleşkelerinde Uzmanlaşmış Alan</span>
         </div>
-        <div class="hero-kpi-cell">
-          <small>TOPLULUK &amp; İNOVASYON</small>
-          <strong>Çim Amfi Köyü &middot; İstasyon TEDÜ Pitch</strong>
+        <div class="ribbon-stat">
+          <strong><span data-count="24">24</span><em> MP</em></strong>
+          <span>Numaralı Slush'D Eşleşme &amp; 1:1 Mülakat Masası</span>
         </div>
-        <div class="hero-kpi-cell">
-          <small>SLUSH'D GÖRÜŞME ARENASI</small>
-          <strong>G Blok MP-01..24 &middot; 5 Dk Eşleşme</strong>
+        <div class="ribbon-stat">
+          <strong><span data-count="100">100</span><em>%</em></strong>
+          <span>İngilizce Akademik Ekosistem &amp; 5 Fakülte Havuzu</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Detailed 3D & 2D Master Campus Map -->
-  <section class="section-block section-subtle" id="campus-map">
+  <!-- Infinite Kinetic Partner & Ecosystem Marquee -->
+  <div class="marquee-band" aria-label="Kurumsal Ekosistem">
+    <div class="marquee-track">
+      <span class="marquee-item"><i></i>ASELSAN</span>
+      <span class="marquee-item"><i></i>TUSAŞ</span>
+      <span class="marquee-item"><i></i>AKFEN HOLDİNG</span>
+      <span class="marquee-item"><i></i>DENİZBANK</span>
+      <span class="marquee-item"><i></i>EY TÜRKİYE</span>
+      <span class="marquee-item"><i></i>MİLSOFT</span>
+      <span class="marquee-item"><i></i>ROKETSAN</span>
+      <span class="marquee-item"><i></i>KPMG TÜRKİYE</span>
+      <span class="marquee-item"><i></i>COCA-COLA İÇECEK</span>
+      <span class="marquee-item"><i></i>ANADOLU EFES</span>
+      <span class="marquee-item"><i></i>GARANTİ BBVA TEKNOLOJİ</span>
+      <span class="marquee-item"><i></i>TURKCELL AI</span>
+      <span class="marquee-item"><i></i>İSTASYON TEDÜ</span>
+      <!-- Duplicate half for seamless infinite loop -->
+      <span class="marquee-item"><i></i>ASELSAN</span>
+      <span class="marquee-item"><i></i>TUSAŞ</span>
+      <span class="marquee-item"><i></i>AKFEN HOLDİNG</span>
+      <span class="marquee-item"><i></i>DENİZBANK</span>
+      <span class="marquee-item"><i></i>EY TÜRKİYE</span>
+      <span class="marquee-item"><i></i>MİLSOFT</span>
+      <span class="marquee-item"><i></i>ROKETSAN</span>
+      <span class="marquee-item"><i></i>KPMG TÜRKİYE</span>
+      <span class="marquee-item"><i></i>COCA-COLA İÇECEK</span>
+      <span class="marquee-item"><i></i>ANADOLU EFES</span>
+      <span class="marquee-item"><i></i>GARANTİ BBVA TEKNOLOJİ</span>
+      <span class="marquee-item"><i></i>TURKCELL AI</span>
+      <span class="marquee-item"><i></i>İSTASYON TEDÜ</span>
+    </div>
+  </div>
+
+  <!-- Asymmetric Editorial Bento: Institutional Flex & Portfolio -->
+  <section class="sec-space sec-obsidian" id="portfolio">
     <div class="container">
-      <div class="section-head">
+      <div class="sec-head-split reveal">
         <div>
-          <span class="section-eyebrow">TEDÜ İNCESU &amp; AKSU MASTER PLANI</span>
-          <h2 class="section-title">3D Kampüs Sahnesi &amp; 2D Teknik Yerleşim Haritası</h2>
+          <span class="eyebrow-tag">NEDEN SUMMITTED 2026? &middot; KURUMSAL PORTFOLYO</span>
+          <h2 class="sec-heading">Ankara'nın Kalbinde Üst Düzey<br>Yetenek ve İnovasyon Sahnesi</h2>
         </div>
-        <p class="section-desc">
-          Ziya Gökalp Caddesi aksında bağlanan tüm blokları, giriş çadırlarını, Çim Amfi topluluk köyünü, şirket stantlarını ve numaralı Meeting Point masalarını katman bazında inceleyin.
+        <p class="sec-lead">
+          Türk Eğitim Derneği'nin 98 yıllık kurumsal mirası ve TED Üniversitesi'nin dinamik şehir kampüsü; şirketler, girişimler ve yüksek potansiyelli öğrenciler için benzersiz bir buluşma zemini sunar.
         </p>
       </div>
 
-      <div class="campus-master-wrap">
+      <div class="bento-flex-grid">
+        <!-- Wide Visual Keynote Tile -->
+        <article class="bento-photo-tile bento-span-7 reveal">
+          <img src="./assets/wanted/wanted-keynote.jpg" alt="TED Üniversitesi Ana Konferans Salonu" loading="lazy">
+          <div class="bento-photo-scrim"></div>
+          <div class="bento-photo-content">
+            <span class="eyebrow-tag" style="margin-bottom:6px;">DAVOS PLENARY STANDARDI</span>
+            <h3>C-Level Vizyon Panelleri &amp; Mühendislik Söyleşileri</h3>
+            <p>Ahmet Ersan Konferans Salonu, D Blok Tech Amfisi ve Teacher+ sahnelerinde sektör liderleriyle doğrudan etkileşim.</p>
+          </div>
+        </article>
+
+        <!-- Spotlight Metric Flex Tile -->
+        <article class="spotlight-surface bento-tile bento-span-5 reveal delay-1">
+          <div>
+            <div class="bento-big-num">5 Fakülte.</div>
+            <h3>Disiplinlerarası Seçkin Yetenek Havuzu</h3>
+            <p>Mühendislik, İktisadi ve İdari Bilimler, Mimarlık ve Tasarım, Fen-Edebiyat ve Eğitim fakültelerinden %100 İngilizce eğitim alan analitik mezun ve stajyer adayları.</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="glass-pill">Yazılım &amp; AI</span>
+            <span class="glass-pill">Ekonomi &amp; Finans</span>
+            <span class="glass-pill">Endüstri &amp; Veri</span>
+            <span class="glass-pill">Mimarlık &amp; Ürün</span>
+            <span class="glass-pill">Eğitim İnovasyonu</span>
+          </div>
+        </article>
+
+        <!-- Spotlight Startup & İstasyon Tile -->
+        <article class="spotlight-surface bento-tile bento-span-4 reveal">
+          <div>
+            <span class="eyebrow-tag">İSTASYON TEDÜ &amp; PITCH</span>
+            <h3>Startup &amp; Innovation Alley</h3>
+            <p>Kuluçka girişimleri, bitirme projesi prototipleri ve yatırımcı masaları karşısında 5 dakikalık açık sahne sunumları.</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="glass-pill">5 Dk Pitch Deck</span>
+            <span class="glass-pill">VC Office Hours</span>
+          </div>
+        </article>
+
+        <!-- Spotlight Community Village Tile -->
+        <article class="spotlight-surface bento-tile bento-span-4 reveal delay-1">
+          <div>
+            <span class="eyebrow-tag">ÇİM AMFİ SİNERJİSİ</span>
+            <h3>Öğrenci Toplulukları Köyü</h3>
+            <p>Kariyer Öncüleri, IEEE, Ekonomi Araştırmaları, Girişimcilik, Veri Bilimi çadırları ve RadioTEDU canlı yayın stüdyosu.</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="glass-pill">8 Modüler Çadır</span>
+            <span class="glass-pill">Canlı Kampüs Yayını</span>
+          </div>
+        </article>
+
+        <!-- Visual Foyer Networking Tile -->
+        <article class="bento-photo-tile bento-span-4 reveal delay-2" style="min-height:270px;">
+          <img src="./assets/wanted/wanted-foyer.jpg" alt="Kurumsal Fuaye ve Şirket Görüşmeleri" loading="lazy">
+          <div class="bento-photo-scrim"></div>
+          <div class="bento-photo-content">
+            <span class="eyebrow-tag" style="margin-bottom:4px;">RED &middot; BLUE &middot; PROMENADE</span>
+            <h3>3 Katmanlı Şirket Deneyim Alanı</h3>
+            <p>K Blok Fuaye, Spor Merkezi ve açık hava Davos Promenade pavilyonları.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1:1 Interactive Slush'D × Davos Web App Showcase -->
+  <section class="sec-space sec-deep-gradient" id="app-showcase">
+    <div class="container">
+      <div class="app-showcase-layout">
+        <div class="reveal">
+          <span class="eyebrow-tag">TEKNOLOJİ &amp; EŞLEŞME ALTYAPISI</span>
+          <h2 class="sec-heading" style="margin-bottom:14px;">Slush'D × Davos Eşleşme Uygulaması Web'de</h2>
+          <p class="sec-lead" style="max-width:540px;">
+            Zirve katılımcıları uygulama indirmeden doğrudan web üzerinden 3D holografik QR yaka kartlarını oluşturur, şirket temsilcilerine veya girişimcilere <strong>5 dakikalık eşleşme isteği</strong> gönderir ve G Blok'taki numaralı <strong>Meeting Point</strong> masalarında buluşur.
+          </p>
+
+          <div class="showcase-feature-tabs" role="tablist" aria-label="Uygulama Özellik Önizlemesi">
+            <button type="button" class="showcase-tab-btn is-active" data-preview-step="match">
+              <strong>01 &middot; 5 Dakikalık Hızlı Eşleşme İsteği</strong>
+              <span>Şirket İK'ları, mühendisler, yatırımcılar ve akranlarla nokta atışı slot seçimi.</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" data-preview-step="mp">
+              <strong>02 &middot; Kabul / Ret &amp; Otomatik MP Masa Tahsisi</strong>
+              <span>İstek onaylandığı anda G Blok'ta boş numaralı masa (MP-01..MP-24) kilitlenir.</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" data-preview-step="badge">
+              <strong>03 &middot; 3D Holografik QR Yaka Kartı &amp; Check-in</strong>
+              <span>Giriş çadırları, şirket masaları ve karşılıklı QR okutma ile anlık bağlantı.</span>
+            </button>
+          </div>
+
+          <a href="../tedu-app/" class="btn-kinetic-red hero-cta-lg">
+            <span>THREE.JS DESTEKLİ WEB UYGULAMASINI AÇ</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <div class="app-mirror-stage reveal delay-1">
+          <div class="app-mirror-window">
+            <div class="mirror-chrome">
+              <span>SUMMITTED WEB APP &middot; ARDA-AKGUL.COM/TEDU-APP</span>
+              <span style="color:#FF6E6C;">SLUSH'D ENGINE v3</span>
+            </div>
+            <div class="mirror-body" id="app-mirror-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D & 2D Architectural Master Campus Plan -->
+  <section class="sec-space sec-editorial-light" id="campus-map">
+    <div class="container">
+      <div class="sec-head-split reveal">
+        <div>
+          <span class="eyebrow-tag">İNCESU &amp; AKSU YERLEŞKELERİ MİMARİ KURGUSU</span>
+          <h2 class="sec-heading">3D İnteraktif Kampüs &amp; 2D Master Plan</h2>
+        </div>
+        <p class="sec-lead">
+          Ziya Gökalp Caddesi iki yakasındaki 3 giriş/akreditasyon çadırını, Çim Amfi topluluk köyünü, şirket pavilyonlarını ve G Blok Meeting Point arenasını keşfedin.
+        </p>
+      </div>
+
+      <div class="campus-master-wrap reveal">
         <div class="campus-toolbar">
           <div class="campus-mode-switch" role="tablist" aria-label="Harita Görünüm Modu">
-            <button type="button" class="campus-mode-btn is-active" data-map-mode="3d">3D İnteraktif Kampüs</button>
-            <button type="button" class="campus-mode-btn" data-map-mode="2d">2D Detaylı Master Plan</button>
+            <button type="button" class="campus-mode-btn is-active" data-map-mode="3d">3D Kampüs Modeli</button>
+            <button type="button" class="campus-mode-btn" data-map-mode="2d">2D Teknik Master Plan</button>
           </div>
 
           <div class="campus-filter-bar" role="group" aria-label="Bölge Katman Filtresi">
             <button type="button" class="campus-filter-chip is-active" data-zone-filter="all">Tümü (13)</button>
             <button type="button" class="campus-filter-chip" data-zone-filter="gates">Giriş Çadırları (3)</button>
-            <button type="button" class="campus-filter-chip" data-zone-filter="company">Şirket Alanları</button>
+            <button type="button" class="campus-filter-chip" data-zone-filter="company">Şirket Pavilyonları</button>
             <button type="button" class="campus-filter-chip" data-zone-filter="community">Topluluk Köyü</button>
             <button type="button" class="campus-filter-chip" data-zone-filter="innovation">İnovasyon &amp; Pitch</button>
             <button type="button" class="campus-filter-chip" data-zone-filter="matchmaking">Meeting Points (MP)</button>
-            <button type="button" class="campus-filter-chip" data-zone-filter="stage">Konferans Sahneleri</button>
+            <button type="button" class="campus-filter-chip" data-zone-filter="stage">Sahneler</button>
           </div>
         </div>
 
         <div class="campus-stage-grid">
           <div class="campus-viewport-col">
-            <!-- 3D View -->
             <div class="world-shell" id="submitted-world">
               <div class="world-camera-bar" aria-label="Kamera Açıları">
                 <button type="button" class="world-cam-btn" data-camera="campus" aria-pressed="true">Tüm Kampüs</button>
-                <button type="button" class="world-cam-btn" data-camera="incesu" aria-pressed="false">İncesu (A-B-K &amp; Çim Amfi)</button>
-                <button type="button" class="world-cam-btn" data-camera="aksu" aria-pressed="false">Aksu (C-H &amp; Spor Mrk.)</button>
+                <button type="button" class="world-cam-btn" data-camera="incesu" aria-pressed="false">İncesu</button>
+                <button type="button" class="world-cam-btn" data-camera="aksu" aria-pressed="false">Aksu</button>
                 <button type="button" class="world-cam-btn" data-camera="gates" aria-pressed="false">Giriş Çadırları</button>
-                <button type="button" class="world-cam-btn" data-camera="matchmaking" aria-pressed="false">Slush'D MP Arena</button>
+                <button type="button" class="world-cam-btn" data-camera="matchmaking" aria-pressed="false">MP Arena</button>
                 <button type="button" class="world-cam-btn" data-camera="aerial" aria-pressed="false">Kuşbakışı</button>
               </div>
-
               <div class="world-canvas" id="world-canvas"></div>
               <div class="world-hotspots" id="world-hotspots"></div>
-
               <div class="world-legend-strip">
-                <span class="world-legend-item"><i class="world-legend-swatch" style="background:#E41513"></i> Giriş Çadırı / Red Zone / MP</span>
-                <span class="world-legend-item"><i class="world-legend-swatch" style="background:#292E6F"></i> Blue Zone / Topluluklar / Teacher+</span>
+                <span class="world-legend-item"><i class="world-legend-swatch" style="background:#E41513"></i> Giriş Çadırları / Red Fuaye / Slush'D MP</span>
+                <span class="world-legend-item"><i class="world-legend-swatch" style="background:#292E6F"></i> Blue Spor Mrk. / Topluluklar / Sahneler</span>
                 <span class="world-legend-item"><i class="world-legend-swatch" style="background:#0284C7"></i> İstasyon TEDÜ İnovasyon</span>
               </div>
-
               <div class="world-zoom-controls">
                 <button type="button" class="world-ctrl-btn" id="world-zoom-in" aria-label="Yakınlaştır">+</button>
                 <button type="button" class="world-ctrl-btn" id="world-zoom-out" aria-label="Uzaklaştır">&minus;</button>
@@ -189,7 +317,6 @@
               </div>
             </div>
 
-            <!-- 2D Architectural Master Plan View -->
             <div class="blueprint-2d-shell" id="blueprint-2d" hidden>
               <svg viewBox="0 0 960 470" class="blueprint-svg" role="img" aria-label="TED Üniversitesi SummitTED 2026 2D Master Plan Haritası">
                 <defs>
@@ -199,45 +326,30 @@
                 </defs>
                 <rect width="960" height="470" fill="#09112A"/>
                 <rect width="960" height="470" fill="url(#bpGrid)"/>
-
-                <!-- Aksu Island Outline -->
                 <rect x="24" y="48" width="392" height="394" fill="#0E193D" stroke="#283A70" stroke-width="2"/>
                 <text x="40" y="74" fill="#94A6CD" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="700" letter-spacing="1.4">AKSU YERLEŞKESİ (C, D, E, F, G, H BLOK &amp; İSTASYON TEDÜ)</text>
-
-                <!-- Ziya Gökalp Caddesi -->
                 <rect x="424" y="20" width="44" height="430" fill="#18223D" stroke="#36466E" stroke-width="1.5"/>
                 <line x1="446" y1="30" x2="446" y2="440" stroke="#9AA8C7" stroke-width="1.5" stroke-dasharray="8 8"/>
-                <!-- Pedestrian Crossing Corridor -->
                 <rect x="424" y="242" width="44" height="44" fill="rgba(228,21,19,0.22)" stroke="#E41513" stroke-width="2"/>
                 <text x="446" y="168" fill="#DCE5F7" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle" transform="rotate(-90 446 168)">ZİYA GÖKALP CADDESİ</text>
-
-                <!-- İncesu Island Outline -->
                 <rect x="476" y="48" width="460" height="394" fill="#0E193D" stroke="#283A70" stroke-width="2"/>
                 <text x="494" y="74" fill="#94A6CD" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="700" letter-spacing="1.4">İNCESU YERLEŞKESİ (A, B, K BLOK, KÜLTÜR MRK. &amp; ÇİM AMFİ)</text>
-
-                <!-- Interactive 2D Nodes Container (rendered/bound via app.js) -->
                 <g id="bp-nodes-layer"></g>
               </svg>
             </div>
           </div>
 
-          <!-- Zone / Gate Detail Inspector -->
           <aside class="campus-inspector" id="campus-inspector" aria-live="polite">
             <div>
               <span class="inspector-kicker" id="insp-kicker">ŞİRKET STANTLARI &middot; Z-RED</span>
               <h3 class="inspector-title" id="insp-title">Red Zone &middot; Kurumsal Fuaye</h3>
               <div class="inspector-building" id="insp-building">K Blok &middot; Fatma-Semih Akbil Fuaye Alanı</div>
-              <p class="inspector-summary" id="insp-summary">
-                Finans, holding, denetim ve hızlı tüketim liderlerinin kurumsal kariyer stantları ve hızlı ön görüşme masaları.
-              </p>
+              <p class="inspector-summary" id="insp-summary"></p>
 
               <div class="inspector-occ-box">
                 <div class="inspector-occ-row">
-                  <span id="insp-occ-label">Canlı Alan Yoğunluğu</span>
-                  <strong id="insp-occ-val">184 / 240 (%77)</strong>
-                </div>
-                <div class="inspector-occ-bar">
-                  <div class="inspector-occ-fill" id="insp-occ-fill" style="width:77%"></div>
+                  <span>Planlanan Alan Kapasitesi</span>
+                  <strong id="insp-cap-val">240 Kişi &middot; 6 Kurumsal Stant</strong>
                 </div>
               </div>
 
@@ -245,154 +357,124 @@
             </div>
 
             <div class="inspector-actions">
-              <a href="../tedu-app/?tab=scan" class="btn-sharp-red" id="insp-qr-link" style="justify-content:center; padding:11px 12px; font-size:11.5px;">QR Check-in Yap</a>
-              <a href="../tedu-app/?tab=discover" class="btn-sharp-navy" style="padding:11px 12px; font-size:11.5px;">5 Dk Eşleşme Bul</a>
+              <a href="#register" class="btn-kinetic-red" style="justify-content:center; padding:11px 12px; font-size:11.5px;">Ön Kayıt / Stant Talebi</a>
+              <a href="../tedu-app/" class="btn-kinetic-ghost" style="justify-content:center; padding:11px 12px; font-size:11.5px; color:#0B1330; border-color:#0B1330;">Web App'te Gör</a>
             </div>
           </aside>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- 3 Accreditation Gates + 10 Specialized Zones -->
-  <section class="section-block section-white" id="zones-directory">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="section-eyebrow">DAVOS KAPI PROTOKOLÜ &amp; MEKÂNSAL KURGU</span>
-          <h2 class="section-title">3 Giriş Çadırı ve 10 Uzmanlaşmış Zirve Bölgesi</h2>
+      <!-- Flowing Editorial Zone Stream -->
+      <div style="margin-top:52px;" id="zones-stream">
+        <div class="sec-head-split reveal" style="margin-bottom:24px;">
+          <div>
+            <span class="eyebrow-tag">MEKÂNSAL PROGRAMLAMA</span>
+            <h3 class="sec-heading" style="font-size:clamp(24px,2.8vw,34px);">Giriş Çadırları, Topluluk Köyü &amp; Zirve Alanları</h3>
+          </div>
         </div>
-        <p class="section-desc">
-          Her giriş çadırı, şirket standı, topluluk çadırı ve numaralı Meeting Point masası tekil QR kimliğine sahiptir.
-        </p>
+        <div class="zones-editorial-stream" id="zones-stream-grid"></div>
       </div>
-
-      <div class="gates-banner-grid" id="gates-grid"></div>
-      <div class="architecture-grid" id="zones-cards-grid"></div>
     </div>
   </section>
 
-  <!-- Slush'D × Davos Matchmaking & 5-Minute Meeting Points -->
-  <section class="section-block section-navy" id="slush-system">
+  <!-- Dual Early-Access Registration & Corporate Sponsorship Hub -->
+  <section class="sec-space sec-obsidian" id="register">
     <div class="container">
-      <div class="slush-showcase-grid">
-        <div>
-          <span class="section-eyebrow">SLUSH'D × WEF DAVOS EŞLEŞME MOTORU</span>
-          <h2 class="section-title" style="margin-bottom:14px;">5 Dakikalık Keskin Eşleşmeler &amp; Numaralı Meeting Point Arenası</h2>
-          <p class="section-desc" style="max-width:620px; margin-bottom:20px;">
-            Rastgele kartvizit alışverişi yerine Slush'ın dünyaca ünlü yapılandırılmış görüşme protokolü: Katılımcılar şirket temsilcilerine, girişim kurucularına veya akranlarına 5 dakikalık görüşme isteği gönderir; kabul edildiği anda sistem G Blok'ta boş bir numaralı masa (<code>MP-01..MP-24</code>) tahsis eder.
+      <div class="reg-flex-shell">
+        <div class="reveal">
+          <span class="eyebrow-tag">ERKEN ERİŞİM &amp; KURUMSAL İŞ BİRLİĞİ</span>
+          <h2 class="sec-heading" style="margin-bottom:16px;">Zirvedeki Yerinizi Şimdiden Ayırtın</h2>
+          <p class="sec-lead" style="margin-bottom:28px;">
+            Öğrenci ve girişimciler için erken kayıt olarak Slush'D eşleşme profilinizi şimdiden oluşturun; kurumsal işverenler için sponsorluk, Red/Blue Zone stant ve Promenade çadır dosyasını talep edin.
           </p>
 
-          <div class="slush-steps-grid">
-            <div class="slush-step-box">
-              <span class="slush-step-num">ADIM 01 &middot; DİJİTAL BADGE</span>
-              <h4>Kayıt &amp; QR Yaka Kartı</h4>
-              <p>Rolünüzü (Öğrenci, İK, Startup, Topluluk) ve yetkinlik etiketlerinizi seçip Davos standartlarında dijital yaka kartınızı oluşturun.</p>
-            </div>
-            <div class="slush-step-box">
-              <span class="slush-step-num">ADIM 02 &middot; İSTEK &amp; KABUL/RET</span>
-              <h4>5 Dk Eşleşme Teklifi</h4>
-              <p>Uygun 5 dakikalık dilimi seçerek istek gönderin. Karşı taraf kabul ettiğinde veya yeni saat önerdiğinde anında ajandanıza işlenir.</p>
-            </div>
-            <div class="slush-step-box">
-              <span class="slush-step-num">ADIM 03 &middot; OTOMATİK MASA</span>
-              <h4>Meeting Point Tahsisi</h4>
-              <p>Çakışmasız masa motoru G Blok Slush'D Arenası'nda size özel numaralı masayı (ör. <strong>MP-04</strong>) otomatik olarak kilitler.</p>
-            </div>
-            <div class="slush-step-box">
-              <span class="slush-step-num">ADIM 04 &middot; QR &amp; KRONOMETRE</span>
-              <h4>QR Doğrulama &amp; 05:00 Sayaç</h4>
-              <p>Masadaki veya yaka kartındaki QR okutulduğunda 5 dakikalık keskin geri sayım ve tek tıkla CV/profil paylaşımı başlar.</p>
-            </div>
-          </div>
-
-          <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
-            <a href="../tedu-app/" class="btn-sharp-red">SUMMITTED APP'İ AÇ &amp; EŞLEŞME BAŞLAT &rarr;</a>
-            <a href="../tedu-app/qr-kit.html" class="btn-sharp-outline">YAZDIRILABİLİR MASA &amp; ZONE QR KİTİ</a>
+          <div class="spotlight-surface" style="padding:24px;">
+            <span class="eyebrow-tag" style="margin-bottom:6px;">KURUMSAL KATILIM PAKETLERİ</span>
+            <h3 style="margin:0 0 12px; font-family:var(--font-display); font-size:20px;">Şirketler İçin 4 Stratejik Temas Noktası</h3>
+            <ul style="margin:0; padding-left:18px; color:#C2CFE9; font-size:14px; display:flex; flex-direction:column; gap:8px;">
+              <li><strong>Davos Promenade Deneyim Çadırı:</strong> İncesu ana yürüyüş aksında özel kurumsal pavilyon.</li>
+              <li><strong>Red &amp; Blue Zone Kariyer Standı:</strong> K Blok Fuaye veya E Blok Spor Merkezi'nde tam donanımlı stant.</li>
+              <li><strong>Slush'D 1:1 &amp; Speed Masa Kotası:</strong> G Blok'ta ön filtreli adaylarla doğrudan görüşme masası.</li>
+              <li><strong>Ana Sahne &amp; Tech Amfi Konuşmacı Slotu:</strong> Mühendislik ve vizyon oturumlarında marka liderliği.</li>
+            </ul>
           </div>
         </div>
 
-        <div class="slush-live-preview">
-          <div>
-            <div class="pulse-head">
-              <span><i class="pulse-dot"></i>G BLOK &middot; CANLI MEETING POINT MATRİSİ</span>
-              <span id="mp-summary-count">14 / 24 DOLU</span>
-            </div>
-            <p style="margin:0 0 10px; font-size:12.5px; color:#B6C3E0;">
-              <code>MP-01..MP-16</code>: 5 Dk Hızlı Eşleşme Masaları &middot; <code>MP-17..MP-24</code>: 15 Dk 1:1 Kurumsal Mülakat Kabinleri
-            </p>
-            <div class="mp-mini-matrix" id="mp-live-matrix"></div>
+        <div class="spotlight-surface reveal delay-1" style="padding:32px;">
+          <div class="reg-mode-tabs" role="tablist">
+            <button type="button" class="reg-mode-btn is-active" data-reg-mode="talent">Öğrenci / Girişimci Ön Kayıt</button>
+            <button type="button" class="reg-mode-btn" data-reg-mode="corporate">Kurumsal &amp; Sponsorluk Başvurusu</button>
           </div>
 
-          <div style="border-top:1px solid rgba(255,255,255,0.14); padding-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-            <div style="font-size:12.5px; color:#DCE4F7;">
-              <strong>Canlı FIDS Yönlendirme Ekranı:</strong> Kampüs TV'leri için pasif yoğunluk ve sahne panosu
+          <!-- Talent Early Registration -->
+          <form id="talent-reg-form" class="dark-form-grid">
+            <div class="dark-field">
+              <label for="tr-name">Ad Soyad</label>
+              <input type="text" id="tr-name" required placeholder="Adınız Soyadınız">
             </div>
-            <a href="../tedu-dashboard/" class="btn-sharp-outline" style="padding:9px 14px; font-size:11.5px;">TV DASHBOARD &rarr;</a>
-          </div>
+            <div class="dark-field">
+              <label for="tr-email">Üniversite / İletişim E-Postası</label>
+              <input type="email" id="tr-email" required placeholder="ad.soyad@tedu.edu.tr">
+            </div>
+            <div class="dark-field">
+              <label for="tr-role">Katılım Profili</label>
+              <select id="tr-role">
+                <option value="student">Lisans / Lisansüstü Öğrencisi</option>
+                <option value="startup">Girişim Kurucusu / Startup Ekibi</option>
+                <option value="community">Öğrenci Topluluğu Temsilcisi</option>
+              </select>
+            </div>
+            <div class="dark-field">
+              <label for="tr-dept">Fakülte / Bölüm veya Girişim Adı</label>
+              <input type="text" id="tr-dept" required placeholder="Örn: Bilgisayar Müh. / Ekonomi">
+            </div>
+            <div class="dark-field full">
+              <label for="tr-tags">İlgi &amp; Eşleşme Alanları</label>
+              <input type="text" id="tr-tags" placeholder="Yapay Zeka, Savunma, FinTech, Strateji, Staj">
+            </div>
+            <div class="dark-field full" style="margin-top:6px;">
+              <button type="submit" class="btn-kinetic-red hero-cta-lg" style="width:100%; justify-content:center;">
+                ÖN KAYDI TAMAMLA &amp; 3D YAKA KARTIMI OLUŞTUR &rarr;
+              </button>
+            </div>
+          </form>
+
+          <!-- Corporate Partnership Request -->
+          <form id="corp-reg-form" class="dark-form-grid" hidden>
+            <div class="dark-field">
+              <label for="cr-company">Kurum / Şirket Adı</label>
+              <input type="text" id="cr-company" required placeholder="Örn: ASELSAN / DenizBank">
+            </div>
+            <div class="dark-field">
+              <label for="cr-person">Yetkili Ad Soyad &amp; Ünvan</label>
+              <input type="text" id="cr-person" required placeholder="İK / Kurumsal İletişim Yöneticisi">
+            </div>
+            <div class="dark-field">
+              <label for="cr-email">Kurumsal E-Posta</label>
+              <input type="email" id="cr-email" required placeholder="kurumsal@sirket.com">
+            </div>
+            <div class="dark-field">
+              <label for="cr-tier">Tercih Edilen Alan / Paket</label>
+              <select id="cr-tier">
+                <option value="promenade">Ana Sponsor &amp; Davos Promenade Çadırı</option>
+                <option value="blue">Blue Zone Standı (Savunma &amp; Mühendislik)</option>
+                <option value="red">Red Zone Standı (Finans, Holding &amp; FMCG)</option>
+                <option value="stage">Konuşmacı &amp; 1:1 Mülakat Masası Paketi</option>
+              </select>
+            </div>
+            <div class="dark-field full">
+              <label for="cr-note">Hedeflenen Yetenek Profili veya İş Birliği Notu</label>
+              <textarea id="cr-note" rows="3" placeholder="Staj, MT programı, vaka çalışması veya konuşmacı detayları..."></textarea>
+            </div>
+            <div class="dark-field full" style="margin-top:6px;">
+              <button type="submit" class="btn-kinetic-red hero-cta-lg" style="width:100%; justify-content:center;">
+                KURUMSAL PORTFOLYO DOSYASI &amp; GÖRÜŞME TALEP ET &rarr;
+              </button>
+            </div>
+          </form>
+
+          <div id="reg-feedback" hidden style="margin-top:16px; padding:14px 16px; background:rgba(16,185,129,0.14); border-left:3px solid #10B981; font-size:13.5px; color:#D1FAE5;"></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Conference & Stage Program -->
-  <section class="section-block section-subtle" id="schedule">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="section-eyebrow">SAHNE &amp; OTURUM AKIŞI</span>
-          <h2 class="section-title">Konferans, Söyleşi ve 5 Dk Startup Pitch Programı</h2>
-        </div>
-        <p class="section-desc">
-          Red Zone, Blue Zone ve Promenade stant alanları gün boyu kesintisiz açık kalırken; konferans oturumları 4 ayrı sahnede eşzamanlı ilerler.
-        </p>
-      </div>
-
-      <div class="schedule-list" id="schedule-container"></div>
-    </div>
-  </section>
-
-  <!-- Corporate Partners & WanTED Archive -->
-  <section class="section-block section-white" id="partners">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="section-eyebrow">KURUMSAL EKOSİSTEM &amp; SAHA ARŞİVİ</span>
-          <h2 class="section-title">Katılımcı İşverenler ve TEDÜ Zirve Atmosferi</h2>
-        </div>
-        <p class="section-desc">
-          Savunma, finans, danışmanlık, enerji, telekomünikasyon ve teknoloji liderleriyle doğrudan kampüste buluşma.
-        </p>
-      </div>
-
-      <div class="partners-matrix">
-        <div class="partner-box"><strong>ASELSAN</strong><small>Blue Zone &middot; B-01 &amp; D Blok Söyleşi</small></div>
-        <div class="partner-box"><strong>TUSAŞ</strong><small>Blue Zone &middot; B-02 &amp; Main Plenary</small></div>
-        <div class="partner-box"><strong>MİLSOFT</strong><small>Blue Zone &middot; B-03 &amp; Tech Amfi</small></div>
-        <div class="partner-box"><strong>ROKETSAN</strong><small>Blue Zone &middot; B-05 &amp; Ar-Ge Oturumu</small></div>
-        <div class="partner-box"><strong>Akfen Holding</strong><small>Red Zone &middot; R-01 &amp; Liderlik Paneli</small></div>
-        <div class="partner-box"><strong>DenizBank</strong><small>Red Zone &middot; R-02 &amp; FinTech MT</small></div>
-        <div class="partner-box"><strong>EY Türkiye</strong><small>Red Zone &middot; R-03 &amp; Strateji</small></div>
-        <div class="partner-box"><strong>KPMG Türkiye</strong><small>Red Zone &middot; R-05 &amp; Danışmanlık</small></div>
-        <div class="partner-box"><strong>Coca-Cola İçecek</strong><small>Red Zone &middot; R-04 &amp; Operasyon</small></div>
-        <div class="partner-box"><strong>Anadolu Efes</strong><small>Red Zone &middot; R-06 &amp; Global MT</small></div>
-        <div class="partner-box"><strong>Garanti BBVA Teknoloji</strong><small>Promenade &middot; P-01 Deneyim Çadırı</small></div>
-        <div class="partner-box"><strong>Turkcell &amp; HAVELSAN</strong><small>Promenade &middot; P-02 &amp; P-03 Çadırları</small></div>
-      </div>
-
-      <div class="archive-strip">
-        <figure class="archive-card">
-          <img src="./assets/wanted/wanted-keynote.jpg" alt="TED Üniversitesi Ana Konferans Salonu Oturumu" loading="lazy">
-          <figcaption>Ahmet Ersan Konferans Salonu &middot; Üst Düzey Açılış ve Vizyon Panelleri</figcaption>
-        </figure>
-        <figure class="archive-card">
-          <img src="./assets/wanted/wanted-foyer.jpg" alt="Kurumsal Fuaye ve Şirket Stant Görüşmeleri" loading="lazy">
-          <figcaption>Red &amp; Blue Zone &middot; Doğrudan İK ve Mühendislik Ekipleriyle Temas</figcaption>
-        </figure>
-        <figure class="archive-card">
-          <img src="./assets/wanted/wanted-interview.jpg" alt="Bire Bir Eşleşme ve Mülakat Masaları" loading="lazy">
-          <figcaption>G Blok Slush'D Arena &middot; Numaralı Masalarda 5 Dk Eşleşme ve 1:1 Mülakat</figcaption>
-        </figure>
       </div>
     </div>
   </section>
@@ -402,31 +484,31 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="./assets/submitted-logo-ted-white.svg?v=3" alt="SummitTED Kariyer ve İnovasyon Zirvesi 2026" class="footer-logo">
-          <p style="margin:0; font-size:13.5px; color:#9FB0D1; max-width:420px;">
-            TED Üniversitesi Kariyer Merkezi, İstasyon TEDÜ ve Öğrenci Toplulukları iş birliğiyle düzenlenen resmi Kariyer ve İnovasyon Zirvesi platformu.
+          <img src="./assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED Kariyer ve İnovasyon Zirvesi 2026" style="height:46px; width:auto; display:block; margin-bottom:12px;">
+          <p style="margin:0; font-size:13.5px; max-width:420px;">
+            TED Üniversitesi Kariyer Merkezi, İstasyon TEDÜ ve Öğrenci Toplulukları iş birliğiyle hazırlanan resmi Kariyer ve İnovasyon Zirvesi tanıtım ve ön kayıt platformu.
           </p>
         </div>
         <div>
-          <strong style="display:block; margin-bottom:10px; font-size:12px; letter-spacing:0.8px; color:#FF8A88;">PLATFORM MODÜLLERİ</strong>
+          <strong style="display:block; margin-bottom:10px; font-size:12px; letter-spacing:0.9px; color:#FF6E6C;">ZİRVE EKOSİSTEMİ</strong>
           <ul class="footer-links">
-            <li><a href="./">Ana Zirve Sitesi &amp; 3D/2D Harita (/tedu)</a></li>
-            <li><a href="../tedu-app/">Slush'D Eşleşme &amp; QR Uygulaması (/tedu-app)</a></li>
-            <li><a href="../tedu-dashboard/">Canlı Kampüs TV Dashboard (/tedu-dashboard)</a></li>
-            <li><a href="../tedu-app/qr-kit.html">Basılabilir Kapı, Zone &amp; MP QR Kiti</a></li>
+            <li><a href="#portfolio">Vizyon &amp; Kurumsal Portfolyo</a></li>
+            <li><a href="#campus-map">3D / 2D TEDÜ Kampüs Master Planı</a></li>
+            <li><a href="../tedu-app/">SummitTED Slush'D Eşleşme Web App</a></li>
+            <li><a href="../tedu-dashboard/">Etkinlik Günü FIDS TV Ekranı (Demo)</a></li>
           </ul>
         </div>
         <div>
-          <strong style="display:block; margin-bottom:10px; font-size:12px; letter-spacing:0.8px; color:#FF8A88;">YERLEŞKE &amp; İLETİŞİM</strong>
+          <strong style="display:block; margin-bottom:10px; font-size:12px; letter-spacing:0.9px; color:#FF6E6C;">TED ÜNİVERSİTESİ YERLEŞKESİ</strong>
           <p style="margin:0 0 6px; font-size:13.5px; color:#FFFFFF;">Ziya Gökalp Caddesi No: 48, 06420 Kolej / Çankaya, Ankara</p>
-          <p style="margin:0; font-size:13px; color:#9FB0D1;">İncesu &amp; Aksu Yerleşkeleri &middot; career@tedu.edu.tr</p>
+          <p style="margin:0; font-size:13px;">İncesu &amp; Aksu Yerleşkeleri &middot; career@tedu.edu.tr</p>
         </div>
       </div>
 
       <div class="footer-bottom">
         <span>&copy; 2026 TED Üniversitesi &middot; SummitTED Kariyer ve İnovasyon Zirvesi</span>
         <span style="display:inline-flex; align-items:center; gap:8px;">
-          <span>Altyapı &amp; İnteraktif Sistem:</span>
+          <span>Tasarım &amp; İnteraktif Sistem:</span>
           <img src="./assets/radiotedu-white.png" alt="RadioTEDU" style="height:18px; width:auto;">
           <strong style="color:#FFFFFF;">RadioTEDU Teknolojileri</strong>
         </span>
@@ -436,6 +518,7 @@
 
   <script src="./summitted-core.js"></script>
   <script src="./app.js"></script>
+  <script type="module" src="./hero3d.js"></script>
   <script type="module" src="./campus3d.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SummitTED App (/tedu-app) — Matchmaking, Meeting Points, 5-Min Timer & QR
+   SummitTED Web App (/tedu-app) — Kinetic Matchmaking, 3D MP Focus & Holo Pass
    ========================================================================== */
 
 (function () {
@@ -15,12 +15,42 @@
   let scanInterval = null;
 
   const ROLE_LABELS = {
-    student: 'ÖĞRENCİ / YETENEK',
-    company: 'ŞİRKET / İK HEYETİ',
-    startup: 'GİRİŞİM / YATIRIMCI',
-    community: 'TOPLULUK LİDERİ',
-    speaker: 'KONUŞMACI / VIP'
+    student: 'ÖĞRENCİ / YETENEK PASS',
+    company: 'KURUMSAL İK & LİDERLİK PASS',
+    startup: 'STARTUP & YATIRIMCI PASS',
+    community: 'TOPLULUK LİDERİ PASS',
+    speaker: 'VIP KONUŞMACI PASS'
   };
+
+  function bindSpotlights(root = document) {
+    root.querySelectorAll('.glass-card').forEach((card) => {
+      if (card._spotBound) return;
+      card._spotBound = true;
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${(e.clientX - r.left).toFixed(1)}px`);
+        card.style.setProperty('--my', `${(e.clientY - r.top).toFixed(1)}px`);
+      }, { passive: true });
+    });
+  }
+
+  // 3D Holographic Tilt on Personal Pass
+  const holoCard = document.getElementById('holo-pass-card');
+  if (holoCard) {
+    holoCard.addEventListener('pointermove', (e) => {
+      const r = holoCard.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      const rotY = (px - 0.5) * 18;
+      const rotX = (0.5 - py) * 14;
+      holoCard.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+      holoCard.style.setProperty('--hx', `${(px * 100).toFixed(1)}%`);
+      holoCard.style.setProperty('--hy', `${(py * 100).toFixed(1)}%`);
+    }, { passive: true });
+    holoCard.addEventListener('pointerleave', () => {
+      holoCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  }
 
   function showToast(msg) {
     const t = document.getElementById('app-toast');
@@ -28,7 +58,12 @@
     t.textContent = msg;
     t.hidden = false;
     clearTimeout(showToast._timer);
-    showToast._timer = setTimeout(() => { t.hidden = true; }, 4200);
+    showToast._timer = setTimeout(() => { t.hidden = true; }, 4300);
+  }
+
+  function focus3DTable(tableId) {
+    if (!tableId) return;
+    document.dispatchEvent(new CustomEvent('summitted-focus-mp', { detail: { tableId } }));
   }
 
   function switchTab(tab) {
@@ -41,16 +76,22 @@
     });
     if (tab !== 'scan') stopCamera();
     if (tab === 'badge') renderBadgeView(Core.getSnapshot());
+    if (tab === 'meetings') {
+      const snap = Core.getSnapshot();
+      const firstAccepted = snap.acceptedMeetings[0];
+      if (firstAccepted?.tableId) setTimeout(() => focus3DTable(firstAccepted.tableId), 120);
+    }
   }
 
   document.querySelectorAll('[data-app-tab]').forEach((btn) => {
     btn.addEventListener('click', () => switchTab(btn.dataset.appTab));
   });
-
+  document.querySelectorAll('[data-jump-tab]').forEach((btn) => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.jumpTab));
+  });
   const goDiscoverBtn = document.getElementById('btn-go-discover');
   if (goDiscoverBtn) goDiscoverBtn.addEventListener('click', () => switchTab('discover'));
 
-  // Handle URL parameters (?tab=... & ?qr=... & ?connect=...)
   function checkInitialUrlParams() {
     const params = new URLSearchParams(window.location.search);
     const tab = params.get('tab');
@@ -61,6 +102,7 @@
       if (res.ok) {
         switchTab('meetings');
         showToast(res.label);
+        if (res.code) setTimeout(() => focus3DTable(res.code), 200);
       }
       window.history.replaceState({}, '', window.location.pathname);
       return;
@@ -75,7 +117,7 @@
     }
   }
 
-  // 1. Discover & 5-Min Matchmaking Feed
+  // 1. Discover Feed
   const searchInput = document.getElementById('peer-search');
   if (searchInput) {
     searchInput.addEventListener('input', () => {
@@ -107,47 +149,46 @@
     const filtered = snap.peers.filter((p) => {
       if (roleFilter !== 'all' && p.roleType !== roleFilter) return false;
       if (!searchQuery) return true;
-      const hay = `${p.name} ${p.org} ${p.title} ${p.tags.join(' ')} ${p.lookingFor}`.toLowerCase();
-      return hay.includes(searchQuery);
+      return `${p.name} ${p.org} ${p.title} ${p.tags.join(' ')} ${p.lookingFor}`.toLowerCase().includes(searchQuery);
     });
 
-    host.innerHTML = filtered.map((p) => {
+    host.innerHTML = filtered.map((p, idx) => {
       const existing = existingByPeer.get(p.id);
       const zoneName = snap.zonesById[p.zoneId]?.shortName || p.zoneId;
-      let actionHtml = `<button type="button" class="btn-action-red" data-open-req="${p.id}">5 DK EŞLEŞME İSTEĞİ GÖNDER &rarr;</button>`;
+      let actionHtml = `<button type="button" class="btn-pulse-red" data-open-req="${p.id}">5 DK EŞLEŞME İSTEĞİ GÖNDER &rarr;</button>`;
       if (existing) {
         if (existing.status === 'accepted') {
-          actionHtml = `<button type="button" class="btn-action-navy" data-jump-meetings="1">ONAYLANDI &middot; ${existing.tableId} (${existing.slot})</button>`;
+          actionHtml = `<button type="button" class="btn-sleek-blue" style="width:100%;" data-jump-mp="${existing.tableId}">3D ARENADA GÖR &middot; ${existing.tableId} (${existing.slot})</button>`;
         } else {
-          actionHtml = `<button type="button" class="btn-action-ghost" data-jump-meetings="1">İSTEK BEKLİYOR (${existing.slot}) &rarr;</button>`;
+          actionHtml = `<button type="button" class="btn-sleek-ghost" style="width:100%;" data-jump-mp="">İSTEK GÖNDERİLDİ (${existing.slot}) &rarr;</button>`;
         }
       }
       return `
-        <article class="peer-card role-${p.roleType}">
+        <article class="glass-card peer-glass-card" style="animation-delay:${Math.min(idx * 0.04, 0.36)}s">
           <div>
-            <div class="peer-card-head">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:14px;">
               <div style="display:flex; gap:12px; align-items:center;">
-                <div class="peer-avatar">${initials(p.name)}</div>
+                <div class="peer-orb">${initials(p.name)}</div>
                 <div>
                   <h3 class="peer-name">${p.name}</h3>
-                  <div class="peer-org">${p.org} &middot; <span style="color:#292E6F;">${zoneName}</span></div>
-                  <div class="peer-title">${p.title}</div>
+                  <div class="peer-org-line">${p.org}</div>
+                  <div class="peer-role-sub">${p.title}</div>
                 </div>
               </div>
-              <span class="peer-role-badge">${p.roleBadge}</span>
+              <span class="peer-zone-tag">${zoneName}</span>
             </div>
 
-            <p class="peer-looking" style="margin-top:12px;">${p.lookingFor}</p>
+            <p class="peer-pitch">${p.lookingFor}</p>
 
-            <div class="tag-row" style="margin-top:10px;">
-              ${p.tags.map((t) => `<span class="sharp-tag">${t}</span>`).join('')}
+            <div class="neon-tags" style="margin-top:12px;">
+              ${p.tags.map((t) => `<span class="neon-tag">${t}</span>`).join('')}
             </div>
           </div>
 
           <div>
-            <div class="slot-preview-row" style="margin-bottom:10px;">
-              <small style="font-size:11px; font-weight:700; color:#6C7891;">MÜSAİT 5 DK:</small>
-              ${p.availableSlots.slice(0, 3).map((s) => `<span class="slot-chip">${s}</span>`).join('')}
+            <div class="slot-strip" style="margin-bottom:12px;">
+              <small style="font-size:10.5px; font-weight:800; color:#7E90B8;">SLOTS:</small>
+              ${p.availableSlots.slice(0, 3).map((s) => `<span class="slot-pill">${s}</span>`).join('')}
             </div>
             ${actionHtml}
           </div>
@@ -155,11 +196,17 @@
       `;
     }).join('');
 
+    bindSpotlights(host);
+
     host.querySelectorAll('[data-open-req]').forEach((btn) => {
       btn.addEventListener('click', () => openRequestModal(btn.dataset.openReq));
     });
-    host.querySelectorAll('[data-jump-meetings]').forEach((btn) => {
-      btn.addEventListener('click', () => switchTab('meetings'));
+    host.querySelectorAll('[data-jump-mp]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tbl = btn.dataset.jumpMp;
+        switchTab('meetings');
+        if (tbl) setTimeout(() => focus3DTable(tbl), 150);
+      });
     });
   }
 
@@ -174,9 +221,8 @@
     if (!peer || !reqModal) return;
     document.getElementById('req-peer-id').value = peer.id;
     document.getElementById('req-modal-title').textContent = `${peer.name} (${peer.org})`;
-    document.getElementById('req-modal-sub').textContent = `${peer.title} — Kabul edildiğinde G Blok Slush'D Arenası'nda otomatik masa atanır.`;
-    const select = document.getElementById('req-slot-select');
-    select.innerHTML = peer.availableSlots.map((s) => `<option value="${s}">${s} (5 Dakika · G Blok MP)</option>`).join('');
+    document.getElementById('req-modal-sub').textContent = `${peer.title} — Onaylandığında 3D G-Blok Arenası'nda otomatik masa kilitlenir.`;
+    document.getElementById('req-slot-select').innerHTML = peer.availableSlots.map((s) => `<option value="${s}">${s} (5 Dakika · G Blok MP)</option>`).join('');
     document.getElementById('req-note-input').value = '';
     reqModal.hidden = false;
   }
@@ -185,10 +231,11 @@
   if (reqForm) {
     reqForm.addEventListener('submit', (ev) => {
       ev.preventDefault();
-      const peerId = document.getElementById('req-peer-id').value;
-      const slot = document.getElementById('req-slot-select').value;
-      const note = document.getElementById('req-note-input').value;
-      const created = Core.sendMatchRequest({ peerId, slot, note });
+      const created = Core.sendMatchRequest({
+        peerId: document.getElementById('req-peer-id').value,
+        slot: document.getElementById('req-slot-select').value,
+        note: document.getElementById('req-note-input').value
+      });
       reqModal.hidden = true;
       if (created) {
         showToast(`${created.peerName} (${created.peerOrg}) için ${created.slot} eşleşme isteği gönderildi!`);
@@ -197,7 +244,7 @@
     });
   }
 
-  // 2. Meetings Inbox (Incoming Accept/Decline + Accepted MP + Outgoing)
+  // 2. 3D Arena & Accept/Decline Inbox
   function renderMeetings(snap) {
     const incomingHost = document.getElementById('incoming-list');
     const otherHost = document.getElementById('accepted-outgoing-list');
@@ -210,86 +257,92 @@
     if (railBadge) railBadge.textContent = String(pendingCount);
     if (incPill) incPill.textContent = String(pendingCount);
     if (accPill) accPill.textContent = String(snap.acceptedMeetings.length);
-    if (mobLabel) mobLabel.textContent = pendingCount > 0 ? `İstek (${pendingCount})` : 'İstekler';
+    if (mobLabel) mobLabel.textContent = pendingCount > 0 ? `MP (${pendingCount})` : '3D MP';
 
     if (incomingHost) {
       const incoming = snap.meetings.filter((m) => m.direction === 'incoming');
-      if (incoming.length === 0) {
-        incomingHost.innerHTML = `<p style="font-size:13.5px; color:#6C7891;">Bekleyen gelen istek bulunmuyor.</p>`;
-      } else {
-        incomingHost.innerHTML = incoming.map((m) => `
-          <div class="mtg-card status-${m.status}">
-            <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
-              <div>
-                <strong style="font-size:16px;">${m.peerName}</strong>
-                <div style="font-size:12.5px; font-weight:700; color:#E41513;">${m.peerOrg} &middot; ${m.peerTitle}</div>
-              </div>
-              <span class="slot-chip">${m.slot}</span>
-            </div>
-            <p style="margin:8px 0; font-size:13px; color:#47536B;">"${m.note}"</p>
-            ${m.status === 'pending' ? `
-              <div class="mtg-btn-row">
-                <button type="button" class="btn-action-red" data-mtg-accept="${m.id}">KABUL ET &amp; MP ATA</button>
-                <button type="button" class="btn-action-navy" data-mtg-resched="${m.id}">SAAT +5 DK KAYDIR &amp; ONAYLA</button>
-                <button type="button" class="btn-action-ghost" data-mtg-decline="${m.id}">REDDET</button>
-              </div>
-            ` : m.status === 'accepted' ? `
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="mp-assign-badge">ONAYLANDI &middot; MASA <strong>${m.tableId}</strong></span>
-                <button type="button" class="btn-action-red" data-start-timer="${m.id}" style="padding:8px 12px;">05:00 SAYACI BAŞLAT</button>
-              </div>
-            ` : `<div style="font-size:12px; font-weight:700; color:#64748B;">İSTEK REDDEDİLDİ</div>`}
-          </div>
-        `).join('');
-      }
-    }
-
-    if (otherHost) {
-      const list = snap.meetings.filter((m) => m.direction === 'outgoing' || m.status === 'accepted');
-      const unique = [];
-      const seen = new Set();
-      list.forEach((m) => { if (!seen.has(m.id)) { seen.add(m.id); unique.push(m); } });
-
-      otherHost.innerHTML = unique.map((m) => `
-        <div class="mtg-card status-${m.status}">
+      incomingHost.innerHTML = incoming.map((m) => `
+        <div class="mtg-glass-item status-${m.status}">
           <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
             <div>
               <strong style="font-size:16px;">${m.peerName}</strong>
-              <div style="font-size:12.5px; font-weight:700; color:#292E6F;">${m.peerOrg} &middot; ${m.peerTitle}</div>
+              <div style="font-size:12.5px; font-weight:700; color:#FF6E6C;">${m.peerOrg} &middot; ${m.peerTitle}</div>
             </div>
-            <span class="slot-chip">${m.slot}</span>
+            <span class="slot-pill">${m.slot}</span>
           </div>
-          <p style="margin:8px 0; font-size:12.5px; color:#47536B;">${m.note}</p>
+          <p style="margin:8px 0 12px; font-size:13px; color:#C5D2EE;">"${m.note}"</p>
+          ${m.status === 'pending' ? `
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button type="button" class="btn-pulse-red" style="width:auto;" data-mtg-accept="${m.id}">KABUL ET &amp; 3D MP ATA</button>
+              <button type="button" class="btn-sleek-blue" data-mtg-resched="${m.id}">+5 DK KAYDIR &amp; ONAYLA</button>
+              <button type="button" class="btn-sleek-ghost" data-mtg-decline="${m.id}">REDDET</button>
+            </div>
+          ` : m.status === 'accepted' ? `
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <button type="button" class="mp-glow-chip" data-focus-table="${m.tableId}">3D MASA ODAKLA: <strong>${m.tableId}</strong></button>
+              <button type="button" class="btn-pulse-red" style="width:auto; padding:8px 14px;" data-start-timer="${m.id}">05:00 SAYACI BAŞLAT</button>
+            </div>
+          ` : `<div style="font-size:12px; font-weight:700; color:#7E90B8;">REDDEDİLDİ</div>`}
+        </div>
+      `).join('') || `<p style="font-size:13.5px; color:#7E90B8;">Bekleyen gelen istek yok.</p>`;
+    }
+
+    if (otherHost) {
+      const seen = new Set();
+      const unique = [];
+      snap.meetings.filter((m) => m.direction === 'outgoing' || m.status === 'accepted').forEach((m) => {
+        if (!seen.has(m.id)) { seen.add(m.id); unique.push(m); }
+      });
+
+      otherHost.innerHTML = unique.map((m) => `
+        <div class="mtg-glass-item status-${m.status}">
+          <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+            <div>
+              <strong style="font-size:16px;">${m.peerName}</strong>
+              <div style="font-size:12.5px; font-weight:700; color:#93B4FF;">${m.peerOrg} &middot; ${m.peerTitle}</div>
+            </div>
+            <span class="slot-pill">${m.slot}</span>
+          </div>
+          <p style="margin:8px 0 12px; font-size:12.5px; color:#C5D2EE;">${m.note}</p>
           ${m.status === 'accepted' ? `
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:10px;">
-              <span class="mp-assign-badge">G BLOK &middot; MASA <strong>${m.tableId}</strong></span>
-              <button type="button" class="btn-action-red" data-start-timer="${m.id}" style="padding:8px 12px;">MASADAYIM &middot; 05:00 BAŞLAT</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <button type="button" class="mp-glow-chip" data-focus-table="${m.tableId}">G BLOK &middot; <strong>${m.tableId}</strong> (3D GÖSTER)</button>
+              <button type="button" class="btn-pulse-red" style="width:auto; padding:8px 14px;" data-start-timer="${m.id}">MASADAYIM &middot; 05:00 BAŞLAT</button>
             </div>
           ` : m.status === 'pending' ? `
-            <div class="mtg-btn-row">
-              <span style="font-size:12px; font-weight:700; color:#D97706; align-self:center;">YANIT BEKLENİYOR</span>
-              <button type="button" class="btn-action-navy" data-sim-peer-accept="${m.id}" style="padding:7px 11px; font-size:11px;">DEMO: KARŞI TARAF KABUL ETSİN</button>
-              <button type="button" class="btn-action-ghost" data-mtg-decline="${m.id}" style="padding:7px 11px; font-size:11px;">İPTAL ET</button>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+              <span style="font-size:11.5px; font-weight:800; color:#FBBF24;">ONAY BEKLENİYOR</span>
+              <button type="button" class="btn-sleek-blue" data-sim-peer-accept="${m.id}">DEMO: KARŞI TARAF KABUL ETSİN</button>
+              <button type="button" class="btn-sleek-ghost" data-mtg-decline="${m.id}">İPTAL</button>
             </div>
-          ` : `<div style="font-size:12px; font-weight:700; color:#64748B;">İPTAL EDİLDİ / REDDEDİLDİ</div>`}
+          ` : `<div style="font-size:12px; font-weight:700; color:#7E90B8;">İPTAL EDİLDİ</div>`}
         </div>
       `).join('');
     }
 
+    document.querySelectorAll('[data-focus-table]').forEach((b) => {
+      b.onclick = () => focus3DTable(b.dataset.focusTable);
+    });
     document.querySelectorAll('[data-mtg-accept]').forEach((b) => {
       b.onclick = () => {
-        const updated = Core.respondToMeeting(b.dataset.mtgAccept, 'accept');
-        if (updated) showToast(`Eşleşme onaylandı! G Blok ${updated.tableId} masası (${updated.slot}) tahsis edildi.`);
+        const u = Core.respondToMeeting(b.dataset.mtgAccept, 'accept');
+        if (u) {
+          focus3DTable(u.tableId);
+          showToast(`Eşleşme onaylandı! 3D Arena kamerası ${u.tableId} masasına odaklandı.`);
+        }
       };
     });
     document.querySelectorAll('[data-mtg-resched]').forEach((b) => {
       b.onclick = () => {
-        const snapNow = Core.getSnapshot();
-        const cur = snapNow.meetings.find((x) => x.id === b.dataset.mtgResched);
-        const idx = Math.max(0, snapNow.slots5Min.indexOf(cur?.slot));
-        const nextSlot = snapNow.slots5Min[(idx + 1) % snapNow.slots5Min.length];
-        const updated = Core.respondToMeeting(b.dataset.mtgResched, 'reschedule', nextSlot);
-        if (updated) showToast(`Yeni saat (${updated.slot}) ile onaylandı! Masa: ${updated.tableId}`);
+        const sNow = Core.getSnapshot();
+        const cur = sNow.meetings.find((x) => x.id === b.dataset.mtgResched);
+        const idx = Math.max(0, sNow.slots5Min.indexOf(cur?.slot));
+        const nextSlot = sNow.slots5Min[(idx + 1) % sNow.slots5Min.length];
+        const u = Core.respondToMeeting(b.dataset.mtgResched, 'reschedule', nextSlot);
+        if (u) {
+          focus3DTable(u.tableId);
+          showToast(`Saat ${u.slot} olarak güncellendi ve ${u.tableId} masası tahsis edildi!`);
+        }
       };
     });
     document.querySelectorAll('[data-mtg-decline]').forEach((b) => {
@@ -300,152 +353,70 @@
     });
     document.querySelectorAll('[data-sim-peer-accept]').forEach((b) => {
       b.onclick = () => {
-        const updated = Core.respondToMeeting(b.dataset.simPeerAccept, 'accept');
-        if (updated) showToast(`${updated.peerName} eşleşme isteğinizi KABUL ETTİ! Masa: ${updated.tableId} (${updated.slot})`);
+        const u = Core.respondToMeeting(b.dataset.simPeerAccept, 'accept');
+        if (u) {
+          focus3DTable(u.tableId);
+          showToast(`${u.peerName} isteğinizi kabul etti! 3D Masa: ${u.tableId}`);
+        }
       };
     });
     document.querySelectorAll('[data-start-timer]').forEach((b) => {
       b.onclick = () => {
         const timer = Core.startMeetingTimer(b.dataset.startTimer);
-        if (timer) showToast(`${timer.tableId} masasında ${timer.peerName} ile 5 dakikalık görüşme başladı!`);
+        if (timer) {
+          focus3DTable(timer.tableId);
+          showToast(`${timer.tableId} masasında ${timer.peerName} ile 05:00 kronometre başladı!`);
+        }
       };
     });
   }
 
-  // Live 5-Minute Countdown Ticker
-  function updateTimerDock() {
+  // Radial + Digital 05:00 Countdown
+  function updateTimerHUD() {
     const snap = Core.getSnapshot();
     const dock = document.getElementById('active-timer-dock');
     const digits = document.getElementById('timer-digits');
     const label = document.getElementById('timer-peer-label');
+    const arc = document.getElementById('timer-ring-arc');
     if (!dock || !digits || !label) return;
     if (!snap.activeTimer) {
       dock.hidden = true;
       return;
     }
     dock.hidden = false;
+    const total = snap.activeTimer.durationSec || 300;
     const remSec = Math.max(0, Math.ceil((snap.activeTimer.endsAt - Date.now()) / 1000));
     const mm = String(Math.floor(remSec / 60)).padStart(2, '0');
     const ss = String(remSec % 60).padStart(2, '0');
     digits.textContent = `${mm}:${ss}`;
-    digits.classList.toggle('is-urgent', remSec <= 60);
     label.textContent = `${snap.activeTimer.peerName} (${snap.activeTimer.peerOrg}) · G Blok ${snap.activeTimer.tableId}`;
+    if (arc) {
+      const circumference = 144.5;
+      arc.setAttribute('stroke-dashoffset', ((1 - remSec / total) * circumference).toFixed(1));
+    }
     if (remSec === 0) {
       Core.stopMeetingTimer();
-      showToast('5 dakikalık görüşme süresi tamamlandı! Sonraki eşleşmeye geçebilirsiniz.');
+      showToast('5 dakikalık görüşme tamamlandı!');
     }
   }
-  setInterval(updateTimerDock, 1000);
+  setInterval(updateTimerHUD, 1000);
 
   const shareCvBtn = document.getElementById('btn-share-cv');
   if (shareCvBtn) {
     shareCvBtn.addEventListener('click', () => {
       const b = Core.loadBadge();
-      showToast(`Dijital Yaka Kartınız ve iletişim profiliniz (${b.email}) karşı tarafa iletildi!`);
+      showToast(`3D Dijital Yaka Kartınız (${b.email}) karşı tarafa iletildi!`);
     });
   }
   const endTimerBtn = document.getElementById('btn-end-timer');
   if (endTimerBtn) {
     endTimerBtn.addEventListener('click', () => {
       Core.stopMeetingTimer();
-      showToast('Görüşme tamamlandı olarak işaretlendi.');
+      showToast('Görüşme tamamlandı.');
     });
   }
 
-  // 3. Universal QR Scanner (Camera + Manual + Quick Presets)
-  const toggleCamBtn = document.getElementById('btn-toggle-camera');
-  const videoEl = document.getElementById('qr-video');
-  const placeholderEl = document.getElementById('camera-placeholder');
-
-  async function startCamera() {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      showToast('Bu tarayıcıda doğrudan kamera erişimi desteklenmiyor; aşağıdaki hızlı QR kodlarını kullanabilirsiniz.');
-      return;
-    }
-    try {
-      cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-      videoEl.srcObject = cameraStream;
-      videoEl.hidden = false;
-      if (placeholderEl) placeholderEl.hidden = true;
-      await videoEl.play();
-      toggleCamBtn.textContent = 'KAMERAYI DURDUR';
-
-      if ('BarcodeDetector' in window) {
-        const detector = new window.BarcodeDetector({ formats: ['qr_code'] });
-        scanInterval = setInterval(async () => {
-          if (!videoEl || videoEl.readyState < 2) return;
-          try {
-            const codes = await detector.detect(videoEl);
-            if (codes && codes.length > 0 && codes[0].rawValue) {
-              const res = Core.processQRCode(codes[0].rawValue);
-              if (res.ok) {
-                showToast(res.label);
-                stopCamera();
-              }
-            }
-          } catch (_) {}
-        }, 550);
-      }
-    } catch (_) {
-      showToast('Kamera izni verilmedi veya cihazda kamera bulunamadı. Manuel / Hızlı QR butonlarını kullanabilirsiniz.');
-    }
-  }
-
-  function stopCamera() {
-    if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
-    if (cameraStream) {
-      cameraStream.getTracks().forEach((t) => t.stop());
-      cameraStream = null;
-    }
-    if (videoEl) { videoEl.hidden = true; videoEl.srcObject = null; }
-    if (placeholderEl) placeholderEl.hidden = false;
-    if (toggleCamBtn) toggleCamBtn.textContent = 'KAMERAYI BAŞLAT';
-  }
-
-  if (toggleCamBtn) {
-    toggleCamBtn.addEventListener('click', () => {
-      if (cameraStream) stopCamera();
-      else startCamera();
-    });
-  }
-
-  const manualForm = document.getElementById('manual-qr-form');
-  if (manualForm) {
-    manualForm.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      const inp = document.getElementById('manual-qr-input');
-      const res = Core.processQRCode(inp.value);
-      showToast(res.ok ? res.label : res.message);
-      if (res.ok) inp.value = '';
-    });
-  }
-
-  document.querySelectorAll('[data-quick-qr]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const res = Core.processQRCode(btn.dataset.quickQr);
-      showToast(res.ok ? res.label : res.message);
-    });
-  });
-
-  function renderScanHistory(snap) {
-    const host = document.getElementById('scan-history-list');
-    if (!host) return;
-    host.innerHTML = snap.scanHistory.slice(0, 10).map((item) => {
-      const d = new Date(item.ts);
-      const hhmm = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-      return `
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid #E6ECF5; font-size:13px;">
-          <div>
-            <code style="background:#0B1330; color:#FFF; padding:2px 6px; font-family:var(--font-condensed); font-weight:700; margin-right:6px;">${item.code}</code>
-            <span>${item.label}</span>
-          </div>
-          <small style="color:#6C7891; font-weight:700;">${hhmm}</small>
-        </div>
-      `;
-    }).join('');
-  }
-
-  // 4. Davos Badge & Registration Form
+  // 3. 3D Holographic Badge View
   function renderBadgeView(snap) {
     const b = snap.badge;
     const nameEl = document.getElementById('pass-name');
@@ -459,9 +430,9 @@
     if (nameEl) nameEl.textContent = b.name;
     if (orgEl) orgEl.textContent = b.org;
     if (ribEl) ribEl.textContent = ROLE_LABELS[b.roleType] || b.roleLabel;
-    if (tagsEl) tagsEl.innerHTML = (b.tags || []).map((t) => `<span class="sharp-tag">${t}</span>`).join('');
+    if (tagsEl) tagsEl.innerHTML = (b.tags || []).map((t) => `<span class="neon-tag">${t}</span>`).join('');
     if (gateEl) gateEl.textContent = `AKREDİTE: ${(b.checkedInGate || 'gate-1').toUpperCase()}`;
-    if (zoneEl) zoneEl.textContent = `KONUM: ${(snap.zonesById[b.activeZoneId]?.code || 'Z-RED')}`;
+    if (zoneEl) zoneEl.textContent = `AKTİF: ${(snap.zonesById[b.activeZoneId]?.code || 'Z-RED')}`;
 
     if (qrBox && typeof window.qrcode === 'function') {
       const qr = window.qrcode(0, 'M');
@@ -491,17 +462,105 @@
         name: document.getElementById('bf-name').value.trim() || 'TEDÜ Katılımcısı',
         email: document.getElementById('bf-email').value.trim(),
         roleType,
-        roleLabel: ROLE_LABELS[roleType] || 'KATILIMCI',
+        roleLabel: ROLE_LABELS[roleType] || 'KATILIMCI PASS',
         org: document.getElementById('bf-org').value.trim(),
         tags: tags.length ? tags : ['SummitTED 2026'],
         bio: document.getElementById('bf-bio').value.trim()
       });
       renderBadgeView(Core.getSnapshot());
-      showToast(`Hoş geldiniz ${saved.name}! Dijital Davos Yaka Kartınız ve eşleşme QR kodunuz güncellendi.`);
+      showToast(`3D Holografik Yaka Kartınız güncellendi, ${saved.name}!`);
     });
   }
 
-  // 5. Personal Schedule (Accepted 5-Min Meetings + Saved Conference Sessions)
+  // 4. HUD QR Scanner
+  const toggleCamBtn = document.getElementById('btn-toggle-camera');
+  const videoEl = document.getElementById('qr-video');
+  const placeholderEl = document.getElementById('camera-placeholder');
+
+  async function startCamera() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      showToast('Doğrudan kamera desteklenmiyor; aşağıdaki saha QR butonlarını kullanabilirsiniz.');
+      return;
+    }
+    try {
+      cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+      videoEl.srcObject = cameraStream;
+      videoEl.hidden = false;
+      if (placeholderEl) placeholderEl.hidden = true;
+      await videoEl.play();
+      toggleCamBtn.textContent = 'KAMERAYI DURDUR';
+
+      if ('BarcodeDetector' in window) {
+        const detector = new window.BarcodeDetector({ formats: ['qr_code'] });
+        scanInterval = setInterval(async () => {
+          if (!videoEl || videoEl.readyState < 2) return;
+          try {
+            const codes = await detector.detect(videoEl);
+            if (codes && codes.length > 0 && codes[0].rawValue) {
+              const res = Core.processQRCode(codes[0].rawValue);
+              if (res.ok) {
+                showToast(res.label);
+                stopCamera();
+              }
+            }
+          } catch (_) {}
+        }, 550);
+      }
+    } catch (_) {
+      showToast('Kamera erişimi reddedildi veya bulunamadı; hızlı saha QR butonlarını kullanabilirsiniz.');
+    }
+  }
+
+  function stopCamera() {
+    if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
+    if (cameraStream) {
+      cameraStream.getTracks().forEach((t) => t.stop());
+      cameraStream = null;
+    }
+    if (videoEl) { videoEl.hidden = true; videoEl.srcObject = null; }
+    if (placeholderEl) placeholderEl.hidden = false;
+    if (toggleCamBtn) toggleCamBtn.textContent = 'KAMERAYI BAŞLAT';
+  }
+
+  if (toggleCamBtn) toggleCamBtn.addEventListener('click', () => (cameraStream ? stopCamera() : startCamera()));
+
+  const manualForm = document.getElementById('manual-qr-form');
+  if (manualForm) {
+    manualForm.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const inp = document.getElementById('manual-qr-input');
+      const res = Core.processQRCode(inp.value);
+      showToast(res.ok ? res.label : res.message);
+      if (res.ok) inp.value = '';
+    });
+  }
+
+  document.querySelectorAll('[data-quick-qr]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const res = Core.processQRCode(btn.dataset.quickQr);
+      showToast(res.ok ? res.label : res.message);
+    });
+  });
+
+  function renderScanHistory(snap) {
+    const host = document.getElementById('scan-history-list');
+    if (!host) return;
+    host.innerHTML = snap.scanHistory.slice(0, 10).map((item) => {
+      const d = new Date(item.ts);
+      const hhmm = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+      return `
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-size:13px;">
+          <div>
+            <code style="background:#E41513; color:#FFF; padding:2px 7px; font-family:var(--font-condensed); font-weight:700; margin-right:8px;">${item.code}</code>
+            <span style="color:#DCE6FF;">${item.label}</span>
+          </div>
+          <small style="color:#7E90B8; font-weight:700;">${hhmm}</small>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // 5. Personal Schedule
   function renderScheduleView(snap) {
     const myHost = document.getElementById('my-unified-agenda');
     const allHost = document.getElementById('all-sessions-picker');
@@ -515,7 +574,7 @@
         time: m.slot,
         title: `5 Dk Eşleşme: ${m.peerName} (${m.peerOrg})`,
         loc: `G Blok Slush'D Arena · Masa ${m.tableId}`,
-        id: m.id
+        tableId: m.tableId
       });
     });
     snap.sessions.filter((s) => savedSet.has(s.id)).forEach((s) => {
@@ -524,8 +583,7 @@
         kind: 'STAGE',
         time: `${s.start}–${s.end}`,
         title: s.title,
-        loc: s.stageLabel,
-        id: s.id
+        loc: s.stageLabel
       });
     });
     items.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
@@ -535,56 +593,46 @@
 
     if (myHost) {
       myHost.innerHTML = items.map((it) => `
-        <div class="mtg-card ${it.kind === 'MP' ? 'status-accepted' : ''}">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <span class="slot-chip">${it.time}</span>
-            <span class="sharp-tag" style="background:${it.kind === 'MP' ? '#E41513' : '#0B1330'}; color:#FFF;">${it.kind === 'MP' ? 'MEETING POINT' : 'KONFERANS'}</span>
+        <div class="mtg-glass-item ${it.kind === 'MP' ? 'status-accepted' : ''}">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span class="slot-pill">${it.time}</span>
+            <span class="neon-tag" style="${it.kind === 'MP' ? 'border-color:#10B981; color:#A7F3D0;' : ''}">${it.kind === 'MP' ? 'MEETING POINT' : 'KONFERANS'}</span>
           </div>
-          <strong style="display:block; font-size:15px; margin-bottom:2px;">${it.title}</strong>
-          <span style="font-size:12.5px; color:#47536B;">${it.loc}</span>
+          <strong style="display:block; font-size:15.5px; margin-bottom:3px;">${it.title}</strong>
+          <span style="font-size:12.5px; color:#B5C4E4;">${it.loc}</span>
         </div>
-      `).join('') || `<p style="font-size:13.5px; color:#6C7891;">Henüz ajandanızda öğe yok.</p>`;
+      `).join('') || `<p style="font-size:13.5px; color:#7E90B8;">Henüz ajandanızda öğe bulunmuyor.</p>`;
     }
 
     if (allHost) {
       allHost.innerHTML = snap.sessions.map((s) => {
         const isSaved = savedSet.has(s.id);
         return `
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid #E6ECF5;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.08);">
             <div>
-              <div style="font-size:12px; font-weight:800; color:#E41513;">${s.start}–${s.end} &middot; ${s.stageLabel}</div>
+              <div style="font-size:12px; font-weight:800; color:#FF6E6C;">${s.start}–${s.end} &middot; ${s.stageLabel}</div>
               <strong style="font-size:14px;">${s.title}</strong>
             </div>
-            <button type="button" class="${isSaved ? 'btn-action-navy' : 'btn-action-ghost'}" data-toggle-ses="${s.id}" style="padding:7px 10px; font-size:11px; flex-shrink:0;">
+            <button type="button" class="${isSaved ? 'btn-sleek-blue' : 'btn-sleek-ghost'}" data-toggle-ses="${s.id}" style="flex-shrink:0;">
               ${isSaved ? 'AJANDADA ✓' : '+ EKLE'}
             </button>
           </div>
         `;
       }).join('');
-
       allHost.querySelectorAll('[data-toggle-ses]').forEach((b) => {
         b.onclick = () => Core.toggleSavedSession(b.dataset.toggleSes);
       });
     }
   }
 
-  function renderTopAndRail(snap) {
-    const mpStatus = document.getElementById('top-mp-status');
-    const rName = document.getElementById('rail-user-name');
-    const rZone = document.getElementById('rail-user-zone');
-    if (mpStatus) mpStatus.textContent = `G BLOK: ${snap.occupiedTablesCount}/${snap.totalTablesCount} MP AKTİF`;
-    if (rName) rName.textContent = snap.badge.name;
-    if (rZone) rZone.textContent = `Konum: ${snap.zonesById[snap.badge.activeZoneId]?.shortName || 'Red Zone'}`;
-  }
-
   function renderAll(snap) {
-    renderTopAndRail(snap);
     renderPeers(snap);
     renderMeetings(snap);
     renderScanHistory(snap);
     renderScheduleView(snap);
     if (activeTab === 'badge') renderBadgeView(snap);
-    updateTimerDock();
+    updateTimerHUD();
+    bindSpotlights();
   }
 
   renderAll(Core.getSnapshot());
