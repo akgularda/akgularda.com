@@ -1,0 +1,412 @@
+/* ==========================================================================
+   SummitTED 2026 — 3D & 2D Architectural Campus Map Styles
+   Sharp 0-2px geometry, TEDÜ Pantone 280 Navy + TED Pantone 485 Red
+   ========================================================================== */
+
+.campus-master-wrap {
+  background-color: #FFFFFF;
+  border: 1px solid #CFD6E6;
+  border-top: 3px solid #E41513;
+  box-shadow: 0 18px 42px rgba(11, 19, 48, 0.07);
+}
+
+.campus-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background-color: #0B1330;
+  color: #FFFFFF;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.campus-mode-switch {
+  display: inline-flex;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.campus-mode-btn {
+  border: none;
+  background: transparent;
+  color: #B8C4DF;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.campus-mode-btn.is-active {
+  background-color: #E41513;
+  color: #FFFFFF;
+}
+
+.campus-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.campus-filter-chip {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #D8E0F2;
+  padding: 6px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.campus-filter-chip:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  color: #FFFFFF;
+}
+
+.campus-filter-chip.is-active {
+  background-color: #FFFFFF;
+  color: #0B1330;
+  border-color: #FFFFFF;
+  font-weight: 700;
+}
+
+.campus-stage-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.68fr) minmax(320px, 1fr);
+  min-height: 560px;
+}
+
+.campus-viewport-col {
+  position: relative;
+  background: linear-gradient(180deg, #E8EEF7 0%, #DCE4F0 100%);
+  border-right: 1px solid #CFD6E6;
+  min-height: 540px;
+  overflow: hidden;
+}
+
+.world-shell {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+}
+
+.world-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.world-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+}
+
+.world-camera-bar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 15;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.world-cam-btn {
+  border: 1px solid rgba(11, 19, 48, 0.22);
+  background-color: rgba(255, 255, 255, 0.94);
+  color: #0B1330;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.world-cam-btn[aria-pressed="true"] {
+  background-color: #0B1330;
+  color: #FFFFFF;
+  border-color: #0B1330;
+}
+
+.world-zoom-controls {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 15;
+  display: flex;
+  gap: 4px;
+}
+
+.world-ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(11, 19, 48, 0.25);
+  background-color: rgba(255, 255, 255, 0.94);
+  color: #0B1330;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.world-legend-strip {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 14;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: rgba(11, 19, 48, 0.9);
+  color: #FFFFFF;
+  padding: 7px 11px;
+  font-size: 11px;
+  border-left: 3px solid #E41513;
+}
+
+.world-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.world-legend-swatch {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+}
+
+.world-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.world-hotspot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  background-color: rgba(11, 19, 48, 0.93);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 3px solid var(--pin-color, #E41513);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(11, 19, 48, 0.28);
+}
+
+.world-hotspot[aria-pressed="true"] {
+  background-color: #E41513;
+  border-color: #FFFFFF;
+  z-index: 20;
+}
+
+.world-hotspot i {
+  width: 6px;
+  height: 6px;
+  background-color: var(--pin-color, #E41513);
+  display: inline-block;
+}
+
+.world-hotspot[aria-pressed="true"] i {
+  background-color: #FFFFFF;
+}
+
+.world-hotspot em {
+  font-style: normal;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  color: #FFD5D5;
+  padding-left: 3px;
+}
+
+/* 2D Architectural Blueprint Master Plan */
+.blueprint-2d-shell {
+  width: 100%;
+  height: 560px;
+  background-color: #0A122C;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bp-zone-node {
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.bp-zone-node:hover rect.bp-zone-fill {
+  stroke-width: 3;
+  stroke: #FFFFFF;
+}
+
+.bp-zone-node.is-selected rect.bp-zone-fill {
+  stroke-width: 3.5;
+  stroke: #FFFFFF;
+  filter: drop-shadow(0 0 10px rgba(228, 21, 19, 0.55));
+}
+
+.bp-zone-node.is-dimmed {
+  opacity: 0.22;
+}
+
+/* Inspector Sidebar */
+.campus-inspector {
+  padding: 22px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.inspector-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #E41513;
+  margin-bottom: 6px;
+}
+
+.inspector-title {
+  margin: 0 0 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #0B1330;
+  line-height: 1.2;
+}
+
+.inspector-building {
+  font-size: 13px;
+  font-weight: 600;
+  color: #292E6F;
+  margin-bottom: 10px;
+}
+
+.inspector-summary {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  color: #4B5565;
+  line-height: 1.5;
+}
+
+.inspector-occ-box {
+  background-color: #F4F6FA;
+  border: 1px solid #DCE1EC;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.inspector-occ-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+}
+
+.inspector-occ-bar {
+  height: 6px;
+  background-color: #DFE4F0;
+  overflow: hidden;
+}
+
+.inspector-occ-fill {
+  height: 100%;
+  background-color: #292E6F;
+  transition: width 0.3s ease;
+}
+
+.inspector-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 205px;
+  overflow-y: auto;
+  border-top: 1px solid #E5E9F2;
+}
+
+.inspector-sublist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #EEF1F7;
+  font-size: 12.5px;
+}
+
+.inspector-sublist code {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #0B1330;
+  color: #FFFFFF;
+  padding: 2px 6px;
+}
+
+.inspector-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #DCE1EC;
+}
+
+@media (max-width: 980px) {
+  .campus-stage-grid {
+    grid-template-columns: 1fr;
+  }
+  .campus-viewport-col {
+    border-right: none;
+    border-bottom: 1px solid #CFD6E6;
+  }
+  .world-shell, .blueprint-2d-shell {
+    height: 440px;
+  }
+}
+
+@media (max-width: 640px) {
+  .world-shell, .blueprint-2d-shell {
+    height: 370px;
+  }
+  .world-legend-strip {
+    display: none;
+  }
+  .inspector-actions {
+    grid-template-columns: 1fr;
+  }
+}

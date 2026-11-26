@@ -1,0 +1,452 @@
+/* ==========================================================================
+   SummitTED 2026 — Passive Airport/Davos FIDS TV Dashboard Styles
+   Strictly non-interactive (TV display), deep TEDÜ Navy + TED Torch Red,
+   crisp readability from distance, soft-flashing live & 15-min callouts.
+   ========================================================================== */
+
+:root {
+  --bg-void: #040816;
+  --bg-panel: #09122C;
+  --bg-row-alt: #0C1738;
+  --border-line: #1B2B59;
+
+  --ted-red: #E41513;
+  --tedu-navy: #292E6F;
+  --text-white: #F8FAFC;
+  --text-sub: #B2C0DF;
+  --text-dim: #7E8FB5;
+
+  --status-open: #10B981;
+  --status-mod: #38BDF8;
+  --status-busy: #FF5A58;
+
+  --font-display: 'Outfit', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-void);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: default;
+}
+
+.fids-viewport {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Top Institutional Header */
+.fids-header {
+  background-color: #070E24;
+  border-top: 4px solid var(--ted-red);
+  border-bottom: 1px solid var(--border-line);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.fids-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.fids-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.fids-kicker {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #FF8583;
+  margin-bottom: 2px;
+}
+
+.fids-title-group h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.fids-metrics-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fids-kpi {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-line);
+  padding: 7px 14px;
+  min-width: 132px;
+}
+
+.fids-kpi.is-clock {
+  border-top: 2px solid var(--ted-red);
+  background-color: #101B42;
+}
+
+.fids-kpi small {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--text-sub);
+}
+
+.fids-kpi strong {
+  font-family: var(--font-condensed);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+/* Main 3-Column FIDS Grid */
+.fids-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.12fr 1.05fr 1.08fr;
+  gap: 12px;
+  padding: 12px 18px;
+}
+
+.fids-panel {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-line);
+  border-top: 3px solid var(--tedu-navy);
+  display: flex;
+  flex-direction: column;
+}
+
+.fids-panel:nth-child(1), .fids-panel:nth-child(3) {
+  border-top-color: var(--ted-red);
+}
+
+.fids-panel-head {
+  background-color: #060C20;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  color: var(--text-sub);
+}
+
+/* Column 1: Zones & Locations */
+.fids-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.fids-zone-row {
+  display: grid;
+  grid-template-columns: 1fr 126px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(27, 43, 89, 0.7);
+}
+
+.fids-zone-row:nth-child(even) { background-color: var(--bg-row-alt); }
+
+.fz-name {
+  font-weight: 700;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.fz-dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.fz-loc {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-sub);
+  margin-top: 1px;
+}
+
+.fz-meter {
+  text-align: right;
+}
+
+.fz-pct {
+  font-family: var(--font-condensed);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fz-bar {
+  height: 5px;
+  background-color: #16244F;
+  margin-top: 3px;
+}
+
+.fz-bar-fill {
+  height: 100%;
+}
+
+/* Column 2: Company Stands Grid */
+.fids-stands-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background-color: var(--border-line);
+  flex: 1;
+}
+
+.fids-stand-cell {
+  background-color: var(--bg-panel);
+  padding: 8px 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fids-stand-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.fids-stand-top strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fids-stand-code {
+  font-family: var(--font-condensed);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 1px 5px;
+  background-color: #13214D;
+  color: #CFD9F2;
+}
+
+.fids-stand-code.is-red {
+  background-color: rgba(228, 21, 19, 0.28);
+  color: #FFB4B3;
+}
+
+.fids-stand-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+.fids-mp-strip {
+  background-color: #070E24;
+  border-top: 2px solid var(--ted-red);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.mp-strip-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  color: #FF8583;
+}
+
+.fids-mp-strip strong {
+  font-size: 12.5px;
+}
+
+.mp-strip-stat {
+  font-family: var(--font-condensed);
+  font-size: 18px;
+  font-weight: 700;
+  background-color: var(--ted-red);
+  color: #FFFFFF;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* Column 3: Vertically Stacked Schedule & Flashing Stage Indicators */
+.fids-Alert-box {
+  background-color: rgba(228, 21, 19, 0.18);
+  border-bottom: 1px solid rgba(228, 21, 19, 0.5);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.alert-badge {
+  background-color: var(--ted-red);
+  color: #FFFFFF;
+  font-family: var(--font-condensed);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.fids-schedule-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.fids-ses-row {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(27, 43, 89, 0.7);
+  display: grid;
+  grid-template-columns: 82px 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.fids-ses-row.is-live {
+  background-color: rgba(228, 21, 19, 0.13);
+  box-shadow: inset 4px 0 0 var(--ted-red);
+}
+
+.fids-ses-time {
+  font-family: var(--font-condensed);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #DCE5F8;
+}
+
+.fids-ses-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.fids-ses-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-sub);
+}
+
+.fids-ses-badge {
+  font-family: var(--font-condensed);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 7px;
+  background-color: #142250;
+  color: #B9C7E8;
+  white-space: nowrap;
+}
+
+.fids-ses-badge.is-live {
+  background-color: var(--ted-red);
+  color: #FFFFFF;
+}
+
+.fids-ses-badge.is-soon {
+  background-color: #1D4ED8;
+  color: #FFFFFF;
+}
+
+/* Soft Airport Flashing Animations */
+.soft-flash {
+  animation: fidsPulse 2.1s ease-in-out infinite;
+}
+
+.soft-flash-subtle {
+  animation: fidsSubtlePulse 3.2s ease-in-out infinite;
+}
+
+@keyframes fidsPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.42; }
+}
+
+@keyframes fidsSubtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.68; }
+}
+
+/* Bottom Airport Ticker Bar */
+.fids-footer {
+  background-color: #030612;
+  border-top: 2px solid var(--border-line);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.fids-live-tag {
+  background-color: var(--ted-red);
+  color: #FFFFFF;
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.fids-ticker-text {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #E8EFFD;
+}
+
+.fids-credit {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) {
+  .fids-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .fids-header { padding: 10px 14px; }
+  .fids-logo { height: 34px; }
+  .fids-metrics-strip { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .fids-kpi { min-width: 0; padding: 6px 8px; }
+  .fids-kpi strong { font-size: 18px; }
+  .fids-stands-grid { grid-template-columns: 1fr; }
+  .fids-ses-row { grid-template-columns: 74px 1fr; }
+  .fids-footer { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
