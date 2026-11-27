@@ -35,8 +35,8 @@
 
   const STORIES = [
     { id: 'st-aselsan', code: 'B-01', label: 'ASELSAN', title: 'ASELSAN · Blue Zone & D Blok', desc: 'E Blok Spor Merkezi standında aviyonik ve gömülü sistem mühendisleriyle bire bir görüşme ve 12:00 D Blok söyleşisi.', tab: 'synergy', q: 'ASELSAN' },
-    { id: 'st-tusas', code: 'B-02', label: 'TUSAŞ', title: 'TUSAŞ · Havacılık & Uzay', desc: 'Uçuş bilimleri ve yapısal tasarım ekipleriyle 5 dakikalık hızlı eşleşme slotları açık.', tab: 'synergy', q: 'TUSAŞ' },
-    { id: 'st-mp', code: 'MP-24', label: 'MP Arena', title: 'G Blok Slush\'D Eşleşme Arenası', desc: 'Kabul edilen her eşleşmeye G Blok\'ta MP-01..MP-24 arasında özel numaralı masa otomatik tahsis edilir.', tab: 'meetings', q: '' },
+    { id: 'st-tusas', code: 'B-02', label: 'TUSAŞ', title: 'TUSAŞ · Havacılık & Uzay', desc: 'Uçuş bilimleri ve yapısal tasarım ekipleriyle 5 dakikalık hızlı eşleşme saatleri açık.', tab: 'synergy', q: 'TUSAŞ' },
+    { id: 'st-mp', code: 'MP-24', label: 'MP Alanı', title: 'G Blok Eşleşme ve Görüşme Alanı', desc: 'Kabul edilen her eşleşmeye G Blok\'ta MP-01..MP-24 arasında özel numaralı masa otomatik tahsis edilir.', tab: 'meetings', q: '' },
     { id: 'st-deniz', code: 'R-02', label: 'DenizBank', title: 'DenizBank · FinTech & MT', desc: 'K Blok Fuaye Red Zone alanında ürün yönetimi ve dijital bankacılık ekipleriyle tanışın.', tab: 'synergy', q: 'DenizBank' },
     { id: 'st-istasyon', code: 'I-02', label: 'İstasyon', title: 'İstasyon TEDÜ · 5 Dk Pitch', desc: 'Öğrenci girişimleri ve AR-GE takımları yatırımcı masası karşısında sahneye çıkıyor.', tab: 'synergy', q: 'GridPulse' },
     { id: 'st-comm', code: 'T-01', label: 'Çim Amfi', title: 'Öğrenci Toplulukları Köyü', desc: '8 modüler topluluk çadırı ve RadioTEDU canlı yayın stüdyosu İncesu Çim Amfi alanında.', tab: 'synergy', q: 'RadioTEDU' }
@@ -46,12 +46,12 @@
     '1': {
       badge: 'GÜN 01 · 20 EKİM SALI',
       title: 'Liderlik Vizyonu, Teacher+ & Açık İnovasyon Sahneleri',
-      desc: 'Ahmet Ersan Salonu C-Level panelleri, İstasyon TEDÜ 5 dk girişim sunumları ve Çim Amfi topluluk köyü.',
+      desc: 'Ahmet Ersan Salonu liderlik panelleri, İstasyon TEDÜ 5 dk girişim sunumları ve Çim Amfi topluluk köyü.',
       img: '../tedu/assets/wanted/wanted-keynote.jpg'
     },
     '2': {
       badge: 'GÜN 02 · 21 EKİM ÇARŞAMBA',
-      title: 'Red & Blue Zone Fuarı + Slush\'D Eşleşme Maratonu',
+      title: 'Red & Blue Zone Fuarı + Bire Bir Eşleşme Günü',
       desc: 'K Blok Fuaye, E Blok Spor Merkezi stantları ve G Blok MP-01..24 masalarında 5 dakikalık eşleşmeler.',
       img: '../tedu/assets/wanted/wanted-foyer.jpg'
     }
@@ -462,8 +462,8 @@
             </div>
           ` : m.status === 'pending' ? `
             <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:10px;">
-              <span style="font-size:11px; font-weight:800; color:var(--ted-red);">YANIT BEKLENİYOR</span>
-              <button type="button" class="btn-sq-navy" data-sim-peer-accept="${m.id}" style="height:30px; font-size:10.5px;">DEMO: KABUL ETSİN</button>
+              <span style="font-size:11px; font-weight:800; color:var(--ted-red);">KARŞI TARAFIN ONAYI BEKLENİYOR</span>
+              <button type="button" class="btn-sq-neutral" data-mtg-cancel="${m.id}" style="height:30px; padding:0 10px; font-size:10.5px;">İSTEĞİ GERİ ÇEK</button>
             </div>
           ` : ''}
         </div>
@@ -489,10 +489,10 @@
     document.querySelectorAll('[data-mtg-decline]').forEach((b) => {
       b.onclick = () => { Core.respondToMeeting(b.dataset.mtgDecline, 'decline'); showToast('İstek reddedildi.'); };
     });
-    document.querySelectorAll('[data-sim-peer-accept]').forEach((b) => {
+    document.querySelectorAll('[data-mtg-cancel]').forEach((b) => {
       b.onclick = () => {
-        const u = Core.respondToMeeting(b.dataset.simPeerAccept, 'accept');
-        if (u) { focus3DTable(u.tableId); showToast(`${u.peerName} kabul etti — Masa: ${u.tableId}`); }
+        Core.respondToMeeting(b.dataset.mtgCancel, 'cancel');
+        showToast('Gönderilen eşleşme isteği geri çekildi.');
       };
     });
     document.querySelectorAll('[data-start-timer]').forEach((b) => {
@@ -556,7 +556,7 @@
 
     const fName = document.getElementById('bf-name');
     if (fName && document.activeElement !== fName) {
-      fName.value = b.name === 'Katılımcı (Önizleme)' ? '' : b.name;
+      fName.value = b.name === 'Zirve Katılımcısı' ? '' : b.name;
       document.getElementById('bf-email').value = b.email || '';
       document.getElementById('bf-role').value = b.roleType || 'student';
       document.getElementById('bf-org').value = b.org || '';
@@ -625,7 +625,7 @@
         }, 550);
       }
     } catch (_) {
-      showToast('Kamera izni verilmedi; aşağıdaki saha kodlarıyla test edebilirsiniz.');
+      showToast('Kamera erişimi kapalı; bulunduğunuz noktanın kodunu aşağıdan seçebilirsiniz.');
     }
   }
 

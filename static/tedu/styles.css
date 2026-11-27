@@ -1,6 +1,6 @@
 /* ==========================================================================
    SummitTED Kariyer ve İnovasyon Zirvesi 2026 — Kinetic Flagship & Portfolio
-   High-Energy Davos × Slush'D Aesthetic — Zero Brick-Like Static Blocks,
+   High-Energy TED–TEDÜ Institutional Aesthetic — Zero Static Bricks,
    Fluid Scroll Choreography, Cursor-Spotlight Surfaces, Three.js WebGL Hero
    ========================================================================== */
 
@@ -503,7 +503,7 @@ button, input, select, textarea { font-family: inherit; }
 .sec-editorial-light .sec-lead { color: var(--ink-muted); }
 
 /* ==========================================================================
-   Asymmetric Editorial Bento "FLEX & PORTFOLIO" Grid (Zero Uniform Bricks!)
+   Asymmetric Editorial Bento Portfolio Grid
    ========================================================================== */
 .bento-flex-grid {
   display: grid;
@@ -604,7 +604,7 @@ button, input, select, textarea { font-family: inherit; }
 }
 
 /* ==========================================================================
-   1:1 Interactive Slush'D × Davos App Live Showcase (3D Tilt Window)
+   Interactive SummitTED Participant App Showcase
    ========================================================================== */
 .app-showcase-layout {
   display: grid;

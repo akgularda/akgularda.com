@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SummitTED 2026 — Passive FIDS TV Dashboard Controller (/tedu-dashboard)
+   SummitTED 2026 — Passive Campus Wayfinding TV Controller (/tedu-dashboard)
    ========================================================================== */
 
 (function () {
@@ -124,7 +124,7 @@
     if (ticker) {
       const livePart = snap.liveSessions.map((l) => `ŞU AN SAHNEDE: ${l.title} → ${l.stageLabel}`).join(' · ');
       const soonPart = snap.upcomingSoonSessions.map((u) => `${u.minsUntil} DK İÇİNDE → ${u.title} (${u.stageLabel})`).join(' · ');
-      const mpPart = `G BLOK SLUSH'D ARENA: ${snap.occupiedTablesCount}/24 Meeting Point Aktif`;
+      const mpPart = `G BLOK GÖRÜŞME ALANI: ${snap.occupiedTablesCount}/24 Meeting Point Aktif`;
       ticker.textContent = [livePart, soonPart, mpPart].filter(Boolean).join('   |   ');
     }
   }

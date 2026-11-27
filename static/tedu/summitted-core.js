@@ -1,15 +1,15 @@
 /* ==========================================================================
-   SummitTED Kariyer ve İnovasyon Zirvesi 2026 — Core Engine (v3)
-   Shared across /tedu/ (Main Site & 3D/2D Map), /tedu-app/ (Slush'D App),
-   and /tedu-dashboard/ (Passive Airport/Davos FIDS TV Display).
+   SummitTED Kariyer ve İnovasyon Zirvesi 2026 — Core State & Data Engine (v4)
+   Shared across /tedu/ (Main Site & 3D/2D Map), /tedu-app/ (Participant App),
+   and /tedu-dashboard/ (Campus Wayfinding & Live Status Display).
    ========================================================================== */
 
 (function (global) {
   'use strict';
 
-  const STORAGE_KEY = 'summitted_2026_state_v3';
-  const BADGE_KEY = 'summitted_2026_badge_v3';
-  const CHANNEL_NAME = 'summitted_2026_channel_v3';
+  const STORAGE_KEY = 'summitted_2026_state_v4';
+  const BADGE_KEY = 'summitted_2026_badge_v4';
+  const CHANNEL_NAME = 'summitted_2026_channel_v4';
 
   const GATES = [
     {
@@ -19,7 +19,7 @@
       shortName: 'Gate 1 · İncesu Ana Kapı',
       campus: 'incesu',
       location: 'Ziya Gökalp Cad. No:48 · İncesu Ana Giriş Kanopisi',
-      role: 'Ana Akreditasyon, 4 Renkli Davos Yaka Kartı Basımı & Turnike Geçişi',
+      role: 'Ana Akreditasyon, SummitTED Yaka Kartı Teslimi & Turnike Geçişi',
       qrCode: 'SUMMITTED://GATE/gate-1',
       baseCheckedIn: 342
     },
@@ -85,22 +85,22 @@
       capacity: 280,
       baseCount: 226,
       qrCode: 'SUMMITTED://ZONE/blue',
-      summary: 'Savunma sanayii, havacılık, yazılım ve enerji teknolojisi öncülerinin büyük ölçekli stant ve mühendislik demo alanı.',
+      summary: 'Savunma sanayii, havacılık, yazılım ve enerji teknolojisi öncülerinin büyük ölçekli stant ve mühendislik deneyim alanı.',
       map2d: { x: 250, y: 330, w: 150, h: 98 },
       stands: [
         { id: 'aselsan', code: 'B-01', name: 'ASELSAN', sector: 'Savunma Elektroniği', capacity: 38, baseCount: 34, focus: 'Radar, Aviyonik & Gömülü Yazılım' },
         { id: 'tusas', code: 'B-02', name: 'TUSAŞ', sector: 'Havacılık & Uzay', capacity: 38, baseCount: 32, focus: 'Uçuş Bilimleri & Yapısal Tasarım' },
         { id: 'milsoft', code: 'B-03', name: 'MİLSOFT', sector: 'Komuta Kontrol & AI', capacity: 30, baseCount: 25, focus: 'Veri Füzyonu, C4ISR & Yapay Zeka' },
         { id: 'fnss', code: 'B-04', name: 'FNSS', sector: 'Kara Sistemleri', capacity: 28, baseCount: 21, focus: 'Mekanik Tasarım & Güç Grubu' },
-        { id: 'roketsan', code: 'B-05', name: 'ROKETSAN', sector: 'Güdüm & İtki', capacity: 34, baseCount: 29, focus: 'Kontrol, Simülasyon & Sistem Müh.' },
+        { id: 'roketsan', code: 'B-05', name: 'ROKETSAN', sector: 'Güdüm & İtki', capacity: 34, baseCount: 29, focus: 'Kontrol, İtki & Sistem Mühendisliği' },
         { id: 'gama', code: 'B-06', name: 'GAMA Enerji', sector: 'Enerji & Altyapı', capacity: 24, baseCount: 17, focus: 'Yenilenebilir Enerji & Şebeke' }
       ]
     },
     {
       id: 'promenade',
       code: 'Z-PROM',
-      name: 'Davos Promenade · Kurumsal Çadırlar',
-      shortName: 'Promenade Çadırları',
+      name: 'İncesu Bulvarı · Kurumsal Çadırlar',
+      shortName: 'Kurumsal Çadırlar',
       campus: 'incesu',
       building: 'İncesu Üst Avlu Yürüyüş Aksı (Açık Hava Pavilyonları)',
       category: 'company',
@@ -109,22 +109,22 @@
       capacity: 150,
       baseCount: 102,
       qrCode: 'SUMMITTED://ZONE/promenade',
-      summary: 'WEF Davos Promenade modelinde kurgulanan açık hava işveren markası çadırları, canlı vaka istasyonları ve deneyim pavilyonları.',
+      summary: 'İncesu yürüyüş aksında kurgulanan açık hava işveren markası çadırları, canlı vaka istasyonları ve deneyim pavilyonları.',
       map2d: { x: 565, y: 120, w: 180, h: 66 },
       stands: [
         { id: 'bbva-tech', code: 'P-01', name: 'Garanti BBVA Teknoloji House', sector: 'FinTech & Bulut', capacity: 26, baseCount: 20, focus: 'Bulut Mimarisi & Ürün Tasarımı' },
         { id: 'turkcell-ai', code: 'P-02', name: 'Turkcell AI & 6G Pavilyonu', sector: 'Telekom & AI', capacity: 28, baseCount: 22, focus: 'Büyük Dil Modelleri & Şebeke' },
-        { id: 'havelsan', code: 'P-03', name: 'HAVELSAN Siber Çadırı', sector: 'Siber & Simülasyon', capacity: 26, baseCount: 19, focus: 'Siber Savunma & Dijital İkiz' },
+        { id: 'havelsan', code: 'P-03', name: 'HAVELSAN Siber Çadırı', sector: 'Siber Güvenlik & Yazılım', capacity: 26, baseCount: 19, focus: 'Siber Savunma & Dijital İkiz' },
         { id: 'migros-up', code: 'P-04', name: 'Migros Up İnovasyon Lounge', sector: 'Perakende Teknolojisi', capacity: 22, baseCount: 15, focus: 'Hızlı Ticaret & Veri Bilimi' }
       ]
     },
     {
       id: 'communities',
       code: 'Z-COMM',
-      name: 'Topluluklar Köyü · Community Village',
+      name: 'Topluluklar Köyü · Çim Amfi',
       shortName: 'Topluluklar Köyü',
       campus: 'incesu',
-      building: 'İncesu Çim Amfi & Yarım Daire Promenade Çadırları',
+      building: 'İncesu Çim Amfi & Yarım Daire Yürüyüş Aksı Çadırları',
       category: 'community',
       categoryLabel: 'Topluluk Çadırları',
       accent: '#D92D20',
@@ -139,7 +139,7 @@
         { id: 'ieee-tedu', code: 'T-03', name: 'IEEE TEDÜ Öğrenci Kolu', sector: 'Mühendislik & AI', capacity: 26, baseCount: 21, focus: 'Robotik, Gömülü & AI Projeleri' },
         { id: 'tedu-eru', code: 'T-04', name: 'TEDU Economics Research Union', sector: 'Ekonomi & Politika', capacity: 22, baseCount: 17, focus: 'Makroekonomi & Ticaret Analizi' },
         { id: 'girisimcilik', code: 'T-05', name: 'Girişimcilik Topluluğu', sector: 'Startup & Ideathon', capacity: 24, baseCount: 19, focus: 'Kurucu Ortak Buluşmaları' },
-        { id: 'veri-bilimi', code: 'T-06', name: 'Veri Bilimi & AI Topluluğu', sector: 'Veri & Analitik', capacity: 24, baseCount: 18, focus: 'Canlı Veri Sprinti & Model Demo' }
+        { id: 'veri-bilimi', code: 'T-06', name: 'Veri Bilimi & AI Topluluğu', sector: 'Veri & Analitik', capacity: 24, baseCount: 18, focus: 'Canlı Veri Sprinti & Uygulama Atölyesi' }
       ]
     },
     {
@@ -159,15 +159,15 @@
       map2d: { x: 245, y: 232, w: 155, h: 82 },
       stands: [
         { id: 'istasyon', code: 'I-01', name: 'İstasyon TEDÜ Kuluçka', sector: 'Sosyal İnovasyon', capacity: 26, baseCount: 20, focus: 'Etki Girişimciliği & Mentorluk' },
-        { id: 'pitch-deck', code: 'I-02', name: '5 Dk Açık Pitch Sahnesi', sector: 'Yatırımcı Sunumu', capacity: 40, baseCount: 31, focus: 'Öğrenci Startup Demo Turları' },
+        { id: 'pitch-deck', code: 'I-02', name: '5 Dk Açık Pitch Sahnesi', sector: 'Yatırımcı Sunumu', capacity: 40, baseCount: 31, focus: 'Öğrenci Girişim Sunum Turları' },
         { id: 'vc-desk', code: 'I-03', name: 'Teknokent & VC Masası', sector: 'Tohum Yatırım', capacity: 20, baseCount: 16, focus: 'Ön Tohum Değerlendirme' },
-        { id: 'capstone', code: 'I-04', name: 'TEDÜ AR-GE & Prototip Sergisi', sector: 'Mühendislik & Ürün', capacity: 30, baseCount: 22, focus: 'Bitirme Projeleri Canlı Demo' }
+        { id: 'capstone', code: 'I-04', name: 'TEDÜ AR-GE & Prototip Sergisi', sector: 'Mühendislik & Ürün', capacity: 30, baseCount: 22, focus: 'Bitirme Projeleri Prototip Sergisi' }
       ]
     },
     {
       id: 'matchmaking',
       code: 'Z-MP',
-      name: 'Slush\'D Matchmaking Arena (MP-01..24)',
+      name: 'G Blok Eşleşme Alanı (MP-01..24)',
       shortName: 'Meeting Points · G Blok',
       campus: 'aksu',
       building: 'G Blok Zemin Salon · Numaralı Görüşme Alanı',
@@ -177,15 +177,15 @@
       capacity: 120,
       baseCount: 84,
       qrCode: 'SUMMITTED://ZONE/matchmaking',
-      summary: 'Slush modeliyle numaralandırılmış MP-01..MP-16 (5 dk hızlı eşleşme) ve MP-17..MP-24 (15 dk 1:1 kurumsal mülakat) masaları.',
+      summary: 'Numaralandırılmış MP-01..MP-16 (5 dk hızlı eşleşme) ve MP-17..MP-24 (15 dk bire bir kurumsal mülakat) masaları.',
       map2d: { x: 115, y: 112, w: 225, h: 86 },
       stands: []
     },
     {
       id: 'plenary',
       code: 'Z-PLEN',
-      name: 'Main Plenary · Ahmet Ersan Salonu',
-      shortName: 'Main Plenary · K Blok',
+      name: 'Ana Sahne · Ahmet Ersan Salonu',
+      shortName: 'Ana Sahne · K Blok',
       campus: 'incesu',
       building: 'K Blok · Ahmet Ersan Konferans Salonu',
       category: 'stage',
@@ -194,7 +194,7 @@
       capacity: 198,
       baseCount: 174,
       qrCode: 'SUMMITTED://ZONE/plenary',
-      summary: 'Davos formatında Rektörlük açılışı, üst düzey CEO/Yönetim Kurulu panelleri ve ana vizyon konuşmaları (stantsız konferans düzeni).',
+      summary: 'Rektörlük açılışı, üst düzey yönetim kurulu panelleri ve ana vizyon konuşmaları (stantsız konferans düzeni).',
       map2d: { x: 760, y: 112, w: 155, h: 88 },
       stands: []
     },
@@ -259,10 +259,10 @@
       startMin: 600,
       endMin: 660,
       zoneId: 'plenary',
-      stageLabel: 'Main Plenary · Ahmet Ersan Salonu',
+      stageLabel: 'Ana Sahne · Ahmet Ersan Salonu',
       title: 'SummitTED 2026 Açılış & Liderlik Vizyonu',
       speaker: 'TEDÜ Rektörlüğü & TED Genel Merkezi',
-      tag: 'AÇILIŞ PLENARY'
+      tag: 'AÇILIŞ OTURUMU'
     },
     {
       id: 'ses-02',
@@ -271,10 +271,10 @@
       startMin: 660,
       endMin: 720,
       zoneId: 'plenary',
-      stageLabel: 'Main Plenary · Ahmet Ersan Salonu',
+      stageLabel: 'Ana Sahne · Ahmet Ersan Salonu',
       title: 'Belirsizlik Çağında Kurumsal Dönüşüm ve Yatırım',
       speaker: 'Akfen Holding & DenizBank Üst Düzey Liderlik Paneli',
-      tag: 'DAVOS PANEL'
+      tag: 'LİDERLİK PANELİ'
     },
     {
       id: 'ses-03',
@@ -331,7 +331,7 @@
       startMin: 840,
       endMin: 890,
       zoneId: 'plenary',
-      stageLabel: 'Main Plenary · Ahmet Ersan Salonu',
+      stageLabel: 'Ana Sahne · Ahmet Ersan Salonu',
       title: 'TUSAŞ Milli Muharip Havacılık ve Geleceğin Mühendisleri',
       speaker: 'TUSAŞ Uçuş Bilimleri ve Yetenek Kazanımı',
       tag: 'HAVACILIK'
@@ -343,7 +343,7 @@
       startMin: 915,
       endMin: 960,
       zoneId: 'plenary',
-      stageLabel: 'Main Plenary · Ahmet Ersan Salonu',
+      stageLabel: 'Ana Sahne · Ahmet Ersan Salonu',
       title: 'Küresel Danışmanlık, Sürdürülebilirlik ve Veri Odaklı Strateji',
       speaker: 'EY Türkiye & KPMG Türkiye Ortak Oturumu',
       tag: 'STRATEJİ'
@@ -368,7 +368,7 @@
       endMin: 1050,
       zoneId: 'tech',
       stageLabel: 'Tech & Innovation · D Blok Amfi',
-      title: 'ROKETSAN İleri İtki, Güdüm ve Simülasyon Teknolojileri',
+      title: 'ROKETSAN İleri İtki, Güdüm ve Sistem Mühendisliği Teknolojileri',
       speaker: 'ROKETSAN Ar-Ge Mühendislik Liderleri',
       tag: 'AR-GE KAPANIŞ'
     }
@@ -476,7 +476,7 @@
       id: 'peer-bbva-07',
       name: 'Emre Çelik',
       roleType: 'company',
-      roleBadge: 'PROMENADE / TECH',
+      roleBadge: 'KURUMSAL ÇADIR / TECH',
       title: 'Bulut Platformları Mühendislik Lideri',
       org: 'Garanti BBVA Teknoloji',
       zoneId: 'promenade',
@@ -489,7 +489,7 @@
       id: 'peer-turkcell-08',
       name: 'Derya Aydın',
       roleType: 'company',
-      roleBadge: 'PROMENADE / AI',
+      roleBadge: 'KURUMSAL ÇADIR / AI',
       title: 'Üretken Yapay Zeka Ürün Lideri',
       org: 'Turkcell',
       zoneId: 'promenade',
@@ -580,7 +580,7 @@
 
   const DEFAULT_BADGE = {
     id: 'tedu-badge-2026-01',
-    name: 'Katılımcı (Önizleme)',
+    name: 'Zirve Katılımcısı',
     email: 'katilimci@tedu.edu.tr',
     roleType: 'student',
     roleLabel: 'ÖĞRENCİ / YETENEK',
@@ -647,11 +647,11 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (parsed && parsed.version === 3) return parsed;
+        if (parsed && parsed.version === 4) return parsed;
       }
     } catch (_) {}
     const initial = {
-      version: 3,
+      version: 4,
       gateCheckins: { 'gate-1': 0, 'gate-2': 0, 'gate-3': 0 },
       zoneDeltas: {},
       standDeltas: {},
@@ -906,6 +906,11 @@
 
   function respondToMeeting(meetingId, action, newSlot) {
     const state = loadState();
+    if (action === 'cancel') {
+      state.meetings = state.meetings.filter((item) => item.id !== meetingId);
+      saveState(state, true);
+      return { id: meetingId, status: 'cancelled' };
+    }
     const m = state.meetings.find((item) => item.id === meetingId);
     if (!m) return null;
     if (action === 'accept') {
@@ -1041,7 +1046,7 @@
         return { ok: true, kind: 'MP', code: mpId, label: `${mpId} doğrulandı — ${existing.peerName} ile 05:00 görüşme başladı!`, timer };
       }
       state.zoneDeltas.matchmaking = (state.zoneDeltas.matchmaking || 0) + 1;
-      state.scanHistory.unshift({ ts: Date.now(), type: 'MP', code: mpId, label: `${mpId} · Slush'D Görüşme Masası Check-in` });
+      state.scanHistory.unshift({ ts: Date.now(), type: 'MP', code: mpId, label: `${mpId} · Bire Bir Görüşme Masası Check-in` });
       saveState(state, true);
       return { ok: true, kind: 'MP', code: mpId, label: `${mpId} masasına check-in yapıldı.` };
     }

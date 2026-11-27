@@ -67,12 +67,12 @@
     }, { passive: true });
   });
 
-  // 3. Interactive 1:1 App Live Showcase Mirror
+  // 3. Interactive Participant App Showcase Mirror
   const MIRROR_VIEWS = {
     match: `
       <div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-          <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#FF6E6C;">SLUSH'D YETENEK &amp; ŞİRKET KEŞFİ</span>
+          <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#FF6E6C;">SUMMITTED YETENEK &amp; ŞİRKET KEŞFİ</span>
           <span style="font-size:11.5px; color:#9FB0D4;">5 Dk Hızlı Eşleşme Modu</span>
         </div>
         <div class="mirror-card-mock">
@@ -102,14 +102,14 @@
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); font-size:12px; color:#9FB0D4;">
         <span>Rol, sektör ve yetkinlik etiketlerine göre filtreleme</span>
-        <a href="../tedu-app/" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Canlı Dene &rarr;</a>
+        <a href="../tedu-app/" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Uygulamayı Aç &rarr;</a>
       </div>
     `,
     mp: `
       <div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-          <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#34D399;">OTOMATİK MASA TAHSİS MOTORU</span>
-          <span style="font-size:11.5px; color:#9FB0D4;">G Blok Slush'D Arena</span>
+          <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#34D399;">OTOMATİK MASA TAHSİS SİSTEMİ</span>
+          <span style="font-size:11.5px; color:#9FB0D4;">G Blok Eşleşme Alanı</span>
         </div>
         <div class="mirror-card-mock" style="border-left:3px solid #10B981;">
           <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
@@ -136,14 +136,14 @@
     badge: `
       <div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-          <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#93B4FF;">DAVOS AKREDİTASYON PROTOKOLÜ</span>
-          <span style="font-size:11.5px; color:#9FB0D4;">4 Seviyeli Dijital Yaka Kartı</span>
+          <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#93B4FF;">SUMMITTED DİJİTAL AKREDİTASYON</span>
+          <span style="font-size:11.5px; color:#9FB0D4;">Çift Yüzlü Dijital Yaka Kartı</span>
         </div>
         <div class="mirror-card-mock" style="display:flex; justify-content:space-between; align-items:center; gap:16px; border-top:3px solid #E41513;">
           <div>
             <span style="font-family:var(--font-condensed); font-size:11.5px; letter-spacing:1.2px; background:#E41513; padding:2px 8px; font-weight:700;">ÖĞRENCİ / YETENEK PASS</span>
-            <h4 style="margin:8px 0 4px; font-family:var(--font-display); font-size:20px;">Dijital Holografik QR Kart</h4>
-            <p style="margin:0; font-size:12.5px; color:#B9C7E6;">Kapı çadırlarında hızlı geçiş, şirket stantlarına tek okutmayla CV bırakma ve akranlarla anlık Meeting Point eşleşmesi.</p>
+            <h4 style="margin:8px 0 4px; font-family:var(--font-display); font-size:20px;">Dijital QR Yaka Kartı</h4>
+            <p style="margin:0; font-size:12.5px; color:#B9C7E6;">Kapı çadırlarında hızlı geçiş, şirket stantlarına tek okutmayla CV paylaşımı ve akranlarla anlık Meeting Point eşleşmesi.</p>
           </div>
           <div style="width:88px; height:88px; background:#FFFFFF; color:#0B1330; display:flex; align-items:center; justify-content:center; font-family:var(--font-condensed); font-weight:800; font-size:13px; flex-shrink:0; text-align:center; padding:6px;">
             SUMMITTED<br>QR PASS
@@ -174,14 +174,14 @@
     { key: 'gate-1', cat: 'gates', x: 478, y: 236, w: 62, h: 56, code: 'GATE-1', title: 'Ana Giriş', sub: 'İncesu Çadırı', fill: '#E41513' },
     { key: 'gate-3', cat: 'gates', x: 850, y: 88, w: 74, h: 48, code: 'GATE-3', title: 'VIP Çadırı', sub: 'K Blok Doğu', fill: '#0B1330' },
 
-    { key: 'matchmaking', cat: 'matchmaking', x: 40, y: 92, w: 212, h: 86, code: 'MP-01..24', title: 'G Blok · Slush\'D Arena', sub: '5 Dk Eşleşme & 1:1 Mülakat', fill: '#E41513' },
+    { key: 'matchmaking', cat: 'matchmaking', x: 40, y: 92, w: 212, h: 86, code: 'MP-01..24', title: 'G Blok · Eşleşme Alanı', sub: '5 Dk Eşleşme & 1:1 Mülakat', fill: '#E41513' },
     { key: 'tech', cat: 'stage', x: 40, y: 194, w: 102, h: 224, code: 'D BLOK', title: 'Tech&Innovation', sub: 'Konferans Amfisi', fill: '#1D4ED8' },
     { key: 'plaza', cat: 'lounge', x: 154, y: 194, w: 98, h: 130, code: 'AVLU', title: 'Networking Plaza', sub: 'İkram Çadırları', fill: '#475569' },
     { key: 'innovation', cat: 'innovation', x: 264, y: 92, w: 138, h: 126, code: 'İSTASYON', title: 'Innovation Alley', sub: 'Startup & 5 Dk Pitch', fill: '#0284C7' },
     { key: 'blue', cat: 'company', x: 154, y: 336, w: 248, h: 82, code: 'E BLOK', title: 'Blue Zone · Spor Merkezi', sub: 'ASELSAN · TUSAŞ · MİLSOFT · ROKETSAN', fill: '#292E6F' },
 
-    { key: 'promenade', cat: 'company', x: 548, y: 92, w: 205, h: 74, code: 'PROMENADE', title: 'Davos Promenade Çadırları', sub: 'BBVA Tech · Turkcell AI · HAVELSAN', fill: '#B91C1C' },
-    { key: 'plenary', cat: 'stage', x: 766, y: 146, w: 158, h: 98, code: 'K BLOK', title: 'Main Plenary', sub: 'Ahmet Ersan Salonu', fill: '#1E293B' },
+    { key: 'promenade', cat: 'company', x: 548, y: 92, w: 205, h: 74, code: 'BULVAR', title: 'İncesu Kurumsal Çadırları', sub: 'BBVA Tech · Turkcell AI · HAVELSAN', fill: '#B91C1C' },
+    { key: 'plenary', cat: 'stage', x: 766, y: 146, w: 158, h: 98, code: 'K BLOK', title: 'Ana Sahne', sub: 'Ahmet Ersan Salonu', fill: '#1E293B' },
     { key: 'communities', cat: 'community', x: 548, y: 180, w: 205, h: 148, code: 'ÇİM AMFİ', title: 'Topluluklar Köyü', sub: '8 Topluluk Çadırı & RadioTEDU', fill: '#D92D20' },
     { key: 'red', cat: 'company', x: 766, y: 256, w: 158, h: 162, code: 'K FUAYE', title: 'Red Zone Fuaye', sub: 'Akfen · DenizBank · EY · KPMG', fill: '#E41513' },
     { key: 'teacher-plus', cat: 'stage', x: 492, y: 342, w: 260, h: 76, code: 'A / B BLOK', title: 'Teacher+ Forumu', sub: 'Eğitim & Akademi Konferansları', fill: '#292E6F' }
@@ -267,11 +267,11 @@
       titleEl.textContent = gate.name;
       bldgEl.textContent = gate.location;
       sumEl.textContent = gate.role;
-      capVal.textContent = 'Davos 4-Seviye Yaka Kartı & Hızlı QR Geçiş';
+      capVal.textContent = 'Dijital Yaka Kartı & Hızlı QR Geçiş';
       sublist.innerHTML = `
-        <li><span>Öğrenci &amp; Mezun Akreditasyonu</span><code>LACİVERT PASS</code></li>
-        <li><span>Kurumsal İK &amp; Şirket Heyeti</span><code>KIRMIZI PASS</code></li>
-        <li><span>Startup, Yatırımcı &amp; Konuşmacı</span><code>VIP PASS</code></li>
+        <li><span>Öğrenci &amp; Mezun Akreditasyonu</span><code>LACİVERT KART</code></li>
+        <li><span>Kurumsal İK &amp; Şirket Heyeti</span><code>KIRMIZI KART</code></li>
+        <li><span>Startup, Yatırımcı &amp; Konuşmacı</span><code>KONUK KARTI</code></li>
       `;
       return;
     }
@@ -287,9 +287,9 @@
 
     if (z.id === 'matchmaking') {
       sublist.innerHTML = `
-        <li><span>Batı Kanadı (5 Dk Speed Networking)</span><code>MP-01 .. MP-16</code></li>
+        <li><span>Batı Kanadı (5 Dk Hızlı Eşleşme)</span><code>MP-01 .. MP-16</code></li>
         <li><span>Doğu Kanadı (15 Dk 1:1 Kurumsal Mülakat)</span><code>MP-17 .. MP-24</code></li>
-        <li><span>Eşleşme Yönetimi</span><code>SUMMITTED WEB APP</code></li>
+        <li><span>Eşleşme Yönetimi</span><code>SUMMITTED UYGULAMASI</code></li>
       `;
     } else if (z.stands && z.stands.length > 0) {
       sublist.innerHTML = z.stands.map((s) => `
@@ -410,7 +410,7 @@
       });
       if (regFeedback) {
         regFeedback.hidden = false;
-        regFeedback.innerHTML = `<strong>Ön kaydınız alındı, ${name}!</strong> Dijital SummitTED Yaka Kartınız hazırlandı — <a href="../tedu-app/?tab=badge" style="color:#FFFFFF; font-weight:800;">3D Yaka Kartınızı Görüntülemek İçin Tıklayın &rarr;</a>`;
+        regFeedback.innerHTML = `<strong>Ön kaydınız alındı, ${name}!</strong> Dijital SummitTED Yaka Kartınız hazırlandı — <a href="../tedu-app/?tab=badge" style="color:#FFFFFF; font-weight:800;">Dijital Yaka Kartınızı Görüntülemek İçin Tıklayın &rarr;</a>`;
       }
       talentForm.reset();
     });

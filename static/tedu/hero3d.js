@@ -30,7 +30,7 @@ function initHeroWebGL(host) {
   const root = new THREE.Group();
   scene.add(root);
 
-  // 1. Wireframe Architectural Rings (Davos × Slush'D Orbital Precision)
+  // 1. Wireframe Architectural Rings (TEDÜ SummitTED Orbital Precision)
   const ringGroup = new THREE.Group();
   ringGroup.position.set(7.5, 0.4, -4);
   root.add(ringGroup);

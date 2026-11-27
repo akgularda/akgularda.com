@@ -91,7 +91,7 @@ function initPCArchitecturalBackdrop(host) {
   requestAnimationFrame(tick);
 }
 
-// 2. Embedded Mobile 3D Slush'D Meeting Point Arena (MP-01 .. MP-24)
+// 2. Embedded Mobile 3D Meeting Point Hall (MP-01 .. MP-24)
 const arenaHost = document.getElementById('mp-arena-webgl');
 if (arenaHost) {
   try {

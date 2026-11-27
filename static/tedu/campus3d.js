@@ -3,10 +3,10 @@
    Includes:
    - 3 Accreditation & Entrance Tents (Gate 1 İncesu, Gate 2 Aksu, Gate 3 VIP)
    - Student Communities Village on İncesu Çim Amfi (Modular Pagoda Tents + RadioTEDU)
-   - Davos Promenade Corporate Pavilions (İncesu North Walk)
-   - Red Zone (K Blok Fuaye) & Main Plenary (Ahmet Ersan Salonu)
+   - İncesu Corporate Pavilions (İncesu North Walk)
+   - Red Zone (K Blok Fuaye) & Main Stage (Ahmet Ersan Salonu)
    - Blue Zone (E Blok Spor Merkezi) & Startup/Innovation Alley (İstasyon TEDÜ)
-   - Slush'D Matchmaking Arena (G Blok MP-01..MP-24 Numbered Tables)
+   - G Blok Matchmaking Area (G Blok MP-01..MP-24 Numbered Tables)
    - Tech&Innovation (D Blok), Teacher+ (A/B Blok), Networking Plaza (Aksu Courtyard)
    ========================================================================== */
 
@@ -199,7 +199,7 @@ function initCampus3D(renderer) {
   // Helper: Entrance Accreditation Gate Arch + Canopy Tent
   function accreditationGate(x, z, labelText, subText, zoneKey, rotY = 0) {
     const g = new THREE.Group();
-    // Red-Navy Davos Archway
+    // Red-Navy Entrance Archway
     box(0.85, 5.2, 0.85, -3.8, 2.7, 0, m.tedNavy, g);
     box(0.85, 5.2, 0.85, 3.8, 2.7, 0, m.tedNavy, g);
     box(8.6, 1.1, 1.05, 0, 5.45, 0, m.tedNavy, g);
@@ -315,7 +315,7 @@ function initCampus3D(renderer) {
   building('E BLOK · BLUE ZONE & İSTASYON', 'SPOR MERKEZİ STANTLARI & STARTUP ALLEY', -50, 19, 8.5, 16.5, 7.5, '#292E6F', 'blue');
   building('F BLOK', 'AKSU GÜNEY KANADI', -70, 20.5, 24, 6.8, 8, '#64748B');
   building('C BLOK', 'MERKEZ DERSLİKLER', -60, 8.5, 7.5, 13, 6.2, '#64748B');
-  building('G BLOK · SLUSH\'D ARENA', 'MP-01..24 EŞLEŞME & 1:1 MÜLAKAT', -69, -20.5, 34, 7.2, 9.2, '#E41513', 'matchmaking');
+  building('G BLOK · EŞLEŞME ALANI', 'MP-01..24 EŞLEŞME & 1:1 MÜLAKAT', -69, -20.5, 34, 7.2, 9.2, '#E41513', 'matchmaking');
   building('H BLOK', 'AKSU KUZEYDOĞU', -50, -10.5, 6.8, 17, 8.8, '#64748B');
 
   // 5. Three Entrance & Accreditation Gates (Tents + Archways)
@@ -339,7 +339,7 @@ function initCampus3D(renderer) {
     pagodaTent(tx, tz, 3.3, color, lbl, 'communities', 0);
   }
 
-  // 7. Davos Promenade Corporate Pavilions along İncesu North Walk
+  // 7. İncesu Corporate Pavilions along İncesu North Walk
   booth(-16.5, -17.5, '#0B1330', 'GARANTİ BBVA TECH', 'promenade');
   booth(-10.5, -17.5, '#292E6F', 'TURKCELL AI HOUSE', 'promenade');
   booth(-4.5, -17.5, '#0B1330', 'HAVELSAN SİBER', 'promenade');
@@ -389,7 +389,7 @@ function initCampus3D(renderer) {
     c.fillText('KARİYER VE İNOVASYON ZİRVESİ · 20–21 EKİM 2026', 512, 308);
     c.fillStyle = '#FF8A88';
     c.font = '700 23px Arial';
-    c.fillText('3 AKREDİTASYON KAPISI · 10 ZONE · 24 SLUSH\'D MEETING POINT', 512, 372);
+    c.fillText('3 AKREDİTASYON KAPISI · 10 ZONE · 24 MEETING POINT MASASI', 512, 372);
     screen.texture.needsUpdate = true;
   }
   drawLED();
@@ -400,9 +400,9 @@ function initCampus3D(renderer) {
   pagodaTent(-55.5, 4.5, 3.6, '#0284C7', 'İSTASYON TEDÜ PITCH', 'innovation', 0);
   pagodaTent(-55.5, -0.5, 3.3, '#0B1330', 'STARTUP & VC ALLEY', 'innovation', 0);
 
-  // 10. Slush'D Matchmaking Arena (G Blok Numbered Tables MP-01..MP-24)
+  // 10. G Blok Matchmaking Area (Numbered Tables MP-01..MP-24)
   box(24, 0.16, 7.6, -69, 0.22, -13.2, mat('#dce3f0'), groups.matchmaking);
-  sign('SLUSH\'D MATCHMAKING ARENA · MP-01 .. MP-24 (5 DK EŞLEŞME)', -69, 3.8, -16.6, 15, 1.35, groups.matchmaking, '#E41513', '#ffffff');
+  sign('G BLOK EŞLEŞME ALANI · MP-01 .. MP-24 (5 DK GÖRÜŞME)', -69, 3.8, -16.6, 15, 1.35, groups.matchmaking, '#E41513', '#ffffff');
   for (let row = 0; row < 2; row++) {
     for (let col = 0; col < 8; col++) {
       const mx = -78.8 + col * 2.8;
@@ -494,11 +494,11 @@ function initCampus3D(renderer) {
     'gate-3': { target: [22, 2, -20], pin: [22, 8.0, -20], color: '#0B1330', label: 'Gate 3 · VIP Giriş', category: 'gates', camera: 'incesu' },
     red: { target: [21, 2, -3], pin: [25, 10.2, -3], color: '#E41513', label: 'Red Zone · K Blok Fuaye', category: 'company', camera: 'incesu' },
     blue: { target: [-54, 2, 16], pin: [-52, 10.2, 18], color: '#292E6F', label: 'Blue Zone · Spor Mrk.', category: 'company', camera: 'aksu' },
-    promenade: { target: [-8, 2, -17], pin: [-8, 6.8, -17], color: '#B91C1C', label: 'Promenade Çadırları', category: 'company', camera: 'incesu' },
+    promenade: { target: [-8, 2, -17], pin: [-8, 6.8, -17], color: '#B91C1C', label: 'Kurumsal Çadırlar', category: 'company', camera: 'incesu' },
     communities: { target: [-14, 2, 4], pin: [-14, 6.6, 4], color: '#D92D20', label: 'Topluluklar Köyü · Çim Amfi', category: 'community', camera: 'incesu' },
     innovation: { target: [-56, 2, 2], pin: [-56, 6.8, 2], color: '#0284C7', label: 'Innovation Alley · İstasyon', category: 'innovation', camera: 'aksu' },
     matchmaking: { target: [-69, 2, -14], pin: [-69, 7.6, -15], color: '#E41513', label: 'Meeting Points · MP-01..24', category: 'matchmaking', camera: 'matchmaking' },
-    plenary: { target: [15, 2, 8], pin: [15, 9.6, 9], color: '#0B1330', label: 'Main Plenary · Ahmet Ersan', category: 'stage', camera: 'incesu' },
+    plenary: { target: [15, 2, 8], pin: [15, 9.6, 9], color: '#0B1330', label: 'Ana Sahne · Ahmet Ersan', category: 'stage', camera: 'incesu' },
     tech: { target: [-82, 2, 0], pin: [-83, 11.5, 0], color: '#1D4ED8', label: 'Tech&Innovation · D Blok', category: 'stage', camera: 'aksu' },
     'teacher-plus': { target: [-16, 2, 18], pin: [-12, 11.5, 19], color: '#292E6F', label: 'Teacher+ · A/B Blok', category: 'stage', camera: 'incesu' },
     plaza: { target: [-71, 2, 0], pin: [-71, 6.2, 1], color: '#475569', label: 'Networking & İkram Çadırları', category: 'lounge', camera: 'aksu' }
