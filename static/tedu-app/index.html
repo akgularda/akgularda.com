@@ -2,9 +2,9 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SummitTED Pocket App — Slush'D × COP31 Deneyimi | TED Üniversitesi</title>
-  <meta name="description" content="SummitTED Kariyer ve İnovasyon Zirvesi 2026 mobil-öncelikli süper uygulaması: hikaye akışı, Slush'D kart kaydırmalı 5 dk eşleşme, 3D MP Arena ve çift yüzlü 3D Wallet Pass.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SummitTED App — Mobil Eşleşme, Meeting Point &amp; QR | TED Üniversitesi</title>
+  <meta name="description" content="SummitTED Kariyer ve İnovasyon Zirvesi 2026 resmi mobil uygulaması: 5 dakikalık eşleşmeler, numaralı Meeting Point tahsisi, dijital yaka kartı ve QR okuyucu.">
   <link rel="icon" type="image/svg+xml" href="../tedu/assets/submitted-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,419 +13,427 @@
 </head>
 <body>
 
-  <!-- Vibrant Three.js Floating Crystals & Aurora Sparks -->
-  <div class="app-bg-webgl" id="app-bg-webgl" aria-hidden="true"></div>
+  <div class="pc-stage-shell">
+    <!-- Subtle Architectural Three.js Backdrop on PC -->
+    <div class="pc-stage-webgl" id="pc-stage-webgl" aria-hidden="true"></div>
 
-  <!-- COP31-Style Floating Pill App Bar -->
-  <header class="superapp-header">
-    <div class="header-pill-bar">
-      <a href="../tedu/" class="app-logo-link" aria-label="SummitTED Ana Sayfa">
-        <img src="../tedu/assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED 2026">
-      </a>
-
-      <nav class="desktop-pill-nav" aria-label="Uygulama Sekmeleri">
-        <button type="button" class="nav-pill-btn is-active" data-app-tab="home">✨ Keşfet</button>
-        <button type="button" class="nav-pill-btn" data-app-tab="synergy">⚡ Sinerji Swipe</button>
-        <button type="button" class="nav-pill-btn" data-app-tab="meetings">
-          <span>📍 3D MP Arena</span>
-          <span class="pill-counter" id="nav-pending-count">2</span>
-        </button>
-        <button type="button" class="nav-pill-btn" data-app-tab="scan">📷 QR Okut</button>
-        <button type="button" class="nav-pill-btn" data-app-tab="pass">🎫 Wallet Pass</button>
-      </nav>
-
-      <div class="header-Utility-group">
-        <button type="button" class="circle-icon-btn" id="btn-bell-inbox" aria-label="Bildirimler ve Eşleşme İstekleri">
-          <span>&#128276;</span>
-          <i class="notif-dot" id="bell-dot"></i>
-        </button>
-        <a href="../tedu/" class="back-site-pill hide-mob">Tanıtım Sitesi &#8599;</a>
+    <!-- Left Architectural Context Rail on PC -->
+    <aside class="pc-side-rail" aria-label="Masaüstü Hızlı Geçiş">
+      <img src="../tedu/assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED 2026">
+      <span class="pc-side-kicker">MOBİL KATILIMCI UYGULAMASI &middot; 20–21 EKİM 2026</span>
+      <div class="pc-side-links">
+        <a href="../tedu/" class="pc-side-link"><span>&larr; Ana Tanıtım Sitesi</span></a>
+        <a href="./qr-kit.html" class="pc-side-link"><span>Saha QR Etiket Paketi</span><span>&rarr;</span></a>
       </div>
-    </div>
-  </header>
+    </aside>
 
-  <!-- iOS Dynamic Island Active 5-Min Speed Meeting Pill -->
-  <div class="dynamic-island-wrap" id="active-timer-dock" hidden aria-live="polite">
-    <div class="dynamic-island">
-      <div class="island-ring">
-        <svg viewBox="0 0 38 38">
-          <circle cx="19" cy="19" r="16" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="3.5"/>
-          <circle id="timer-ring-arc" cx="19" cy="19" r="16" fill="none" stroke="#00C896" stroke-width="3.5" stroke-dasharray="100.5" stroke-dashoffset="0"/>
-        </svg>
-      </div>
-      <span class="island-time" id="timer-digits">05:00</span>
-      <span style="font-size:13px; font-weight:700;" id="timer-peer-label">Ece Demirtaş &middot; MP-04</span>
-      <button type="button" class="island-btn" id="btn-share-cv" style="background:rgba(255,255,255,0.14); color:#FFF;">Kart İlet</button>
-      <button type="button" class="island-btn" id="btn-end-timer" style="background:#FF3B38; color:#FFF;">Bitir</button>
-    </div>
-  </div>
+    <!-- DEDICATED MOBILE APP VIEWPORT (Identical Mobile UX on PC & Phone) -->
+    <div class="mobile-device-viewport" id="mobile-viewport">
 
-  <!-- Main Super-App Stage -->
-  <main class="superapp-stage">
-
-    <!-- =====================================================================
-         SCREEN 1: COP31 "SUMMIT IN YOUR POCKET" + SLUSH'D VIBRANT HOME FEED
-         ===================================================================== -->
-    <section class="screen-view" data-view="home">
-      <div class="context-weather-strip">
-        <div class="weather-pill">
-          <span>&#9728;&#65039; <strong>21° Ankara</strong> &middot; TEDÜ İncesu &amp; Aksu Kampüsü</span>
-        </div>
-        <div class="weather-pill" style="border-color:rgba(0,200,150,0.4); color:#A7F3D0;">
-          <span>&#9889; 20–21 Ekim 2026 &middot; Program, Harita &amp; 5 Dk Eşleşme Tek Uygulamada</span>
-        </div>
-      </div>
-
-      <!-- Instagram / Slush Live Story Bubbles -->
-      <div class="stories-track" id="stories-track" aria-label="Kampüs Hikayeleri"></div>
-
-      <div class="home-super-grid">
-        <!-- COP31-Style Thematic Day Full-Bleed Card -->
-        <article class="thematic-hero-card">
-          <img src="../tedu/assets/wanted/wanted-keynote.jpg" id="thematic-img" alt="Tematik Zirve Günü">
-          <div class="thematic-scrim"></div>
-
-          <div class="thematic-top" style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
-            <span style="background:rgba(228,21,19,0.88); padding:5px 12px; border-radius:999px; font-size:11.5px; font-weight:800; letter-spacing:0.8px;" id="thematic-badge">TEMATİK GÜN 01 &middot; 20 EKİM</span>
-            <div class="day-switcher-pills">
-              <button type="button" class="day-pill is-active" data-day-switch="1">1. Gün</button>
-              <button type="button" class="day-pill" data-day-switch="2">2. Gün</button>
-            </div>
-          </div>
-
-          <div class="thematic-bottom">
-            <h1 style="margin:0 0 8px; font-family:var(--font-display); font-size:clamp(24px,3vw,34px); font-weight:800; line-height:1.1;" id="thematic-title">
-              Liderlik Vizyonu, Teacher+ &amp; Açık İnovasyon Sahneleri
-            </h1>
-            <p style="margin:0 0 16px; font-size:14px; color:#DCE6FF; max-width:540px;" id="thematic-desc">
-              Ahmet Ersan Salonu C-Level açılış panelleri, İstasyon TEDÜ 5 dk girişim sunumları ve Çim Amfi topluluk buluşmaları.
-            </p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button type="button" class="btn-pill-primary" data-goto-tab="synergy">&#9889; Sinerji Kartlarını Kaydır</button>
-              <button type="button" class="btn-pill-soft" data-goto-tab="pass">&#127915; Dijital Giriş Kartım</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- 4 Vibrant Tactile Action Tiles -->
-        <div class="quick-launcher-stack">
-          <button type="button" class="launcher-tile grad-slush" data-goto-tab="synergy">
-            <span class="launcher-icon">&#9889;</span>
-            <div>
-              <strong>5 Dk Eşleş</strong>
-              <small>Kaydır, saat seç &amp; tanış</small>
-            </div>
+      <!-- App Header -->
+      <header class="mob-topbar">
+        <a href="../tedu/" aria-label="SummitTED Ana Sayfa">
+          <img src="../tedu/assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED 2026" class="mob-topbar-logo">
+        </a>
+        <div class="mob-topbar-actions">
+          <button type="button" class="icon-sq-btn" id="btn-bell-inbox" aria-label="Gelen Eşleşme İstekleri">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="sq-badge-dot" id="bell-count">2</span>
           </button>
-          <button type="button" class="launcher-tile grad-pass" data-goto-tab="pass">
-            <span class="launcher-icon">&#127915;</span>
-            <div>
-              <strong>Wallet Pass</strong>
-              <small>Çift yüzlü 3D QR kart</small>
+          <a href="../tedu/" class="icon-sq-btn" aria-label="Tanıtım Sitesine Dön" title="Tanıtım Sitesi">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- Kinetic Summit Ticker -->
+      <div class="mob-ticker" aria-hidden="true">
+        <div class="mob-ticker-track">
+          <span>20–21 EKİM 2026 &middot; TEDÜ İNCESU &amp; AKSU</span>
+          <span>SLUSH'D 5 DK EŞLEŞME</span>
+          <span>G BLOK MP-01..24 MASALAR</span>
+          <span>3 AKREDİTASYON KAPISI</span>
+          <span>20–21 EKİM 2026 &middot; TEDÜ İNCESU &amp; AKSU</span>
+          <span>SLUSH'D 5 DK EŞLEŞME</span>
+          <span>G BLOK MP-01..24 MASALAR</span>
+          <span>3 AKREDİTASYON KAPISI</span>
+        </div>
+      </div>
+
+      <!-- Active 05:00 Meeting Countdown Strip -->
+      <div class="mob-timer-bar" id="active-timer-dock" hidden aria-live="polite">
+        <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+          <span class="mob-timer-clock" id="timer-digits">05:00</span>
+          <div style="min-width:0;">
+            <small style="display:block; font-size:9.5px; font-weight:800; letter-spacing:0.8px; opacity:0.88;">AKTİF 5 DK GÖRÜŞME</small>
+            <strong style="display:block; font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="timer-peer-label">MP-04</strong>
+          </div>
+        </div>
+        <div style="display:flex; gap:4px; flex-shrink:0;">
+          <button type="button" class="btn-sq-navy" id="btn-share-cv" style="height:30px; padding:0 8px; font-size:10px;">KART İLET</button>
+          <button type="button" class="btn-sq-navy" id="btn-end-timer" style="height:30px; padding:0 8px; font-size:10px; background:#050917;">BİTİR</button>
+        </div>
+      </div>
+
+      <!-- Scrollable App Content -->
+      <main class="mob-scroll-body" id="mob-scroll-body">
+
+        <!-- =================================================================
+             TAB 1: AKIŞ (Editorial Stories, Thematic Day & Zone Strips)
+             ================================================================= -->
+        <section class="mob-screen" data-view="home">
+          <div class="sec-label-row">
+            <span class="sec-kicker">KAMPÜS GÜNDEMİ &amp; KURUMLAR</span>
+            <span style="font-size:11px; font-weight:700; color:var(--ink-muted);">ANKARA &middot; TEDÜ</span>
+          </div>
+
+          <div class="story-cards-row" id="stories-track"></div>
+
+          <!-- Featured Thematic Day Card -->
+          <article class="featured-day-card">
+            <img src="../tedu/assets/wanted/wanted-keynote.jpg" id="thematic-img" alt="SummitTED Sahne">
+            <div class="featured-day-scrim"></div>
+
+            <div class="featured-rel" style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-family:var(--font-condensed); font-size:11.5px; font-weight:700; letter-spacing:1px; background:var(--ted-red); padding:2px 8px;" id="thematic-badge">GÜN 01 &middot; 20 EKİM</span>
+              <div class="day-seg">
+                <button type="button" class="day-seg-btn is-active" data-day-switch="1">1. GÜN</button>
+                <button type="button" class="day-seg-btn" data-day-switch="2">2. GÜN</button>
+              </div>
             </div>
-          </button>
-          <button type="button" class="launcher-tile grad-mint" data-goto-tab="meetings">
-            <span class="launcher-icon">&#128205;</span>
-            <div>
-              <strong>3D MP Arena</strong>
-              <small>24 numaralı masa &amp; istekler</small>
+
+            <div class="featured-rel" style="margin-top:48px;">
+              <h1 style="margin:0 0 6px; font-family:var(--font-display); font-size:20px; font-weight:800; line-height:1.15;" id="thematic-title">
+                Liderlik Vizyonu, Teacher+ &amp; Açık İnovasyon Sahneleri
+              </h1>
+              <p style="margin:0 0 12px; font-size:12px; color:#D5DFEE; line-height:1.4;" id="thematic-desc">
+                Ahmet Ersan Salonu C-Level panelleri, İstasyon TEDÜ 5 dk girişim sunumları ve Çim Amfi topluluk köyü.
+              </p>
+              <button type="button" class="btn-sq-red" data-goto-tab="synergy" style="height:36px; padding:0 14px; font-size:11px; width:auto;">
+                <span>5 DK EŞLEŞME DESTESİNİ AÇ</span>
+                <span>&rarr;</span>
+              </button>
             </div>
-          </button>
-          <button type="button" class="launcher-tile grad-violet" data-goto-tab="scan">
-            <span class="launcher-icon">&#128247;</span>
-            <div>
-              <strong>QR Check-in</strong>
-              <small>Çadır, stant &amp; masa okut</small>
+          </article>
+
+          <!-- Asymmetric TED Red / White / TEDÜ Navy Quick Blocks -->
+          <div class="asymmetric-actions">
+            <button type="button" class="act-block is-red-tall" data-goto-tab="synergy">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <div>
+                <span style="font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:1px; opacity:0.9;">SLUSH'D MOTORU</span>
+                <strong style="font-size:19px;">5 Dk Hızlı Eşleş</strong>
+                <small>Kart kaydır, saat seç &amp; MP masanı kilitle &rarr;</small>
+              </div>
+            </button>
+
+            <button type="button" class="act-block is-white" data-goto-tab="pass">
+              <div style="display:flex; justify-content:space-between; width:100%; align-items:center; margin-bottom:8px;">
+                <span class="sec-kicker" style="color:var(--tedu-navy);">AKREDİTASYON</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1330" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="14" x2="13" y2="14"/></svg>
+              </div>
+              <div>
+                <strong>Dijital QR Kartım</strong>
+                <small style="color:var(--ink-muted);">Çift yüzlü yaka kartı</small>
+              </div>
+            </button>
+
+            <button type="button" class="act-block is-navy" data-goto-tab="meetings">
+              <div style="display:flex; justify-content:space-between; width:100%; align-items:center; margin-bottom:8px;">
+                <span class="sec-kicker" style="color:#FF7B79;">G BLOK SALON</span>
+                <span style="font-family:var(--font-condensed); font-size:12px; font-weight:700; background:var(--ted-red); padding:1px 6px;" id="home-pending-pill">2 İSTEK</span>
+              </div>
+              <div>
+                <strong>3D MP Arena</strong>
+                <small style="color:#B8C6E4;">24 numaralı masa</small>
+              </div>
+            </button>
+          </div>
+
+          <div class="sec-label-row">
+            <span class="sec-kicker">TEDÜ KAMPÜS BÖLGELERİ</span>
+            <a href="../tedu/#campus-map" style="font-size:11px; font-weight:800; color:var(--tedu-navy); text-decoration:none;">3D HARİTA &rarr;</a>
+          </div>
+
+          <div class="zone-arch-list">
+            <div class="zone-arch-card is-red" data-goto-tab="synergy" data-preset-role="company">
+              <div>
+                <span class="sec-kicker">K BLOK FUAYE &amp; PROMENADE</span>
+                <h3>Red Zone &amp; Kurumsal Çadırlar</h3>
+                <p>Akfen, DenizBank, EY, KPMG, BBVA Tech, Turkcell AI</p>
+              </div>
+              <span style="font-weight:800; color:var(--ted-red);">&rarr;</span>
             </div>
-          </button>
-        </div>
-      </div>
 
-      <!-- COP31-Style Vibrant Zone Ribbons -->
-      <div style="display:flex; justify-content:space-between; align-items:center; margin:24px 0 12px;">
-        <h2 style="margin:0; font-family:var(--font-display); font-size:20px;">Kampüs Alanları &amp; Deneyim Bölgeleri</h2>
-        <a href="../tedu/#campus-map" style="color:#93C5FD; font-size:13px; font-weight:700; text-decoration:none;">3D Kampüs Haritası &rarr;</a>
-      </div>
+            <div class="zone-arch-card" data-goto-tab="synergy" data-preset-role="company">
+              <div>
+                <span class="sec-kicker" style="color:var(--tedu-navy);">E BLOK SPOR MERKEZİ &amp; D BLOK</span>
+                <h3>Blue Zone &amp; Tech Amfi</h3>
+                <p>ASELSAN, TUSAŞ, MİLSOFT, ROKETSAN, FNSS</p>
+              </div>
+              <span style="font-weight:800; color:var(--tedu-navy);">&rarr;</span>
+            </div>
 
-      <div class="zone-ribbons-stack">
-        <div class="zone-ribbon-banner ribbon-red" data-goto-tab="synergy" data-preset-role="company">
-          <div>
-            <small style="font-size:11px; font-weight:800; letter-spacing:1px; opacity:0.85;">K BLOK FUAYE &amp; ÜST AVLU</small>
-            <h3>Red Zone &amp; Davos Promenade</h3>
-            <p>Akfen, DenizBank, EY, KPMG stantları ve açık hava deneyim çadırları.</p>
+            <div class="zone-arch-card is-red" data-goto-tab="synergy" data-preset-role="startup">
+              <div>
+                <span class="sec-kicker">İSTASYON TEDÜ &middot; E BLOK</span>
+                <h3>Startup &amp; Innovation Alley</h3>
+                <p>Girişim stantları, VC masası ve 5 dk açık Pitch sahnesi</p>
+              </div>
+              <span style="font-weight:800; color:var(--ted-red);">&rarr;</span>
+            </div>
+
+            <div class="zone-arch-card" data-goto-tab="synergy" data-preset-role="community">
+              <div>
+                <span class="sec-kicker" style="color:var(--tedu-navy);">İNCESU ÇİM AMFİ &amp; KAPILAR</span>
+                <h3>Topluluklar Köyü &amp; 3 Giriş Çadırı</h3>
+                <p>8 öğrenci topluluğu çadırı, RadioTEDU &amp; Davos Gate 1-3</p>
+              </div>
+              <span style="font-weight:800; color:var(--tedu-navy);">&rarr;</span>
+            </div>
           </div>
-          <span class="ribbon-arrow">&rarr;</span>
-        </div>
+        </section>
 
-        <div class="zone-ribbon-banner ribbon-blue" data-goto-tab="synergy" data-preset-role="company">
-          <div>
-            <small style="font-size:11px; font-weight:800; letter-spacing:1px; opacity:0.85;">E BLOK SPOR MERKEZİ &amp; D BLOK</small>
-            <h3>Blue Zone &amp; Tech Amfi</h3>
-            <p>ASELSAN, TUSAŞ, MİLSOFT, ROKETSAN mühendislik pavilyonları ve söyleşileri.</p>
-          </div>
-          <span class="ribbon-arrow">&rarr;</span>
-        </div>
-
-        <div class="zone-ribbon-banner ribbon-emerald" data-goto-tab="synergy" data-preset-role="startup">
-          <div>
-            <small style="font-size:11px; font-weight:800; letter-spacing:1px; opacity:0.85;">İSTASYON TEDÜ &middot; E BLOK KAT 2</small>
-            <h3>Startup &amp; Innovation Alley</h3>
-            <p>Girişim stantları, yatırımcı ofis saatleri ve 5 dakikalık açık Pitch sahnesi.</p>
-          </div>
-          <span class="ribbon-arrow">&rarr;</span>
-        </div>
-
-        <div class="zone-ribbon-banner ribbon-amber" data-goto-tab="synergy" data-preset-role="community">
-          <div>
-            <small style="font-size:11px; font-weight:800; letter-spacing:1px; opacity:0.85;">İNCESU ÇİM AMFİ &amp; KAPILAR</small>
-            <h3>Topluluklar Köyü &amp; 3 Giriş Çadırı</h3>
-            <p>8 öğrenci topluluğu çadırı, RadioTEDU canlı yayını ve Davos akreditasyon kapıları.</p>
-          </div>
-          <span class="ribbon-arrow">&rarr;</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         SCREEN 2: SLUSH'D PHYSICS SWIPE DECK + FLOWING STREAM
-         ===================================================================== -->
-    <section class="screen-view" data-view="synergy" hidden>
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
-        <div>
-          <span style="font-size:11.5px; font-weight:800; letter-spacing:1.2px; color:#6EE7B7;">SLUSH'D MATCHMAKING MOTORU</span>
-          <h2 style="margin:2px 0 0; font-family:var(--font-display); font-size:26px;">Kaydır, Eşleş &amp; 5 Dk Masa Ayırt</h2>
-        </div>
-        <div class="role-chip-scroller" style="padding-bottom:0;">
-          <button type="button" class="chip-pill is-active" data-role-filter="all">Tümü</button>
-          <button type="button" class="chip-pill" data-role-filter="company">💼 Şirket &amp; İK</button>
-          <button type="button" class="chip-pill" data-role-filter="startup">🚀 Startup &amp; VC</button>
-          <button type="button" class="chip-pill" data-role-filter="community">🎙️ Topluluk</button>
-          <button type="button" class="chip-pill" data-role-filter="student">🎓 Akran</button>
-        </div>
-      </div>
-
-      <div class="synergy-workspace">
-        <!-- Interactive Physics Swipe Card Stack -->
-        <div class="swipe-deck-column">
-          <div class="swipe-card-stack" id="swipe-stack">
-            <div class="swipe-card-next"></div>
-            <div class="swipe-card-active" id="swipe-active-card"></div>
+        <!-- =================================================================
+             TAB 2: EŞLEŞ (Sharp Architectural Swipe Deck + Directory Toggle)
+             ================================================================= -->
+        <section class="mob-screen" data-view="synergy" hidden>
+          <div class="seg-switch" role="tablist">
+            <button type="button" class="seg-btn is-active" data-synergy-mode="deck">Kart Destesi (Swipe)</button>
+            <button type="button" class="seg-btn" data-synergy-mode="list">Tüm Kişiler (14)</button>
           </div>
 
-          <div class="swipe-controls-bar">
-            <button type="button" class="swipe-fab fab-rewind" id="btn-swipe-prev" aria-label="Önceki Kişi">&#8634;</button>
-            <button type="button" class="swipe-fab fab-skip" id="btn-swipe-skip" aria-label="Sonraki Kişiye Geç">&#10005;</button>
-            <button type="button" class="swipe-fab fab-connect" id="btn-swipe-connect">&#9889; 5 Dk Eşleş</button>
+          <div class="sharp-chips-bar">
+            <button type="button" class="sharp-chip is-active" data-role-filter="all">Tümü</button>
+            <button type="button" class="sharp-chip" data-role-filter="company">Şirket / İK</button>
+            <button type="button" class="sharp-chip" data-role-filter="startup">Startup / VC</button>
+            <button type="button" class="sharp-chip" data-role-filter="community">Topluluk</button>
+            <button type="button" class="sharp-chip" data-role-filter="student">Akran</button>
           </div>
-        </div>
 
-        <!-- Quick Search + Flowing Pill Rows -->
-        <div>
-          <input type="search" class="soft-input" id="peer-search" placeholder="🔍 İsim, şirket (ASELSAN, DenizBank...) veya etiket (AI, FinTech) ara..." style="border-radius:999px; padding:12px 18px; margin-bottom:14px;">
-          <div class="compact-people-stream" id="compact-people-stream"></div>
-        </div>
-      </div>
-    </section>
+          <!-- Mode A: Tactile Swipe Card Stack -->
+          <div id="synergy-deck-wrap">
+            <div class="deck-stage">
+              <div class="deck-shadow-card"></div>
+              <div class="deck-main-card" id="swipe-active-card"></div>
+            </div>
 
-    <!-- =====================================================================
-         SCREEN 3: THREE.JS 3D MP ARENA + LIVE ACTIVITY REQUESTS + AGENDA
-         ===================================================================== -->
-    <section class="screen-view" data-view="meetings" hidden>
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-        <div>
-          <span style="font-size:11.5px; font-weight:800; letter-spacing:1.2px; color:#FF6B69;">G BLOK &middot; NUMARALI GÖRÜŞME ARENASI</span>
-          <h2 style="margin:2px 0 0; font-family:var(--font-display); font-size:26px;">3D Meeting Points &amp; Eşleşme İstekleri</h2>
-        </div>
-        <button type="button" class="btn-pill-mint" data-goto-tab="synergy">+ Yeni 5 Dk Eşleşme Bul</button>
-      </div>
+            <div class="deck-actions-row">
+              <button type="button" class="btn-sq-neutral" id="btn-swipe-prev" aria-label="Önceki Kart">&#8634;</button>
+              <button type="button" class="btn-sq-neutral" id="btn-swipe-skip">&times; GEÇ</button>
+              <button type="button" class="btn-sq-red" id="btn-swipe-connect">5 DK EŞLEŞ &rarr;</button>
+            </div>
+          </div>
 
-      <div class="arena-rounded-stage">
-        <div class="mp-arena-webgl" id="mp-arena-webgl" aria-label="3D G Blok Meeting Point Arenası"></div>
-        <div class="arena-floating-pills">
-          <span class="arena-pill" id="arena-focused-label">📍 MP-04 Seçili</span>
-          <button type="button" class="arena-pill" id="btn-arena-overview" style="cursor:pointer;">Tüm 24 Masayı Gör</button>
-        </div>
-      </div>
+          <!-- Mode B: Searchable Compact List -->
+          <div id="synergy-list-wrap" hidden>
+            <input type="search" class="sharp-input" id="peer-search" placeholder="İsim, kurum (ASELSAN, DenizBank...) veya etiket ara...">
+            <div id="compact-people-stream"></div>
+          </div>
+        </section>
 
-      <div class="activity-columns">
-        <div>
-          <h3 style="margin:0 0 12px; font-family:var(--font-display); font-size:18px;">🔔 Gelen Eşleşme İstekleri</h3>
+        <!-- =================================================================
+             TAB 3: MP ARENA (Embedded Three.js 3D Arena + Inbox)
+             ================================================================= -->
+        <section class="mob-screen" data-view="meetings" hidden>
+          <div class="sec-label-row">
+            <span class="sec-kicker">G BLOK SLUSH'D ARENA (3D)</span>
+            <span style="font-size:11px; font-weight:700; color:var(--ink-muted);">MP-01 .. MP-24</span>
+          </div>
+
+          <div class="mob-arena-box">
+            <div class="mp-arena-webgl" id="mp-arena-webgl" aria-label="3D Meeting Point Arenası"></div>
+            <div class="mob-arena-hud">
+              <span class="mob-arena-tag" id="arena-focused-label">MASA: MP-04</span>
+              <button type="button" class="mob-arena-tag" id="btn-arena-overview" style="cursor:pointer;">GENEL AÇI</button>
+            </div>
+          </div>
+
+          <div class="seg-switch" role="tablist">
+            <button type="button" class="seg-btn is-active" data-mtg-subtab="incoming" id="subtab-inc-btn">Gelen İstekler (2)</button>
+            <button type="button" class="seg-btn" data-mtg-subtab="accepted" id="subtab-acc-btn">Masalarım &amp; İstekler</button>
+          </div>
+
           <div id="incoming-list"></div>
-        </div>
-        <div>
-          <h3 style="margin:0 0 12px; font-family:var(--font-display); font-size:18px;">✅ Onaylanan Masalarım &amp; Programım</h3>
-          <div id="accepted-outgoing-list"></div>
-        </div>
-      </div>
-    </section>
+          <div id="accepted-outgoing-list" hidden></div>
+        </section>
 
-    <!-- =====================================================================
-         SCREEN 4: CAMERA QR SCANNER & ONE-TAP FIELD PILLS
-         ===================================================================== -->
-    <section class="screen-view" data-view="scan" hidden>
-      <div style="margin-bottom:16px;">
-        <span style="font-size:11.5px; font-weight:800; letter-spacing:1.2px; color:#6EE7B7;">HIZLI GEÇİŞ &amp; MASA DOĞRULAMA</span>
-        <h2 style="margin:2px 0 0; font-family:var(--font-display); font-size:26px;">QR Okut: Çadır, Şirket Masası veya MP</h2>
-      </div>
-
-      <div class="qr-super-grid">
-        <div class="activity-card" style="margin:0;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <strong>Kamera QR Vizörü</strong>
-            <button type="button" class="btn-pill-primary" id="btn-toggle-camera">Kamerayı Aç</button>
+        <!-- =================================================================
+             TAB 4: QR OKUT (Angular HUD Camera Scanner + Field Codes)
+             ================================================================= -->
+        <section class="mob-screen" data-view="scan" hidden>
+          <div class="sec-label-row">
+            <span class="sec-kicker">KAPI, STANT &amp; MASA DOĞRULAMA</span>
+            <button type="button" class="btn-sq-navy" id="btn-toggle-camera" style="height:28px; font-size:10.5px;">KAMERAYI AÇ</button>
           </div>
 
-          <div class="rounded-viewfinder">
+          <div class="qr-hud-box">
             <video id="qr-video" playsinline muted hidden></video>
-            <div class="scan-frame-corners"></div>
-            <div id="camera-placeholder" style="text-align:center; padding:20px; max-width:300px;">
-              <strong style="display:block; margin-bottom:4px;">QR Kodu Çerçeveye Hizalayın</strong>
-              <span style="font-size:12.5px; color:#B4C4E6;">Kamera ile okutun veya aşağıdaki saha etiketlerinden birine dokunun.</span>
+            <div class="qr-laser-frame"></div>
+            <div id="camera-placeholder" style="text-align:center; padding:18px; max-width:260px;">
+              <strong style="display:block; font-size:13.5px; margin-bottom:4px;">QR Kodu Vizöre Hizalayın</strong>
+              <span style="font-size:11.5px; color:#B4C2DF;">Kamera ile okutun veya aşağıdaki saha kodlarıyla test edin.</span>
             </div>
           </div>
 
-          <form id="manual-qr-form" style="display:flex; gap:8px; margin-top:12px;">
-            <input type="text" class="soft-input" id="manual-qr-input" placeholder="Kod yazın: GATE-1, B-01, MP-04..." style="margin:0; border-radius:999px;">
-            <button type="submit" class="btn-pill-mint" style="flex-shrink:0;">Okut</button>
+          <form id="manual-qr-form" style="display:flex; gap:6px;">
+            <input type="text" class="sharp-input" id="manual-qr-input" placeholder="Kod girin: GATE-1, B-01, MP-04..." style="margin:0;">
+            <button type="submit" class="btn-sq-red" style="height:37px; padding:0 14px; flex-shrink:0;">OKUT</button>
           </form>
 
-          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
-            <button type="button" class="chip-pill" data-quick-qr="GATE-1">⛺ Gate 1 Ana Giriş</button>
-            <button type="button" class="chip-pill" data-quick-qr="B-01">🛡️ B-01 ASELSAN</button>
-            <button type="button" class="chip-pill" data-quick-qr="R-02">💳 R-02 DenizBank</button>
-            <button type="button" class="chip-pill" data-quick-qr="Z-COMM">🎙️ Çim Amfi Köyü</button>
-            <button type="button" class="chip-pill" data-quick-qr="MP-04">📍 Masa MP-04 (05:00)</button>
+          <div class="qr-preset-grid">
+            <button type="button" class="qr-preset-tile" data-quick-qr="GATE-1"><code>GATE-1</code>İncesu Ana Giriş Çadırı</button>
+            <button type="button" class="qr-preset-tile" data-quick-qr="GATE-2"><code>GATE-2</code>Aksu Giriş Çadırı</button>
+            <button type="button" class="qr-preset-tile" data-quick-qr="B-01"><code>B-01 &middot; ASELSAN</code>Stant Check-in &amp; CV</button>
+            <button type="button" class="qr-preset-tile" data-quick-qr="R-02"><code>R-02 &middot; DENİZBANK</code>Stant Check-in &amp; CV</button>
+            <button type="button" class="qr-preset-tile" data-quick-qr="Z-COMM"><code>Z-COMM</code>Çim Amfi Topluluk Köyü</button>
+            <button type="button" class="qr-preset-tile" data-quick-qr="MP-04"><code>MP-04</code>Masa 04 &middot; 05:00 Başlat</button>
           </div>
-        </div>
 
-        <div class="activity-card" style="margin:0;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <strong>Son Check-in Hareketlerim</strong>
-            <a href="./qr-kit.html" style="color:#93C5FD; font-size:12px; font-weight:700; text-decoration:none;">QR Etiket Paketi &rarr;</a>
+          <div class="sec-label-row" style="margin-top:8px;">
+            <span class="sec-kicker" style="color:var(--tedu-navy);">SON HAREKETLERİM</span>
+            <a href="./qr-kit.html" style="font-size:11px; font-weight:800; color:var(--ted-red); text-decoration:none;">YAZDIRILABİLİR QR KİT &rarr;</a>
           </div>
           <div id="scan-history-list"></div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- =====================================================================
-         SCREEN 5: 2-SIDED 3D FLIPPING APPLE-WALLET × COP31 ENTRY PASS
-         ===================================================================== -->
-    <section class="screen-view" data-view="pass" hidden>
-      <div class="wallet-stage">
-        <div style="text-align:center; margin-bottom:18px;">
-          <span style="font-size:11.5px; font-weight:800; letter-spacing:1.2px; color:#93C5FD;">SUMMITTED DIGITAL WALLET</span>
-          <h2 style="margin:4px 0 0; font-family:var(--font-display); font-size:26px;">Giriş &amp; Sinerji Yaka Kartım</h2>
-        </div>
+        <!-- =================================================================
+             TAB 5: KARTIM (2-Sided 3D Flipping TED-TEDÜ Official Pass)
+             ================================================================= -->
+        <section class="mob-screen" data-view="pass" hidden>
+          <div class="pass-flip-scene">
+            <div class="pass-flip-inner" id="wallet-flip-inner">
 
-        <div class="wallet-flip-scene">
-          <div class="wallet-flip-inner" id="wallet-flip-inner">
-            <!-- FRONT OF WALLET PASS -->
-            <div class="wallet-face wallet-front">
-              <div>
-                <div class="wallet-aurora-cap">
-                  <div class="lanyard-slot"></div>
-                  <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <img src="../tedu/assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED" style="height:34px;">
-                    <span style="background:rgba(0,0,0,0.28); padding:4px 10px; border-radius:999px; font-size:11px; font-weight:800;" id="pass-role-ribbon">ÖĞRENCİ PASS</span>
+              <!-- FRONT OF PASS -->
+              <div class="pass-face pass-front">
+                <div>
+                  <div class="pass-lanyard-hole"></div>
+                  <div style="padding:6px 16px 12px; display:flex; justify-content:space-between; align-items:center;">
+                    <img src="../tedu/assets/submitted-logo-ted-white.svg?v=4" alt="SummitTED" style="height:31px;">
+                    <span style="font-family:var(--font-condensed); font-size:11.5px; color:#9FB0D4; letter-spacing:1px;">20–21 EKİM</span>
+                  </div>
+                  <div class="pass-red-band">
+                    <span id="pass-role-ribbon">ÖĞRENCİ / YETENEK</span>
+                    <span>TEDÜ ANKARA</span>
+                  </div>
+
+                  <div style="padding:16px 18px 8px; text-align:center;">
+                    <h2 style="margin:0 0 3px; font-family:var(--font-display); font-size:21px;" id="pass-name">Katılımcı</h2>
+                    <div style="font-size:12px; color:#B6C4E2;" id="pass-org">TED Üniversitesi</div>
+
+                    <div class="pass-qr-holder" id="pass-qr-box" aria-label="Kişisel Eşleşme QR Kodu"></div>
+
+                    <div id="pass-tags" style="display:flex; flex-wrap:wrap; gap:5px; justify-content:center; margin-top:6px;"></div>
                   </div>
                 </div>
 
-                <div style="padding:18px 24px 8px; text-align:center;">
-                  <h3 style="margin:0 0 4px; font-family:var(--font-display); font-size:24px;" id="pass-name">Katılımcı</h3>
-                  <div style="font-size:13px; color:#B4C4E6;" id="pass-org">TED Üniversitesi</div>
-
-                  <div class="wallet-qr-card" id="pass-qr-box" aria-label="Kişisel Eşleşme QR Kodu"></div>
-
-                  <div id="pass-tags" style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:8px;"></div>
+                <div class="pass-tear-foot">
+                  <span style="font-family:var(--font-condensed); font-size:12px; color:#9FB0D4; letter-spacing:0.8px;" id="pass-gate">AKREDİTE: GATE-1</span>
+                  <button type="button" class="btn-sq-red" id="btn-flip-to-edit" style="height:32px; padding:0 12px; font-size:11px;">PROFİLİ DÜZENLE &#8635;</button>
                 </div>
               </div>
 
-              <div class="wallet-perforation">
-                <span style="font-size:12px; color:#B4C4E6;" id="pass-gate">⛺ GATE-1 AKREDİTE</span>
-                <button type="button" class="btn-pill-soft" id="btn-flip-to-edit">✏️ Profili Düzenle &#8635;</button>
+              <!-- BACK OF PASS -->
+              <div class="pass-face pass-back">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line-light);">
+                  <strong style="font-family:var(--font-display); font-size:16px;">Yaka Kartı &amp; Eşleşme Bilgileri</strong>
+                  <button type="button" class="btn-sq-navy" id="btn-flip-to-front" style="height:28px; font-size:10.5px;">&larr; ÖN YÜZ</button>
+                </div>
+
+                <form id="badge-form">
+                  <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:3px;">AD SOYAD</label>
+                  <input type="text" class="sharp-input" id="bf-name" required placeholder="Adınız Soyadınız">
+
+                  <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:3px;">E-POSTA</label>
+                  <input type="email" class="sharp-input" id="bf-email" required placeholder="ad.soyad@tedu.edu.tr">
+
+                  <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:3px;">KATILIM ROLÜ</label>
+                  <select class="sharp-input" id="bf-role">
+                    <option value="student">Öğrenci / Mezun</option>
+                    <option value="company">Şirket Temsilcisi / İK</option>
+                    <option value="startup">Girişim Kurucusu / Yatırımcı</option>
+                    <option value="community">Öğrenci Topluluğu Lideri</option>
+                    <option value="speaker">Konuşmacı / VIP</option>
+                  </select>
+
+                  <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:3px;">KURUM / FAKÜLTE &amp; BÖLÜM</label>
+                  <input type="text" class="sharp-input" id="bf-org" required placeholder="TED Üniversitesi · Ekonomi / Yazılım">
+
+                  <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:3px;">EŞLEŞME ETİKETLERİ</label>
+                  <div class="tag-selector-grid" id="interactive-tag-cloud"></div>
+
+                  <button type="submit" class="btn-sq-red" style="width:100%; height:40px;">KAYDET &amp; KARTA DÖN &rarr;</button>
+                </form>
               </div>
-            </div>
 
-            <!-- BACK OF WALLET PASS (Interactive Tag & Profile Studio) -->
-            <div class="wallet-face wallet-back">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                <strong style="font-family:var(--font-display); font-size:19px;">Kart &amp; Sinerji Ayarları</strong>
-                <button type="button" class="btn-pill-soft" id="btn-flip-to-front">&larr; Kartı Gör</button>
-              </div>
-
-              <form id="badge-form">
-                <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:4px;">AD SOYAD</label>
-                <input type="text" class="soft-input" id="bf-name" required placeholder="Adınız Soyadınız">
-
-                <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:4px;">E-POSTA</label>
-                <input type="email" class="soft-input" id="bf-email" required placeholder="ad.soyad@tedu.edu.tr">
-
-                <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:4px;">ROLÜNÜZ</label>
-                <select class="soft-input" id="bf-role">
-                  <option value="student">🎓 Öğrenci / Mezun</option>
-                  <option value="company">💼 Şirket Temsilcisi / İK</option>
-                  <option value="startup">🚀 Girişim Kurucusu / VC</option>
-                  <option value="community">🎙️ Topluluk Lideri</option>
-                  <option value="speaker">⭐ Konuşmacı / VIP</option>
-                </select>
-
-                <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:4px;">KURUM / BÖLÜM</label>
-                <input type="text" class="soft-input" id="bf-org" required placeholder="TED Üniversitesi · Ekonomi / Yazılım">
-
-                <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:4px;">İLGİ ETİKETLERİ (DOKUNARAK SEÇİN)</label>
-                <div class="selectable-tag-cloud" id="interactive-tag-cloud"></div>
-
-                <button type="submit" class="btn-pill-mint" style="width:100%; padding:12px;">Kaydet &amp; QR Kartımı Yenile &#8635;</button>
-              </form>
             </div>
           </div>
+        </section>
+
+      </main>
+
+      <!-- Fixed 5-Tab Mobile Navigation Bar (Custom Crisp SVG Icons, Zero Emojis) -->
+      <nav class="mob-tabbar" aria-label="Alt Uygulama Menüsü">
+        <button type="button" class="tabbar-btn is-active" data-app-tab="home">
+          <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>
+          <span>Akış</span>
+        </button>
+        <button type="button" class="tabbar-btn" data-app-tab="synergy">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Eşleş</span>
+        </button>
+        <button type="button" class="tabbar-btn is-qr-center" data-app-tab="scan">
+          <svg viewBox="0 0 24 24"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/><rect x="8" y="8" width="8" height="8"/></svg>
+          <span>QR Okut</span>
+        </button>
+        <button type="button" class="tabbar-btn" data-app-tab="meetings">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span id="mob-mp-label">MP (2)</span>
+        </button>
+        <button type="button" class="tabbar-btn" data-app-tab="pass">
+          <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>
+          <span>Kartım</span>
+        </button>
+      </nav>
+
+      <!-- In-Frame Bottom Sheet for Sending 5-Min Request -->
+      <div class="inframe-overlay" id="request-modal" hidden>
+        <div class="inframe-sheet" role="dialog" aria-modal="true" aria-labelledby="req-modal-title">
+          <span class="sec-kicker">5 DAKİKALIK HIZLI EŞLEŞME</span>
+          <h3 id="req-modal-title" style="margin:4px 0 4px; font-family:var(--font-display); font-size:18px;"></h3>
+          <p id="req-modal-sub" style="margin:0 0 12px; font-size:12px; color:var(--ink-muted);"></p>
+
+          <form id="send-req-form">
+            <input type="hidden" id="req-peer-id">
+            <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:4px;">5 DK SAAT DİLİMİ (G BLOK MP)</label>
+            <select class="sharp-input" id="req-slot-select"></select>
+
+            <label style="font-size:10.5px; font-weight:800; color:var(--tedu-navy); display:block; margin-bottom:4px;">KISA TANIŞMA NOTU</label>
+            <textarea class="sharp-input" id="req-note-input" rows="2" placeholder="Ekibiniz ve çalışmalarınız üzerine 5 dk tanışmak isterim."></textarea>
+
+            <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:8px; margin-top:6px;">
+              <button type="button" class="btn-sq-neutral" id="req-cancel-btn" style="height:40px;">VAZGEÇ</button>
+              <button type="submit" class="btn-sq-red" style="height:40px;">İSTEĞİ GÖNDER &rarr;</button>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
 
-  </main>
-
-  <!-- Floating Frosted Pill Bottom Navigation Dock (Mobile/Tablet) -->
-  <nav class="floating-bottom-dock" aria-label="Alt Menü">
-    <button type="button" class="dock-item is-active" data-app-tab="home"><span>✨</span><span>Keşfet</span></button>
-    <button type="button" class="dock-item" data-app-tab="synergy"><span>⚡</span><span>Sinerji</span></button>
-    <button type="button" class="dock-item is-center-qr" data-app-tab="scan"><span>📷</span><span>QR</span></button>
-    <button type="button" class="dock-item" data-app-tab="meetings"><span>📍</span><span id="mob-mp-label">MP (2)</span></button>
-    <button type="button" class="dock-item" data-app-tab="pass"><span>🎫</span><span>Pass'im</span></button>
-  </nav>
-
-  <!-- 1-Tap Slot Picker Sheet (When Connecting) -->
-  <div class="sheet-backdrop" id="request-modal" hidden>
-    <div class="bottom-sheet-card" role="dialog" aria-modal="true" aria-labelledby="req-modal-title">
-      <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#6EE7B7;">⚡ 5 DAKİKALIK SPEED NETWORKING</span>
-      <h3 id="req-modal-title" style="margin:4px 0 4px; font-family:var(--font-display); font-size:22px;"></h3>
-      <p id="req-modal-sub" style="margin:0 0 16px; font-size:13px; color:#B4C4E6;"></p>
-
-      <form id="send-req-form">
-        <input type="hidden" id="req-peer-id">
-        <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:6px;">SAAT DİLİMİ SEÇİN (G BLOK MP)</label>
-        <select class="soft-input" id="req-slot-select"></select>
-
-        <label style="font-size:11px; font-weight:800; color:#93C5FD; display:block; margin-bottom:6px;">KISA TANIŞMA NOTU</label>
-        <textarea class="soft-input" id="req-note-input" rows="2" placeholder="Merhaba! Ekibiniz ve projeleriniz üzerine 5 dk tanışmak isterim."></textarea>
-
-        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
-          <button type="button" class="btn-pill-soft" id="req-cancel-btn">Vazgeç</button>
-          <button type="submit" class="btn-pill-mint">⚡ İsteği Gönder</button>
+      <!-- In-Frame Story Sheet -->
+      <div class="inframe-overlay" id="story-modal" hidden>
+        <div class="inframe-sheet" style="background:var(--navy-deep); color:#FFFFFF;">
+          <div style="height:3px; background:rgba(255,255,255,0.16); margin-bottom:14px; overflow:hidden;">
+            <div style="height:100%; background:var(--ted-red); width:100%;"></div>
+          </div>
+          <div id="story-body"></div>
         </div>
-      </form>
+      </div>
+
+      <!-- In-Frame Toast -->
+      <div class="inframe-toast" id="app-toast" hidden role="status" aria-live="polite"></div>
+
     </div>
   </div>
-
-  <!-- Live Story Lightbox Modal -->
-  <div class="sheet-backdrop" id="story-modal" hidden>
-    <div class="bottom-sheet-card" id="story-card-box" style="background:linear-gradient(160deg,#1F1135,#0B163A);">
-      <div class="story-progress-bar"><div class="story-progress-fill" id="story-prog"></div></div>
-      <div id="story-body"></div>
-    </div>
-  </div>
-
-  <div class="app-toast-pill" id="app-toast" hidden role="status" aria-live="polite"></div>
 
   <script src="../tedu/vendor/qrcode.min.js"></script>
   <script src="../tedu/summitted-core.js"></script>
