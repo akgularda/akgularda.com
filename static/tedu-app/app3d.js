@@ -1,9 +1,7 @@
 /* ==========================================================================
-   SummitTED Web App (/tedu-app) — Three.js Dual WebGL Engine
-   1. Ambient Synergy Field (#app-bg-webgl): Floating 60fps crimson/cobalt nodes
-   2. Interactive 3D G-Blok Slush'D Meeting Point Arena (#mp-arena-webgl):
-      24 numbered 3D meeting pods (MP-01..MP-24), OrbitControls, smooth camera
-      fly-to on match acceptance, and pulsing 3D beacon + energy arc!
+   SummitTED Super-App (/tedu-app) — Three.js Aurora & 3D MP Arena Engine
+   Vibrant Slush'D × COP31 Energy: Luminous floating 3D aurora orbs +
+   interactive 3D G-Blok Meeting Point Pods (MP-01..MP-24).
    ========================================================================== */
 
 import * as THREE from '../tedu/vendor/three.module.js';
@@ -11,77 +9,80 @@ import { OrbitControls } from '../tedu/vendor/OrbitControls.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// ---------------------------------------------------------------------------
-// 1. Full-Screen Ambient Synergy Backdrop
-// ---------------------------------------------------------------------------
+// 1. Vibrant Three.js Floating Energy Orbs & Particles Backdrop
 const bgHost = document.getElementById('app-bg-webgl');
 if (bgHost) {
   try {
-    initAmbientWebGL(bgHost);
-  } catch (e) {
-    console.warn('Ambient WebGL fallback:', e);
+    initVibrantBackdrop(bgHost);
+  } catch (err) {
+    console.warn('Backdrop WebGL fallback:', err);
   }
 }
 
-function initAmbientWebGL(host) {
+function initVibrantBackdrop(host) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   renderer.setClearColor(0x000000, 0);
   host.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 160);
-  camera.position.set(0, 0, 30);
+  const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 120);
+  camera.position.set(0, 0, 26);
 
-  const group = new THREE.Group();
-  scene.add(group);
+  const root = new THREE.Group();
+  scene.add(root);
 
-  const ring1 = new THREE.Mesh(
-    new THREE.TorusGeometry(13, 0.035, 8, 96),
-    new THREE.MeshBasicMaterial({ color: 0xe41513, wireframe: true, transparent: true, opacity: 0.09 })
-  );
-  ring1.rotation.set(1.1, 0.3, 0);
-  group.add(ring1);
+  // Floating translucent 3D icosahedron crystals (Slush kinetic vibe)
+  const shapes = [];
+  const palette = [0xff3b38, 0x3b6eff, 0x00d4b2, 0xff9f1c];
+  for (let i = 0; i < 7; i++) {
+    const geo = i % 2 === 0 ? new THREE.IcosahedronGeometry(1.5 + (i % 3) * 0.65, 1) : new THREE.OctahedronGeometry(1.4 + (i % 2) * 0.7, 0);
+    const mat = new THREE.MeshBasicMaterial({
+      color: palette[i % palette.length],
+      wireframe: true,
+      transparent: true,
+      opacity: 0.16
+    });
+    const m = new THREE.Mesh(geo, mat);
+    m.position.set((i - 3) * 5.2, Math.sin(i * 1.7) * 6.5, -4 - (i % 3) * 3);
+    root.add(m);
+    shapes.push({ mesh: m, rx: 0.12 + i * 0.03, ry: 0.16 - i * 0.02, baseY: m.position.y, phase: i * 1.1 });
+  }
 
-  const ring2 = new THREE.Mesh(
-    new THREE.TorusGeometry(9.5, 0.035, 8, 84),
-    new THREE.MeshBasicMaterial({ color: 0x4870ff, wireframe: true, transparent: true, opacity: 0.08 })
-  );
-  ring2.rotation.set(-0.9, -0.4, 0);
-  group.add(ring2);
-
-  const COUNT = 85;
+  // Luminous bokeh sparkles
+  const COUNT = 70;
   const pos = new Float32Array(COUNT * 3);
   const col = new Float32Array(COUNT * 3);
-  const cR = new THREE.Color('#FF4B48');
-  const cB = new THREE.Color('#5E85FF');
-  let seed = 73;
+  const c1 = new THREE.Color('#FF524F');
+  const c2 = new THREE.Color('#528BFF');
+  const c3 = new THREE.Color('#14F1C6');
+  let seed = 31;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
 
   for (let i = 0; i < COUNT; i++) {
-    pos[i * 3] = (rnd() - 0.5) * 52;
-    pos[i * 3 + 1] = (rnd() - 0.5) * 30;
-    pos[i * 3 + 2] = (rnd() - 0.5) * 18 - 4;
-    const c = i % 4 === 0 ? cR : cB;
+    pos[i * 3] = (rnd() - 0.5) * 46;
+    pos[i * 3 + 1] = (rnd() - 0.5) * 28;
+    pos[i * 3 + 2] = (rnd() - 0.5) * 14 - 3;
+    const c = i % 3 === 0 ? c1 : (i % 3 === 1 ? c2 : c3);
     col[i * 3] = c.r;
     col[i * 3 + 1] = c.g;
     col[i * 3 + 2] = c.b;
   }
 
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  const pts = new THREE.Points(
-    geo,
-    new THREE.PointsMaterial({ size: 0.22, vertexColors: true, transparent: true, opacity: 0.72, blending: THREE.AdditiveBlending })
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  pGeo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const sparks = new THREE.Points(
+    pGeo,
+    new THREE.PointsMaterial({ size: 0.26, vertexColors: true, transparent: true, opacity: 0.78, blending: THREE.AdditiveBlending })
   );
-  group.add(pts);
+  root.add(sparks);
 
-  let mx = 0;
-  let my = 0;
+  let tx = 0;
+  let ty = 0;
   window.addEventListener('pointermove', (e) => {
-    mx = (e.clientX / Math.max(window.innerWidth, 1) - 0.5) * 1.8;
-    my = -(e.clientY / Math.max(window.innerHeight, 1) - 0.5) * 1.2;
+    tx = (e.clientX / Math.max(window.innerWidth, 1) - 0.5) * 1.8;
+    ty = -(e.clientY / Math.max(window.innerHeight, 1) - 0.5) * 1.4;
   }, { passive: true });
 
   function resize() {
@@ -94,244 +95,212 @@ function initAmbientWebGL(host) {
   window.addEventListener('resize', resize);
   resize();
 
-  function frame(t) {
-    requestAnimationFrame(frame);
+  function animate(now) {
+    requestAnimationFrame(animate);
     if (document.hidden) return;
-    const s = t * 0.001;
+    const s = now * 0.001;
     if (!reducedMotion.matches) {
-      ring1.rotation.z = s * 0.09;
-      ring2.rotation.z = -s * 0.12;
-      pts.rotation.y = s * 0.03;
+      shapes.forEach((item) => {
+        item.mesh.rotation.x = s * item.rx;
+        item.mesh.rotation.y = s * item.ry;
+        item.mesh.position.y = item.baseY + Math.sin(s * 0.9 + item.phase) * 0.9;
+      });
+      sparks.rotation.y = s * 0.035;
     }
-    group.rotation.y += (mx * 0.1 - group.rotation.y) * 0.04;
-    group.rotation.x += (my * 0.08 - group.rotation.x) * 0.04;
+    root.rotation.y += (tx * 0.12 - root.rotation.y) * 0.05;
+    root.rotation.x += (ty * 0.09 - root.rotation.x) * 0.05;
     renderer.render(scene, camera);
   }
-  requestAnimationFrame(frame);
+  requestAnimationFrame(animate);
 }
 
-// ---------------------------------------------------------------------------
-// 2. Interactive 3D Slush'D Meeting Point Arena (MP-01 .. MP-24)
-// ---------------------------------------------------------------------------
+// 2. Interactive 3D G-Blok Slush'D Meeting Point Arena (MP-01 .. MP-24)
 const arenaHost = document.getElementById('mp-arena-webgl');
 if (arenaHost) {
   try {
     initMPArena3D(arenaHost);
-  } catch (e) {
-    console.warn('3D MP Arena fallback:', e);
+  } catch (err) {
+    console.warn('MP Arena WebGL fallback:', err);
   }
 }
 
 function initMPArena3D(host) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.65));
-  renderer.setClearColor(0x050917, 1);
+  renderer.setClearColor(0x091332, 1);
   host.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x050917, 0.018);
+  scene.fog = new THREE.FogExp2(0x091332, 0.016);
 
-  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 160);
-  camera.position.set(0, 18, 25);
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 150);
+  camera.position.set(0, 17, 24);
 
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
   controls.enablePan = false;
-  controls.minDistance = 9;
-  controls.maxDistance = 42;
+  controls.minDistance = 8;
+  controls.maxDistance = 40;
   controls.maxPolarAngle = Math.PI / 2.15;
 
-  scene.add(new THREE.AmbientLight(0xdce6ff, 1.4));
+  scene.add(new THREE.AmbientLight(0xeef4ff, 1.6));
   const dir = new THREE.DirectionalLight(0xffffff, 2.2);
-  dir.position.set(12, 24, 14);
+  dir.position.set(10, 22, 14);
   scene.add(dir);
 
-  const redPoint = new THREE.PointLight(0xe41513, 4.5, 22);
-  redPoint.position.set(0, 4, 0);
-  scene.add(redPoint);
+  const spotGlow = new THREE.PointLight(0xff3b38, 5, 20);
+  spotGlow.position.set(0, 4, 0);
+  scene.add(spotGlow);
 
-  // Architectural Grid Floor
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(46, 28),
-    new THREE.MeshStandardMaterial({ color: 0x09122c, roughness: 0.7, metalness: 0.25 })
+    new THREE.MeshStandardMaterial({ color: 0x0c1940, roughness: 0.65, metalness: 0.2 })
   );
   floor.rotation.x = -Math.PI / 2;
   scene.add(floor);
 
-  const grid = new THREE.GridHelper(44, 22, 0xe41513, 0x1c2f66);
+  const grid = new THREE.GridHelper(44, 22, 0x00d4b2, 0x233b7c);
   grid.position.y = 0.02;
   grid.material.transparent = true;
-  grid.material.opacity = 0.45;
+  grid.material.opacity = 0.42;
   scene.add(grid);
 
-  function labelTexture(code, isCorp) {
+  function pillBadgeTexture(code, isCorp) {
     const c = document.createElement('canvas');
     c.width = 256;
     c.height = 96;
     const ctx = c.getContext('2d');
-    ctx.fillStyle = isCorp ? '#1D3587' : '#0B1330';
-    ctx.fillRect(0, 0, 256, 96);
-    ctx.fillStyle = isCorp ? '#4870FF' : '#E41513';
-    ctx.fillRect(0, 0, 256, 12);
+    ctx.fillStyle = isCorp ? '#2454FF' : '#E41513';
+    ctx.beginPath();
+    ctx.roundRect(8, 12, 240, 72, 36);
+    ctx.fill();
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = '800 44px Arial';
+    ctx.font = '800 42px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText(code, 128, 66);
+    ctx.fillText(code, 128, 63);
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
     return tex;
   }
 
   const pods = new Map();
-  const clickTargets = [];
+  const clickables = [];
 
-  // Build 24 Numbered Meeting Point Pods (4 rows x 6 cols)
   for (let i = 0; i < 24; i++) {
     const code = `MP-${String(i + 1).padStart(2, '0')}`;
     const col = i % 6;
     const row = Math.floor(i / 6);
-    const x = (col - 2.5) * 5.6 + (col >= 4 ? 1.4 : 0);
-    const z = (row - 1.5) * 4.6;
+    const x = (col - 2.5) * 5.5 + (col >= 4 ? 1.3 : 0);
+    const z = (row - 1.5) * 4.5;
     const isCorp = i >= 16;
 
-    const podGroup = new THREE.Group();
-    podGroup.position.set(x, 0, z);
-    podGroup.userData.mpCode = code;
+    const g = new THREE.Group();
+    g.position.set(x, 0, z);
 
-    const baseRing = new THREE.Mesh(
-      new THREE.RingGeometry(1.15, 1.38, 32),
-      new THREE.MeshBasicMaterial({ color: isCorp ? 0x4870ff : 0x2a3f7a, side: THREE.DoubleSide })
+    const ring = new THREE.Mesh(
+      new THREE.RingGeometry(1.12, 1.38, 36),
+      new THREE.MeshBasicMaterial({ color: isCorp ? 0x3b82f6 : 0x00d4b2, side: THREE.DoubleSide })
     );
-    baseRing.rotation.x = -Math.PI / 2;
-    baseRing.position.y = 0.04;
-    podGroup.add(baseRing);
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.y = 0.04;
+    g.add(ring);
 
-    const tableTop = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.95, 0.95, 0.14, 24),
-      new THREE.MeshStandardMaterial({ color: 0x162454, metalness: 0.4, roughness: 0.35 })
+    const top = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.95, 0.95, 0.16, 28),
+      new THREE.MeshStandardMaterial({ color: 0x1a2d66, metalness: 0.35, roughness: 0.3 })
     );
-    tableTop.position.y = 1.05;
-    tableTop.userData.mpCode = code;
-    podGroup.add(tableTop);
-    clickTargets.push(tableTop);
+    top.position.y = 1.05;
+    top.userData.mpCode = code;
+    g.add(top);
+    clickables.push(top);
 
     const stem = new THREE.Mesh(
       new THREE.CylinderGeometry(0.1, 0.14, 1.0, 12),
-      new THREE.MeshStandardMaterial({ color: 0x9fb0d4, metalness: 0.7, roughness: 0.3 })
+      new THREE.MeshStandardMaterial({ color: 0xcbd5e1, metalness: 0.7, roughness: 0.25 })
     );
     stem.position.y = 0.52;
-    podGroup.add(stem);
+    g.add(stem);
 
-    // Two sleek chairs/stools facing each other across the table
-    for (const side of [-1.25, 1.25]) {
-      const seat = new THREE.Mesh(
-        new THREE.BoxGeometry(0.52, 0.65, 0.52),
-        new THREE.MeshStandardMaterial({ color: 0x1e2e63, roughness: 0.5 })
-      );
-      seat.position.set(side, 0.34, 0);
-      podGroup.add(seat);
-    }
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: pillBadgeTexture(code, isCorp), depthTest: false }));
+    sp.position.set(0, 2.15, 0);
+    sp.scale.set(2.25, 0.84, 1);
+    g.add(sp);
 
-    const sprite = new THREE.Sprite(
-      new THREE.SpriteMaterial({ map: labelTexture(code, isCorp), depthTest: false })
-    );
-    sprite.position.set(0, 2.15, 0);
-    sprite.scale.set(2.3, 0.86, 1);
-    podGroup.add(sprite);
-
-    scene.add(podGroup);
-    pods.set(code, { group: podGroup, baseRing, tableTop, x, z });
+    scene.add(g);
+    pods.set(code, { ring, top, x, z, isCorp });
   }
 
-  // Pulsing Vertical Crimson Beacon + Energy Arc for Focused MP Table
-  const beaconBeam = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.08, 0.85, 6.5, 24, 1, true),
-    new THREE.MeshBasicMaterial({ color: 0xe41513, transparent: true, opacity: 0.28, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })
+  const beacon = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.9, 6.2, 24, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xff3b38, transparent: true, opacity: 0.32, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })
   );
-  beaconBeam.position.set(0, 3.25, 0);
-  scene.add(beaconBeam);
+  beacon.position.set(0, 3.1, 0);
+  scene.add(beacon);
 
-  const pulseHalo = new THREE.Mesh(
-    new THREE.RingGeometry(1.4, 1.85, 48),
-    new THREE.MeshBasicMaterial({ color: 0xff4b48, transparent: true, opacity: 0.85, side: THREE.DoubleSide })
+  const halo = new THREE.Mesh(
+    new THREE.RingGeometry(1.42, 1.9, 48),
+    new THREE.MeshBasicMaterial({ color: 0xff524f, transparent: true, opacity: 0.9, side: THREE.DoubleSide })
   );
-  pulseHalo.rotation.x = -Math.PI / 2;
-  pulseHalo.position.y = 0.06;
-  scene.add(pulseHalo);
+  halo.rotation.x = -Math.PI / 2;
+  halo.position.y = 0.06;
+  scene.add(halo);
 
-  let flyTransition = null;
-  let focusedCode = 'MP-04';
-
+  let fly = null;
   function focusTable(code, animateCam = true) {
     const pod = pods.get(code) || pods.get('MP-04');
     if (!pod) return;
-    focusedCode = code;
-
     pods.forEach((p, k) => {
-      const isSelected = k === code;
-      p.baseRing.material.color.setHex(isSelected ? 0xe41513 : (parseInt(k.slice(3), 10) > 16 ? 0x4870ff : 0x2a3f7a));
-      p.tableTop.material.color.setHex(isSelected ? 0xb80d0b : 0x162454);
+      const sel = k === code;
+      p.ring.material.color.setHex(sel ? 0xff3b38 : (p.isCorp ? 0x3b82f6 : 0x00d4b2));
+      p.top.material.color.setHex(sel ? 0xe41513 : 0x1a2d66);
     });
-
-    beaconBeam.position.set(pod.x, 3.25, pod.z);
-    pulseHalo.position.set(pod.x, 0.06, pod.z);
-    redPoint.position.set(pod.x, 3.5, pod.z);
+    beacon.position.set(pod.x, 3.1, pod.z);
+    halo.position.set(pod.x, 0.06, pod.z);
+    spotGlow.position.set(pod.x, 3.5, pod.z);
 
     const target = new THREE.Vector3(pod.x, 0.8, pod.z);
-    const dest = new THREE.Vector3(pod.x + 5.5, 8.2, pod.z + 9.5);
+    const dest = new THREE.Vector3(pod.x + 5.2, 7.8, pod.z + 9.2);
     if (animateCam && !reducedMotion.matches) {
-      flyTransition = {
-        fromPos: camera.position.clone(),
-        toPos: dest,
-        fromTarget: controls.target.clone(),
-        toTarget: target,
-        start: performance.now()
-      };
+      fly = { fromP: camera.position.clone(), toP: dest, fromT: controls.target.clone(), toT: target, start: performance.now() };
     } else {
       camera.position.copy(dest);
       controls.target.copy(target);
       controls.update();
     }
-
-    const badgeEl = document.getElementById('arena-focused-label');
-    if (badgeEl) badgeEl.textContent = `ODAKLANAN MASA: ${code}`;
+    const lbl = document.getElementById('arena-focused-label');
+    if (lbl) lbl.textContent = `📍 ${code} Seçili`;
   }
-
   focusTable('MP-04', false);
 
   document.addEventListener('summitted-focus-mp', (ev) => {
-    const mp = ev.detail?.tableId;
-    if (mp) focusTable(mp, true);
+    if (ev.detail?.tableId) focusTable(ev.detail.tableId, true);
   });
 
-  const resetArenaBtn = document.getElementById('btn-arena-overview');
-  if (resetArenaBtn) {
-    resetArenaBtn.addEventListener('click', () => {
-      flyTransition = {
-        fromPos: camera.position.clone(),
-        toPos: new THREE.Vector3(0, 18, 25),
-        fromTarget: controls.target.clone(),
-        toTarget: new THREE.Vector3(0, 0, 0),
+  const resetBtn = document.getElementById('btn-arena-overview');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      fly = {
+        fromP: camera.position.clone(),
+        toP: new THREE.Vector3(0, 17, 24),
+        fromT: controls.target.clone(),
+        toT: new THREE.Vector3(0, 0, 0),
         start: performance.now()
       };
     });
   }
 
-  // Click any 3D table pod directly
   const raycaster = new THREE.Raycaster();
   const ptr = new THREE.Vector2();
-  let downAt = null;
-  renderer.domElement.addEventListener('pointerdown', (e) => { downAt = { x: e.clientX, y: e.clientY }; });
+  let down = null;
+  renderer.domElement.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY }; });
   renderer.domElement.addEventListener('pointerup', (e) => {
-    if (!downAt || Math.hypot(downAt.x - e.clientX, downAt.y - e.clientY) > 6) return;
+    if (!down || Math.hypot(down.x - e.clientX, down.y - e.clientY) > 6) return;
     const r = renderer.domElement.getBoundingClientRect();
     ptr.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     raycaster.setFromCamera(ptr, camera);
-    const hit = raycaster.intersectObjects(clickTargets, false)[0];
-    if (hit?.object?.userData?.mpCode) {
-      focusTable(hit.object.userData.mpCode, true);
-    }
+    const hit = raycaster.intersectObjects(clickables, false)[0];
+    if (hit?.object?.userData?.mpCode) focusTable(hit.object.userData.mpCode, true);
   });
 
   function resize() {
@@ -345,26 +314,21 @@ function initMPArena3D(host) {
   new ResizeObserver(resize).observe(host);
   resize();
 
-  function renderLoop(now) {
-    requestAnimationFrame(renderLoop);
+  function tick(now) {
+    requestAnimationFrame(tick);
     if (document.hidden || host.offsetParent === null) return;
-
-    if (flyTransition) {
-      const p = Math.min(1, (now - flyTransition.start) / 720);
+    if (fly) {
+      const p = Math.min(1, (now - fly.start) / 680);
       const ease = 1 - Math.pow(1 - p, 3);
-      camera.position.lerpVectors(flyTransition.fromPos, flyTransition.toPos, ease);
-      controls.target.lerpVectors(flyTransition.fromTarget, flyTransition.toTarget, ease);
-      if (p >= 1) flyTransition = null;
+      camera.position.lerpVectors(fly.fromP, fly.toP, ease);
+      controls.target.lerpVectors(fly.fromT, fly.toT, ease);
+      if (p >= 1) fly = null;
     }
     controls.update();
-
-    const s = now * 0.003;
-    const scale = 1 + Math.sin(s) * 0.14;
-    pulseHalo.scale.set(scale, scale, 1);
-    pulseHalo.material.opacity = 0.65 + Math.sin(s) * 0.25;
-    beaconBeam.rotation.y = s * 0.25;
-
+    const s = now * 0.0035;
+    const sc = 1 + Math.sin(s) * 0.14;
+    halo.scale.set(sc, sc, 1);
     renderer.render(scene, camera);
   }
-  requestAnimationFrame(renderLoop);
+  requestAnimationFrame(tick);
 }
