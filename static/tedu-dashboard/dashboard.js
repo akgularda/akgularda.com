@@ -124,7 +124,7 @@
     if (ticker) {
       const livePart = snap.liveSessions.map((l) => `ŞU AN SAHNEDE: ${l.title} → ${l.stageLabel}`).join(' · ');
       const soonPart = snap.upcomingSoonSessions.map((u) => `${u.minsUntil} DK İÇİNDE → ${u.title} (${u.stageLabel})`).join(' · ');
-      const mpPart = `G BLOK GÖRÜŞME ALANI: ${snap.occupiedTablesCount}/24 Meeting Point Aktif`;
+      const mpPart = `FUAYE MEETING POINT: ${snap.occupiedTablesCount}/24 Masa Aktif`;
       ticker.textContent = [livePart, soonPart, mpPart].filter(Boolean).join('   |   ');
     }
   }

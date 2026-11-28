@@ -7,41 +7,41 @@
 (function (global) {
   'use strict';
 
-  const STORAGE_KEY = 'summitted_2026_state_v4';
-  const BADGE_KEY = 'summitted_2026_badge_v4';
-  const CHANNEL_NAME = 'summitted_2026_channel_v4';
+  const STORAGE_KEY = 'summitted_2026_state_v5';
+  const BADGE_KEY = 'summitted_2026_badge_v5';
+  const CHANNEL_NAME = 'summitted_2026_channel_v5';
 
   const GATES = [
     {
       id: 'gate-1',
       code: 'GATE-1',
-      name: 'Gate 1 · Ziya Gökalp Ana Giriş Çadırı',
-      shortName: 'Gate 1 · İncesu Ana Kapı',
+      name: 'Gate 1 · Ziya Gökalp Ana Giriş & Hoşgeldiniz Atriyumu',
+      shortName: 'Gate 1 · Ana Giriş',
       campus: 'incesu',
-      location: 'Ziya Gökalp Cad. No:48 · İncesu Ana Giriş Kanopisi',
-      role: 'Ana Akreditasyon, SummitTED Yaka Kartı Teslimi & Turnike Geçişi',
+      location: 'Ziya Gökalp Cad. No:48 · Ana Giriş Çadırı & Döner Kapı Atriyumu',
+      role: 'Ana Akreditasyon, SummitTED Yaka Kartı Teslimi ve Fuaye Meeting Point Doğrudan Erişimi',
       qrCode: 'SUMMITTED://GATE/gate-1',
       baseCheckedIn: 342
     },
     {
       id: 'gate-2',
       code: 'GATE-2',
-      name: 'Gate 2 · Aksu Hızlı Check-in Çadırı',
-      shortName: 'Gate 2 · Aksu / Metro',
+      name: 'Gate 2 · Yeni Kısım & Kolej Metrosu Giriş Çadırı',
+      shortName: 'Gate 2 · Yeni Kısım',
       campus: 'aksu',
-      location: 'Kolej Metrosu Çıkışı · Aksu Yaya Girişi Kanopisi',
-      role: 'Hızlı QR Turnike Doğrulaması, Kampüs Geçiş & Yönlendirme Noktası',
+      location: 'Kolej Metrosu Çıkışı · Yeni Kısım Bahçe & Çim Amfi Girişi',
+      role: 'Hızlı QR Turnike Doğrulaması, Çim Amfi, Blue Zone ve İstasyon TEDÜ Yönlendirmesi',
       qrCode: 'SUMMITTED://GATE/gate-2',
       baseCheckedIn: 218
     },
     {
       id: 'gate-3',
       code: 'GATE-3',
-      name: 'Gate 3 · Kurumsal & VIP Karşılama Çadırı',
+      name: 'Gate 3 · Kurumsal & Konuşmacı Karşılama Çadırı',
       shortName: 'Gate 3 · K Blok VIP',
       campus: 'incesu',
-      location: 'K Blok Doğu Protokol Kapısı · Kültür Merkezi Önü',
-      role: 'Şirket İK Heyetleri, Üst Düzey Konuşmacılar & Basın Akreditasyonu',
+      location: 'K Blok / Ahmet Ersan Salonu Doğu Protokol Kapısı',
+      role: 'Şirket İK Heyetleri, Üst Düzey Konuşmacılar ve Basın Akreditasyonu',
       qrCode: 'SUMMITTED://GATE/gate-3',
       baseCheckedIn: 86
     }
@@ -123,15 +123,15 @@
       code: 'Z-COMM',
       name: 'Topluluklar Köyü · Çim Amfi',
       shortName: 'Topluluklar Köyü',
-      campus: 'incesu',
-      building: 'İncesu Çim Amfi & Yarım Daire Yürüyüş Aksı Çadırları',
+      campus: 'aksu',
+      building: 'Yeni Kısım Çim Amfi Kademeli Terasları & Taş Avlu',
       category: 'community',
       categoryLabel: 'Topluluk Çadırları',
       accent: '#D92D20',
       capacity: 200,
       baseCount: 148,
       qrCode: 'SUMMITTED://ZONE/communities',
-      summary: 'TEDÜ öğrenci topluluklarının modüler çadırları, proje sergileri, mini vaka yarışmaları ve RadioTEDU canlı yayın merkezi.',
+      summary: 'Kademeli traverten ve çim teraslardan oluşan Çim Amfi çevresinde TEDÜ öğrenci toplulukları çadırları, proje sergileri ve RadioTEDU canlı yayın merkezi.',
       map2d: { x: 545, y: 215, w: 190, h: 112 },
       stands: [
         { id: 'kariyer-onculeri', code: 'T-01', name: 'TEDÜ Kariyer Öncüleri', sector: 'Ev Sahibi Topluluk', capacity: 28, baseCount: 24, focus: 'CV Kliniği & Zirve Koordinasyon' },
@@ -167,27 +167,27 @@
     {
       id: 'matchmaking',
       code: 'Z-MP',
-      name: 'G Blok Eşleşme Alanı (MP-01..24)',
-      shortName: 'Meeting Points · G Blok',
-      campus: 'aksu',
-      building: 'G Blok Zemin Salon · Numaralı Görüşme Alanı',
+      name: 'Fuaye · Meeting Point (MP-01..24)',
+      shortName: 'Fuaye · Meeting Point',
+      campus: 'incesu',
+      building: 'Ana Giriş Atriyumu & K Blok Fuaye Galerisi',
       category: 'matchmaking',
-      categoryLabel: 'Meeting Points (5 Dk)',
+      categoryLabel: 'Meeting Point (5 Dk)',
       accent: '#E41513',
-      capacity: 120,
-      baseCount: 84,
+      capacity: 140,
+      baseCount: 92,
       qrCode: 'SUMMITTED://ZONE/matchmaking',
-      summary: 'Numaralandırılmış MP-01..MP-16 (5 dk hızlı eşleşme) ve MP-17..MP-24 (15 dk bire bir kurumsal mülakat) masaları.',
-      map2d: { x: 115, y: 112, w: 225, h: 86 },
+      summary: 'Ziya Gökalp ana girişi ve Orta Bahçe aksındaki Fuaye galerisinde yer alan MP-01..MP-16 (5 dk hızlı eşleşme) ve MP-17..MP-24 (15 dk bire bir kurumsal mülakat) masaları.',
+      map2d: { x: 525, y: 185, w: 185, h: 96 },
       stands: []
     },
     {
       id: 'plenary',
       code: 'Z-PLEN',
       name: 'Ana Sahne · Ahmet Ersan Salonu',
-      shortName: 'Ana Sahne · K Blok',
+      shortName: 'Ana Sahne · B/K Blok',
       campus: 'incesu',
-      building: 'K Blok · Ahmet Ersan Konferans Salonu',
+      building: 'Ahmet Ersan Konferans Salonu (B / K Blok Güneydoğu)',
       category: 'stage',
       categoryLabel: 'Konferans Sahnesi',
       accent: '#1E293B',
@@ -201,10 +201,10 @@
     {
       id: 'tech',
       code: 'Z-TECH',
-      name: 'Tech & Innovation Stage',
-      shortName: 'Tech&Innovation · D Blok',
+      name: 'Tech & Innovation · D Blok & Çok Amaçlı Salon',
+      shortName: 'Tech & Innovation · D Blok',
       campus: 'aksu',
-      building: 'D Blok Konferans Amfisi',
+      building: 'D Blok Konferans Amfisi & Çok Amaçlı Salon',
       category: 'stage',
       categoryLabel: 'Konferans Sahnesi',
       accent: '#1D4ED8',
@@ -221,7 +221,7 @@
       name: 'Teacher+ & Eğitim İnovasyonu',
       shortName: 'Teacher+ · A/B Blok',
       campus: 'incesu',
-      building: 'A / B Blok Konferans Salonu',
+      building: 'A / B Blok Revaklı Akademik Kanat & Amfiler',
       category: 'stage',
       categoryLabel: 'Konferans Sahnesi',
       accent: '#292E6F',
@@ -235,17 +235,17 @@
     {
       id: 'plaza',
       code: 'Z-PLAZA',
-      name: 'Networking Plaza & İkram Çadırları',
-      shortName: 'Networking Plaza',
+      name: 'Orta Bahçe & Yeni Kısım Sosyal Avluları',
+      shortName: 'Orta Bahçe & Avlular',
       campus: 'aksu',
-      building: 'Aksu Merkez Avlu (C / F Blok Önü Pergola)',
+      building: 'Orta Bahçe Yükseltilmiş Çim Alan, Coffee Break & Yeni Kısım Taş Avlu',
       category: 'lounge',
       categoryLabel: 'İkram & Sosyal',
       accent: '#475569',
-      capacity: 220,
-      baseCount: 136,
+      capacity: 240,
+      baseCount: 142,
       qrCode: 'SUMMITTED://ZONE/plaza',
-      summary: 'Kahve ve ikram çadırları, bistro tipi hızlı tanışma masaları ve oturum arası açık hava dinlenme alanı.',
+      summary: 'Orta Bahçe yükseltilmiş çim alanı, Coffee Break revak altı ve Yeni Kısım ahşap banklı taş avlusunda açık hava networking ve ikram noktaları.',
       map2d: { x: 152, y: 228, w: 82, h: 182 },
       stands: []
     }
@@ -387,7 +387,7 @@
     return {
       id: `MP-${num}`,
       code: `MP-${num}`,
-      wing: isCorporate1to1 ? 'G Blok Doğu · 1:1 Kurumsal Kabin' : 'G Blok Batı · 5 Dk Speed Masa',
+      wing: isCorporate1to1 ? 'K Blok Fuaye Doğu · 15 Dk 1:1 Mülakat' : 'Fuaye Ana Galeri · 5 Dk Meeting Point',
       mode: isCorporate1to1 ? '15 Dk Mülakat' : '5 Dk Eşleşme',
       qrCode: `SUMMITTED://MP/MP-${num}`
     };
@@ -607,7 +607,7 @@
         durationMin: 5,
         status: 'pending',
         tableId: null,
-        note: 'Profilinizdeki Yapay Zeka etiketi dikkatimi çekti; D Blok söyleşisi sonrası G Blok\'ta 5 dk tanışalım mı?',
+        note: 'Profilinizdeki Yapay Zeka etiketi dikkatimi çekti; D Blok söyleşisi sonrası Fuaye Meeting Point\'te 5 dk tanışalım mı?',
         createdAt: Date.now() - 420000
       },
       {
@@ -647,11 +647,11 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (parsed && parsed.version === 4) return parsed;
+        if (parsed && parsed.version === 5) return parsed;
       }
     } catch (_) {}
     const initial = {
-      version: 4,
+      version: 5,
       gateCheckins: { 'gate-1': 0, 'gate-2': 0, 'gate-3': 0 },
       zoneDeltas: {},
       standDeltas: {},

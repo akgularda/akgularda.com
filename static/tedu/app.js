@@ -11,7 +11,7 @@
   const Core = window.SummitTEDCore;
   if (!Core) return;
 
-  let selectedKey = 'red';
+  let selectedKey = 'matchmaking';
   let currentFilter = 'all';
   let currentMapMode = '3d';
 
@@ -109,7 +109,7 @@
       <div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <span style="font-size:11px; font-weight:800; letter-spacing:1px; color:#34D399;">OTOMATİK MASA TAHSİS SİSTEMİ</span>
-          <span style="font-size:11.5px; color:#9FB0D4;">G Blok Eşleşme Alanı</span>
+          <span style="font-size:11.5px; color:#9FB0D4;">Fuaye · Meeting Point</span>
         </div>
         <div class="mirror-card-mock" style="border-left:3px solid #10B981;">
           <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
@@ -118,7 +118,7 @@
           </div>
           <p style="margin:0 0 12px; font-size:12.5px; color:#B9C7E6;">Yapay zeka ve veri füzyonu mimarisi üzerine 5 dakikalık tanışma oturumu.</p>
           <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.35); padding:10px 12px;">
-            <span style="font-family:var(--font-condensed); font-size:15px; font-weight:700; letter-spacing:0.8px;">ATANAN MASA: <strong style="color:#FF6E6C;">MP-07 (G BLOK BATI)</strong></span>
+            <span style="font-family:var(--font-condensed); font-size:15px; font-weight:700; letter-spacing:0.8px;">ATANAN MASA: <strong style="color:#FF6E6C;">MP-07 (FUAYE GALERİSİ)</strong></span>
             <span style="font-family:var(--font-condensed); font-size:18px; font-weight:700; background:#E41513; padding:2px 9px;">05:00</span>
           </div>
         </div>
@@ -129,8 +129,8 @@
         </div>
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); font-size:12px; color:#9FB0D4;">
-        <span>3D Arena kamerası onaylanan masanıza odaklanır</span>
-        <a href="../tedu-app/?tab=meetings" style="color:#FFFFFF; font-weight:700; text-decoration:none;">3D Arenayı Aç &rarr;</a>
+        <span>3D Fuaye haritası onaylanan masanıza odaklanır</span>
+        <a href="../tedu-app/?tab=meetings" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Meeting Point'i Aç &rarr;</a>
       </div>
     `,
     badge: `
@@ -168,23 +168,25 @@
     });
   }
 
-  // 4. Clean Master Plan Blueprint & Inspector (Architectural Capacities — Zero Fake Live %)
+  // 4. TEDU360-Grounded 2D Master Plan Blueprint & Inspector
   const BLUEPRINT_NODES = [
-    { key: 'gate-2', cat: 'gates', x: 360, y: 236, w: 62, h: 56, code: 'GATE-2', title: 'Aksu Çadırı', sub: 'Metro Girişi', fill: '#292E6F' },
-    { key: 'gate-1', cat: 'gates', x: 478, y: 236, w: 62, h: 56, code: 'GATE-1', title: 'Ana Giriş', sub: 'İncesu Çadırı', fill: '#E41513' },
+    { key: 'gate-2', cat: 'gates', x: 356, y: 236, w: 66, h: 56, code: 'GATE-2', title: 'Yeni Kısım', sub: 'Metro Girişi', fill: '#292E6F' },
+    { key: 'gate-1', cat: 'gates', x: 478, y: 236, w: 66, h: 56, code: 'GATE-1', title: 'Ana Giriş', sub: 'Hoşgeldiniz', fill: '#E41513' },
     { key: 'gate-3', cat: 'gates', x: 850, y: 88, w: 74, h: 48, code: 'GATE-3', title: 'VIP Çadırı', sub: 'K Blok Doğu', fill: '#0B1330' },
 
-    { key: 'matchmaking', cat: 'matchmaking', x: 40, y: 92, w: 212, h: 86, code: 'MP-01..24', title: 'G Blok · Eşleşme Alanı', sub: '5 Dk Eşleşme & 1:1 Mülakat', fill: '#E41513' },
-    { key: 'tech', cat: 'stage', x: 40, y: 194, w: 102, h: 224, code: 'D BLOK', title: 'Tech&Innovation', sub: 'Konferans Amfisi', fill: '#1D4ED8' },
-    { key: 'plaza', cat: 'lounge', x: 154, y: 194, w: 98, h: 130, code: 'AVLU', title: 'Networking Plaza', sub: 'İkram Çadırları', fill: '#475569' },
-    { key: 'innovation', cat: 'innovation', x: 264, y: 92, w: 138, h: 126, code: 'İSTASYON', title: 'Innovation Alley', sub: 'Startup & 5 Dk Pitch', fill: '#0284C7' },
-    { key: 'blue', cat: 'company', x: 154, y: 336, w: 248, h: 82, code: 'E BLOK', title: 'Blue Zone · Spor Merkezi', sub: 'ASELSAN · TUSAŞ · MİLSOFT · ROKETSAN', fill: '#292E6F' },
+    // Yeni Kısım & Aksu Wing (West)
+    { key: 'tech', cat: 'stage', x: 40, y: 92, w: 102, h: 210, code: 'D BLOK', title: 'Tech&Innovation', sub: 'Amfi & Çok Amaçlı', fill: '#1D4ED8' },
+    { key: 'blue', cat: 'company', x: 154, y: 92, w: 252, h: 102, code: 'E BLOK', title: 'Blue Zone · Spor Mrk.', sub: 'ASELSAN · TUSAŞ · MİLSOFT · ROKETSAN', fill: '#292E6F' },
+    { key: 'innovation', cat: 'innovation', x: 154, y: 206, w: 190, h: 96, code: 'İSTASYON', title: 'Innovation Alley', sub: 'Startup & 5 Dk Pitch', fill: '#0284C7' },
+    { key: 'communities', cat: 'community', x: 40, y: 314, w: 366, h: 104, code: 'ÇİM AMFİ', title: 'Topluluklar Köyü · Kademeli Çim Amfi', sub: '8 Öğrenci Topluluğu Çadırı & RadioTEDU Canlı Yayın', fill: '#D92D20' },
 
-    { key: 'promenade', cat: 'company', x: 548, y: 92, w: 205, h: 74, code: 'BULVAR', title: 'İncesu Kurumsal Çadırları', sub: 'BBVA Tech · Turkcell AI · HAVELSAN', fill: '#B91C1C' },
-    { key: 'plenary', cat: 'stage', x: 766, y: 146, w: 158, h: 98, code: 'K BLOK', title: 'Ana Sahne', sub: 'Ahmet Ersan Salonu', fill: '#1E293B' },
-    { key: 'communities', cat: 'community', x: 548, y: 180, w: 205, h: 148, code: 'ÇİM AMFİ', title: 'Topluluklar Köyü', sub: '8 Topluluk Çadırı & RadioTEDU', fill: '#D92D20' },
-    { key: 'red', cat: 'company', x: 766, y: 256, w: 158, h: 162, code: 'K FUAYE', title: 'Red Zone Fuaye', sub: 'Akfen · DenizBank · EY · KPMG', fill: '#E41513' },
-    { key: 'teacher-plus', cat: 'stage', x: 492, y: 342, w: 260, h: 76, code: 'A / B BLOK', title: 'Teacher+ Forumu', sub: 'Eğitim & Akademi Konferansları', fill: '#292E6F' }
+    // İncesu & Orta Bahçe Wing (East — Fuaye Meeting Point right inside!)
+    { key: 'matchmaking', cat: 'matchmaking', x: 492, y: 92, w: 192, h: 112, code: 'MP-01..24', title: 'Fuaye · Meeting Point', sub: '5 Dk Eşleşme & 1:1 Mülakat', fill: '#E41513' },
+    { key: 'promenade', cat: 'company', x: 696, y: 92, w: 142, h: 112, code: 'BULVAR', title: 'Kurumsal Çadırlar', sub: 'BBVA · Turkcell · HAVELSAN', fill: '#B91C1C' },
+    { key: 'plaza', cat: 'lounge', x: 556, y: 216, w: 198, h: 112, code: 'ORTA BAHÇE', title: 'Orta Bahçe & Avlu', sub: 'Yükseltilmiş Çim · Coffee Break', fill: '#475569' },
+    { key: 'red', cat: 'company', x: 766, y: 216, w: 158, h: 112, code: 'K FUAYE', title: 'Red Zone Fuaye', sub: 'Akfen · DenizBank · EY · KPMG', fill: '#E41513' },
+    { key: 'plenary', cat: 'stage', x: 766, y: 340, w: 158, h: 78, code: 'B/K BLOK', title: 'Ahmet Ersan', sub: 'Ana Konferans Salonu', fill: '#1E293B' },
+    { key: 'teacher-plus', cat: 'stage', x: 492, y: 340, w: 262, h: 78, code: 'A / B BLOK', title: 'Teacher+ Forumu', sub: 'Revaklı Akademik Kanat & Amfiler', fill: '#292E6F' }
   ];
 
   function render2DBlueprint() {
@@ -287,8 +289,8 @@
 
     if (z.id === 'matchmaking') {
       sublist.innerHTML = `
-        <li><span>Batı Kanadı (5 Dk Hızlı Eşleşme)</span><code>MP-01 .. MP-16</code></li>
-        <li><span>Doğu Kanadı (15 Dk 1:1 Kurumsal Mülakat)</span><code>MP-17 .. MP-24</code></li>
+        <li><span>Fuaye Ana Galeri (5 Dk Meeting Point)</span><code>MP-01 .. MP-16</code></li>
+        <li><span>K Blok Fuaye Doğu (15 Dk 1:1 Mülakat)</span><code>MP-17 .. MP-24</code></li>
         <li><span>Eşleşme Yönetimi</span><code>SUMMITTED UYGULAMASI</code></li>
       `;
     } else if (z.stands && z.stands.length > 0) {

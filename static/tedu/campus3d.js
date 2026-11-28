@@ -1,13 +1,19 @@
 /* ==========================================================================
-   SummitTED Kariyer ve İnovasyon Zirvesi 2026 — Real-Scale 3D TEDÜ Campus v3
-   Includes:
-   - 3 Accreditation & Entrance Tents (Gate 1 İncesu, Gate 2 Aksu, Gate 3 VIP)
-   - Student Communities Village on İncesu Çim Amfi (Modular Pagoda Tents + RadioTEDU)
-   - İncesu Corporate Pavilions (İncesu North Walk)
-   - Red Zone (K Blok Fuaye) & Main Stage (Ahmet Ersan Salonu)
-   - Blue Zone (E Blok Spor Merkezi) & Startup/Innovation Alley (İstasyon TEDÜ)
-   - G Blok Matchmaking Area (G Blok MP-01..MP-24 Numbered Tables)
-   - Tech&Innovation (D Blok), Teacher+ (A/B Blok), Networking Plaza (Aksu Courtyard)
+   SummitTED Kariyer ve İnovasyon Zirvesi 2026 — TEDU360-Grounded 3D Campus (v5)
+   Architectural landmarks verified from TED University's official 360 tour:
+   - Orta Bahçe (South/East): Striped grey/charcoal stone pavers, 5 stone steps
+     rising to the elevated rectangular green lawn & curved wood deck stage.
+   - A & B Blok (L-shaped, 4-5 stories): Warm beige/cream ribbed facades with
+     grey-stone ground-floor colonnade arcade & Ahmet Ersan Konferans Salonu.
+   - Hoşgeldiniz Ana Giriş Atriyumu & Fuaye (K / A-B Bağlantı Fuayesi):
+     Black-framed glass curtain walls, oak-inlay floor, glossy black columns
+     with vertical TEDÜ blue LED strips, and Meeting Point (MP-01..24) tables!
+   - Yeni Kısım Bahçe & Çim Amfi (North/West): Light-grey stone courtyard,
+     square travertine tree planters wrapped in cantilevered wood benches,
+     8-tier stepped travertine & grass Çim Amfi with dark-stone flanking stairs,
+     Chillin Cafe dark-glass pavilion, 4-story cool-grey F/G Blok with recessed
+     loggia & pitched roof, and white/glass vertical-louvered E Blok (Spor Mrk.
+     & İstasyon TEDÜ) with warm-wood pergola colonnade.
    ========================================================================== */
 
 import * as THREE from './vendor/three.module.js';
@@ -30,7 +36,7 @@ if (shell && host) {
     renderer.setClearColor(0x000000, 0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.08;
+    renderer.toneMappingExposure = 1.06;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     host.appendChild(renderer.domElement);
@@ -45,59 +51,70 @@ if (shell && host) {
 
 function initCampus3D(renderer) {
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(39, 1, 0.1, 520);
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 560);
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
   controls.enablePan = false;
-  controls.minDistance = 24;
+  controls.minDistance = 20;
   controls.maxDistance = 260;
   controls.minPolarAngle = 0.16;
-  controls.maxPolarAngle = Math.PI / 2.22;
+  controls.maxPolarAngle = Math.PI / 2.2;
   controls.rotateSpeed = 0.55;
   controls.enableZoom = false;
 
-  scene.add(new THREE.HemisphereLight(0xf5f7fb, 0x8d97a5, 2.1));
+  scene.add(new THREE.HemisphereLight(0xf6f8fc, 0x8a95a6, 2.05));
 
-  const sun = new THREE.DirectionalLight(0xfff5e8, 3.25);
-  sun.position.set(-36, 68, -44);
+  const sun = new THREE.DirectionalLight(0xfff4e6, 3.15);
+  sun.position.set(-42, 72, -48);
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
-  sun.shadow.camera.left = -95;
-  sun.shadow.camera.right = 65;
-  sun.shadow.camera.top = 65;
-  sun.shadow.camera.bottom = -65;
-  sun.shadow.camera.far = 210;
+  sun.shadow.camera.left = -105;
+  sun.shadow.camera.right = 70;
+  sun.shadow.camera.top = 70;
+  sun.shadow.camera.bottom = -70;
+  sun.shadow.camera.far = 230;
   sun.shadow.normalBias = 0.04;
   sun.shadow.bias = -0.0003;
   scene.add(sun);
 
-  const fill = new THREE.DirectionalLight(0xd6e2f5, 1.85);
-  fill.position.set(28, 20, -24);
+  const fill = new THREE.DirectionalLight(0xd5e3f7, 1.75);
+  fill.position.set(34, 24, -22);
   scene.add(fill);
 
   const materials = new Map();
-  function mat(color, metalness = 0, roughness = 0.62) {
-    const k = `${color}|${metalness}|${roughness}`;
-    if (!materials.has(k)) materials.set(k, new THREE.MeshStandardMaterial({ color, metalness, roughness }));
+  function mat(color, metalness = 0, roughness = 0.62, extra = null) {
+    const k = `${color}|${metalness}|${roughness}|${extra ? JSON.stringify(extra) : ''}`;
+    if (!materials.has(k)) {
+      materials.set(k, new THREE.MeshStandardMaterial(Object.assign({ color, metalness, roughness }, extra || {})));
+    }
     return materials.get(k);
   }
 
   const m = {
-    white: mat('#fbfcfe'),
+    white: mat('#f9fafc'),
     tedNavy: mat('#0B1330', 0.22, 0.42),
     tedBlue: mat('#292E6F', 0.2, 0.4),
-    tedRed: mat('#E41513', 0.15, 0.38),
+    tedRed: mat('#E41513', 0.15, 0.36),
+    ledBlue: new THREE.MeshBasicMaterial({ color: 0x3b82f6 }),
     silver: mat('#cfd6e0', 0.68, 0.32),
-    dark: mat('#141b2d', 0.35, 0.48),
-    stone: mat('#e5e7ec'),
-    facade: mat('#f3f4f7'),
-    glass: mat('#7ea0bd', 0.35, 0.22),
-    wood: mat('#c49367')
+    darkFrame: mat('#161c2a', 0.35, 0.42),
+    stoneLight: mat('#d7dce4', 0.02, 0.78),
+    stoneDark: mat('#5c6576', 0.04, 0.72),
+    travertine: mat('#dfd3c0', 0.03, 0.72),
+    beigeFacade: mat('#e6e0d4', 0.02, 0.74),
+    coolGreyFacade: mat('#dde3eb', 0.04, 0.68),
+    roofDark: mat('#3a4252', 0.15, 0.58),
+    glass: mat('#6c8eab', 0.42, 0.18),
+    glassAtrium: mat('#88b2d6', 0.28, 0.12, { transparent: true, opacity: 0.42 }),
+    oakWood: mat('#bc8654', 0.06, 0.56),
+    darkMarble: mat('#20222d', 0.22, 0.32),
+    lawn: mat('#6f9b59', 0, 0.88),
+    colonnadeStone: mat('#c3c7cf', 0.02, 0.75)
   };
 
   const zoneKeys = [
-    'environment', 'screen',
+    'environment', 'screen', 'fuayeGlass',
     'gate-1', 'gate-2', 'gate-3',
     'red', 'blue', 'promenade', 'communities',
     'innovation', 'matchmaking', 'plenary', 'tech', 'teacher-plus', 'plaza'
@@ -105,7 +122,9 @@ function initCampus3D(renderer) {
   const groups = {};
   for (const key of zoneKeys) {
     groups[key] = new THREE.Group();
-    groups[key].userData.zone = (key === 'environment') ? null : (key === 'screen' ? 'plenary' : key);
+    groups[key].userData.zone = (key === 'environment')
+      ? null
+      : (key === 'screen' ? 'plenary' : (key === 'fuayeGlass' ? 'matchmaking' : key));
     scene.add(groups[key]);
   }
 
@@ -113,7 +132,7 @@ function initCampus3D(renderer) {
   function mesh(geo, material, x, y, z, parent = groups.environment) {
     const o = new THREE.Mesh(geo, material);
     o.position.set(x, y, z);
-    o.castShadow = true;
+    o.castShadow = !material.transparent;
     o.receiveShadow = true;
     parent.add(o);
     return o;
@@ -157,12 +176,12 @@ function initCampus3D(renderer) {
       c.fillRect(0, 0, w, 18);
       c.textAlign = 'center';
       c.fillStyle = fg;
-      c.font = '800 68px Arial';
-      c.fillText(text, w / 2, sub ? 128 : 156);
+      c.font = '800 62px Arial';
+      c.fillText(text, w / 2, sub ? 124 : 152);
       if (sub) {
         c.fillStyle = '#CFD8EC';
-        c.font = '700 32px Arial';
-        c.fillText(sub, w / 2, 198);
+        c.font = '700 30px Arial';
+        c.fillText(sub, w / 2, 194);
       }
     }).texture;
   }
@@ -172,47 +191,55 @@ function initCampus3D(renderer) {
     return mesh(new THREE.PlaneGeometry(w, h), material, x, y, z, parent);
   }
 
-  // Helper: Pagoda / Canopy Tent (for Gates, Student Communities, Promenade & Plaza)
-  function pagodaTent(x, z, size, roofColor, fasciaText, zoneKey, rotY = 0) {
+  function buildingLabel(name, sub, x, y, z, accent) {
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: signTexture(name, '#0B1330', '#ffffff', sub, accent),
+      depthTest: false,
+      toneMapped: false
+    }));
+    sp.position.set(x, y, z);
+    sp.scale.set(11.2, 2.45, 1);
+    sp.renderOrder = 6;
+    scene.add(sp);
+  }
+
+  // Helper: Pagoda Tent
+  function pagodaTent(x, z, size, roofColor, fasciaText, zoneKey, rotY = 0, baseY = 0) {
     const g = new THREE.Group();
     const half = size * 0.46;
-    box(size, 0.14, size, 0, 0.24, 0, mat('#dfe4ee'), g);
+    box(size, 0.14, size, 0, 0.18, 0, mat('#dfe4ee'), g);
     for (const dx of [-half, half]) {
       for (const dz of [-half, half]) {
-        beam(V(dx, 0.3, dz), V(dx, 2.75, dz), 0.05, m.silver, g);
+        beam(V(dx, 0.22, dz), V(dx, 2.7, dz), 0.045, m.silver, g);
       }
     }
-    box(size + 0.16, 0.36, size + 0.16, 0, 2.85, 0, mat(roofColor), g);
-    cone(size * 0.76, 1.35, 0, 3.7, 0, m.white, g, 4);
-    // Reception desk inside tent
-    box(size * 0.62, 0.85, 0.55, 0, 0.72, half * 0.55, m.white, g);
-    box(size * 0.66, 0.08, 0.65, 0, 1.18, half * 0.55, mat(roofColor), g);
+    box(size + 0.14, 0.34, size + 0.14, 0, 2.8, 0, mat(roofColor), g);
+    cone(size * 0.76, 1.3, 0, 3.62, 0, m.white, g, 4);
+    box(size * 0.6, 0.82, 0.52, 0, 0.66, half * 0.55, m.white, g);
+    box(size * 0.64, 0.08, 0.6, 0, 1.1, half * 0.55, mat(roofColor), g);
     if (fasciaText) {
-      const s = sign(fasciaText, 0, 2.86, size * 0.5 + 0.1, size * 0.92, 0.34, g, roofColor, '#ffffff');
+      const s = sign(fasciaText, 0, 2.82, size * 0.5 + 0.09, size * 0.92, 0.32, g, roofColor, '#ffffff');
       s.renderOrder = 2;
     }
-    g.position.set(x, 0, z);
+    g.position.set(x, baseY, z);
     g.rotation.y = rotY;
     groups[zoneKey].add(g);
   }
 
-  // Helper: Entrance Accreditation Gate Arch + Canopy Tent
+  // Helper: Entrance Gate Arch + Accreditation Canopy
   function accreditationGate(x, z, labelText, subText, zoneKey, rotY = 0) {
     const g = new THREE.Group();
-    // Red-Navy Entrance Archway
-    box(0.85, 5.2, 0.85, -3.8, 2.7, 0, m.tedNavy, g);
-    box(0.85, 5.2, 0.85, 3.8, 2.7, 0, m.tedNavy, g);
-    box(8.6, 1.1, 1.05, 0, 5.45, 0, m.tedNavy, g);
-    box(8.7, 0.22, 1.12, 0, 6.08, 0, m.tedRed, g);
-    sign(labelText, 0, 5.45, 0.56, 7.6, 0.88, g, '#0B1330', '#ffffff', subText);
-    const backSign = sign(labelText, 0, 5.45, -0.56, 7.6, 0.88, g, '#0B1330', '#ffffff', subText);
-    backSign.rotation.y = Math.PI;
-    // Accreditation Tent next to arch
-    pagodaTent(0, -3.4, 3.8, '#E41513', 'QR BADGE & CHECK-IN', zoneKey, 0);
-    // Turnstiles
-    for (const tx of [-1.6, 0, 1.6]) {
-      box(0.22, 0.95, 0.9, tx, 0.62, 0, m.silver, g);
-      box(0.24, 0.08, 0.92, tx, 1.12, 0, m.tedRed, g);
+    box(0.8, 5.0, 0.8, -3.6, 2.6, 0, m.tedNavy, g);
+    box(0.8, 5.0, 0.8, 3.6, 2.6, 0, m.tedNavy, g);
+    box(8.2, 1.05, 1.0, 0, 5.25, 0, m.tedNavy, g);
+    box(8.3, 0.2, 1.06, 0, 5.86, 0, m.tedRed, g);
+    sign(labelText, 0, 5.25, 0.54, 7.2, 0.84, g, '#0B1330', '#ffffff', subText);
+    const back = sign(labelText, 0, 5.25, -0.54, 7.2, 0.84, g, '#0B1330', '#ffffff', subText);
+    back.rotation.y = Math.PI;
+    pagodaTent(0, -3.2, 3.6, '#E41513', 'AKREDİTASYON & QR', zoneKey, 0);
+    for (const tx of [-1.5, 0, 1.5]) {
+      box(0.2, 0.92, 0.86, tx, 0.58, 0, m.silver, g);
+      box(0.22, 0.08, 0.88, tx, 1.06, 0, m.tedRed, g);
     }
     g.position.set(x, 0, z);
     g.rotation.y = rotY;
@@ -222,151 +249,294 @@ function initCampus3D(renderer) {
   // Helper: Corporate Stand Booth
   function booth(x, z, color, label, zoneKey, rotY = 0) {
     const g = new THREE.Group();
-    box(4.2, 0.18, 3.1, 0, 0.32, 0, mat('#e4e8f0'), g);
-    box(3.95, 2.65, 0.14, 0, 1.75, -1.3, m.white, g);
-    for (const dx of [-1.92, 1.92]) {
-      for (const dz of [-1.3, 1.3]) {
-        beam(V(dx, 0.45, dz), V(dx, 3.35, dz), 0.045, m.silver, g);
+    box(4.1, 0.16, 3.0, 0, 0.24, 0, mat('#e4e8f0'), g);
+    box(3.85, 2.6, 0.14, 0, 1.65, -1.25, m.white, g);
+    for (const dx of [-1.85, 1.85]) {
+      for (const dz of [-1.25, 1.25]) {
+        beam(V(dx, 0.35, dz), V(dx, 3.25, dz), 0.042, m.silver, g);
       }
     }
-    box(4.2, 0.34, 3.1, 0, 3.4, 0, mat(color), g);
-    sign(label, 0, 3.4, 1.58, 3.8, 0.38, g, color, '#ffffff');
-    box(3.1, 0.9, 0.65, 0, 0.88, 0.9, m.white, g);
-    box(3.25, 0.09, 0.78, 0, 1.36, 0.9, mat(color), g);
+    box(4.1, 0.32, 3.0, 0, 3.3, 0, mat(color), g);
+    sign(label, 0, 3.3, 1.54, 3.7, 0.36, g, color, '#ffffff');
+    box(3.0, 0.86, 0.62, 0, 0.78, 0.85, m.white, g);
+    box(3.15, 0.08, 0.74, 0, 1.24, 0.85, mat(color), g);
     g.position.set(x, 0, z);
     g.rotation.y = rotY;
     groups[zoneKey].add(g);
   }
 
-  // 1. İncesu Courtyard Ground & Semicircular Çim Amfi
-  box(68, 1.15, 54, -1, -0.52, 0, mat('#cfd6e2'));
-  box(66, 0.15, 52, -1, 0.09, 0, m.stone);
-
-  function gardenOutline(inset = 0) {
-    const r = 15.2 - inset;
-    const cx = -8.8;
-    const right = 23.2 - inset;
-    const shape = new THREE.Shape();
-    shape.moveTo(cx, -r);
-    shape.lineTo(right, -r);
-    shape.lineTo(right, r);
-    shape.lineTo(cx, r);
-    shape.absarc(cx, 0, r, Math.PI / 2, Math.PI * 1.5, false);
-    shape.closePath();
-    return shape;
+  // Helper: Square Travertine Planter with Cantilevered Warm-Wood Bench (TEDU360 Yeni Kısım signature!)
+  function travertineBenchPlanter(x, z, parent = groups.plaza) {
+    box(2.3, 1.05, 2.3, x, 0.65, z, m.travertine, parent);
+    box(3.55, 0.14, 3.55, x, 0.56, z, m.oakWood, parent);
+    cyl(0.14, 0.18, 2.2, x, 2.1, z, m.oakWood, parent, 8);
+    mesh(new THREE.IcosahedronGeometry(1.15, 1), mat('#628f55'), x, 3.5, z, parent);
   }
 
-  const lawnGeo = new THREE.ExtrudeGeometry(gardenOutline(0.3), { depth: 0.18, bevelEnabled: false, curveSegments: 48 });
-  const lawnMesh = mesh(lawnGeo, mat('#7ea968'), 0, 0.36, 0);
-  lawnMesh.rotation.x = -Math.PI / 2;
+  // =========================================================================
+  // 1. İNCESU / ORTA BAHÇE CAMPUS (EAST OF ZİYA GÖKALP CADDESİ)
+  // =========================================================================
+  box(70, 1.1, 56, 0, -0.5, 0, mat('#c5cdd9'));
+  box(68, 0.16, 54, 0, 0.08, 0, m.stoneLight);
 
-  // 2. Ziya Gökalp Caddesi (Dividing İncesu & Aksu with Summit Crosswalk)
-  box(11.4, 0.09, 78, -38, 0.03, 2, mat('#697386'));
-  box(1.4, 0.18, 78, -31.7, 0.13, 2, m.stone);
-  box(1.4, 0.18, 78, -44.3, 0.13, 2, m.stone);
-  for (let x = -42.8; x < -33; x += 1.15) {
-    box(0.68, 0.025, 4.6, x, 0.1, 8, mat('#ffffff'));
+  // TEDU360 Orta Bahçe Signature: Striped light-grey & charcoal rectangular stone pavers!
+  for (let s = -22; s <= 18; s += 4.6) {
+    box(48, 0.03, 1.5, -2, 0.18, s, m.stoneDark, groups.environment);
   }
-  box(10, 0.03, 0.45, -38, 0.11, 5.3, m.tedRed);
-  box(10, 0.03, 0.45, -38, 0.11, 10.7, m.tedRed);
-  const roadSign = sign('ZİYA GÖKALP CADDESİ · YAYA GEÇİŞ AKSI', -38, 0.14, -6, 24, 2.1, groups.environment, '#0B1330', '#ffffff');
+
+  // TEDU360 Orta Bahçe Signature: 5 wide stone steps rising to elevated rectangular green lawn + curved wood deck!
+  const lawnCenterX = 0;
+  const lawnCenterZ = 1.5;
+  box(26, 0.9, 19, lawnCenterX, 0.52, lawnCenterZ, m.stoneLight, groups.environment); // Retaining wall
+  box(24.6, 0.18, 17.6, lawnCenterX, 1.02, lawnCenterZ, m.lawn, groups.environment);   // Elevated green grass
+  for (let step = 0; step < 5; step++) {
+    box(1.1, 0.18 + step * 0.16, 12, lawnCenterX - 13.4 - (4 - step) * 0.55, 0.18 + step * 0.08, lawnCenterZ, m.stoneLight, groups.environment);
+  }
+  // Curved warm-wood stage deck on Orta Bahçe elevated lawn
+  cyl(4.4, 4.4, 0.24, lawnCenterX + 5.5, 1.16, lawnCenterZ, m.oakWood, groups.plaza, 24);
+  // Low bollard lights around elevated lawn
+  for (const [bx, bz] of [[-12, -7.5], [-12, 10.5], [12, -7.5], [12, 10.5]]) {
+    box(0.28, 1.15, 0.28, bx, 1.5, bz, m.darkFrame, groups.environment);
+  }
+
+  // =========================================================================
+  // 2. ZİYA GÖKALP CADDESİ (DIVIDING İNCESU & YENİ KISIM / AKSU)
+  // =========================================================================
+  box(11.6, 0.09, 82, -39, 0.03, 2, mat('#636d7f'));
+  box(1.5, 0.18, 82, -32.6, 0.13, 2, m.stoneLight);
+  box(1.5, 0.18, 82, -45.4, 0.13, 2, m.stoneLight);
+  // Black wrought-iron perimeter fence posts along Ziya Gökalp Cad. (TEDU360 detail)
+  for (let z = -25; z <= 25; z += 4) {
+    if (z > 2 && z < 14) continue; // Gate 1 opening
+    box(0.22, 1.6, 0.22, -33.2, 0.9, z, m.darkFrame, groups.environment);
+    box(0.12, 0.1, 4.0, -33.2, 1.55, z, m.darkFrame, groups.environment);
+  }
+  // Pedestrian crosswalk
+  for (let x = -43.8; x < -34; x += 1.15) {
+    box(0.68, 0.025, 4.6, x, 0.1, 8, m.white);
+  }
+  box(10, 0.03, 0.45, -39, 0.11, 5.3, m.tedRed);
+  box(10, 0.03, 0.45, -39, 0.11, 10.7, m.tedRed);
+  const roadSign = sign('ZİYA GÖKALP CADDESİ · YAYA GEÇİŞ AKSI', -39, 0.14, -7, 24, 2.0, groups.environment, '#0B1330', '#ffffff');
   roadSign.rotation.x = -Math.PI / 2;
   roadSign.rotation.z = Math.PI / 2;
 
-  // 3. Aksu Courtyard Ground
-  box(48, 1.1, 53, -69, -0.52, 0, mat('#cfd6e2'));
-  box(46, 0.14, 51, -69, 0.1, 0, m.stone);
-  box(20, 0.1, 20, -69, 0.2, 0, mat('#8ab074'));
+  // =========================================================================
+  // 3. YENİ KISIM BAHÇE & AKSU WING (WEST OF ZİYA GÖKALP CADDESİ)
+  // =========================================================================
+  box(52, 1.1, 56, -72, -0.5, 0, mat('#c5cdd9'));
+  box(50, 0.15, 54, -72, 0.08, 0, m.stoneLight);
 
-  // 4. Real TEDÜ Buildings (A, B, K on İncesu; C, D, E, F, G, H on Aksu)
-  function building(name, sub, x, z, w, d, h, accent, zoneKey = 'environment') {
+  // TEDU360 Yeni Kısım Signature: Square travertine tree planters wrapped by cantilevered wood benches
+  travertineBenchPlanter(-64, -4.5);
+  travertineBenchPlanter(-73, -4.5);
+  travertineBenchPlanter(-68.5, 4.2);
+
+  // TEDU360 REAL ÇİM AMFİ: Wide stepped amphitheater of alternating travertine stone & grass terraces!
+  const amfiBaseX = -69;
+  const amfiBaseZ = 10.5;
+  for (let t = 0; t < 7; t++) {
+    const y = 0.24 + t * 0.48;
+    const z = amfiBaseZ + t * 1.15;
+    const w = 22 - t * 0.4;
+    // Travertine stone seating riser
+    box(w, 0.46, 0.42, amfiBaseX, y, z, m.travertine, groups.communities);
+    // Alternating green grass terrace behind riser
+    box(w, 0.42, 0.76, amfiBaseX, y - 0.02, z + 0.56, m.lawn, groups.communities);
+    // Dark-stone flanking stairs on both sides
+    box(1.9, 0.48, 1.16, amfiBaseX - w / 2 - 1.1, y, z + 0.36, m.stoneDark, groups.communities);
+    box(1.9, 0.48, 1.16, amfiBaseX + w / 2 + 1.1, y, z + 0.36, m.stoneDark, groups.communities);
+  }
+  // Upper dark-glass pavilion & warm-wood pergola crowning Çim Amfi (seen directly in TEDU360 step_27!)
+  box(14, 3.2, 4.2, amfiBaseX, 5.0, amfiBaseZ + 10.2, m.darkFrame, groups.communities);
+  box(12.6, 2.3, 0.14, amfiBaseX, 4.9, amfiBaseZ + 8.05, m.glass, groups.communities);
+  box(8.5, 0.22, 3.2, amfiBaseX + 4.8, 6.2, amfiBaseZ + 8.4, m.oakWood, groups.communities);
+
+  // =========================================================================
+  // 4. REAL TEDÜ BUILDINGS (GROUNDED IN TEDU360 FACADES & MATERIALS)
+  // =========================================================================
+  function tedBeigeColonnadeBuilding(name, sub, x, z, w, d, h, accent, zoneKey) {
     const parent = groups[zoneKey] || groups.environment;
-    box(w, h, d, x, h / 2 + 0.2, z, m.facade, parent);
-    box(w + 0.32, 0.34, d + 0.32, x, h + 0.38, z, mat(accent), parent);
-    for (let y = 1.7; y < h - 0.5; y += 2.4) {
-      for (let xx = x - w / 2 + 1.2; xx < x + w / 2 - 0.8; xx += 2.6) {
+    // Ground-floor grey stone colonnade arcade (h=2.8)
+    box(w - 1.2, 2.8, d - 1.2, x, 1.5, z, m.darkFrame, parent);
+    const colsX = Math.max(2, Math.round(w / 4.5));
+    const colsZ = Math.max(2, Math.round(d / 4.5));
+    for (let i = 0; i <= colsX; i++) {
+      const px = x - w / 2 + 0.5 + (i / colsX) * (w - 1);
+      box(0.68, 2.9, 0.68, px, 1.55, z - d / 2 + 0.4, m.colonnadeStone, parent);
+      box(0.68, 2.9, 0.68, px, 1.55, z + d / 2 - 0.4, m.colonnadeStone, parent);
+    }
+    for (let j = 1; j < colsZ; j++) {
+      const pz = z - d / 2 + 0.5 + (j / colsZ) * (d - 1);
+      box(0.68, 2.9, 0.68, x - w / 2 + 0.4, 1.55, pz, m.colonnadeStone, parent);
+      box(0.68, 2.9, 0.68, x + w / 2 - 0.4, 1.55, pz, m.colonnadeStone, parent);
+    }
+    // Upper 4 stories: Warm beige/cream ribbed facade
+    const upperH = h - 2.9;
+    box(w, upperH, d, x, 2.9 + upperH / 2, z, m.beigeFacade, parent);
+    box(w + 0.3, 0.34, d + 0.3, x, h + 0.25, z, mat(accent), parent);
+    // Horizontal ribbed spandrel bands + tall multi-pane windows
+    for (let y = 4.2; y < h - 0.5; y += 2.2) {
+      box(w + 0.16, 0.22, d + 0.16, x, y - 0.9, z, m.travertine, parent);
+      for (let xx = x - w / 2 + 1.4; xx < x + w / 2 - 1.0; xx += 2.6) {
         for (const side of [-1, 1]) {
-          box(1.6, 1.35, 0.07, xx, y, z + side * (d / 2 + 0.04), m.glass, parent);
+          box(1.55, 1.35, 0.08, xx, y, z + side * (d / 2 + 0.05), m.glass, parent);
         }
       }
-      for (let zz = z - d / 2 + 1.2; zz < z + d / 2 - 0.8; zz += 2.6) {
+      for (let zz = z - d / 2 + 1.4; zz < z + d / 2 - 1.0; zz += 2.6) {
         for (const side of [-1, 1]) {
-          box(0.07, 1.35, 1.6, x + side * (w / 2 + 0.04), y, zz, m.glass, parent);
+          box(0.08, 1.35, 1.55, x + side * (w / 2 + 0.05), y, zz, m.glass, parent);
         }
       }
     }
-    const spriteMat = new THREE.SpriteMaterial({
-      map: signTexture(name, '#0B1330', '#ffffff', sub, accent),
-      depthTest: false,
-      toneMapped: false
-    });
-    const sp = new THREE.Sprite(spriteMat);
-    sp.position.set(x, h + 2.8, z);
-    sp.scale.set(11.5, 2.5, 1);
-    sp.renderOrder = 6;
-    scene.add(sp);
+    buildingLabel(name, sub, x, h + 2.8, z, accent);
   }
 
-  building('A BLOK · TEACHER+', 'EĞİTİM KONFERANSLARI', -28, -4, 6.8, 28, 10.5, '#292E6F', 'teacher-plus');
-  building('B BLOK · TEACHER+', 'AKADEMİK FORUM', 0, 20.5, 56, 6.8, 10.5, '#292E6F', 'teacher-plus');
-  building('K BLOK · KÜLTÜR MERKEZİ', 'RED ZONE FUAYE & AHMET ERSAN PLENARY', 29, 0, 8.2, 35, 7.2, '#E41513', 'red');
+  // A Blok & B Blok (Warm beige L-wing with ground colonnade around Orta Bahçe)
+  tedBeigeColonnadeBuilding('A BLOK · TEACHER+', 'EĞİTİM KONFERANSLARI & AMFİLER', -26.5, -5.5, 7.2, 24, 11.4, '#292E6F', 'teacher-plus');
+  tedBeigeColonnadeBuilding('B BLOK · COFFEE BREAK & TEACHER+', 'REVAKLI AKADEMİK KANAT', 0, 21.5, 52, 7.4, 11.4, '#292E6F', 'teacher-plus');
 
-  building('D BLOK · TECH & INNOVATION', 'MÜHENDİSLİK & AI SÖYLEŞİ AMFİSİ', -85.5, 0, 7, 38, 10, '#1D4ED8', 'tech');
-  building('E BLOK · BLUE ZONE & İSTASYON', 'SPOR MERKEZİ STANTLARI & STARTUP ALLEY', -50, 19, 8.5, 16.5, 7.5, '#292E6F', 'blue');
-  building('F BLOK', 'AKSU GÜNEY KANADI', -70, 20.5, 24, 6.8, 8, '#64748B');
-  building('C BLOK', 'MERKEZ DERSLİKLER', -60, 8.5, 7.5, 13, 6.2, '#64748B');
-  building('G BLOK · EŞLEŞME ALANI', 'MP-01..24 EŞLEŞME & 1:1 MÜLAKAT', -69, -20.5, 34, 7.2, 9.2, '#E41513', 'matchmaking');
-  building('H BLOK', 'AKSU KUZEYDOĞU', -50, -10.5, 6.8, 17, 8.8, '#64748B');
+  // K Blok Kültür Merkezi & Ahmet Ersan Konferans Salonu (East wing of İncesu)
+  box(9.2, 8.2, 34, 29, 4.2, 1, m.white, groups.red);
+  box(9.6, 0.36, 34.4, 29, 8.45, 1, m.tedRed, groups.red);
+  // Modern vertical architectural fins on K Blok facade
+  for (let zz = -14; zz <= 16; zz += 2.1) {
+    box(0.28, 7.6, 0.18, 24.3, 4.1, zz, m.silver, groups.red);
+    box(0.08, 5.6, 1.5, 24.45, 4.2, zz + 0.9, m.glass, groups.red);
+  }
+  buildingLabel('K BLOK · RED ZONE & AHMET ERSAN', 'KURUMSAL FUAYE & ANA KONFERANS SALONU', 29, 11.2, 1, '#E41513');
 
-  // 5. Three Entrance & Accreditation Gates (Tents + Archways)
-  accreditationGate(-31.2, 8, 'GATE 1 · İNCESU ANA GİRİŞ', 'AKREDİTASYON & YAKA KARTI ÇADIRI', 'gate-1', Math.PI / 2);
-  accreditationGate(-44.8, 8, 'GATE 2 · AKSU GİRİŞ ÇADIRI', 'HIZLI QR CHECK-IN & METRO GEÇİŞİ', 'gate-2', -Math.PI / 2);
-  accreditationGate(22, -20.5, 'GATE 3 · VIP & KURUMSAL', 'ŞİRKET İK & KONUŞMACI KARŞILAMA', 'gate-3', 0);
-
-  // 6. Student Communities Village on İncesu Çim Amfi (Modular Pagoda Tents + RadioTEDU Pod)
-  const commLabels = [
-    ['KARİYER ÖNCÜLERİ', -18.5, -8.5],
-    ['RADIOTEDU LIVE', -20.5, -2.5],
-    ['IEEE TEDÜ', -20.5, 3.5],
-    ['TEDU ERU', -18.0, 9.0],
-    ['GİRİŞİMCİLİK', -11.5, 11.8],
-    ['VERİ BİLİMİ & AI', -4.5, 11.8],
-    ['MİMARLIK & TASARIM', 2.5, 11.8],
-    ['ENDÜSTRİ & VAKA', 9.5, 11.8]
-  ];
-  for (const [lbl, tx, tz] of commLabels) {
-    const color = lbl.includes('RADIOTEDU') ? '#E41513' : '#292E6F';
-    pagodaTent(tx, tz, 3.3, color, lbl, 'communities', 0);
+  // =========================================================================
+  // 5. HOŞGELDİNİZ ANA GİRİŞ ATRİYUMU & FUAYE MEETING POINT (MP-01..24!)
+  // Directly inspired by TEDU360 final_step_168.png (black-framed glass hall,
+  // warm oak wood-inlay center floor, dark marble border, glossy black pillars
+  // with vertical blue LED strips, and numbered Meeting Point tables!)
+  // =========================================================================
+  const fX = -12.5;
+  const fZ = -17.5;
+  const fW = 24;
+  const fD = 10.8;
+  // Dark veined marble perimeter floor + central honey-oak wood-inlay aisle
+  box(fW, 0.22, fD, fX, 0.22, fZ, m.darkMarble, groups.matchmaking);
+  box(fW - 5.0, 0.26, 4.2, fX, 0.25, fZ, m.oakWood, groups.matchmaking);
+  // Glossy black structural pillars with vertical glowing TEDÜ blue LED strips
+  for (const px of [fX - 7.5, fX - 2.5, fX + 2.5, fX + 7.5]) {
+    for (const pz of [fZ - 3.6, fZ + 3.6]) {
+      box(0.75, 4.8, 0.75, px, 2.6, pz, m.darkFrame, groups.matchmaking);
+      box(0.12, 4.6, 0.12, px, 2.6, pz + (pz < fZ ? 0.39 : -0.39), m.ledBlue, groups.matchmaking);
+    }
+  }
+  // Architectural perimeter roof frame + central glass skylight (so Fuaye oak floor, blue-LED columns & MP tables stay visible from above!)
+  const beamT = 1.25;
+  box(fW + 0.4, 0.42, beamT, fX, 5.1, fZ - fD / 2 + beamT / 2, m.darkFrame, groups.matchmaking);
+  box(fW + 0.4, 0.42, beamT, fX, 5.1, fZ + fD / 2 - beamT / 2, m.darkFrame, groups.matchmaking);
+  box(beamT, 0.42, fD, fX - fW / 2 + beamT / 2, 5.1, fZ, m.darkFrame, groups.matchmaking);
+  box(beamT, 0.42, fD, fX + fW / 2 - beamT / 2, 5.1, fZ, m.darkFrame, groups.matchmaking);
+  // Crisp TED Red perimeter cornice trim around roof edge (not a solid red slab!)
+  box(fW + 0.5, 0.16, 0.34, fX, 5.38, fZ - fD / 2 + 0.1, m.tedRed, groups.matchmaking);
+  box(fW + 0.5, 0.16, 0.34, fX, 5.38, fZ + fD / 2 - 0.1, m.tedRed, groups.matchmaking);
+  box(0.34, 0.16, fD + 0.5, fX - fW / 2 + 0.1, 5.38, fZ, m.tedRed, groups.matchmaking);
+  box(0.34, 0.16, fD + 0.5, fX + fW / 2 - 0.1, 5.38, fZ, m.tedRed, groups.matchmaking);
+  // Transparent black-framed glass curtain walls & skylight canopy
+  box(fW, 4.6, 0.1, fX, 2.6, fZ + fD / 2, m.glassAtrium, groups.fuayeGlass);
+  box(fW, 4.6, 0.1, fX, 2.6, fZ - fD / 2, m.glassAtrium, groups.fuayeGlass);
+  box(fW - beamT * 2, 0.08, fD - beamT * 2, fX, 5.12, fZ, m.glassAtrium, groups.fuayeGlass);
+  // Suspended chrome TEDÜ Torch emblem sphere at Fuaye center
+  mesh(new THREE.TorusGeometry(1.15, 0.08, 10, 28), m.silver, fX, 3.2, fZ, groups.matchmaking);
+  // Fuaye Meeting Point Sign
+  sign('FUAYE · MEETING POINT (MP-01 .. MP-24 · 5 DK EŞLEŞME)', fX, 5.95, fZ + fD / 2 + 0.12, 18, 1.28, groups.matchmaking, '#0B1330', '#ffffff');
+  // 16 visible architectural Meeting Point tables arranged neatly inside the Fuaye gallery
+  for (let row = 0; row < 2; row++) {
+    for (let col = 0; col < 8; col++) {
+      const mx = fX - 9.4 + col * 2.68;
+      const mz = fZ + (row === 0 ? -2.2 : 2.2);
+      box(0.95, 0.09, 0.95, mx, 1.05, mz, m.tedNavy, groups.matchmaking);
+      box(0.12, 0.85, 0.12, mx, 0.62, mz, m.silver, groups.matchmaking);
+      box(0.38, 0.3, 0.07, mx, 1.28, mz, col >= 6 ? m.tedBlue : m.tedRed, groups.matchmaking);
+    }
   }
 
-  // 7. İncesu Corporate Pavilions along İncesu North Walk
-  booth(-16.5, -17.5, '#0B1330', 'GARANTİ BBVA TECH', 'promenade');
-  booth(-10.5, -17.5, '#292E6F', 'TURKCELL AI HOUSE', 'promenade');
-  booth(-4.5, -17.5, '#0B1330', 'HAVELSAN SİBER', 'promenade');
-  booth(1.5, -17.5, '#E41513', 'MİGROS UP LOUNGE', 'promenade');
+  // =========================================================================
+  // 6. YENİ KISIM BUILDINGS (GROUNDED IN TEDU360 step_25.png)
+  // =========================================================================
+  // F / G Blok (North-West): Symmetrical 4-story cool pale-grey building with recessed loggia & pitched dark roof
+  box(34, 9.6, 7.6, -71, 5.0, -21, m.coolGreyFacade, groups.environment);
+  // Recessed central 3-story loggia balconies
+  box(14, 6.2, 1.4, -71, 4.6, -17.3, m.stoneDark, groups.environment);
+  for (let ly = 2.6; ly <= 7.0; ly += 2.1) {
+    box(14.2, 0.35, 1.5, -71, ly, -17.1, m.white, groups.environment);
+  }
+  // Pitched dark-grey hip roof
+  const roofGeo = new THREE.ConeGeometry(16, 2.8, 4);
+  roofGeo.scale(1.55, 1, 0.36);
+  const roofMesh = mesh(roofGeo, m.roofDark, -71, 11.2, -21, groups.environment);
+  roofMesh.rotation.y = Math.PI / 4;
+  buildingLabel('F / G BLOK · VAKA & DERSLİKLER', 'U DÜZEN MÜLAKAT & DEĞERLENDİRME ODALARI', -71, 14.0, -21, '#64748B');
 
-  // 8. Red Zone Stands (K Blok Foyer Front) & Main Plenary Stage
-  booth(19.5, -10.5, '#E41513', 'AKFEN · DENİZBANK', 'red', -Math.PI / 2);
-  booth(19.5, -4.5, '#E41513', 'EY · COCA-COLA', 'red', -Math.PI / 2);
-  booth(19.5, 1.5, '#E41513', 'KPMG · ANADOLU EFES', 'red', -Math.PI / 2);
+  // E Blok (East of Yeni Kısım): Contemporary white & dark-glass facade with vertical metal louvers + wood pergola
+  box(8.8, 8.2, 24, -50.5, 4.3, -6, m.white, groups.blue);
+  box(9.2, 0.34, 24.4, -50.5, 8.55, -6, m.tedBlue, groups.blue);
+  // Vertical metal louver fins + dark glass curtain wall
+  for (let zz = -16.5; zz <= 4.5; zz += 1.6) {
+    box(0.32, 7.2, 0.14, -55.0, 4.3, zz, m.darkFrame, groups.blue);
+    box(0.08, 6.4, 1.2, -54.85, 4.3, zz + 0.75, m.glass, groups.blue);
+  }
+  // Warm-wood ground-floor pergola colonnade (seen in TEDU360 step_25!)
+  box(3.4, 0.2, 22, -56.6, 3.1, -6, m.oakWood, groups.blue);
+  for (let zz = -16; zz <= 4; zz += 4) {
+    box(0.24, 3.0, 0.24, -58.1, 1.6, zz, m.darkFrame, groups.blue);
+  }
+  buildingLabel('E BLOK · BLUE ZONE & İSTASYON TEDÜ', 'SPOR MERKEZİ STANTLARI & STARTUP ALLEY', -50.5, 11.4, -6, '#292E6F');
 
-  // Plenary Executive Stage Canopy & Dynamic LED Screen
-  box(7.2, 0.9, 13.5, 13.5, 0.62, 8.5, m.tedNavy, groups.plenary);
-  box(7.6, 0.34, 14.2, 13.5, 7.6, 8.5, m.tedNavy, groups.plenary);
-  box(7.7, 0.14, 14.3, 13.5, 7.82, 8.5, m.tedRed, groups.plenary);
+  // D Blok (West flank of Yeni Kısım: Tech & Innovation Amfi + Çok Amaçlı Salon)
+  box(7.2, 10.0, 34, -90, 5.2, 1, m.coolGreyFacade, groups.tech);
+  box(7.6, 0.36, 34.4, -90, 10.35, 1, mat('#1D4ED8'), groups.tech);
+  for (let y = 2.4; y < 9.5; y += 2.3) {
+    for (let zz = -14; zz <= 16; zz += 2.8) {
+      box(0.08, 1.4, 1.8, -86.3, y, zz, m.glass, groups.tech);
+    }
+  }
+  buildingLabel('D BLOK · TECH & INNOVATION', 'KONFERANS AMFİSİ & ÇOK AMAÇLI SALON', -90, 13.0, 1, '#1D4ED8');
+
+  // Chillin Cafe & TEDÜ Dükkan dark charcoal glass pavilion (TEDU360 step_25 left edge!)
+  box(6.4, 3.1, 10.5, -81.5, 1.7, -8.5, m.darkFrame, groups.plaza);
+  box(0.1, 2.3, 8.8, -78.25, 1.6, -8.5, m.glass, groups.plaza);
+  sign('CHILLIN CAFE & TEDÜ DÜKKAN', -78.2, 3.0, -8.5, 6.2, 0.42, groups.plaza, '#161c2a', '#ffffff').rotation.y = Math.PI / 2;
+
+  // =========================================================================
+  // 7. THREE ENTRANCE & ACCREDITATION GATES (TENTS + ARCHWAYS)
+  // =========================================================================
+  accreditationGate(-32.2, 8, 'GATE 1 · ANA GİRİŞ & FUAYE', 'AKREDİTASYON & MEETING POINT ERİŞİMİ', 'gate-1', Math.PI / 2);
+  accreditationGate(-45.8, 8, 'GATE 2 · YENİ KISIM / METRO', 'HIZLI QR GEÇİŞ & ÇİM AMFİ', 'gate-2', -Math.PI / 2);
+  accreditationGate(20, -21, 'GATE 3 · VIP & KURUMSAL', 'KONUŞMACI & İK HEYETİ GİRİŞİ', 'gate-3', 0);
+
+  // =========================================================================
+  // 8. CORPORATE STANDS, PAVILIONS, COMMUNITIES & PLENARY SCREEN
+  // =========================================================================
+  // İncesu Bulvarı Corporate Pavilions (East of Fuaye along north walk)
+  booth(4.5, -17.5, '#0B1330', 'GARANTİ BBVA TECH', 'promenade');
+  booth(10.0, -17.5, '#292E6F', 'TURKCELL AI HOUSE', 'promenade');
+  booth(15.5, -17.5, '#0B1330', 'HAVELSAN SİBER', 'promenade');
+  booth(21.0, -12.5, '#E41513', 'MİGROS UP LOUNGE', 'promenade', -Math.PI / 2);
+
+  // Red Zone Stands (K Blok Foyer Front)
+  booth(20.5, -6.5, '#E41513', 'AKFEN · DENİZBANK', 'red', -Math.PI / 2);
+  booth(20.5, -0.5, '#E41513', 'EY · COCA-COLA', 'red', -Math.PI / 2);
+  booth(20.5, 5.5, '#E41513', 'KPMG · ANADOLU EFES', 'red', -Math.PI / 2);
+
+  // Ahmet Ersan Plenary Stage Outdoor Canopy & LED Display
+  box(6.6, 0.85, 11.5, 18.5, 0.58, 13.5, m.tedNavy, groups.plenary);
+  box(7.0, 0.3, 12.2, 18.5, 6.8, 13.5, m.tedNavy, groups.plenary);
+  box(7.1, 0.14, 12.3, 18.5, 7.0, 13.5, m.tedRed, groups.plenary);
 
   const screen = canvasTexture(1024, 512, () => {});
-  const ledMat = new THREE.MeshBasicMaterial({ map: screen.texture, toneMapped: false });
-  const ledPlane = mesh(new THREE.PlaneGeometry(11.4, 5.2), ledMat, 16.8, 4.4, 8.5, groups.screen);
+  const ledPlane = mesh(new THREE.PlaneGeometry(10.2, 4.6), new THREE.MeshBasicMaterial({ map: screen.texture, toneMapped: false }), 21.6, 4.0, 13.5, groups.screen);
   ledPlane.rotation.y = -Math.PI / 2;
 
   const logoImg = new Image();
   logoImg.src = './assets/submitted-logo-ted-white.svg';
   let logoReady = false;
-  logoImg.onload = () => {
-    logoReady = true;
-    drawLED();
-  };
+  logoImg.onload = () => { logoReady = true; drawLED(); };
 
   function drawLED() {
     const c = screen.ctx;
@@ -389,56 +559,54 @@ function initCampus3D(renderer) {
     c.fillText('KARİYER VE İNOVASYON ZİRVESİ · 20–21 EKİM 2026', 512, 308);
     c.fillStyle = '#FF8A88';
     c.font = '700 23px Arial';
-    c.fillText('3 AKREDİTASYON KAPISI · 10 ZONE · 24 MEETING POINT MASASI', 512, 372);
+    c.fillText('FUAYE MEETING POINT (MP-01..24) · 10 ZONE · 3 GİRİŞ ÇADIRI', 512, 372);
     screen.texture.needsUpdate = true;
   }
   drawLED();
 
-  // 9. Blue Zone Stands (E Blok Spor Merkezi) & Innovation Alley (İstasyon TEDÜ)
-  booth(-55.5, 15.2, '#292E6F', 'ASELSAN · TUSAŞ', 'blue', Math.PI);
-  booth(-60.5, 15.2, '#292E6F', 'MİLSOFT · ROKETSAN', 'blue', Math.PI);
-  pagodaTent(-55.5, 4.5, 3.6, '#0284C7', 'İSTASYON TEDÜ PITCH', 'innovation', 0);
-  pagodaTent(-55.5, -0.5, 3.3, '#0B1330', 'STARTUP & VC ALLEY', 'innovation', 0);
+  // Blue Zone Stands & İstasyon TEDÜ Pitch Tents (near E Blok)
+  booth(-59.5, -13.0, '#292E6F', 'ASELSAN · TUSAŞ', 'blue', 0);
+  booth(-65.5, -13.0, '#292E6F', 'MİLSOFT · ROKETSAN', 'blue', 0);
+  pagodaTent(-57.0, 2.5, 3.6, '#0284C7', 'İSTASYON TEDÜ PITCH', 'innovation', 0);
+  pagodaTent(-57.0, 7.2, 3.3, '#0B1330', 'STARTUP & VC ALLEY', 'innovation', 0);
 
-  // 10. G Blok Matchmaking Area (Numbered Tables MP-01..MP-24)
-  box(24, 0.16, 7.6, -69, 0.22, -13.2, mat('#dce3f0'), groups.matchmaking);
-  sign('G BLOK EŞLEŞME ALANI · MP-01 .. MP-24 (5 DK GÖRÜŞME)', -69, 3.8, -16.6, 15, 1.35, groups.matchmaking, '#E41513', '#ffffff');
-  for (let row = 0; row < 2; row++) {
-    for (let col = 0; col < 8; col++) {
-      const mx = -78.8 + col * 2.8;
-      const mz = -14.6 + row * 2.8;
-      cyl(0.58, 0.58, 0.1, mx, 1.05, mz, m.tedNavy, groups.matchmaking, 18);
-      cyl(0.08, 0.08, 0.85, mx, 0.6, mz, m.silver, groups.matchmaking, 8);
-      box(0.42, 0.34, 0.06, mx, 1.28, mz, (col + row) % 2 === 0 ? m.tedRed : m.tedBlue, groups.matchmaking);
-    }
+  // Student Communities Village framing Çim Amfi & Orta Bahçe
+  const commTents = [
+    ['KARİYER ÖNCÜLERİ', -81.0, 10.5],
+    ['RADIOTEDU LIVE', -81.0, 15.2],
+    ['IEEE TEDÜ', -81.0, 19.8],
+    ['TEDU ERU', -57.0, 14.5],
+    ['GİRİŞİMCİLİK', -57.0, 19.2],
+    ['VERİ BİLİMİ & AI', -17.5, -5.0],
+    ['MİMARLIK & TASARIM', -17.5, 1.5],
+    ['ENDÜSTRİ & VAKA', -17.5, 8.0]
+  ];
+  for (const [lbl, tx, tz] of commTents) {
+    pagodaTent(tx, tz, 3.2, lbl.includes('RADIOTEDU') ? '#E41513' : '#292E6F', lbl, 'communities', 0);
   }
 
-  // 11. Aksu Networking Plaza & Hospitality Coffee Tents
-  pagodaTent(-73.5, 3.5, 3.5, '#0B1330', 'NETWORKING COFFEE', 'plaza', 0);
-  pagodaTent(-68.5, 3.5, 3.5, '#475569', 'İKRAM & BISTRO PLAZA', 'plaza', 0);
-  for (const [bx, bz] of [[-75, -2.5], [-71, -2.5], [-67, -2.5], [-73, -6], [-69, -6]]) {
-    cyl(0.62, 0.62, 0.09, bx, 1.12, bz, m.wood, groups.plaza, 16);
-    cyl(0.07, 0.07, 0.92, bx, 0.62, bz, m.white, groups.plaza, 8);
-  }
+  // Orta Bahçe Hospitality Coffee Tents
+  pagodaTent(-9.0, 14.5, 3.4, '#0B1330', 'COFFEE BREAK LOUNGE', 'plaza', 0);
+  pagodaTent(-4.0, 14.5, 3.4, '#475569', 'NETWORKING İKRAM', 'plaza', 0);
 
   // Trees
   function tree(x, z, s = 1) {
-    cyl(0.16, 0.22, 2.1 * s, x, 1.3 * s, z, m.wood, groups.environment);
-    mesh(new THREE.IcosahedronGeometry(1.3 * s, 1), mat('#6f9c6b'), x, 2.9 * s, z, groups.environment);
+    cyl(0.15, 0.21, 2.0 * s, x, 1.2 * s, z, m.oakWood, groups.environment);
+    mesh(new THREE.IcosahedronGeometry(1.25 * s, 1), mat('#64925c'), x, 2.8 * s, z, groups.environment);
   }
-  for (const [tx, tz] of [[-24, -22], [-12, -22], [0, -22], [12, -22], [24, 15], [-88, -22], [-88, 22], [-80, 12]]) {
-    tree(tx, tz, 0.88);
+  for (const [tx, tz] of [[-25, -24], [10, -24], [25, -22], [25, 22], [-92, -22], [-92, 22], [-77, -16]]) {
+    tree(tx, tz, 0.9);
   }
 
-  // Instanced Summit Crowd across both İncesu & Aksu
+  // Instanced Summit Crowd
   let seed = 41;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
   const crowd = [];
-  for (let i = 0; i < 190; i++) {
-    const inAksu = i >= 105;
+  for (let i = 0; i < 180; i++) {
+    const inNew = i >= 95;
     crowd.push({
-      x: inAksu ? (-80 + rnd() * 26) : (-22 + rnd() * 40),
-      z: inAksu ? (-15 + rnd() * 28) : (-15 + rnd() * 26),
+      x: inNew ? (-84 + rnd() * 28) : (-22 + rnd() * 40),
+      z: inNew ? (-14 + rnd() * 22) : (-16 + rnd() * 28),
       h: 0.8 + rnd() * 0.2,
       c: i % 4
     });
@@ -475,7 +643,7 @@ function initCampus3D(renderer) {
       const merged = mergeGeometries(list, false);
       if (merged) {
         const msh = new THREE.Mesh(merged, material);
-        msh.castShadow = true;
+        msh.castShadow = !material.transparent;
         msh.receiveShadow = true;
         msh.userData.zone = group.userData.zone;
         group.add(msh);
@@ -485,27 +653,27 @@ function initCampus3D(renderer) {
   }
 
   Object.entries(groups).forEach(([k, g]) => {
-    if (k !== 'screen') optimize(g);
+    if (k !== 'screen' && k !== 'fuayeGlass') optimize(g);
   });
 
   const locations = {
-    'gate-1': { target: [-31, 2, 8], pin: [-31, 8.2, 8], color: '#E41513', label: 'Gate 1 · Ana Giriş Çadırı', category: 'gates', camera: 'gates' },
-    'gate-2': { target: [-45, 2, 8], pin: [-45, 8.2, 8], color: '#292E6F', label: 'Gate 2 · Aksu Çadırı', category: 'gates', camera: 'gates' },
-    'gate-3': { target: [22, 2, -20], pin: [22, 8.0, -20], color: '#0B1330', label: 'Gate 3 · VIP Giriş', category: 'gates', camera: 'incesu' },
-    red: { target: [21, 2, -3], pin: [25, 10.2, -3], color: '#E41513', label: 'Red Zone · K Blok Fuaye', category: 'company', camera: 'incesu' },
-    blue: { target: [-54, 2, 16], pin: [-52, 10.2, 18], color: '#292E6F', label: 'Blue Zone · Spor Mrk.', category: 'company', camera: 'aksu' },
-    promenade: { target: [-8, 2, -17], pin: [-8, 6.8, -17], color: '#B91C1C', label: 'Kurumsal Çadırlar', category: 'company', camera: 'incesu' },
-    communities: { target: [-14, 2, 4], pin: [-14, 6.6, 4], color: '#D92D20', label: 'Topluluklar Köyü · Çim Amfi', category: 'community', camera: 'incesu' },
-    innovation: { target: [-56, 2, 2], pin: [-56, 6.8, 2], color: '#0284C7', label: 'Innovation Alley · İstasyon', category: 'innovation', camera: 'aksu' },
-    matchmaking: { target: [-69, 2, -14], pin: [-69, 7.6, -15], color: '#E41513', label: 'Meeting Points · MP-01..24', category: 'matchmaking', camera: 'matchmaking' },
-    plenary: { target: [15, 2, 8], pin: [15, 9.6, 9], color: '#0B1330', label: 'Ana Sahne · Ahmet Ersan', category: 'stage', camera: 'incesu' },
-    tech: { target: [-82, 2, 0], pin: [-83, 11.5, 0], color: '#1D4ED8', label: 'Tech&Innovation · D Blok', category: 'stage', camera: 'aksu' },
-    'teacher-plus': { target: [-16, 2, 18], pin: [-12, 11.5, 19], color: '#292E6F', label: 'Teacher+ · A/B Blok', category: 'stage', camera: 'incesu' },
-    plaza: { target: [-71, 2, 0], pin: [-71, 6.2, 1], color: '#475569', label: 'Networking & İkram Çadırları', category: 'lounge', camera: 'aksu' }
+    'gate-1': { target: [-32, 2, 8], pin: [-32, 8.0, 8], color: '#E41513', label: 'Gate 1 · Ana Giriş', category: 'gates', camera: 'gates' },
+    'gate-2': { target: [-46, 2, 8], pin: [-46, 8.0, 8], color: '#292E6F', label: 'Gate 2 · Yeni Kısım', category: 'gates', camera: 'gates' },
+    'gate-3': { target: [20, 2, -21], pin: [20, 7.8, -21], color: '#0B1330', label: 'Gate 3 · VIP Giriş', category: 'gates', camera: 'incesu' },
+    matchmaking: { target: [-12.5, 2, -17.5], pin: [-12.5, 8.8, -17.5], color: '#E41513', label: 'Fuaye · Meeting Point', category: 'matchmaking', camera: 'matchmaking' },
+    red: { target: [21, 2, 0], pin: [25, 10.6, 0], color: '#E41513', label: 'Red Zone · K Blok Fuaye', category: 'company', camera: 'incesu' },
+    promenade: { target: [10, 2, -17], pin: [10, 6.8, -17], color: '#B91C1C', label: 'Kurumsal Çadırlar', category: 'company', camera: 'incesu' },
+    plenary: { target: [19, 2, 13], pin: [19, 9.6, 13], color: '#0B1330', label: 'Ana Sahne · Ahmet Ersan', category: 'stage', camera: 'incesu' },
+    'teacher-plus': { target: [-12, 2, 20], pin: [-8, 12.6, 21], color: '#292E6F', label: 'Teacher+ · A/B Blok', category: 'stage', camera: 'incesu' },
+    plaza: { target: [0, 1.5, 2], pin: [0, 5.2, 2], color: '#475569', label: 'Orta Bahçe & Avlu', category: 'lounge', camera: 'incesu' },
+    blue: { target: [-53, 2, -8], pin: [-51, 11.2, -8], color: '#292E6F', label: 'Blue Zone · E Blok', category: 'company', camera: 'aksu' },
+    innovation: { target: [-57, 2, 5], pin: [-57, 6.6, 5], color: '#0284C7', label: 'Innovation Alley · İstasyon', category: 'innovation', camera: 'aksu' },
+    communities: { target: [-69, 3, 14], pin: [-69, 8.6, 14], color: '#D92D20', label: 'Topluluklar Köyü · Çim Amfi', category: 'community', camera: 'aksu' },
+    tech: { target: [-88, 2, 1], pin: [-88, 12.6, 1], color: '#1D4ED8', label: 'Tech & Innovation · D Blok', category: 'stage', camera: 'aksu' }
   };
 
   const pinsHost = document.getElementById('world-hotspots');
-  let activeKey = 'red';
+  let activeKey = 'matchmaking';
   let activeFilter = 'all';
 
   for (const [key, loc] of Object.entries(locations)) {
@@ -527,41 +695,38 @@ function initCampus3D(renderer) {
     'gate-1': 'ANA KAPI',
     'gate-2': 'METRO',
     'gate-3': 'VIP',
+    matchmaking: 'MP-01..24',
     red: '6 ŞİRKET',
     blue: '6 ŞİRKET',
-    promenade: '4 PAVİLYON',
-    communities: '8 ÇADIR',
+    promenade: '4 ÇADIR',
+    communities: 'ÇİM AMFİ',
     innovation: '5 DK PITCH',
-    matchmaking: '24 MASA',
     plenary: 'ANA SAHNE',
     tech: 'AMFİ',
-    'teacher-plus': 'FORUM',
-    plaza: 'LOUNGE'
+    'teacher-plus': 'A/B BLOK',
+    plaza: 'ORTA BAHÇE'
   };
 
-  function refreshPinMetrics() {
-    for (const [key, loc] of Object.entries(locations)) {
-      const pctEl = loc.element?.querySelector('[data-pin-pct]');
-      if (pctEl) pctEl.textContent = PIN_BADGES[key] || '';
-    }
+  for (const [key, loc] of Object.entries(locations)) {
+    const pctEl = loc.element?.querySelector('[data-pin-pct]');
+    if (pctEl) pctEl.textContent = PIN_BADGES[key] || '';
   }
-  refreshPinMetrics();
 
   const ring = new THREE.Mesh(
-    new THREE.RingGeometry(1.7, 2.05, 48),
+    new THREE.RingGeometry(1.9, 2.3, 48),
     new THREE.MeshBasicMaterial({ color: '#E41513', side: THREE.DoubleSide })
   );
   ring.rotation.x = -Math.PI / 2;
-  ring.position.set(21, 0.45, -3);
+  ring.position.set(-12.5, 0.45, -17.5);
   scene.add(ring);
 
   const views = {
-    campus: { position: [-86, 98, -98], target: [-30, 0, 0] },
-    incesu: { position: [-30, 62, -68], target: [2, 0, 0] },
-    aksu: { position: [-106, 62, -58], target: [-68, 0, 0] },
-    gates: { position: [-38, 42, -38], target: [-38, 1, 8] },
-    matchmaking: { position: [-52, 34, -46], target: [-69, 1, -14] },
-    aerial: { position: [-34, 152, -0.1], target: [-34, 0, 0] }
+    campus: { position: [-84, 96, -100], target: [-30, 0, 0] },
+    incesu: { position: [-18, 58, -68], target: [4, 0, 0] },
+    aksu: { position: [-108, 60, -56], target: [-68, 0, 2] },
+    gates: { position: [-39, 40, -36], target: [-39, 1, 8] },
+    matchmaking: { position: [-16, 26, -42], target: [-12.5, 1.5, -17.5] },
+    aerial: { position: [-32, 152, -0.1], target: [-32, 0, 0] }
   };
 
   let transition = null;
@@ -630,7 +795,6 @@ function initCampus3D(renderer) {
   if (zoomOut) zoomOut.addEventListener('click', () => zoomBy(1.22));
   if (resetBtn) resetBtn.addEventListener('click', () => setView('campus'));
 
-  // Raycasting click on 3D buildings/tents
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
   let downPos = null;
@@ -682,7 +846,7 @@ function initCampus3D(renderer) {
       const x = (projected.x * 0.5 + 0.5) * host.clientWidth;
       const y = (-projected.y * 0.5 + 0.5) * host.clientHeight;
       const inBounds = projected.z < 1 && x > 12 && x < host.clientWidth - 12 && y > 46 && y < host.clientHeight - 46;
-      const showCompact = !compact || key === activeKey || activeFilter !== 'all' || ['gate-1', 'red', 'blue', 'matchmaking', 'communities'].includes(key);
+      const showCompact = !compact || key === activeKey || activeFilter !== 'all' || ['gate-1', 'matchmaking', 'red', 'blue', 'communities'].includes(key);
       loc.element.hidden = !(matchesFilter && inBounds && showCompact);
       if (!loc.element.hidden) {
         const px = THREE.MathUtils.clamp(x, loc.element.offsetWidth / 2 + 8, host.clientWidth - loc.element.offsetWidth / 2 - 8);

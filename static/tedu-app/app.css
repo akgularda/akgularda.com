@@ -64,18 +64,18 @@ button, input, select, textarea { font-family: inherit; }
 
 .pc-side-rail {
   position: fixed;
-  top: 24px;
-  left: 28px;
+  top: 28px;
+  left: 30px;
   z-index: 5;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 240px;
+  max-width: 268px;
 }
 
 .pc-side-rail img {
-  height: 38px;
+  height: 40px;
   width: auto;
   display: block;
 }
@@ -87,6 +87,13 @@ button, input, select, textarea { font-family: inherit; }
   letter-spacing: 1.4px;
   color: #9FB0D4;
   text-transform: uppercase;
+}
+
+.pc-side-desc {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #B4C3E0;
 }
 
 .pc-side-links {
@@ -199,31 +206,36 @@ button, input, select, textarea { font-family: inherit; }
   justify-content: center;
 }
 
-/* Kinetic Summit Ticker Tape */
-.mob-ticker {
-  background-color: var(--tedu-navy);
-  color: #FFFFFF;
+/* Static Institutional Event Status Strip (Executive, Zero Flashing Ticker) */
+.mob-meta-bar {
+  background-color: #0D1738;
+  color: #C5D2EC;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  overflow: hidden;
-  padding: 5px 0;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
   flex-shrink: 0;
 }
 
-.mob-ticker-track {
-  display: flex;
-  gap: 28px;
-  white-space: nowrap;
-  font-family: var(--font-condensed);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  animation: mobMarquee 22s linear infinite;
+.meta-mp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFFFFF;
 }
 
-@keyframes mobMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.meta-mp-pill i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--ted-red);
 }
 
 /* Active 05:00 Meeting Strip inside Phone */
@@ -285,56 +297,62 @@ button, input, select, textarea { font-family: inherit; }
   color: var(--ted-red);
 }
 
-/* Angular Editorial Story Cards (Not AI Bubbles!) */
+/* Crisp Architectural Directory Strip Cards */
 .story-cards-row {
   display: flex;
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 12px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   scrollbar-width: none;
 }
 .story-cards-row::-webkit-scrollbar { display: none; }
 
 .story-tile {
-  width: 78px;
-  height: 92px;
+  width: 86px;
+  height: 82px;
   flex-shrink: 0;
-  background: var(--navy-deep);
-  color: #FFFFFF;
-  border: 1px solid #223266;
-  border-top: 3px solid var(--ted-red);
+  background: var(--white);
+  color: var(--ink-navy);
+  border: 1px solid var(--line-light);
+  border-top: 3px solid var(--tedu-navy);
   border-radius: var(--r-sharp);
-  padding: 8px;
+  padding: 9px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease;
+  box-shadow: 0 2px 6px rgba(8, 15, 38, 0.04);
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
-.story-tile:nth-child(even) {
-  background: var(--tedu-navy);
+.story-tile.is-featured {
+  border-top-color: var(--ted-red);
 }
 
 .story-tile:hover {
   transform: translateY(-2px);
-  background: #17275E;
+  border-color: var(--tedu-navy);
+  box-shadow: 0 6px 14px rgba(8, 15, 38, 0.09);
 }
 
 .story-code {
   font-family: var(--font-condensed);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #FFFFFF;
+  color: var(--tedu-navy);
+}
+
+.story-tile.is-featured .story-code {
+  color: var(--ted-red);
 }
 
 .story-name {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
-  color: #CBD6EE;
+  color: var(--ink-navy);
   line-height: 1.15;
 }
 

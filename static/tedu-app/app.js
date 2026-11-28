@@ -34,12 +34,12 @@
   ];
 
   const STORIES = [
-    { id: 'st-aselsan', code: 'B-01', label: 'ASELSAN', title: 'ASELSAN · Blue Zone & D Blok', desc: 'E Blok Spor Merkezi standında aviyonik ve gömülü sistem mühendisleriyle bire bir görüşme ve 12:00 D Blok söyleşisi.', tab: 'synergy', q: 'ASELSAN' },
-    { id: 'st-tusas', code: 'B-02', label: 'TUSAŞ', title: 'TUSAŞ · Havacılık & Uzay', desc: 'Uçuş bilimleri ve yapısal tasarım ekipleriyle 5 dakikalık hızlı eşleşme saatleri açık.', tab: 'synergy', q: 'TUSAŞ' },
-    { id: 'st-mp', code: 'MP-24', label: 'MP Alanı', title: 'G Blok Eşleşme ve Görüşme Alanı', desc: 'Kabul edilen her eşleşmeye G Blok\'ta MP-01..MP-24 arasında özel numaralı masa otomatik tahsis edilir.', tab: 'meetings', q: '' },
-    { id: 'st-deniz', code: 'R-02', label: 'DenizBank', title: 'DenizBank · FinTech & MT', desc: 'K Blok Fuaye Red Zone alanında ürün yönetimi ve dijital bankacılık ekipleriyle tanışın.', tab: 'synergy', q: 'DenizBank' },
-    { id: 'st-istasyon', code: 'I-02', label: 'İstasyon', title: 'İstasyon TEDÜ · 5 Dk Pitch', desc: 'Öğrenci girişimleri ve AR-GE takımları yatırımcı masası karşısında sahneye çıkıyor.', tab: 'synergy', q: 'GridPulse' },
-    { id: 'st-comm', code: 'T-01', label: 'Çim Amfi', title: 'Öğrenci Toplulukları Köyü', desc: '8 modüler topluluk çadırı ve RadioTEDU canlı yayın stüdyosu İncesu Çim Amfi alanında.', tab: 'synergy', q: 'RadioTEDU' }
+    { id: 'st-mp', code: 'MP-24', label: 'Fuaye MP', featured: true, title: 'Fuaye · Meeting Point (MP-01..24)', desc: 'Ziya Gökalp ana giriş atriyumu ve K Blok Fuaye galerisinde kabul edilen her eşleşmeye özel numaralı Meeting Point masası otomatik tahsis edilir.', tab: 'meetings', q: '' },
+    { id: 'st-aselsan', code: 'B-01', label: 'ASELSAN', featured: false, title: 'ASELSAN · Blue Zone & D Blok', desc: 'E Blok Spor Merkezi standında aviyonik ve gömülü sistem mühendisleriyle bire bir görüşme ve 12:00 D Blok söyleşisi.', tab: 'synergy', q: 'ASELSAN' },
+    { id: 'st-tusas', code: 'B-02', label: 'TUSAŞ', featured: false, title: 'TUSAŞ · Havacılık & Uzay', desc: 'Uçuş bilimleri ve yapısal tasarım ekipleriyle Fuaye Meeting Point\'te 5 dakikalık görüşme saatleri açık.', tab: 'synergy', q: 'TUSAŞ' },
+    { id: 'st-deniz', code: 'R-02', label: 'DenizBank', featured: true, title: 'DenizBank · FinTech & MT', desc: 'K Blok Fuaye Red Zone alanında ürün yönetimi ve dijital bankacılık ekipleriyle tanışın.', tab: 'synergy', q: 'DenizBank' },
+    { id: 'st-istasyon', code: 'I-02', label: 'İstasyon', featured: false, title: 'İstasyon TEDÜ · 5 Dk Pitch', desc: 'Öğrenci girişimleri ve AR-GE takımları yatırımcı masası karşısında sahneye çıkıyor.', tab: 'synergy', q: 'GridPulse' },
+    { id: 'st-comm', code: 'T-01', label: 'Çim Amfi', featured: true, title: 'Öğrenci Toplulukları Köyü', desc: 'Kademeli Çim Amfi çevresinde 8 modüler topluluk çadırı ve RadioTEDU canlı yayın stüdyosu.', tab: 'synergy', q: 'RadioTEDU' }
   ];
 
   const THEMATIC_DAYS = {
@@ -51,8 +51,8 @@
     },
     '2': {
       badge: 'GÜN 02 · 21 EKİM ÇARŞAMBA',
-      title: 'Red & Blue Zone Fuarı + Bire Bir Eşleşme Günü',
-      desc: 'K Blok Fuaye, E Blok Spor Merkezi stantları ve G Blok MP-01..24 masalarında 5 dakikalık eşleşmeler.',
+      title: 'Red & Blue Zone Fuarı + Fuaye Meeting Point Günü',
+      desc: 'K Blok Fuaye, E Blok Spor Merkezi stantları ve Fuaye MP-01..24 masalarında 5 dakikalık bire bir eşleşmeler.',
       img: '../tedu/assets/wanted/wanted-foyer.jpg'
     }
   };
@@ -112,7 +112,7 @@
   const storyModal = document.getElementById('story-modal');
   if (storiesHost) {
     storiesHost.innerHTML = STORIES.map((st) => `
-      <button type="button" class="story-tile" data-story-id="${st.id}">
+      <button type="button" class="story-tile ${st.featured ? 'is-featured' : ''}" data-story-id="${st.id}">
         <span class="story-code">${st.code}</span>
         <span class="story-name">${st.label}</span>
       </button>
@@ -371,8 +371,8 @@
     if (!peer || !reqModal) return;
     document.getElementById('req-peer-id').value = peer.id;
     document.getElementById('req-modal-title').textContent = `${peer.name} · ${peer.org}`;
-    document.getElementById('req-modal-sub').textContent = `${peer.title} — Kabul edildiğinde G Blok'ta otomatik masa atanır.`;
-    document.getElementById('req-slot-select').innerHTML = peer.availableSlots.map((s) => `<option value="${s}">${s} (5 Dakika · G Blok MP)</option>`).join('');
+    document.getElementById('req-modal-sub').textContent = `${peer.title} — Kabul edildiğinde Fuaye Meeting Point\'te otomatik masa ayrılır.`;
+    document.getElementById('req-slot-select').innerHTML = peer.availableSlots.map((s) => `<option value="${s}">${s} (5 Dakika · Fuaye MP)</option>`).join('');
     document.getElementById('req-note-input').value = '';
     reqModal.hidden = false;
   }
@@ -407,7 +407,7 @@
 
     if (bellCnt) { bellCnt.textContent = String(pendingCount); bellCnt.hidden = pendingCount === 0; }
     if (homePill) homePill.textContent = `${pendingCount} İSTEK`;
-    if (mobMp) mobMp.textContent = pendingCount > 0 ? `MP (${pendingCount})` : 'MP Arena';
+    if (mobMp) mobMp.textContent = pendingCount > 0 ? `MP (${pendingCount})` : 'Meeting Pt';
     if (incBtn) incBtn.textContent = `Gelen İstekler (${pendingCount})`;
     if (accBtn) accBtn.textContent = `Masalarım (${snap.acceptedMeetings.length})`;
 
@@ -457,7 +457,7 @@
           </div>
           ${m.status === 'accepted' ? `
             <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:10px;">
-              <button type="button" class="btn-sq-navy" data-focus-table="${m.tableId}" style="height:32px; font-size:11px;">G BLOK &middot; ${m.tableId}</button>
+              <button type="button" class="btn-sq-navy" data-focus-table="${m.tableId}" style="height:32px; font-size:11px;">FUAYE &middot; ${m.tableId}</button>
               <button type="button" class="btn-sq-red" data-start-timer="${m.id}" style="height:32px; padding:0 12px; font-size:11px;">MASADAYIM &middot; 05:00</button>
             </div>
           ` : m.status === 'pending' ? `
@@ -474,7 +474,7 @@
     document.querySelectorAll('[data-mtg-accept]').forEach((b) => {
       b.onclick = () => {
         const u = Core.respondToMeeting(b.dataset.mtgAccept, 'accept');
-        if (u) { focus3DTable(u.tableId); showToast(`Onaylandı: G Blok ${u.tableId} masası (${u.slot}) tahsis edildi.`); }
+        if (u) { focus3DTable(u.tableId); showToast(`Onaylandı: Fuaye ${u.tableId} masası (${u.slot}) ayrıldı.`); }
       };
     });
     document.querySelectorAll('[data-mtg-resched]').forEach((b) => {
