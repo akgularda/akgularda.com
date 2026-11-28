@@ -266,7 +266,7 @@ function initCampus3D(renderer) {
   }
 
   // =========================================================================
-  // 1. STUDIO BASE PLANE & TWO ELEVATED CAMPUS PLINTHS
+  // 1. STUDIO BASE PLANE & UNIFIED ARCHITECTURAL CAMPUS PLINTH (ZERO ASPHALT ROAD)
   // =========================================================================
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(520, 520), m.contextGround);
   ground.rotation.x = -Math.PI / 2;
@@ -278,12 +278,26 @@ function initCampus3D(renderer) {
   const studioGrid = new THREE.GridHelper(320, 64, 0xcbd5e1, 0xdbe3ee);
   studioGrid.position.y = -0.32;
   studioGrid.material.transparent = true;
-  studioGrid.material.opacity = 0.55;
+  studioGrid.material.opacity = 0.5;
   scene.add(studioGrid);
 
-  // East Plinth: İncesu & Orta Bahçe Campus
-  box(70, 0.45, 58, 2, -0.1, 0, m.plinth);
-  box(68.4, 0.14, 56.4, 2, 0.18, 0, m.pavingLight);
+  // Single Unified Architectural Campus Plinth uniting İncesu & Yeni Kısım seamlessly
+  box(138, 0.45, 60, -32, -0.1, 0, m.plinth);
+  box(136.4, 0.14, 58.4, -32, 0.18, 0, m.pavingLight);
+
+  // Refined Architectural Central Pedestrian Promenade (replaces asphalt road)
+  box(11.6, 0.04, 58.4, -39, 0.26, 0, mat('#e1e7f1', 0, 0.86));
+  box(0.22, 0.05, 58.4, -33.2, 0.27, 0, m.pavingBand);
+  box(0.22, 0.05, 58.4, -44.8, 0.27, 0, m.pavingBand);
+  // Subtle ceremonial stone pavers & TED Red arrival threshold between Gate 1 & Gate 2
+  box(10.8, 0.05, 5.2, -39, 0.27, 8, m.travertine);
+  box(10.8, 0.06, 0.26, -39, 0.28, 5.3, m.tedRed);
+  box(10.8, 0.06, 0.26, -39, 0.28, 10.7, m.tedRed);
+  // Minimalist architectural stone planters framing the central promenade
+  for (const pz of [-21, -11, -1, 19]) {
+    box(2.4, 0.48, 4.2, -39, 0.5, pz, m.travertine);
+    box(1.9, 0.14, 3.7, -39, 0.78, pz, m.lawn);
+  }
 
   // Subtle Orta Bahçe stone bands (TEDU360 signature — calm contrast)
   for (let s = -20; s <= 16; s += 5.2) {
@@ -297,25 +311,6 @@ function initCampus3D(renderer) {
     box(0.85, 0.14 + st * 0.14, 10, -11.9 - (4 - st) * 0.52, 0.26 + st * 0.07, 2, m.pavingLight);
   }
   cyl(4.0, 4.0, 0.18, 6.2, 1.1, 2, m.oak, groups.plaza, 28);
-
-  // Ziya Gökalp Caddesi (Clean central urban axis)
-  box(11.6, 0.08, 86, -39, 0.02, 0, m.road);
-  box(1.5, 0.16, 86, -32.6, 0.1, 0, m.sidewalk);
-  box(1.5, 0.16, 86, -45.4, 0.1, 0, m.sidewalk);
-  // Crisp dashed centerline & summit pedestrian crosswalk
-  for (let z = -34; z <= 34; z += 5.5) {
-    if (z > 3 && z < 13) continue;
-    box(0.24, 0.02, 2.4, -39, 0.08, z, m.archWhite);
-  }
-  for (let x = -43.5; x < -34.2; x += 1.2) {
-    box(0.65, 0.02, 4.4, x, 0.08, 8, m.archWhite);
-  }
-  box(9.8, 0.02, 0.35, -39, 0.09, 5.4, m.tedRed);
-  box(9.8, 0.02, 0.35, -39, 0.09, 10.6, m.tedRed);
-
-  // West Plinth: Yeni Kısım Bahçe & Aksu Wing
-  box(54, 0.45, 58, -73, -0.1, 0, m.plinth);
-  box(52.4, 0.14, 56.4, -73, 0.18, 0, m.pavingLight);
 
   // Yeni Kısım Square Travertine Tree Planters with Cantilevered Oak Benches
   benchPlanter(-64, -4.5);
