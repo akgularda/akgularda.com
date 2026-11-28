@@ -102,7 +102,7 @@
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); font-size:12px; color:#9FB0D4;">
         <span>Rol, sektör ve yetkinlik etiketlerine göre filtreleme</span>
-        <a href="../tedu-app/" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Uygulamayı Aç &rarr;</a>
+        <a href="../app/" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Uygulamayı Aç &rarr;</a>
       </div>
     `,
     mp: `
@@ -130,7 +130,7 @@
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); font-size:12px; color:#9FB0D4;">
         <span>3D Fuaye haritası onaylanan masanıza odaklanır</span>
-        <a href="../tedu-app/?tab=meetings" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Meeting Point'i Aç &rarr;</a>
+        <a href="../app/?tab=meetings" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Meeting Point'i Aç &rarr;</a>
       </div>
     `,
     badge: `
@@ -152,7 +152,7 @@
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); font-size:12px; color:#9FB0D4;">
         <span>Web kamerası ile gerçek QR tarama desteği</span>
-        <a href="../tedu-app/?tab=badge" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Kartını Oluştur &rarr;</a>
+        <a href="../app/?tab=badge" style="color:#FFFFFF; font-weight:700; text-decoration:none;">Kartını Oluştur &rarr;</a>
       </div>
     `
   };
@@ -412,7 +412,7 @@
       });
       if (regFeedback) {
         regFeedback.hidden = false;
-        regFeedback.innerHTML = `<strong>Ön kaydınız alındı, ${name}!</strong> Dijital SummitTED Yaka Kartınız hazırlandı — <a href="../tedu-app/?tab=badge" style="color:#FFFFFF; font-weight:800;">Dijital Yaka Kartınızı Görüntülemek İçin Tıklayın &rarr;</a>`;
+        regFeedback.innerHTML = `<strong>Ön kaydınız alındı, ${name}!</strong> Dijital SummitTED Yaka Kartınız hazırlandı — <a href="../app/?tab=badge" style="color:#FFFFFF; font-weight:800;">Dijital Yaka Kartınızı Görüntülemek İçin Tıklayın &rarr;</a>`;
       }
       talentForm.reset();
     });

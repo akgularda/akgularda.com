@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SummitTED Mobile App (/tedu-app) — Sharp TED-TEDÜ Mobile Controller
+   SummitTED Mobile App (/app) — Sharp TED-TEDÜ Mobile Controller
    Zero emojis, strict TEDÜ Navy + TED Red + White hierarchy, touch/mouse
    swipe physics, 3D MP Arena camera sync, and 2-sided 3D flipping pass.
    ========================================================================== */
@@ -48,13 +48,13 @@
       badge: 'GÜN 01 · 20 EKİM SALI',
       title: 'Liderlik Vizyonu, Teacher+ & Açık İnovasyon Sahneleri',
       desc: 'Ahmet Ersan Salonu liderlik panelleri, İstasyon TEDÜ 5 dk girişim sunumları ve Çim Amfi topluluk köyü.',
-      img: '../tedu/assets/wanted/wanted-keynote.jpg'
+      img: '../summit/assets/wanted/wanted-keynote.jpg'
     },
     '2': {
       badge: 'GÜN 02 · 21 EKİM ÇARŞAMBA',
       title: 'Red & Blue Zone Fuarı + Fuaye Meeting Point Günü',
       desc: 'K Blok Fuaye, E Blok Spor Merkezi stantları ve Fuaye MP-01..24 masalarında 5 dakikalık bire bir eşleşmeler.',
-      img: '../tedu/assets/wanted/wanted-foyer.jpg'
+      img: '../summit/assets/wanted/wanted-foyer.jpg'
     }
   };
 

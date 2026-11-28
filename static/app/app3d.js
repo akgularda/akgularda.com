@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SummitTED Mobile App (/tedu-app) — Three.js Architectural TED-TEDÜ Engine
+   SummitTED Mobile App (/app) — Three.js Architectural TED-TEDÜ Engine
    1. Desktop Backdrop (#pc-stage-webgl): Subtle architectural wireframe grid
    2. Embedded Mobile 3D TEDÜ Fuaye Meeting Point (#mp-arena-webgl):
       Grounded directly in TEDU360 Hoşgeldiniz & Fuaye architecture:
@@ -10,8 +10,8 @@
       - 24 numbered Meeting Point tables (MP-01..MP-24) flanking the Fuaye aisle
    ========================================================================== */
 
-import * as THREE from '../tedu/vendor/three.module.js';
-import { OrbitControls } from '../tedu/vendor/OrbitControls.js';
+import * as THREE from '../summit/vendor/three.module.js';
+import { OrbitControls } from '../summit/vendor/OrbitControls.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 

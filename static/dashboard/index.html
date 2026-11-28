@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SummitTED 2026 — Canlı Kampüs Yoğunluk ve Yönlendirme Ekranı | TED Üniversitesi</title>
+  <meta name="description" content="SummitTED Kariyer ve İnovasyon Zirvesi 2026 pasif kampüs TV yönlendirme ve canlı doluluk panosu.">
+  <link rel="icon" type="image/svg+xml" href="../summit/assets/submitted-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter+Tight:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+
+  <div class="fids-viewport">
+    <!-- Top Institutional Bar (Strictly Passive — Zero Buttons/Links) -->
+    <header class="fids-header">
+      <div class="fids-brand">
+        <img src="../summit/assets/submitted-logo-ted-white.svg?v=3" alt="SummitTED Kariyer ve İnovasyon Zirvesi 2026" class="fids-logo">
+        <div class="fids-title-group">
+          <span class="fids-kicker">TED ÜNİVERSİTESİ İNCESU &amp; AKSU YERLEŞKELERİ &middot; CANLI KAMPÜS YÖNLENDİRME EKRANI</span>
+          <h1>Kampüs Alan Yoğunlukları, Şirket Stantları ve Sahne Akışı</h1>
+        </div>
+      </div>
+
+      <div class="fids-metrics-strip">
+        <div class="fids-kpi">
+          <small>AKREDİTE KAMPÜS (3 KAPI)</small>
+          <strong id="tv-total-accredited">646 KİŞİ</strong>
+        </div>
+        <div class="fids-kpi">
+          <small>GÖRÜŞME MASALARI (MP)</small>
+          <strong id="tv-mp-ratio">14 / 24 MASA</strong>
+        </div>
+        <div class="fids-kpi is-clock">
+          <small>ZİRVE SAATİ</small>
+          <strong id="tv-clock">13:48</strong>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main 3-Column Campus Information Board -->
+    <main class="fids-grid">
+      <!-- Column 1: 10 Zones + 3 Gates Location & Live Occupancy Directory -->
+      <section class="fids-panel">
+        <div class="fids-panel-head">
+          <span>ALAN VE KONUM REHBERİ (10 ZONE &amp; GİRİŞ ÇADIRLARI)</span>
+          <span>DOLULUK / DURUM</span>
+        </div>
+        <div class="fids-rows" id="tv-zones-list"></div>
+      </section>
+
+      <!-- Column 2: Corporate Stands (Red Zone, Blue Zone & Kurumsal Çadırlar) + MP Area -->
+      <section class="fids-panel">
+        <div class="fids-panel-head">
+          <span>ŞİRKET STANT YOĞUNLUKLARI (RED &middot; BLUE &middot; KURUMSAL ÇADIRLAR)</span>
+          <span>CANLI YOĞUNLUK</span>
+        </div>
+        <div class="fids-stands-grid" id="tv-stands-list"></div>
+
+        <div class="fids-mp-strip">
+          <div>
+            <span class="mp-strip-tag">FUAYE &middot; MEETING POINT ALANI (MP-01..24)</span>
+            <strong id="tv-mp-detail">MP-01..MP-16 (5 Dk Hızlı Eşleşme) &amp; MP-17..MP-24 (15 Dk 1:1 Kurumsal Mülakat)</strong>
+          </div>
+          <div class="mp-strip-stat" id="tv-mp-pill">14 / 24 AKTİF</div>
+        </div>
+      </section>
+
+      <!-- Column 3: Vertically Stacked Daily Conference Schedule + Soft-Flashing Live/15-Min Alerts -->
+      <section class="fids-panel">
+        <div class="fids-panel-head">
+          <span>GÜNÜN KONFERANS &amp; SAHNE PLANI (ALT ALTA AKIŞ)</span>
+          <span>SAHNE DURUMU</span>
+        </div>
+        <div class="fids-Alert-box soft-flash" id="tv-soon-callout">
+          <span class="alert-badge">15 DK İÇİNDE &rarr;</span>
+          <strong id="tv-soon-text">Prof. Dr. Kürşat Çağıltay Konferansı &middot; Teacher+ (A/B Blok)</strong>
+        </div>
+        <div class="fids-schedule-stack" id="tv-schedule-stack"></div>
+      </section>
+    </main>
+
+    <!-- Bottom Airport-Style Soft-Flashing Directional Ticker -->
+    <footer class="fids-footer">
+      <span class="fids-live-tag soft-flash">CANLI YÖNLENDİRME</span>
+      <div class="fids-ticker-text soft-flash-subtle" id="tv-bottom-ticker">
+        ŞU AN SAHNEDE: MİLSOFT Söyleşisi (D Blok Amfi) &middot; 12 DK İÇİNDE &rarr; Prof. Dr. Kürşat Çağıltay Konferansı (A/B Blok) &amp; TUSAŞ Oturumu (K Blok Ahmet Ersan Salonu) &middot; GİRİŞ AKREDİTASYON: Gate 1 İncesu &amp; Gate 2 Aksu Çadırları
+      </div>
+      <span class="fids-credit">TED ÜNİVERSİTESİ &middot; RADIOTEDU TEKNOLOJİLERİ</span>
+    </footer>
+  </div>
+
+  <script src="../summit/summitted-core.js"></script>
+  <script src="./dashboard.js"></script>
+</body>
+</html>

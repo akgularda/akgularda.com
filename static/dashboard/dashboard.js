@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SummitTED 2026 — Passive Campus Wayfinding TV Controller (/tedu-dashboard)
+   SummitTED 2026 — Passive Campus Wayfinding TV Controller (/dashboard)
    ========================================================================== */
 
 (function () {

@@ -1,7 +1,7 @@
 /* ==========================================================================
    SummitTED Kariyer ve İnovasyon Zirvesi 2026 — Core State & Data Engine (v4)
-   Shared across /tedu/ (Main Site & 3D/2D Map), /tedu-app/ (Participant App),
-   and /tedu-dashboard/ (Campus Wayfinding & Live Status Display).
+   Shared across /summit/ (Main Site & 3D/2D Map), /app/ (Participant App),
+   and /dashboard/ (Campus Wayfinding & Live Status Display).
    ========================================================================== */
 
 (function (global) {
@@ -1088,7 +1088,7 @@
       slot: SLOTS_5MIN[3]
     };
     const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
-    const base = originBase || (global.location ? `${global.location.origin}/tedu-app/` : 'https://arda-akgul.com/tedu-app/');
+    const base = originBase || (global.location ? `${global.location.origin}/app/` : 'https://arda-akgul.com/app/');
     return `${base}?connect=${encodeURIComponent(encoded)}`;
   }
 

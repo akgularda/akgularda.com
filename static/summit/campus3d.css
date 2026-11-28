@@ -84,7 +84,7 @@
 
 .campus-viewport-col {
   position: relative;
-  background: linear-gradient(180deg, #E8EEF7 0%, #DCE4F0 100%);
+  background: linear-gradient(180deg, #F5F8FC 0%, #E8EEF7 100%);
   border-right: 1px solid #CFD6E6;
   min-height: 540px;
   overflow: hidden;
@@ -201,23 +201,33 @@
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 9px;
-  background-color: rgba(11, 19, 48, 0.93);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  gap: 5px;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #0B1330;
+  border: 1px solid rgba(11, 19, 48, 0.16);
   border-left: 3px solid var(--pin-color, #E41513);
+  border-radius: 2px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(11, 19, 48, 0.28);
+  box-shadow: 0 4px 12px rgba(11, 19, 48, 0.14);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.world-hotspot:hover {
+  border-color: #0B1330;
+  z-index: 18;
 }
 
 .world-hotspot[aria-pressed="true"] {
   background-color: #E41513;
-  border-color: #FFFFFF;
+  color: #FFFFFF;
+  border-color: #B80E0C;
+  border-left-color: #0B1330;
+  box-shadow: 0 6px 18px rgba(228, 21, 19, 0.34);
   z-index: 20;
 }
 
@@ -235,9 +245,16 @@
 .world-hotspot em {
   font-style: normal;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
-  color: #FFD5D5;
-  padding-left: 3px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #526079;
+  padding-left: 4px;
+  border-left: 1px solid rgba(11, 19, 48, 0.14);
+}
+
+.world-hotspot[aria-pressed="true"] em {
+  color: #FFE4E4;
+  border-left-color: rgba(255, 255, 255, 0.3);
 }
 
 /* 2D Architectural Blueprint Master Plan */
