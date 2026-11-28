@@ -145,47 +145,29 @@
           </div>
 
           <div class="sec-label-row">
-            <span class="sec-kicker">TEDÜ KAMPÜS BÖLGELERİ</span>
+            <span class="sec-kicker">ALAN DOLULUKLARI &amp; BÖLGELER</span>
             <a href="../tedu/#campus-map" style="font-size:11px; font-weight:800; color:var(--tedu-navy); text-decoration:none;">3D HARİTA &rarr;</a>
           </div>
 
-          <div class="zone-arch-list">
-            <div class="zone-arch-card is-red" data-goto-tab="meetings">
-              <div>
-                <span class="sec-kicker">ANA GİRİŞ ATRİYUMU &amp; K BLOK FUAYE</span>
-                <h3>Fuaye · Meeting Point &amp; Red Zone</h3>
-                <p>MP-01..24 görüşme masaları, Akfen, DenizBank, EY, KPMG</p>
-              </div>
-              <span style="font-weight:800; color:var(--ted-red);">&rarr;</span>
+          <div class="occ-summary-bar" aria-live="polite">
+            <div class="occ-kpi-tile">
+              <small>KAMPÜS DOLULUK</small>
+              <strong id="home-occ-campus">%74 &middot; 1.472 Kişi</strong>
             </div>
-
-            <div class="zone-arch-card" data-goto-tab="synergy" data-preset-role="company">
-              <div>
-                <span class="sec-kicker" style="color:var(--tedu-navy);">E BLOK SPOR MERKEZİ &amp; D BLOK</span>
-                <h3>Blue Zone &amp; Tech Amfi</h3>
-                <p>ASELSAN, TUSAŞ, MİLSOFT, ROKETSAN, FNSS</p>
-              </div>
-              <span style="font-weight:800; color:var(--tedu-navy);">&rarr;</span>
-            </div>
-
-            <div class="zone-arch-card is-red" data-goto-tab="synergy" data-preset-role="startup">
-              <div>
-                <span class="sec-kicker">İSTASYON TEDÜ &middot; E BLOK</span>
-                <h3>Startup &amp; Innovation Alley</h3>
-                <p>Girişim stantları, VC masası ve 5 dk açık Pitch sahnesi</p>
-              </div>
-              <span style="font-weight:800; color:var(--ted-red);">&rarr;</span>
-            </div>
-
-            <div class="zone-arch-card" data-goto-tab="synergy" data-preset-role="community">
-              <div>
-                <span class="sec-kicker" style="color:var(--tedu-navy);">YENİ KISIM ÇİM AMFİ &amp; ORTA BAHÇE</span>
-                <h3>Topluluklar Köyü &amp; 3 Giriş Çadırı</h3>
-                <p>Kademeli Çim Amfi topluluk çadırları, RadioTEDU &amp; Gate 1–3</p>
-              </div>
-              <span style="font-weight:800; color:var(--tedu-navy);">&rarr;</span>
+            <div class="occ-kpi-tile is-red">
+              <small>FUAYE MEETING POINT</small>
+              <strong id="home-occ-mp">14 / 24 Masa</strong>
             </div>
           </div>
+
+          <div class="occ-filter-bar" role="tablist" aria-label="Bölge Doluluk Filtresi">
+            <button type="button" class="sharp-chip is-active" data-occ-filter="all">Tümü (10)</button>
+            <button type="button" class="sharp-chip" data-occ-filter="company">Şirket &amp; MP</button>
+            <button type="button" class="sharp-chip" data-occ-filter="stage">Sahneler</button>
+            <button type="button" class="sharp-chip" data-occ-filter="social">Topluluk &amp; Avlu</button>
+          </div>
+
+          <div class="zone-arch-list" id="home-zones-occupancy"></div>
         </section>
 
         <!-- =================================================================
@@ -232,7 +214,7 @@
         <section class="mob-screen" data-view="meetings" hidden>
           <div class="sec-label-row">
             <span class="sec-kicker">FUAYE · MEETING POINT (3D PLAN)</span>
-            <span style="font-size:11px; font-weight:700; color:var(--ink-muted);">MP-01 .. MP-24</span>
+            <span style="font-size:11px; font-weight:700; color:var(--ink-muted);" id="mp-occ-live">14 / 24 DOLU</span>
           </div>
 
           <div class="mob-arena-box">
@@ -410,6 +392,13 @@
               <button type="submit" class="btn-sq-red" style="height:40px;">İSTEĞİ GÖNDER &rarr;</button>
             </div>
           </form>
+        </div>
+      </div>
+
+      <!-- In-Frame Zone & Stand Occupancy Detail Sheet -->
+      <div class="inframe-overlay" id="zone-occ-modal" hidden>
+        <div class="inframe-sheet" role="dialog" aria-modal="true" aria-labelledby="zone-occ-title">
+          <div id="zone-occ-body"></div>
         </div>
       </div>
 

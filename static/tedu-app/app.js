@@ -15,6 +15,7 @@
   let synergyMode = 'deck';
   let mtgSubtab = 'incoming';
   let roleFilter = 'all';
+  let occFilter = 'all';
   let searchQuery = '';
   let deckIndex = 0;
   let cameraStream = null;
@@ -410,6 +411,8 @@
     if (mobMp) mobMp.textContent = pendingCount > 0 ? `MP (${pendingCount})` : 'Meeting Pt';
     if (incBtn) incBtn.textContent = `Gelen İstekler (${pendingCount})`;
     if (accBtn) accBtn.textContent = `Masalarım (${snap.acceptedMeetings.length})`;
+    const mpOccLive = document.getElementById('mp-occ-live');
+    if (mpOccLive) mpOccLive.textContent = `${snap.occupiedTablesCount} / ${snap.totalTablesCount} MASA DOLU`;
 
     if (incomingHost) {
       const incoming = snap.meetings.filter((m) => m.direction === 'incoming');
@@ -691,7 +694,181 @@
     }
   }
 
+  // Live Campus Zone & Stand Occupancy Renderer (Home Tab)
+  function occStateClass(pct) {
+    if (pct >= 84) return 'is-high';
+    if (pct < 62) return 'is-open';
+    return '';
+  }
+
+  function occShortLabel(pct) {
+    if (pct >= 84) return 'YOĞUN';
+    if (pct >= 62) return 'DENGELİ';
+    return 'MÜSAİT';
+  }
+
+  const ZONE_DISPLAY_ORDER = [
+    'matchmaking', 'red', 'blue', 'promenade', 'communities',
+    'innovation', 'plenary', 'tech', 'teacher-plus', 'plaza'
+  ];
+
+  function matchesOccFilter(z) {
+    if (occFilter === 'all') return true;
+    if (occFilter === 'company') return z.category === 'company' || z.category === 'matchmaking';
+    if (occFilter === 'stage') return z.category === 'stage';
+    if (occFilter === 'social') return z.category === 'community' || z.category === 'innovation' || z.category === 'lounge';
+    return true;
+  }
+
+  function openZoneOccupancySheet(zoneId) {
+    const snap = Core.getSnapshot();
+    const z = snap.zonesById[zoneId];
+    const modal = document.getElementById('zone-occ-modal');
+    const body = document.getElementById('zone-occ-body');
+    if (!z || !modal || !body) return;
+
+    const cls = occStateClass(z.pct);
+    const stands = z.stands || [];
+    const sessions = snap.sessions.filter((s) => s.zoneId === z.id);
+
+    let detailRows = '';
+    if (stands.length > 0) {
+      detailRows = stands.map((s) => {
+        const sCls = occStateClass(s.pct);
+        return `
+          <div class="stand-occ-row">
+            <div class="stand-occ-head">
+              <div>
+                <strong style="color:var(--ink-navy);">${s.name}</strong>
+                <small style="display:block; color:var(--ink-muted); font-size:11px;">${s.code} &middot; ${s.sector}</small>
+              </div>
+              <span class="zone-occ-badge ${sCls}">%${s.pct}</span>
+            </div>
+            <div class="occ-meter-track"><div class="occ-meter-fill ${sCls}" style="width:${s.pct}%;"></div></div>
+            <div class="zone-occ-foot">
+              <span>${s.focus}</span>
+              <strong>${s.count} / ${s.capacity} kişi</strong>
+            </div>
+          </div>
+        `;
+      }).join('');
+    } else if (sessions.length > 0) {
+      detailRows = sessions.map((s) => `
+        <div class="stand-occ-row">
+          <div class="stand-occ-head">
+            <strong style="color:var(--ink-navy); font-size:12.5px;">${s.start}–${s.end} &middot; ${s.title}</strong>
+            <span class="zone-occ-badge ${s.stateTag === 'live' ? 'is-high' : ''}">${s.stateTag === 'live' ? 'CANLI' : s.tag}</span>
+          </div>
+          <div style="font-size:11px; color:var(--ink-muted);">${s.speaker}</div>
+        </div>
+      `).join('');
+    } else {
+      detailRows = `<p style="margin:0 0 12px; font-size:12.5px; color:var(--ink-muted); line-height:1.45;">${z.summary}</p>`;
+    }
+
+    const presetRole = z.category === 'company' ? 'company'
+      : z.category === 'innovation' ? 'startup'
+        : z.category === 'community' ? 'community' : 'all';
+
+    body.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:10px;">
+        <div>
+          <span class="sec-kicker">${z.code} &middot; ${z.categoryLabel}</span>
+          <h3 id="zone-occ-title" style="margin:2px 0 2px; font-family:var(--font-display); font-size:17px; color:var(--ink-navy);">${z.name}</h3>
+          <div style="font-size:11.5px; color:var(--ink-muted);">${z.building}</div>
+        </div>
+        <span class="zone-occ-badge ${cls}">%${z.pct} &middot; ${occShortLabel(z.pct)}</span>
+      </div>
+      <div class="occ-meter-track" style="margin-bottom:6px;"><div class="occ-meter-fill ${cls}" style="width:${z.pct}%;"></div></div>
+      <div class="zone-occ-foot" style="margin-bottom:12px;">
+        <span>Anlık yoğunluk</span>
+        <strong>${z.count} / ${z.capacity} kişi</strong>
+      </div>
+      <div class="stand-occ-list">${detailRows}</div>
+      <div style="display:grid; grid-template-columns:1fr 1.5fr; gap:8px;">
+        <button type="button" class="btn-sq-neutral" id="zone-occ-close" style="height:38px;">KAPAT</button>
+        <button type="button" class="btn-sq-red" id="zone-occ-match" style="height:38px;">BU BÖLGEDEN EŞLEŞ &rarr;</button>
+      </div>
+    `;
+
+    modal.hidden = false;
+    document.getElementById('zone-occ-close').onclick = () => { modal.hidden = true; };
+    document.getElementById('zone-occ-match').onclick = () => {
+      modal.hidden = true;
+      roleFilter = presetRole;
+      document.querySelectorAll('[data-role-filter]').forEach((chip) => {
+        chip.classList.toggle('is-active', chip.dataset.roleFilter === roleFilter);
+      });
+      deckIndex = 0;
+      renderSynergy(Core.getSnapshot());
+      switchTab('synergy');
+    };
+  }
+
+  function renderZoneOccupancy(snap) {
+    const campusEl = document.getElementById('home-occ-campus');
+    const mpEl = document.getElementById('home-occ-mp');
+    const host = document.getElementById('home-zones-occupancy');
+
+    const totalCap = snap.zones.reduce((sum, z) => sum + z.capacity, 0);
+    const overallPct = totalCap ? Math.min(100, Math.round((snap.totalInsideZones / totalCap) * 100)) : 0;
+    if (campusEl) campusEl.textContent = `%${overallPct} · ${snap.totalInsideZones.toLocaleString('tr-TR')} Kişi`;
+    if (mpEl) mpEl.textContent = `${snap.occupiedTablesCount} / ${snap.totalTablesCount} Masa`;
+
+    if (!host) return;
+    const ordered = ZONE_DISPLAY_ORDER
+      .map((id) => snap.zonesById[id])
+      .filter((z) => z && matchesOccFilter(z));
+
+    host.innerHTML = ordered.map((z) => {
+      const isMP = z.id === 'matchmaking';
+      const pct = isMP ? Math.round((snap.occupiedTablesCount / snap.totalTablesCount) * 100) : z.pct;
+      const cls = occStateClass(pct);
+      const countText = isMP
+        ? `${snap.occupiedTablesCount} / ${snap.totalTablesCount} masa · ${z.count} kişi`
+        : `${z.count} / ${z.capacity} kişi`;
+      const hintText = isMP
+        ? '3D Fuaye Planı →'
+        : (z.stands && z.stands.length > 0 ? `${z.stands.length} stant detayı →` : 'Oturum & detay →');
+      return `
+        <button type="button" class="zone-occ-card ${cls}" data-occ-zone="${z.id}">
+          <div class="zone-occ-top">
+            <div style="min-width:0;">
+              <span class="sec-kicker" style="font-size:10.5px; color:${cls === 'is-high' ? 'var(--ted-red)' : 'var(--tedu-navy)'};">${z.code} &middot; ${z.building}</span>
+              <h3 class="zone-occ-title">${z.name}</h3>
+            </div>
+            <span class="zone-occ-badge ${cls}">%${pct} &middot; ${occShortLabel(pct)}</span>
+          </div>
+          <div class="occ-meter-track">
+            <div class="occ-meter-fill ${cls}" style="width:${pct}%;"></div>
+          </div>
+          <div class="zone-occ-foot">
+            <strong>${countText}</strong>
+            <span style="color:var(--tedu-navy); font-weight:700;">${hintText}</span>
+          </div>
+        </button>
+      `;
+    }).join('');
+
+    host.querySelectorAll('[data-occ-zone]').forEach((btn) => {
+      btn.onclick = () => {
+        const zid = btn.dataset.occZone;
+        if (zid === 'matchmaking') switchTab('meetings');
+        else openZoneOccupancySheet(zid);
+      };
+    });
+  }
+
+  document.querySelectorAll('[data-occ-filter]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      occFilter = btn.dataset.occFilter;
+      document.querySelectorAll('[data-occ-filter]').forEach((b) => b.classList.toggle('is-active', b === btn));
+      renderZoneOccupancy(Core.getSnapshot());
+    });
+  });
+
   function renderAll(snap) {
+    renderZoneOccupancy(snap);
     renderSynergy(snap);
     renderMeetings(snap);
     renderScanHistory(snap);

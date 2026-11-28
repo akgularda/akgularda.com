@@ -468,42 +468,177 @@ button, input, select, textarea { font-family: inherit; }
   opacity: 0.86;
 }
 
-/* Campus Zone List Cards */
+/* Campus Zone Live Occupancy Summary & Cards */
+.occ-summary-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.occ-kpi-tile {
+  background: var(--navy-deep);
+  color: #FFFFFF;
+  border: 1px solid #1E2F66;
+  border-top: 2px solid var(--tedu-navy);
+  border-radius: var(--r-sharp);
+  padding: 9px 11px;
+}
+
+.occ-kpi-tile.is-red {
+  border-top-color: var(--ted-red);
+}
+
+.occ-kpi-tile small {
+  display: block;
+  font-family: var(--font-condensed);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  color: #9FB0D4;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.occ-kpi-tile strong {
+  font-family: var(--font-condensed);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #FFFFFF;
+}
+
+.occ-filter-bar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  scrollbar-width: none;
+}
+.occ-filter-bar::-webkit-scrollbar { display: none; }
+
 .zone-arch-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.zone-arch-card {
+.zone-occ-card {
+  width: 100%;
+  text-align: left;
   background: var(--white);
   border: 1px solid var(--line-light);
   border-left: 4px solid var(--tedu-navy);
   border-radius: var(--r-sharp);
-  padding: 12px 14px;
+  padding: 11px 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.zone-occ-card.is-high { border-left-color: var(--ted-red); }
+.zone-occ-card.is-open { border-left-color: #0F8A5F; }
+
+.zone-occ-card:hover {
+  transform: translateX(2px);
+  border-color: var(--tedu-navy);
+  box-shadow: 0 4px 12px rgba(8, 15, 38, 0.06);
+}
+
+.zone-occ-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.zone-occ-title {
+  margin: 1px 0 0;
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink-navy);
+  line-height: 1.2;
+}
+
+.zone-occ-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #FFFFFF;
+  background: var(--tedu-navy);
+}
+
+.zone-occ-badge.is-high { background: var(--ted-red); }
+.zone-occ-badge.is-open { background: #0F8A5F; }
+
+.occ-meter-track {
+  width: 100%;
+  height: 5px;
+  background: #E4E9F4;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.occ-meter-fill {
+  height: 100%;
+  background: var(--tedu-navy);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.occ-meter-fill.is-high { background: var(--ted-red); }
+.occ-meter-fill.is-open { background: #0F8A5F; }
+
+.zone-occ-foot {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: border-color 0.16s ease, transform 0.16s ease;
-}
-
-.zone-arch-card.is-red { border-left-color: var(--ted-red); }
-.zone-arch-card:hover { transform: translateX(3px); border-color: var(--tedu-navy); }
-
-.zone-arch-card h3 {
-  margin: 2px 0 3px;
-  font-family: var(--font-display);
-  font-size: 15px;
-  color: var(--ink-navy);
-}
-
-.zone-arch-card p {
-  margin: 0;
-  font-size: 12px;
+  gap: 8px;
+  font-size: 11px;
   color: var(--ink-muted);
-  line-height: 1.35;
+}
+
+.zone-occ-foot strong {
+  color: var(--ink-navy);
+  font-weight: 700;
+}
+
+.stand-occ-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 290px;
+  overflow-y: auto;
+  margin-bottom: 14px;
+}
+
+.stand-occ-row {
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-radius: var(--r-sharp);
+  padding: 9px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stand-occ-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
 }
 
 /* ==========================================================================
