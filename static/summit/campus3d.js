@@ -431,11 +431,11 @@ function initCampus3D(renderer) {
   // F/G Blok: 4-story cool grey with recessed central loggia & crisp pitched slate hip roof
   archBlock(-71, -21, 32, 7.2, 9.2, m.coolGrey, m.slateRoof, 'environment', null, false);
   box(13, 5.6, 1.2, -71, 4.5, -17.5, m.darkFrame, groups.environment);
-  const hipRoof = new THREE.ConeGeometry(15.2, 2.4, 4);
-  hipRoof.scale(1.5, 1, 0.35);
-  const hipMesh = mesh(hipRoof, m.slateRoof, -71, 10.6, -21, groups.environment);
-  hipMesh.rotation.y = Math.PI / 4;
-  roofBadge('F/G', -71, 11.8, -21, '#334155', '#64748B', 3.6);
+  const hipRoof = new THREE.ConeGeometry(1, 2.2, 4);
+  hipRoof.rotateY(Math.PI / 4);
+  hipRoof.scale(22.65, 1, 5.1);
+  mesh(hipRoof, m.slateRoof, -71, 10.6, -21, groups.environment);
+  roofBadge('F/G', -71, 11.75, -21, '#334155', '#64748B', 3.4);
 
   // Chillin Cafe sleek dark-glass pavilion
   box(5.6, 2.9, 9.6, -81.5, 1.7, -8.5, m.darkFrame, groups.plaza);
